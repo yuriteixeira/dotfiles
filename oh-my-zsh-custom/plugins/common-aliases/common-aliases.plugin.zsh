@@ -16,7 +16,6 @@ alias hosts="sudo ed /etc/hosts"
 # PHP
 alias xdebug-start='export XDEBUG_CONFIG="idekey=PHPSTORM remote_host=127.0.0.1 remote_port=9000'
 alias xdebug-stop="unset XDEBUG_CONFIG"
-alias xdebug-target-site='export PHP_IDE_CONFIG="serverName=www.yt.cloud.spotify.net"'
 
 function xdebug-target-site {
 	SITENAME=$1
