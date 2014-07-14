@@ -23,8 +23,11 @@ function xdebug-target-site {
 }
 
 # Important directories (aliases and working directories)
-alias de="cd $DEV_HOME"
-alias lb="cd $DEV_HOME/lab"
 alias pj="cd $PROJECTS_HOME"
-alias lah="cd $LA_HOME"
-alias ldh="cd $LD_HOME"
+
+if [[ "$(uname)" == "Darwin" ]] then
+	alias de="cd $DEV_HOME"
+	alias lb="cd $DEV_HOME/lab"
+	alias lah="cd $LA_HOME"
+	alias ldh="cd $LD_HOME"
+fi
