@@ -15,8 +15,7 @@ export LA_HOME=$HOME/Library/LaunchAgents
 export LD_HOME=/Library/LaunchDaemons
 
 # Checking if brew is available
-if [ -n $(command -v brew) ]
-then
+if [ -n "$(command -v brew)" ]; then
 	export PHP_HOME=`brew --prefix php$PHP_VERSION_NO_DOTS`
 	export NODE_HOME=`brew --prefix node`
 	export GOPATH=`brew --prefix`/lib/go
