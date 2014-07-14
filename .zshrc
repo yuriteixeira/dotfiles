@@ -14,12 +14,18 @@ export DEV_HOME=$HOME/Dev
 export LA_HOME=$HOME/Library/LaunchAgents
 export LD_HOME=/Library/LaunchDaemons
 
-export PHP_HOME=`brew --prefix php$PHP_VERSION_NO_DOTS`
+# Checking if brew is available
+if [ -n $(command -v brew) ]
+then
+	export PHP_HOME=`brew --prefix php$PHP_VERSION_NO_DOTS`
+	export NODE_HOME=`brew --prefix node`
+	export GOPATH=`brew --prefix`/lib/go
+fi
+
 export COMPOSER_HOME="$HOME/.composer"
-export NODE_HOME=`brew --prefix node`
 export RVM_HOME=$HOME/.rvm/bin
 
-export GOPATH=`brew --prefix`/lib/go
+
 export NODE_PATH="/usr/local/lib/node_modules"
 export ANDROID_PLATFORMTOOLS_PATH="/Applications/Android Studio.app/sdk/platform-tools"
 export ANDROID_TOOLS_PATH="/Applications/Android Studio.app/sdk/tools"
