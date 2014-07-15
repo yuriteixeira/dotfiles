@@ -15,7 +15,7 @@ alias pf="st ~/.zshrc ~/.zshrc_private"
 alias hosts="sudo ed /etc/hosts"
 
 # PHP
-alias xdebug-start='export XDEBUG_CONFIG="idekey=PHPSTORM remote_host=127.0.0.1 remote_port=9000'
+alias xdebug-start='export XDEBUG_CONFIG="idekey=PHPSTORM remote_host=127.0.0.1 remote_port=9000"'
 alias xdebug-stop="unset XDEBUG_CONFIG"
 
 function xdebug-target-site {
