@@ -6,6 +6,7 @@ source $ZSH/plugins/$plugin/$plugin.plugin.zsh
 
 # Common commands improvement
 alias psgrep="ps aux | grep"
+alias cl="clear"
 
 # Open profile with editor
 alias pf="st ~/.zshrc ~/.zshrc_private"
