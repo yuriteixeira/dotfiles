@@ -34,7 +34,7 @@ if [[ "$(uname)" == "Darwin" ]] then
 	export PATH="$NODE_PATH:$PATH"
 	export PATH="$ANDROID_TOOLS_PATH:$ANDROID_PLATFORMTOOLS_PATH:$PATH"
 else
-	plugins=(common-aliases git composer dirhistory fasd npm sudo symfony2 tmux vagrant web-search wd zsh_reload)
+	plugins=(common-aliases git composer dirhistory fasd npm sudo symfony2 vagrant web-search wd zsh_reload)
 
 	export EDITOR='vim'
 	export PROJECTS_HOME=$HOME/src
