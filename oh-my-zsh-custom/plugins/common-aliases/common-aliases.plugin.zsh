@@ -9,7 +9,7 @@ alias psgrep="ps aux | grep"
 alias cl="clear"
 
 # Open profile with editor
-alias pf="st ~/.zshrc ~/.zshrc_private"
+alias pf="st ~/.zshrc ~/.zshrc_private ~/.tmux.conf ~/.oh-my-zsh/custom"
 
 # Hosts 
 alias hosts="sudo ed /etc/hosts"
@@ -22,6 +22,10 @@ function xdebug-target-site {
 	SITENAME=$1
 	export PHP_IDE_CONFIG="serverName=$SITENAME"
 }
+
+# OSX
+alias keyrepeat-enable="defaults write -g ApplePressAndHoldEnabled -bool false"
+alias keyrepeat-disable="defaults write -g ApplePressAndHoldEnabled -bool true"
 
 # Important directories (aliases and working directories)
 alias pj="cd $PROJECTS_HOME"
