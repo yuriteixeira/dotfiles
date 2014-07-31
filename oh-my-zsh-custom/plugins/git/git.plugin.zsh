@@ -6,3 +6,4 @@ source $ZSH/plugins/$plugin/$plugin.plugin.zsh
 alias gs='gst'
 alias gcfg="ed $HOME/.gitconfig"
 alias gsbfe="git submodule foreach"
+alias gclean='git reset --hard && git clean -df'
