@@ -1,7 +1,6 @@
 ### Oh-my-zsh Initialization
 ZSH=$HOME/.oh-my-zsh
 
-# ZSH_THEME="ys"
 DEFAULT_USER="$(whoami)"
 
 export COMPOSER_HOME="$HOME/.composer"
@@ -48,7 +47,7 @@ if [[ "$(uname)" == "Darwin" ]] then
 	ZSH_THEME="ducknorris"
 else
 	plugins=(common-aliases git composer dirhistory fasd npm sudo symfony2 vagrant web-search wd zsh_reload)
-
+	ZSH_THEME="ys"
 	export EDITOR='vim'
 	export PROJECTS_HOME=$HOME/src
 fi
