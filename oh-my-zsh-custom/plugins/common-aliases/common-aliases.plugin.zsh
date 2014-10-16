@@ -36,3 +36,8 @@ if [[ "$(uname)" == "Darwin" ]] then
 	alias lah="cd $LA_HOME"
 	alias ldh="cd $LD_HOME"
 fi
+
+# Docker
+alias b2="boot2docker"
+alias drma='docker rm $(docker ps -a -q)'
+alias drmia='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'

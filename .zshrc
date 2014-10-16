@@ -13,6 +13,8 @@ export PATH="$RVM_PATH:$PATH"
 export LC_ALL=en_US.UTF-8
 export LANG=en_US.UTF-8
 
+export DOCKER_HOST=tcp://192.168.59.103:2375
+
 if [[ "$(uname)" == "Darwin" ]] then
 	plugins=(common-aliases git brew composer dirhistory fasd npm osx sublime sudo symfony2 tmux vagrant web-search wd rvm zsh_reload)
 
