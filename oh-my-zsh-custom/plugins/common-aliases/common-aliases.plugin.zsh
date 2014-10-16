@@ -9,7 +9,7 @@ alias psgrep="ps aux | grep"
 alias cl="clear"
 
 # Open profile with editor
-alias pf="st ~/.zshrc ~/.zshrc_private ~/.tmux.conf ~/.oh-my-zsh/custom"
+alias pf="st ~/.zshrc ~/.zshrc_private ~/.oh-my-zsh/plugins/common-aliases/common-aliases.plugin.zsh ~/.oh-my-zsh/custom/plugins/common-aliases/common-aliases.plugin.zsh ~/.tmux.conf ~/.oh-my-zsh/custom"
 
 # Hosts 
 alias hosts="sudo ed /etc/hosts"
