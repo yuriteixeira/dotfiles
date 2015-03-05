@@ -37,7 +37,12 @@ if [[ "$(uname)" == "Darwin" ]] then
 	alias ldh="cd $LD_HOME"
 fi
 
+alias yh="cd ~/Dropbox/Workspaces/Yuri/home"
+
 # Docker
 alias b2="boot2docker"
 alias drma='docker rm $(docker ps -a -q)'
 alias drmia='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
+
+# Git
+alias gcb="git checkout -b"
