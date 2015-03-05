@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ### All dotfiles on home dir
-find . -name ".*" -type f | grep -v ".gitignore" | grep -v ".swp" | awk -F './' '{print $2}' | xargs -I {} ln -sf $(pwd)/{} ~/
+find . -name ".*" | grep -v ".git" | grep -v ".swp" | awk -F './' '{print $2}' | xargs -I {} ln -sf $(pwd)/{} ~/
 
 ### Oh-my-zsh customizations
 mkdir -p ~/.oh-my-zsh/custom/themes
