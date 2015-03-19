@@ -5,27 +5,45 @@ source $ZSH/plugins/$plugin/$plugin.plugin.zsh
 ### Overrides 
 
 # Common commands improvement
+alias a="alias"
 alias psgrep="ps aux | grep"
 alias cl="clear"
 
 # Open profile with editor
-alias pf="st ~/.zshrc ~/.zshrc_private ~/.oh-my-zsh/plugins/common-aliases/common-aliases.plugin.zsh ~/.oh-my-zsh/custom/plugins/common-aliases/common-aliases.plugin.zsh ~/.tmux.conf ~/.oh-my-zsh/custom"
+alias pf="st ~/.zshrc ~/.zshrc_private ~/.oh-my-zsh/plugins/common-aliases/common-aliases.plugin.zsh ~/.oh-my-zsh/custom/plugins/common-aliases/common-aliases.plugin.zsh ~/.tmux.conf ~/.oh-my-zsh/custom/"
+alias rpf="source ~/.zshrc"
 
 # Hosts 
 alias hosts="sudo ed /etc/hosts"
 
 # XDebug
-alias xdebug-start='export XDEBUG_CONFIG="idekey=PHPSTORM remote_host=127.0.0.1 remote_port=9000"'
-alias xdebug-stop="unset XDEBUG_CONFIG"
+function xdebug-start {
+	xdebug_site=$1
+	xdebug_host=$2
+	xdebug_port=$3
+	xdebug_idekey=$4
+	
+	if [[ -z $xdebug_site ]] then
+		xdebug_site="site.dev"
+	fi
 
-function xdebug-target-site {
-	SITENAME=$1
-	export PHP_IDE_CONFIG="serverName=$SITENAME"
+	if [[ -z $xdebug_host ]] then
+		xdebug_host="127.0.0.1"
+	fi
+
+	if [[ -z $xdebug_port ]] then
+		xdebug_port="9000"
+	fi
+
+	if [[ -z $xdebug_idekey ]] then
+		xdebug_idekey="PHPSTORM"
+	fi
+
+	export PHP_IDE_CONFIG="serverName=$site"
+	export XDEBUG_CONFIG="remote_host=$xdebug_host remote_port=$xdebug_port idekey=$xdebug_idekey"
 }
 
-# OSX
-alias keyrepeat-enable="defaults write -g ApplePressAndHoldEnabled -bool false"
-alias keyrepeat-disable="defaults write -g ApplePressAndHoldEnabled -bool true"
+alias xdebug-stop="unset XDEBUG_CONFIG && unset PHP_IDE_CONFIG"
 
 # Important directories (aliases and working directories)
 alias pj="cd $PROJECTS_HOME"
@@ -41,5 +59,5 @@ alias yh="cd ~/Dropbox/Workspaces/Yuri/home"
 
 # Docker
 alias b2="boot2docker"
-alias drma='docker rm $(docker ps -a -q)'
+alias drma='docker rm -f $(docker ps -a -q)'
 alias drmia='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'

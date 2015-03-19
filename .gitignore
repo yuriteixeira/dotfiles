@@ -1,3 +1,4 @@
 .zshrc_private
 .zsh_history
+.DS_Store
 *.swp
