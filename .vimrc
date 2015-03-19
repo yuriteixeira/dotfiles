@@ -6,5 +6,8 @@ set autoindent          " auto indenting
 set number              " line numbers
 set nobackup            " get rid of anoying ~file
 
-colorscheme hybrid
+" Colors
+set background=dark
+let base16colorspace=256
+colorscheme base16-default
 set guifont=Monaco:h14
