@@ -3,22 +3,19 @@ ZSH=$HOME/.oh-my-zsh
 
 DEFAULT_USER="$(whoami)"
 
-# Locale
-export LC_ALL=en_US.UTF-8
-export LANG=en_US.UTF-8
-
-# Docker
-export DOCKER_TLS_VERIFY=1
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/yuriteixeira/.boot2docker/certs/boot2docker-vm
-
 ZSH_THEME="ys"
-ZSH_DEFAULT_PLUGINS=(common-aliases git dirhistory sudo symfony2)
 
 if [[ "$(uname)" == "Darwin" ]] then
 
-	ZSH_MAC_PLUGINS=(tmux osx sublime brew)
-	plugins=("${ZSH_DEFAULT_PLUGINS[@]} ${ZSH_MAC_PLUGINS[@]}")
+	export LC_ALL=en_US.UTF-8
+	export LANG=en_US.UTF-8
+
+	export DOCKER_TLS_VERIFY=1
+	export DOCKER_HOST=tcp://192.168.59.103:2376
+	export DOCKER_CERT_PATH=/Users/yuriteixeira/.boot2docker/certs/boot2docker-vm
+
+	plugins=(common-aliases git dirhistory sudo symfony2 tmux osx sublime brew)
+
 	export EDITOR='st'
 
 	export PROJECTS_HOME=$HOME/Projects
@@ -39,7 +36,7 @@ if [[ "$(uname)" == "Darwin" ]] then
 
 else
 
-	plugins=$ZSH_DEFAULT_PLUGINS
+	plugins=(common-aliases git dirhistory sudo symfony2)
 	
 	export EDITOR='vim'
 	export PROJECTS_HOME=$HOME/src

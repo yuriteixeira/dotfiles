@@ -8,13 +8,14 @@ source $ZSH/plugins/$plugin/$plugin.plugin.zsh
 alias a="alias"
 alias psgrep="ps aux | grep"
 alias cl="clear"
+alias sourcetree='open -a SourceTree'
 
 # Open profile with editor
-alias pf="st ~/.zshrc ~/.zshrc_private ~/.oh-my-zsh/plugins/common-aliases/common-aliases.plugin.zsh ~/.oh-my-zsh/custom/plugins/common-aliases/common-aliases.plugin.zsh ~/.tmux.conf ~/.oh-my-zsh/custom/"
+alias pf="$EDITOR ~/.zshrc ~/.zshrc_private ~/.oh-my-zsh/plugins/common-aliases/common-aliases.plugin.zsh ~/.oh-my-zsh/custom/plugins/common-aliases/common-aliases.plugin.zsh ~/.tmux.conf ~/.oh-my-zsh/custom/"
 alias rpf="source ~/.zshrc"
 
 # Hosts 
-alias hosts="sudo ed /etc/hosts"
+alias hosts="sudo $EDITOR /etc/hosts"
 
 # XDebug
 function xdebug-start {
