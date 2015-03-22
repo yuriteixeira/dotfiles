@@ -27,13 +27,13 @@ if [[ "$(uname)" == "Darwin" ]] then
 	export ANDROID_PLATFORMTOOLS_PATH="/Applications/Android Studio.app/sdk/platform-tools"
 	export ANDROID_TOOLS_PATH="/Applications/Android Studio.app/sdk/tools"
 
-	export GOROOT=/usr/local/opt/go/libexec/bin
+	export GOROOT=/usr/local/opt/go/libexec
 	export GOPATH=$DEV_HOME/workspaces/go
 
 	export COMPOSER_HOME="$HOME/.composer"
 
 	export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-	export PATH="$ANDROID_TOOLS_PATH:$ANDROID_PLATFORMTOOLS_PATH:$GOROOT:$COMPOSER_HOME/vendor/bin:$PATH"
+	export PATH="$ANDROID_TOOLS_PATH:$ANDROID_PLATFORMTOOLS_PATH:$GOROOT/bin:$COMPOSER_HOME/vendor/bin:$PATH"
 
 else
 
