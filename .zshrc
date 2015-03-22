@@ -4,6 +4,7 @@ ZSH=$HOME/.oh-my-zsh
 DEFAULT_USER="$(whoami)"
 
 ZSH_THEME="ys"
+PROMPT_EOL_MARK=""
 
 if [[ "$(uname)" == "Darwin" ]] then
 
