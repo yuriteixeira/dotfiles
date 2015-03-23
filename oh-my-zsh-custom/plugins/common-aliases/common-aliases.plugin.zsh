@@ -62,3 +62,5 @@ alias yh="cd ~/Dropbox/Workspaces/Yuri/home"
 alias b2="boot2docker"
 alias drma='docker rm -f $(docker ps -a -q)'
 alias drmia='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
+alias dps='docker ps'
+alias di='docker images'
