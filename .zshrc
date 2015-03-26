@@ -17,7 +17,7 @@ if [[ "$(uname)" == "Darwin" ]] then
 
 	plugins=(common-aliases git dirhistory sudo symfony2 tmux osx sublime brew)
 
-	export EDITOR='st'
+	export EDITOR='subl'
 
 	export PROJECTS_HOME=$HOME/Projects
 	export DEV_HOME=$HOME/Dev
