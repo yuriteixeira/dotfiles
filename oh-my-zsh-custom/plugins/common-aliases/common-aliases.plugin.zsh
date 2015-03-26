@@ -11,7 +11,7 @@ alias cl="clear"
 alias sourcetree='open -a SourceTree'
 
 # Open profile with editor
-alias pf="$EDITOR ~/.zshrc ~/.zshrc_private ~/.oh-my-zsh/plugins/common-aliases/common-aliases.plugin.zsh ~/.oh-my-zsh/custom/plugins/common-aliases/common-aliases.plugin.zsh ~/.tmux.conf ~/.oh-my-zsh/custom/"
+alias pf="$EDITOR ~/.zshrc ~/.zshrc_private ~/.oh-my-zsh/plugins/common-aliases/common-aliases.plugin.zsh ~/.oh-my-zsh/custom/plugins/common-aliases/common-aliases.plugin.zsh ~/.tmux.conf ~/.vimrc ~/.oh-my-zsh/custom/"
 alias rpf="source ~/.zshrc"
 
 # Hosts 
