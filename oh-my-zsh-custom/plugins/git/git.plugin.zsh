@@ -6,7 +6,7 @@ source $ZSH/plugins/$plugin/$plugin.plugin.zsh
 alias gs='gst'
 alias gcfg="st $HOME/.gitconfig"
 alias gsbfe="git submodule foreach"
-alias gclean= "git checkout -- . && git reset --hard && git clean -df"
+alias gclean="git checkout -- . && git reset --hard && git clean -df"
 alias gcb="git checkout -b"
 
 ### Mine
