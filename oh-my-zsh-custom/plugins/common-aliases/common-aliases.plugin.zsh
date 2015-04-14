@@ -11,8 +11,16 @@ alias cl="clear"
 alias sourcetree='open -a SourceTree'
 
 # Open profile with editor
-alias pf="$EDITOR ~/.zshrc ~/.zshrc_private ~/.oh-my-zsh/plugins/common-aliases/common-aliases.plugin.zsh ~/.oh-my-zsh/custom/plugins/common-aliases/common-aliases.plugin.zsh ~/.tmux.conf ~/.vimrc ~/.oh-my-zsh/custom/"
+alias pf="$EDITOR \
+~/.zshrc \
+~/.zshrc_private \
+~/.oh-my-zsh/custom/plugins/common-aliases/common-aliases.plugin.zsh \
+~/.tmux.conf \
+~/.vimrc"
+
 alias rpf="source ~/.zshrc"
+
+alias mypath="export PATH=$MY_PATH"
 
 # Hosts 
 alias hosts="sudo $EDITOR /etc/hosts"
@@ -64,3 +72,12 @@ alias drma='docker rm -f $(docker ps -a -q)'
 alias drmia='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
 alias dps='docker ps'
 alias di='docker images'
+
+# Go
+alias mygo="export GOPATH=$MY_GOPATH"
+function gohome {
+	mygo
+	mypath 
+	export GOPATH="$(pwd)/.vendor:$(pwd)"
+	export PATH="$(pwd)/.vendor/bin:$(pwd)/bin:$PATH"
+}

@@ -24,16 +24,20 @@ if [[ "$(uname)" == "Darwin" ]] then
 	export LA_HOME=$HOME/Library/LaunchAgents
 	export LD_HOME=/Library/LaunchDaemons
 
-	export ANDROID_PLATFORMTOOLS_PATH="/Applications/Android Studio.app/sdk/platform-tools"
-	export ANDROID_TOOLS_PATH="/Applications/Android Studio.app/sdk/tools"
+	export ANDROID_SDK_ROOT="~/Dev/workspaces/android-sdk-macosx"
+	export ANDROID_PLATFORMTOOLS_PATH="$ANDROID_SDK_ROOT/platform-tools"
+	export ANDROID_TOOLS_PATH="$ANDROID_SDK_ROOT/tools"
 
 	export GOROOT=/usr/local/opt/go/libexec
-	export GOPATH=$DEV_HOME/workspaces/go
+	export MY_GOPATH=$DEV_HOME/workspaces/go
+	export GOPATH=$MY_GOPATH
 
 	export COMPOSER_HOME="$HOME/.composer"
 
-	export PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-	export PATH="$ANDROID_TOOLS_PATH:$ANDROID_PLATFORMTOOLS_PATH:$GOROOT/bin:$COMPOSER_HOME/vendor/bin:$PATH"
+	export MY_PATH="/usr/local/bin:/usr/local/sbin:$PATH"
+	export MY_PATH="$ANDROID_TOOLS_PATH:$ANDROID_PLATFORMTOOLS_PATH:$GOROOT/bin:$COMPOSER_HOME/vendor/bin:$MY_PATH"
+	
+	export PATH=$MY_PATH
 
 else
 
