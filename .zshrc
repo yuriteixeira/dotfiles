@@ -24,6 +24,8 @@ if [[ "$(uname)" == "Darwin" ]] then
 	export LA_HOME=$HOME/Library/LaunchAgents
 	export LD_HOME=/Library/LaunchDaemons
 
+	export JAVA_HOME="$(/usr/libexec/java_home)"
+
 	export ANDROID_SDK_ROOT="~/Dev/workspaces/android-sdk-macosx"
 	export ANDROID_PLATFORMTOOLS_PATH="$ANDROID_SDK_ROOT/platform-tools"
 	export ANDROID_TOOLS_PATH="$ANDROID_SDK_ROOT/tools"
@@ -33,9 +35,10 @@ if [[ "$(uname)" == "Darwin" ]] then
 	export GOPATH=$MY_GOPATH
 
 	export COMPOSER_HOME="$HOME/.composer"
+    export RVM_HOME="$HOME/.rvm/bin"
 
 	export MY_PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-	export MY_PATH="$ANDROID_TOOLS_PATH:$ANDROID_PLATFORMTOOLS_PATH:$GOROOT/bin:$COMPOSER_HOME/vendor/bin:$MY_PATH"
+	export MY_PATH="$ANDROID_TOOLS_PATH:$ANDROID_PLATFORMTOOLS_PATH:$GOROOT/bin:$COMPOSER_HOME/vendor/bin:$RVM_HOME:$MY_PATH"
 	
 	export PATH=$MY_PATH
 
@@ -58,3 +61,4 @@ fi
 ### Notes
 
 # Plugins to take a look: fasd
+
