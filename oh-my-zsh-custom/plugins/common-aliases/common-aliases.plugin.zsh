@@ -48,7 +48,7 @@ function xdebug-start {
 		xdebug_idekey="PHPSTORM"
 	fi
 
-	export PHP_IDE_CONFIG="serverName=$site"
+	export PHP_IDE_CONFIG="serverName=$xdebug_site"
 	export XDEBUG_CONFIG="remote_host=$xdebug_host remote_port=$xdebug_port idekey=$xdebug_idekey"
 }
 
