@@ -6,9 +6,7 @@ source $ZSH/plugins/$plugin/$plugin.plugin.zsh
 
 # Common commands improvement
 alias a="alias"
-alias psgrep="ps aux | grep"
-alias cl="clear"
-alias sourcetree='open -a SourceTree'
+alias psgrep="ps aux G"
 
 # Open profile with editor
 alias pf="$EDITOR \
@@ -19,8 +17,6 @@ alias pf="$EDITOR \
 ~/.vimrc"
 
 alias rpf="source ~/.zshrc"
-
-alias mypath="export PATH=$MY_PATH"
 
 # Hosts 
 alias hosts="sudo $EDITOR /etc/hosts"
@@ -75,6 +71,7 @@ alias di='docker images'
 
 # Go
 alias mygo="export GOPATH=$MY_GOPATH"
+alias mypath="export PATH=$MY_PATH"
 function gohome {
 	mygo
 	mypath 
