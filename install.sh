@@ -4,6 +4,7 @@
 find . -name ".*" | grep -v ".git" | grep -v ".DS_Store" | grep -v ".swp" | awk -F './' '{print $2}' | xargs -I {} ln -sf $(pwd)/{} ~/
 
 ln -sf $(pwd)/.gitconfig ~/
+ln -sf $(pwd)/karabiner.xml ~/Library/Application\ Support/Karabiner/private.xml
 
 ### Oh-my-zsh customizations
 mkdir -p ~/.oh-my-zsh/custom/themes
