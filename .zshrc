@@ -15,18 +15,19 @@ if [[ "$(uname)" == "Darwin" ]] then
 	export DOCKER_HOST=tcp://192.168.59.103:2376
 	export DOCKER_CERT_PATH=/Users/yuriteixeira/.boot2docker/certs/boot2docker-vm
 
-	plugins=(common-aliases git dirhistory sudo symfony2 tmux osx sublime brew)
+	plugins=(common-aliases git dirhistory sudo symfony2 tmux osx brew)
 
-	export EDITOR='subl'
+	export EDITOR='atom'
 
 	export PROJECTS_HOME=$HOME/Projects
 	export DEV_HOME=$HOME/Dev
+
 	export LA_HOME=$HOME/Library/LaunchAgents
 	export LD_HOME=/Library/LaunchDaemons
 
 	export JAVA_HOME="$(/usr/libexec/java_home)"
 
-	export ANDROID_SDK_ROOT="~/Dev/workspaces/android-sdk-macosx"
+	export ANDROID_SDK_ROOT="$HOME/Dev/workspaces/android-sdk-macosx"
 	export ANDROID_PLATFORMTOOLS_PATH="$ANDROID_SDK_ROOT/platform-tools"
 	export ANDROID_TOOLS_PATH="$ANDROID_SDK_ROOT/tools"
 
@@ -35,17 +36,14 @@ if [[ "$(uname)" == "Darwin" ]] then
 	export GOPATH=$MY_GOPATH
 
 	export COMPOSER_HOME="$HOME/.composer"
-    export RVM_HOME="$HOME/.rvm/bin"
 
-	export MY_PATH="/usr/local/bin:/usr/local/sbin:$PATH"
-	export MY_PATH="$ANDROID_TOOLS_PATH:$ANDROID_PLATFORMTOOLS_PATH:$GOROOT/bin:$COMPOSER_HOME/vendor/bin:$RVM_HOME:$MY_PATH"
-	
+	export MY_PATH="/usr/local/bin:/usr/local/sbin:$ANDROID_TOOLS_PATH:$ANDROID_PLATFORMTOOLS_PATH:$GOROOT/bin:$COMPOSER_HOME/vendor/bin:$PATH"
 	export PATH=$MY_PATH
 
 else
 
 	plugins=(common-aliases git dirhistory sudo symfony2)
-	
+
 	export EDITOR='vim'
 	export PROJECTS_HOME=$HOME/src
 fi
