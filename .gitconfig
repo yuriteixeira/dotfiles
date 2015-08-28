@@ -1,5 +1,5 @@
 [core]
-	editor = "subl -n -w"
+	editor = "atom --wait"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 [mergetool "sourcetree"]
