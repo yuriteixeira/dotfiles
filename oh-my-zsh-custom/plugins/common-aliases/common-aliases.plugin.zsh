@@ -2,11 +2,12 @@
 plugin=common-aliases
 source $ZSH/plugins/$plugin/$plugin.plugin.zsh
 
-### Overrides 
+### Overrides
 
 # Common commands improvement
 alias a="alias"
 alias psgrep="ps aux G"
+alias e=$EDITOR
 
 # Open profile with editor
 alias pf="$EDITOR \
@@ -18,7 +19,7 @@ alias pf="$EDITOR \
 
 alias rpf="source ~/.zshrc"
 
-# Hosts 
+# Hosts
 alias hosts="sudo $EDITOR /etc/hosts"
 
 # XDebug
@@ -27,7 +28,7 @@ function xdebug-start {
 	xdebug_host=$2
 	xdebug_port=$3
 	xdebug_idekey=$4
-	
+
 	if [[ -z $xdebug_site ]] then
 		xdebug_site="site.dev"
 	fi
@@ -74,7 +75,13 @@ alias mygo="export GOPATH=$MY_GOPATH"
 alias mypath="export PATH=$MY_PATH"
 function gohome {
 	mygo
-	mypath 
+	mypath
 	export GOPATH="$(pwd)/.vendor:$(pwd)"
 	export PATH="$(pwd)/.vendor/bin:$(pwd)/bin:$PATH"
+}
+
+# Git Credentials
+function gitcred-personal {
+	git config user.name "Yuri Teixeira"
+	git config user.email "oyuriteixeira@gmail.com"
 }
