@@ -11,10 +11,6 @@ if [[ "$(uname)" == "Darwin" ]] then
 	export LC_ALL=en_US.UTF-8
 	export LANG=en_US.UTF-8
 
-	export DOCKER_TLS_VERIFY=1
-	export DOCKER_HOST=tcp://192.168.59.103:2376
-	export DOCKER_CERT_PATH=/Users/yuriteixeira/.boot2docker/certs/boot2docker-vm
-
 	plugins=(common-aliases git dirhistory sudo symfony2 tmux osx brew)
 
 	export EDITOR='atom'
@@ -59,4 +55,3 @@ fi
 ### Notes
 
 # Plugins to take a look: fasd
-
