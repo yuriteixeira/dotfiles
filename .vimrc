@@ -5,6 +5,8 @@ filetype indent on      " activates indenting for files
 set autoindent          " auto indenting
 set number              " line numbers
 set nobackup            " get rid of anoying ~file
+set clipboard=unnamed   " access to system clibboard
+set mouse=a             " mouse support
 
 """ TABS
 set tabstop=4           " The width of a TAB is set to 4.
