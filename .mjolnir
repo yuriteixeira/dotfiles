@@ -1,9 +1,8 @@
 local application = require "mjolnir.application"
 local hotkey = require "mjolnir.hotkey"
-local tiling = require "mjolnir.tiling"
 local hints = require "mjolnir.th.hints"
 local win = require "mjolnir.window"
-
+ 
 function winfromtitle(title)
    local apps = application.runningapplications()
    for _, app in pairs(apps) do
@@ -23,11 +22,8 @@ end
 
 local mash = {"cmd", "ctrl", "alt", "shift"}
 
-hotkey.bind(mash, "a", function() tiling.cyclelayout() end)
-hotkey.bind(mash, "j", function() tiling.cycle(1) end)
-hotkey.bind(mash, "k", function() tiling.cycle(-1) end)
-hotkey.bind(mash, "space", function() tiling.promote() end)
-hotkey.bind(mash, "f", function() tiling.gotolayout("fullscreen") end)
 hotkey.bind(mash, "tab", hints.windowHints)
-hotkey.bind(mash, "1", function() winfocus("iTerm") end)
+hotkey.bind(mash, "0", function() winfocus("iTerm") end)
+hotkey.bind(mash, "1", function() winfocus("IntelliJ IDEA") end)
 hotkey.bind(mash, "2", function() winfocus("Atom") end)
+hotkey.bind(mash, "c", function() winfocus("Google Chrome") end)
