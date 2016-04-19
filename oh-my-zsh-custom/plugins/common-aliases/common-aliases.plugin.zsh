@@ -64,11 +64,12 @@ fi
 alias yh="cd ~/Dropbox/Workspaces/Yuri/home"
 
 # Docker
-alias b2="boot2docker"
+alias d=docker
+alias di='docker images'
+alias dm="docker-machine"
+alias denv='eval $(docker-machine env)'
 alias drma='docker rm -f $(docker ps -a -q)'
 alias drmia='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
-alias dps='docker ps'
-alias di='docker images'
 
 # Go
 alias mygo="export GOPATH=$MY_GOPATH"
