@@ -54,4 +54,4 @@ fi
 
 ### Vim Mode for Terminal
 bindkey -v
-bindkey ‘^R’ history-incremental-search-backward
+bindkey '^R' history-incremental-search-backward
