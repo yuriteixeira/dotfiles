@@ -52,6 +52,6 @@ then
     source .zshrc_private
 fi
 
-### Notes
-
-# Plugins to take a look: fasd
+### Vim Mode for Terminal
+bindkey -v
+bindkey ‘^R’ history-incremental-search-backward
