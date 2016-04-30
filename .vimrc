@@ -4,6 +4,7 @@ set backspace=2                             " backspace in insert mode works lik
 filetype indent on                          " activates indenting for files
 set autoindent                              " auto indenting
 set number                                  " line numbers
+set ruler                                   " show current line and column
 set nobackup                                " get rid of anoying ~file
 set clipboard=unnamed                       " access to system clibboard
 set mouse=a                                 " mouse support
