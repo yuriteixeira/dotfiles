@@ -19,3 +19,19 @@ set expandtab                                " spaces instead of tabs
 """ COLORS
 set background=dark
 highlight LineNr ctermfg=grey ctermbg=black
+
+""" PLUGINS
+call plug#begin('~/.vim/plugged')
+Plug 'ctrlpvim/ctrlp.vim'                    " fuzzy search
+Plug 'scrooloose/nerdtree'                   " tree files navigator 
+Plug 'majutsushi/tagbar'                     " ctags (symbols) mgmt panel
+call plug#end()
+
+""" PLUGINS SETTINGS
+
+" NerdTree
+map <C-n> :NERDTreeToggle<CR>
+
+" TagBar
+nmap <C-C> :TagbarToggle<CR>
+
