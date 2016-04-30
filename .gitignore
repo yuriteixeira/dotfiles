@@ -2,4 +2,5 @@
 .zsh_history
 .DS_Store
 .vim/plugged
+.vim/.netrwhist
 *.swp
