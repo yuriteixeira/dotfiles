@@ -3,7 +3,7 @@ ZSH=$HOME/.oh-my-zsh
 
 DEFAULT_USER="$(whoami)"
 
-ZSH_THEME="ys"
+ZSH_THEME="avit"
 PROMPT_EOL_MARK=""
 
 if [[ "$(uname)" == "Darwin" ]] then
@@ -11,7 +11,7 @@ if [[ "$(uname)" == "Darwin" ]] then
 	export LC_ALL=en_US.UTF-8
 	export LANG=en_US.UTF-8
 
-	plugins=(common-aliases git dirhistory sudo symfony2 tmux osx brew)
+	plugins=(common-aliases git sudo symfony2 vi-mode brew)
 
 	export EDITOR='atom'
 
@@ -23,9 +23,11 @@ if [[ "$(uname)" == "Darwin" ]] then
 
 	export JAVA_HOME="$(/usr/libexec/java_home)"
 
-	export ANDROID_SDK_ROOT="$HOME/Dev/workspaces/android-sdk-macosx"
-	export ANDROID_PLATFORMTOOLS_PATH="$ANDROID_SDK_ROOT/platform-tools"
-	export ANDROID_TOOLS_PATH="$ANDROID_SDK_ROOT/tools"
+	export ANDROID_NDK=/usr/local/opt/android-ndk
+	export ANDROID_SDK=/usr/local/opt/android-sdk
+	export ANDROID_PLATFORMTOOLS_PATH="$ANDROID_SDK/platform-tools"
+	export ANDROID_TOOLS_PATH="$ANDROID_SDK/tools"
+	export ANDROID_HOME=$ANDROID_SDK
 
 	export GOROOT=/usr/local/opt/go/libexec
 	export MY_GOPATH=$DEV_HOME/workspaces/go
@@ -38,7 +40,7 @@ if [[ "$(uname)" == "Darwin" ]] then
 
 else
 
-	plugins=(common-aliases git dirhistory sudo symfony2)
+	plugins=(common-aliases git sudo symfony2 vi-mode)
 
 	export EDITOR='vim'
 	export PROJECTS_HOME=$HOME/src

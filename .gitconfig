@@ -8,6 +8,8 @@
 	default = current
 [color]
 	ui = true
+[color "diff"]
+    meta = yellow bold
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 

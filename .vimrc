@@ -22,14 +22,16 @@ set softtabstop=4                            " sets the number of columns for a 
 set expandtab                                " spaces instead of tabs
 
 """ COLORS
+colorscheme base16-default
 set background=dark
-highlight LineNr ctermfg=grey ctermbg=black
 
 """ PLUGINS
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'                    " fuzzy search
 Plug 'scrooloose/nerdtree'                   " tree files navigator 
 Plug 'majutsushi/tagbar'                     " ctags (symbols) mgmt panel
+Plug 'mxw/vim-jsx'                           " JSX
+Plug 'editorconfig/editorconfig-vim'         " Editor config (http://editorconfig.org/)
 call plug#end()
 
 """ PLUGINS SETTINGS
@@ -39,4 +41,7 @@ map <C-n> :NERDTreeToggle<CR>
 
 " TagBar
 nmap <C-C> :TagbarToggle<CR>
+
+" JSX
+let g:jsx_ext_required = 0
 
