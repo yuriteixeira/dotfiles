@@ -86,3 +86,16 @@ function gitcred-personal {
 	git config user.name "Yuri Teixeira"
 	git config user.email "oyuriteixeira@gmail.com"
 }
+
+# Tmux
+function tm {
+    tmux attach
+
+    if [ $? -ne 0 ]; then
+      tmux
+    fi
+}
+
+alias tmk="tmux kill-session"
+alias tma="tmux attach"
+alias tml="tmux list-sessions"
