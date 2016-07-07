@@ -15,6 +15,7 @@ alias gu='gup'
 alias gra='grba'
 alias grc='grbc'
 alias gri='grbi'
+alias gdc='gd --cached'
 
 export PREVIOUS_BRANCH=""
 
