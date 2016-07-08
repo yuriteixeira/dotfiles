@@ -42,7 +42,7 @@ else
 
 	plugins=(common-aliases git sudo symfony2 vi-mode)
 
-	export EDITOR='vim'
+	export EDITOR='vim -p'
 	export PROJECTS_HOME=$HOME/src
 fi
 
