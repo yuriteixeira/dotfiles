@@ -67,6 +67,7 @@ alias yh="cd ~/Dropbox/Workspaces/Yuri/home"
 alias d=docker
 alias di='docker images'
 alias dm="docker-machine"
+alias dc="docker-compose"
 alias denv='eval $(docker-machine env)'
 alias drma='docker rm -f $(docker ps -a -q)'
 alias drmia='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
