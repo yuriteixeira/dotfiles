@@ -38,6 +38,8 @@ if [[ "$(uname)" == "Darwin" ]] then
 	export MY_PATH="/usr/local/bin:/usr/local/sbin:$ANDROID_TOOLS_PATH:$ANDROID_PLATFORMTOOLS_PATH:$GOROOT/bin:$COMPOSER_HOME/vendor/bin:$PATH"
 	export PATH=$MY_PATH
 
+	export NVM_DIR="$HOME/.nvm"
+	. "$(brew --prefix nvm)/nvm.sh"
 else
 
 	plugins=(common-aliases git sudo symfony2 vi-mode)
