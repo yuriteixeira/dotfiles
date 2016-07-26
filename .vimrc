@@ -41,6 +41,7 @@ Plug 'scrooloose/nerdtree'                   " tree files navigator
 Plug 'majutsushi/tagbar'                     " ctags (symbols) mgmt panel
 Plug 'mxw/vim-jsx'                           " JSX
 Plug 'editorconfig/editorconfig-vim'         " Editor config (http://editorconfig.org/)
+Plug 'qbbr/vim-twig'                         " Twig support
 call plug#end()
 
 """ PLUGINS SETTINGS
@@ -54,3 +55,5 @@ nmap <C-C> :TagbarToggle<CR>
 " JSX
 let g:jsx_ext_required = 0
 
+" CTRL+P
+let g:ctrlp_match_window_bottom = 0
