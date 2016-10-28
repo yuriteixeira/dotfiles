@@ -23,7 +23,7 @@ end
 local mash = {"cmd", "ctrl", "alt", "shift"}
 
 hotkey.bind(mash, "tab", hints.windowHints)
-hotkey.bind(mash, "0", function() winfocus("iTerm") end)
-hotkey.bind(mash, "1", function() winfocus("IntelliJ IDEA") end)
-hotkey.bind(mash, "2", function() winfocus("Atom") end)
-hotkey.bind(mash, "c", function() winfocus("Google Chrome") end)
+hotkey.bind(mash, "space", function() winfocus("iTerm2") end)
+hotkey.bind(mash, "a", function() winfocus("IntelliJ IDEA") end)
+hotkey.bind(mash, "z", function() winfocus("Google Chrome") end)
+hotkey.bind(mash, "q", function() winfocus("Slack") end)

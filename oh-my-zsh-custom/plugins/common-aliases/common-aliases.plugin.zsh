@@ -6,8 +6,9 @@ source $ZSH/plugins/$plugin/$plugin.plugin.zsh
 
 # Common commands improvement
 alias a="alias"
-alias psgrep="ps aux G"
+alias psg="ps aux G"
 alias e=$EDITOR
+alias k="pkill -f"
 
 # Open profile with editor
 alias pf="$EDITOR \
@@ -75,6 +76,7 @@ alias drmia='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
 # Go
 alias mygo="export GOPATH=$MY_GOPATH"
 alias mypath="export PATH=$MY_PATH"
+
 function gohome {
 	mygo
 	mypath

@@ -1,7 +1,9 @@
 [core]
 	editor = "vim"
+	excludesfile = /Users/yuriteixeira/.gitignore_global
 [user]
 	name = Yuri Teixeira
+	email = oyuriteixeira@gmail.com
 [push]
 	default = current
 [pull]
@@ -20,3 +22,5 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
+[commit]
+	template = /Users/yuriteixeira/.stCommitMsg

@@ -13,7 +13,7 @@ if [[ "$(uname)" == "Darwin" ]] then
 
 	plugins=(common-aliases git sudo symfony2 vi-mode brew)
 
-	export EDITOR='atom'
+	export EDITOR='vim -p'
 
 	export PROJECTS_HOME=$HOME/Projects
 	export DEV_HOME=$HOME/Dev
@@ -40,6 +40,7 @@ if [[ "$(uname)" == "Darwin" ]] then
 
 	export NVM_DIR="$HOME/.nvm"
 	. "$(brew --prefix nvm)/nvm.sh"
+
 else
 
 	plugins=(common-aliases git sudo symfony2 vi-mode)

@@ -9,6 +9,7 @@ set nobackup                                " get rid of anoying ~file
 set clipboard=unnamed                       " access to system clibboard
 set mouse=a                                 " mouse support
 set timeout timeoutlen=5000 ttimeoutlen=100 " fix shift + o delay
+let mapleader=","                           " maps leader to comma
 
 """ CURSOR TWEAKS
 let &t_SI = "\<Esc>]50;CursorShape=1\x7"
@@ -23,9 +24,10 @@ set expandtab                                " spaces instead of tabs
 """ COLORS
 colorscheme base16-default
 set background=dark
-" highlight LineNr ctermfg=grey ctermbg=black
 
 """ SPLITS
+
+" Movements
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
@@ -34,20 +36,35 @@ nnoremap <C-H> <C-W><C-H>
 set splitbelow
 set splitright
 
+""" TOGGLES
+
+" Relative numbers
+map <C-R>1 :set relativenumber<CR>
+map <C-R>0 :set norelativenumber<CR>
+
+" Auto-indent
+map <C-I>1 :set autoindent<CR>
+map <C-I>0 :set noautoindent<CR>
+
 """ PLUGINS
 call plug#begin('~/.vim/plugged')
-Plug 'ctrlpvim/ctrlp.vim'                    " fuzzy search
-Plug 'scrooloose/nerdtree'                   " tree files navigator 
-Plug 'majutsushi/tagbar'                     " ctags (symbols) mgmt panel
+Plug 'ctrlpvim/ctrlp.vim'                    " Fuzzy search
+Plug 'scrooloose/nerdtree'                   " Tree files navigator 
+Plug 'jistr/vim-nerdtree-tabs'               " Nerdtree on tabs
+Plug 'majutsushi/tagbar'                     " Ctags (symbols) mgmt panel
 Plug 'mxw/vim-jsx'                           " JSX
+Plug 'pangloss/vim-javascript'               " JS Syntax
 Plug 'editorconfig/editorconfig-vim'         " Editor config (http://editorconfig.org/)
 Plug 'qbbr/vim-twig'                         " Twig support
+Plug '907th/vim-auto-save'                   " Auto-save files
+Plug 'jiangmiao/auto-pairs'                  " Auto-close brackets
+Plug 'mileszs/ack.vim'                       " Search stuff
+Plug 'mattn/emmet-vim'                       " Emmet (formerly Zencoding)
 call plug#end()
 
-""" PLUGINS SETTINGS
-
 " NerdTree
-map <C-n> :NERDTreeToggle<CR>
+" map <C-N> :NERDTreeToggle<CR>
+map <C-N> <plug>NERDTreeTabsToggle<CR>
 
 " TagBar
 nmap <C-C> :TagbarToggle<CR>
@@ -56,4 +73,31 @@ nmap <C-C> :TagbarToggle<CR>
 let g:jsx_ext_required = 0
 
 " CTRL+P
-let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_bottom=1
+let g:ctrlp_working_path_mode=0
+let g:ctrlp_max_files=0
+let g:ctrlp_max_depth=40
+let g:ctrlp_user_command = ['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
+
+if executable('ag')
+    " Let CtrlP use ag as backend
+    let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+    let g:ctrlp_use_caching = 0
+
+    " Let Ack.vim use Ag as backend
+    let g:ackprg = 'ag --nogroup --nocolor --column'
+endif
+
+" Auto-save
+let g:auto_save = 1
+
+" Ack.vim
+cnoreabbrev Ack Ack!
+nnoremap <C-A> :Ack!<Space>
+
+" Emmet
+" let g:user_emmet_leader_key='<C-X>'
+
+""" Auto-reload .vimrc
+autocmd! bufwritepost .vimrc source %
+
