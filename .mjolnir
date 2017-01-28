@@ -20,10 +20,10 @@ function winfocus(title)
   win:focus()
 end
 
-local mash = {"cmd", "ctrl", "alt", "shift"}
+local mash = {"cmd", "ctrl", "alt"}
 
-hotkey.bind(mash, "tab", hints.windowHints)
-hotkey.bind(mash, "space", function() winfocus("iTerm2") end)
-hotkey.bind(mash, "a", function() winfocus("IntelliJ IDEA") end)
-hotkey.bind(mash, "z", function() winfocus("Google Chrome") end)
-hotkey.bind(mash, "q", function() winfocus("Slack") end)
+hotkey.bind(mash, "return", hints.windowHints)
+hotkey.bind(mash, "y", function() winfocus("iTerm2") end)
+hotkey.bind(mash, "u", function() winfocus("IntelliJ IDEA") end)
+hotkey.bind(mash, "i", function() winfocus("Google Chrome") end)
+hotkey.bind(mash, "p", function() winfocus("Slack") end)
