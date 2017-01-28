@@ -6,7 +6,7 @@ source $ZSH/plugins/$plugin/$plugin.plugin.zsh
 
 # Common commands improvement
 alias a="alias"
-alias psg="ps aux G"
+alias p="ps aux"
 alias e=$EDITOR
 alias k="pkill -f"
 
@@ -63,6 +63,12 @@ if [[ "$(uname)" == "Darwin" ]] then
 fi
 
 alias yh="cd ~/Dropbox/Workspaces/Yuri/home"
+
+# Brew
+alias b=brew
+alias bi="brew install"
+alias br="brew remove"
+alias bs="brew search"
 
 # Docker
 alias d=docker
