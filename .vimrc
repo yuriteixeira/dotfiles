@@ -6,6 +6,7 @@ set autoindent                              " auto indenting
 set number                                  " line numbers
 set ruler                                   " show current line and column
 set nobackup                                " get rid of anoying ~file
+set noswapfile                              " no swap files
 set clipboard=unnamed                       " access to system clibboard
 set mouse=a                                 " mouse support
 set timeout timeoutlen=5000 ttimeoutlen=100 " fix shift + o delay
@@ -102,15 +103,16 @@ nnoremap <C-A> :Ack!<Space>
 let g:user_emmet_leader_key='<C-X>'
 
 " Airline
-let g:airline#extensions#tabline#enabled=1
+"let g:airline#extensions#tabline#enabled=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-let g:airline_theme='base16_grayscale'
+"let g:airline_theme='base16_grayscale'
 
 """ Auto-reload .vimrc
 autocmd! bufwritepost .vimrc source %
 
 """ COLORS
-let base16colorspace=256
-colorscheme base16-default
-set background=dark
+if filereadable(expand("~/.vimrc_background"))
+  let base16colorspace=256
+  source ~/.vimrc_background
+endif

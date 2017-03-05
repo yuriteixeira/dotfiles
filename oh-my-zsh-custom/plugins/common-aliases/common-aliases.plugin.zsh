@@ -70,14 +70,20 @@ alias bi="brew install"
 alias br="brew remove"
 alias bs="brew search"
 
+alias bc=brew cask
+alias bci="brew cask install"
+alias bcr="brew cask remove"
+alias bcs="brew cask search"
+
 # Docker
 alias d=docker
 alias di='docker images'
-alias dm="docker-machine"
 alias dc="docker-compose"
-alias denv='eval $(docker-machine env)'
-alias drma='docker rm -f $(docker ps -a -q)'
-alias drmia='docker rmi $(docker images | grep "^<none>" | awk "{print $3}")'
+
+function dcleanup {
+    docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
+    docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
+}
 
 # Go
 alias mygo="export GOPATH=$MY_GOPATH"
