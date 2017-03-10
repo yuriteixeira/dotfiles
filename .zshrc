@@ -6,14 +6,13 @@ DEFAULT_USER="$(whoami)"
 ZSH_THEME="avit"
 PROMPT_EOL_MARK=""
 
+plugins=(common-aliases git vi-mode)
+export EDITOR='vim -p'
+
 if [[ "$(uname)" == "Darwin" ]] then
 
 	export LC_ALL=en_US.UTF-8
 	export LANG=en_US.UTF-8
-
-	plugins=(common-aliases git sudo symfony2 vi-mode brew)
-
-	export EDITOR='vim -p'
 
 	export PROJECTS_HOME=$HOME/Projects
 	export DEV_HOME=$HOME/Dev
@@ -38,14 +37,11 @@ if [[ "$(uname)" == "Darwin" ]] then
 	export MY_PATH="/usr/local/bin:/usr/local/sbin:$ANDROID_TOOLS_PATH:$ANDROID_PLATFORMTOOLS_PATH:$GOROOT/bin:$COMPOSER_HOME/vendor/bin:$PATH"
 	export PATH=$MY_PATH
 
-	export NVM_DIR="$HOME/.nvm"
-	. "$(brew --prefix nvm)/nvm.sh"
+	#export NVM_DIR="$HOME/.nvm"
+	#. "$(brew --prefix nvm)/nvm.sh"
 
 else
 
-	plugins=(common-aliases git sudo symfony2 vi-mode)
-
-	export EDITOR='vim -p'
 	export PROJECTS_HOME=$HOME/src
 fi
 
@@ -63,4 +59,4 @@ bindkey '^R' history-incremental-search-backward
 
 ### Base16 Colors 
 BASE16_SHELL=$HOME/.config/base16-shell/
-[ -n "$PS1"  ] && [ -s $BASE16_SHELL/profile_helper.sh  ] && eval "$($BASE16_SHELL/profile_helper.sh)"
+[ -n "$PS1"  ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"

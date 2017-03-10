@@ -2,8 +2,8 @@
 	editor = "vim"
 	excludesfile = /Users/yuriteixeira/.gitignore_global
 [user]
-	name = Yuri Teixeira
-	email = oyuriteixeira@gmail.com
+	name = 
+	email = 
 [push]
 	default = current
 [pull]

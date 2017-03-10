@@ -70,7 +70,7 @@ alias bi="brew install"
 alias br="brew remove"
 alias bs="brew search"
 
-alias bc=brew cask
+alias bc="brew cask"
 alias bci="brew cask install"
 alias bcr="brew cask remove"
 alias bcs="brew cask search"
@@ -94,12 +94,6 @@ function gohome {
 	mypath
 	export GOPATH="$(pwd)/.vendor:$(pwd)"
 	export PATH="$(pwd)/.vendor/bin:$(pwd)/bin:$PATH"
-}
-
-# Git Credentials
-function gitcred-personal {
-	git config user.name "Yuri Teixeira"
-	git config user.email "oyuriteixeira@gmail.com"
 }
 
 # Tmux

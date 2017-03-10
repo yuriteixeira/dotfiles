@@ -1,7 +1,7 @@
 """ GENERAL
 syntax on                                   " syntax highlighting
-set backspace=2                             " backspace in insert mode works like normal editor
 filetype indent on                          " activates indenting for files
+set backspace=2                             " backspace in insert mode works like normal editor
 set autoindent                              " auto indenting
 set number                                  " line numbers
 set ruler                                   " show current line and column
@@ -22,7 +22,13 @@ set shiftwidth=4                             " indents will have a width of 4.
 set softtabstop=4                            " sets the number of columns for a TAB.
 set expandtab                                " spaces instead of tabs
 
+nnoremap L gt
+nnoremap H gT
+nnoremap Q :tablast<CR>
+
 """ SPLITS
+set splitbelow
+set splitright
 
 " Movements
 nnoremap <C-J> <C-W><C-J>
@@ -30,27 +36,29 @@ nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
 
-" Defaults
-set splitbelow
-set splitright
-
 """ TOGGLES
 
 " Relative numbers
-map <C-R>1 :set relativenumber<CR>
-map <C-R>0 :set norelativenumber<CR>
+nnoremap <C-R>1 :set relativenumber<CR>
+nnoremap <C-R>0 :set norelativenumber<CR>
 
 " Auto-indent
-map <C-I>1 :set autoindent<CR>
-map <C-I>0 :set noautoindent<CR>
+nnoremap <C-I>1 :set autoindent<CR>
+nnoremap <C-I>0 :set noautoindent<CR>
+
+""" AUTOMATION
+
+" Auto-reload .vimrc
+autocmd! bufwritepost .vimrc source %
+
+
 
 """ PLUGINS
 call plug#begin('~/.vim/plugged')
 Plug 'ctrlpvim/ctrlp.vim'                    " File search
 Plug 'chriskempson/base16-vim'               " Base 16 Colorscheme
 Plug 'scrooloose/nerdtree'                   " File navigator 
-Plug 'jistr/vim-nerdtree-tabs'               " Keep the file navigator state for all tabs 
-Plug 'majutsushi/tagbar'                     " Symbol panel
+Plug 'majutsushi/tagbar'                     " Symbols navigator
 Plug 'mxw/vim-jsx'                           " JSX syntax support
 Plug 'pangloss/vim-javascript'               " JS syntax support
 Plug 'qbbr/vim-twig'                         " Twig support
@@ -68,21 +76,26 @@ Plug 'tpope/vim-fugitive'                    " Git plugin
 call plug#end()
 
 " NerdTree
-map <C-N> <plug>NERDTreeTabsToggle<CR>
+nnoremap <C-N> :NERDTreeToggle<CR>
+let g:NERDTreeWinSize=40 
+let NERDTreeShowHidden=1
 
-" TagBar
-nmap <C-C> :TagbarToggle<CR>
+" TagBar 
+nnoremap <C-C> :TagbarToggle<CR>
 
 " JSX
 let g:jsx_ext_required=0
 
 " CTRL+P
+nnoremap <C-B> :CtrlPBuffer<CR>
+
 let g:ctrlp_match_window_bottom=1
 let g:ctrlp_working_path_mode=0
 let g:ctrlp_max_files=0
 let g:ctrlp_max_depth=40
 let g:ctrlp_user_command=['.git/', 'git --git-dir=%s/.git ls-files -oc --exclude-standard']
 
+" The silver seacher
 if executable('ag')
     " Let CtrlP use ag as backend
     let g:ctrlp_user_command='ag %s -l --nocolor -g ""'
@@ -103,15 +116,12 @@ nnoremap <C-A> :Ack!<Space>
 let g:user_emmet_leader_key='<C-X>'
 
 " Airline
-"let g:airline#extensions#tabline#enabled=1
 let g:airline_left_sep=''
 let g:airline_right_sep=''
-"let g:airline_theme='base16_grayscale'
+set laststatus=2
+set ttimeoutlen=50
 
-""" Auto-reload .vimrc
-autocmd! bufwritepost .vimrc source %
-
-""" COLORS
+" Colors
 if filereadable(expand("~/.vimrc_background"))
   let base16colorspace=256
   source ~/.vimrc_background
