@@ -6,8 +6,10 @@ DEFAULT_USER="$(whoami)"
 ZSH_THEME="avit"
 PROMPT_EOL_MARK=""
 
-plugins=(common-aliases git vi-mode)
 export EDITOR='vim -p'
+export DOTFILES='github.com/yuriteixeira/dotfiles'
+
+plugins=(common-aliases git vi-mode)
 
 if [[ "$(uname)" == "Darwin" ]] then
 
