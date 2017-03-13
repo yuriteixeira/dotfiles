@@ -87,7 +87,7 @@ nnoremap <C-C> :TagbarToggle<CR>
 let g:jsx_ext_required=0
 
 " CTRL+P
-nnoremap <C-B> :CtrlPBuffer<CR>
+nnoremap <C-O> :CtrlPBuffer<CR>
 
 let g:ctrlp_match_window_bottom=1
 let g:ctrlp_working_path_mode=0
