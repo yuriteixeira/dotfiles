@@ -3,7 +3,7 @@
 ### Install oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 
-### All dotfiles on home dir
+### All dotfiles symlinked to home dir
 find . -name ".*" | grep -v ".git" | grep -v ".DS_Store" | grep -v ".swp" | awk -F './' '{print $2}' | xargs -I {} ln -sf $(pwd)/{} ~/
 
 ln -sf $(pwd)/.gitconfig ~/
