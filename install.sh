@@ -5,9 +5,12 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/mas
 
 ### All dotfiles symlinked to home dir
 find . -name ".*" | grep -v ".git" | grep -v ".DS_Store" | grep -v ".swp" | awk -F './' '{print $2}' | xargs -I {} ln -sf $(pwd)/{} ~/
-
 ln -sf $(pwd)/.gitconfig ~/
-ln -sf $(pwd)/.mjolnir ~/.mjolnir/init.lua
+
+### OS specific
+if [ "$(uname)" == "Darwin" ]; then
+    ln -sf $(pwd)/.mjolnir ~/.mjolnir/init.lua
+fi
 
 ### Oh-my-zsh customizations
 mkdir -p ~/.oh-my-zsh/custom/themes
