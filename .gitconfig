@@ -1,9 +1,5 @@
 [core]
 	editor = "vim"
-	excludesfile = /Users/yuriteixeira/.gitignore_global
-[user]
-	name = 
-	email = 
 [push]
 	default = current
 [pull]
@@ -16,13 +12,8 @@
 	clean = git-lfs clean %f
 	smudge = git-lfs smudge %f
 	required = true
-[commit]
-	template = /Users/yuriteixeira/.stCommitMsg
 [merge]
 	tool = opendiff
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true

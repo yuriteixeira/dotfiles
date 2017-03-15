@@ -106,7 +106,7 @@ if executable('ag')
 endif
 
 " Auto-save
-let g:auto_save=1
+let g:auto_save=0
 
 " Ack.vim
 cnoreabbrev Ack Ack!
