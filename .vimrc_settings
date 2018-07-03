@@ -1,0 +1,48 @@
+""" GENERAL
+syntax on                                   
+filetype indent on                                    " activates indenting for files
+set backspace=2                                       " backspace in insert mode works like normal editor
+set autoindent                                        
+set number                                            " line numbers
+set relativenumber                                    " relative numbers
+set ruler                                             " show current line and column
+set nobackup                                          " get rid of anoying ~file
+set noswapfile                                        " no swap files
+set clipboard=unnamed                                 " access to operational system clibboard
+set timeout timeoutlen=5000 ttimeoutlen=100           " fix shift + o delay
+let mapleader=" "                                     " maps leader to space
+set iskeyword+=-                                      " dashes as part of word object
+set nohlsearch                                        " disables highlighted search results (so annoying)
+let g:python2_host_prog = '/usr/local/bin/python2'
+let g:python3_host_prog = '/usr/local/bin/python3'
+
+""" MOUSE
+set mouse=a                                           " enable mouse support
+
+" Fix tmux vs vim mouse conflicts (eg: split resize doesn't work anymore)
+if has("mouse_sgr")
+    set ttymouse=sgr
+end
+
+if !has('nvim')
+    set ttymouse=xterm2
+end
+
+""" INDENTATION
+set tabstop=2                                         " the width of a TAB is set to 2.
+set shiftwidth=2                                      " indents will have a width of 2.
+set softtabstop=2                                     " sets the number of columns for a TAB.
+set expandtab                                         " spaces instead of tabs
+
+""" SPLITS
+set splitbelow
+set splitright
+
+""" AUTOMATION
+
+" Auto-reload .vimrc
+autocmd! bufwritepost .vimrc source %
+
+" Omni completion
+set completeopt=menuone,longest
+inoremap <C-Space> <C-x><C-o>

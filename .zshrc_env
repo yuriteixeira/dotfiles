@@ -1,0 +1,35 @@
+ZSH=$HOME/.oh-my-zsh
+ZSH_THEME="spaceship"
+DEFAULT_USER="$(whoami)"
+PROMPT_EOL_MARK=""
+
+export EDITOR='nvim -p'
+export DOTFILES='github.com/yuriteixeira/dotfiles'
+export PROJECTS_HOME=$HOME/src
+
+if [[ "$(uname)" == "Darwin" ]] then
+    export LC_ALL=en_US.UTF-8
+    export LANG=en_US.UTF-8
+
+    export PROJECTS_HOME=$HOME/Projects
+    export LA_HOME=$HOME/Library/LaunchAgents
+    export LD_HOME=/Library/LaunchDaemons
+
+    export JAVA_HOME="$(/usr/libexec/java_home)"
+    export TIZEN_HOME="$HOME/Dev/sdk/tizen"
+    export PYTHON_PATH="/usr/local/opt/python/bin"
+    export GCLOUD_PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin"
+    export GOPATH="$HOME/Dev/workspace/go"
+
+    export MY_PATH="/usr/local/bin:/usr/local/sbin"
+    export MY_PATH="$PYTHON_PATH:$MY_PATH"
+    export MY_PATH="$GCLOUD_PATH:$MY_PATH"
+    export MY_PATH="$TIZEN_HOME/tools:$MY_PATH"
+    export MY_PATH="$TIZEN_HOME/tools/device-manager/bin:$MY_PATH"
+    export MY_PATH="$TIZEN_HOME/tools/device-manager/bin/tools:$MY_PATH"
+    export MY_PATH="$TIZEN_HOME/tools/emulator/bin:$MY_PATH"
+    export MY_PATH="$TIZEN_HOME/tools/ide/bin:$MY_PATH"
+
+    export PATH="$MY_PATH:$PATH"
+fi
+

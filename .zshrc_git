@@ -1,0 +1,6 @@
+
+### Git
+alias gs='gst'
+alias gclean="git checkout -- . && git reset --hard && git clean -idfx"
+alias gd="git diff HEAD"
+alias gu='gup'

@@ -1,0 +1,88 @@
+# Dotfiles
+alias dot='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
+
+# Common commands improvement
+alias a="alias"
+alias p="ps aux"
+alias e=$EDITOR
+alias k="pkill -f"
+
+# Open profile with editor
+alias pf="$EDITOR \
+~/.zshrc \
+~/.tmux.conf \
+~/.vimrc"
+
+alias rpf="source ~/.zshrc"
+
+# Hosts
+alias hosts="sudo $EDITOR /etc/hosts"
+
+# Important directories (aliases and working directories)
+alias pj="cd $PROJECTS_HOME"
+
+# Brew
+alias b=brew
+alias bc="brew cask"
+
+# NodeJS
+export NODE_VERSION=9
+
+# Use of eval was needed to expand $NODE_OPTIONS in multiple arguments for docker run
+# See more: https://stackoverflow.com/questions/7454526/bash-variable-containing-multiple-args-with-quotes
+alias nsh='eval docker run -it -v $PWD:/mnt/app:cached -w /mnt/app $NODE_OPTIONS node:$NODE_VERSION'
+
+alias y='yarn'
+alias yg='yarn global'
+
+# Docker
+alias d=docker
+alias di='docker images'
+alias dc="docker-compose"
+
+function drl {
+    registry=$1
+    image=$2
+    curl -L http://${registry}/${image}/tags/list | jq
+}
+
+# Tmux
+function tm {
+    tmux attach
+
+    if [ $? -ne 0 ]; then
+      tmux
+    fi
+}
+
+alias tmk="tmux kill-session"
+alias tml="tmux list-sessions"
+
+# FZF
+alias f="fzf"
+alias fp='fzf --preview "head -$LINES {}"'
+
+# SourceTree
+alias s="stree ."
+
+# Notifications (OSX)
+function notify {
+    osascript -e "display notification \"${2}\" with title \"$([[ ! -z ${2} ]] && echo ${2} || echo "ATTENTION")\""
+}
+
+# Watch dir and exec command
+function watch-n-do {
+  echo ">>> Waiting for changes"
+  echo "Path: $1"
+  echo "Command: $2"
+  fswatch -r -o $1 | while read; do clear && $2; done
+}
+
+# Watch files and reload browser with fswatch and osacript
+function livereload {
+    local pathToWatch=${1:-"$PWD"}
+    local browser=${2:-"Google Chrome"}
+    echo ">>> Watching changes on $pathToWatch (will reload first tab on $browser) \n"
+    fswatch -o $pathToWatch | xargs -n1 -I {} osascript -e "tell application \"$browser\" to tell the active tab of its first window to reload"
+}
+

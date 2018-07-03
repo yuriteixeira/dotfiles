@@ -1,0 +1,89 @@
+call plug#begin('~/.vim/plugged')
+
+Plug 'scrooloose/nerdtree'                               " File navigator 
+Plug 'editorconfig/editorconfig-vim'                     " Editor config (http://editorconfig.org/)
+Plug '907th/vim-auto-save'                               " Auto-save files
+Plug 'jiangmiao/auto-pairs'                              " Auto-close brackets
+Plug 'mattn/emmet-vim'                                   " Emmet (formerly Zencoding)
+Plug 'bling/vim-airline'                                 " Status line (powerline like)
+Plug 'vim-airline/vim-airline-themes'                    " Status line color themes
+Plug 'airblade/vim-gitgutter'                            " Git: show changes on editor
+Plug 'tpope/vim-fugitive'                                " Git plugin
+Plug 'majutsushi/tagbar'                                 " Symbols navigator
+Plug 'chriskempson/base16-vim'                           " Base 16 Colorscheme
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'      " Ubiquitous anf fast fuzzy finder
+Plug 'ludovicchabant/vim-gutentags'                      " CTags auto-updater
+
+" Language support
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }       " Go lang
+
+" Snippets
+" Plug 'MarcWeber/vim-addon-mw-utils'                      " Snippet engine and its deps
+" Plug 'tomtom/tlib_vim'
+" Plug 'garbas/vim-snipmate'
+" Plug 'honza/vim-snippets'                                " Snippet files
+
+" Syntaxes
+Plug 'dzeban/vim-log-syntax'                             " Log files syntax
+Plug 'martinda/Jenkinsfile-vim-syntax'                   " Jenkinsfile syntax
+Plug 'mxw/vim-jsx'                                       " JSX syntax support
+Plug 'pangloss/vim-javascript'                           " JS syntax support
+" Plug 'qbbr/vim-twig'                                     " Twig support
+" Plug 'leafgarland/typescript-vim'                        " TypeScript support
+
+call plug#end()
+
+" Auto-save
+let g:auto_save=1
+
+" Emmet
+let g:user_emmet_leader_key='<C-X>'
+
+" JSX
+let g:jsx_ext_required=0
+
+" TagBar 
+nnoremap <leader>s :TagbarToggle<CR>
+
+let g:tagbar_autoclose = 1
+let g:tagbar_autofocus = 1
+let g:tagbar_compact = 1
+let g:tagbar_show_visibility = 1
+let g:tagbar_autopreview = 1
+
+let g:tagbar_type_php  = {
+  \ 'ctagstype' : 'php',
+  \ 'kinds'     : [
+      \ 'i:interfaces',
+      \ 'c:classes',
+      \ 'd:constant definitions',
+      \ 'f:functions',
+  \ ]
+\ }
+
+" NerdTree
+let NERDTreeShowHidden = 1
+let NERDTreeQuitOnOpen = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeWinSize=40 
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")) | q | endif
+
+" FZF
+let g:fzf_buffers_jump = 1
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+" The silver seacher (ag)
+if executable('ag')
+    set grepprg=ag\ --vimgrep
+endif
+
+" Airline
+let g:airline_left_sep=''
+let g:airline_right_sep=''
+set laststatus=2
+set noshowmode
+set ttimeoutlen=50
+
