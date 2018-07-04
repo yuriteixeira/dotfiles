@@ -1,10 +1,10 @@
 call plug#begin('~/.vim/plugged')
 
+" General
 Plug 'scrooloose/nerdtree'                               " File navigator 
 Plug 'editorconfig/editorconfig-vim'                     " Editor config (http://editorconfig.org/)
 Plug '907th/vim-auto-save'                               " Auto-save files
 Plug 'jiangmiao/auto-pairs'                              " Auto-close brackets
-Plug 'mattn/emmet-vim'                                   " Emmet (formerly Zencoding)
 Plug 'bling/vim-airline'                                 " Status line (powerline like)
 Plug 'vim-airline/vim-airline-themes'                    " Status line color themes
 Plug 'airblade/vim-gitgutter'                            " Git: show changes on editor
@@ -14,8 +14,9 @@ Plug 'chriskempson/base16-vim'                           " Base 16 Colorscheme
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'      " Ubiquitous anf fast fuzzy finder
 Plug 'ludovicchabant/vim-gutentags'                      " CTags auto-updater
 
-" Language support
+" Language 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }       " Go lang
+Plug 'mattn/emmet-vim'                                   " HTML with Emmet (formerly Zencoding)
 
 " Snippets
 " Plug 'MarcWeber/vim-addon-mw-utils'                      " Snippet engine and its deps
@@ -23,7 +24,7 @@ Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }       " Go lang
 " Plug 'garbas/vim-snipmate'
 " Plug 'honza/vim-snippets'                                " Snippet files
 
-" Syntaxes
+" Syntax support
 Plug 'dzeban/vim-log-syntax'                             " Log files syntax
 Plug 'martinda/Jenkinsfile-vim-syntax'                   " Jenkinsfile syntax
 Plug 'mxw/vim-jsx'                                       " JSX syntax support
