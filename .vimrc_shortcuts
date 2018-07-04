@@ -1,19 +1,16 @@
 " Key mappings
-nnoremap <leader>p :Files<CR>
-nnoremap <leader>b :Buffers<CR>              
-nnoremap <leader>n :NERDTreeToggle<CR>
-nnoremap <leader>,n :NERDTreeFind<CR>
-nnoremap <leader><leader> :b#<CR>
-nnoremap <leader>w :w<CR>                    
-nnoremap <leader>c :ccl <bar> lcl<CR>
-nnoremap <leader>qq :qa<CR>
-nnoremap <leader>,q :q<CR>                    
-nnoremap <leader>,r :%s/<C-R><C-W>//g
-nnoremap <leader>,a :Ag <C-R><C-W><CR>
-nnoremap <leader>,h :nohl<CR>
-nnoremap <leader>,g :set number!<CR>
-nnoremap <leader>,r :set relativenumber!<CR>
-nnoremap <leader>,l :set cursorline!<CR>
-nnoremap <leader>,c :set cursorcolumn!<CR>
-nnoremap <leader>s :TagbarToggle<CR>
+nnoremap <leader>p :Files<CR>                      " Fuzzy finder: files
+nnoremap <leader>b :Buffers<CR>                    " Fuzzy finder: buffers 
+nnoremap <leader>t :NERDTreeToggle<CR>             " File tree: Toggle
+nnoremap <leader>,t :NERDTreeFind<CR>              " File tree: Locate current file
+nnoremap <leader><leader> :b#<CR>                  " Buffers: Toggle current buffer with last opened one
+nnoremap <leader>c :ccl <bar> lcl<CR>              " Quick fix windows: close
+nnoremap <leader>qq :qa<CR>                        " Exit: close all
+nnoremap <leader>,q :q<CR>                         " Exit: current file
+nnoremap <leader>,s :%s/<C-R><C-W>//g              " Find/replace: word under cursor
+nnoremap <leader>,g :Ag <C-R><C-W><CR>             " Grep: word under cursor
+nnoremap <leader>,n :set relativenumber!<CR>       " Line numbers: toggle relative line numbers
+nnoremap <leader>,l :set cursorline!<CR>           " Highlight: line
+nnoremap <leader>,c :set cursorcolumn!<CR>         " Highlitht: column
+nnoremap <leader>s :TagbarToggle<CR>               " Symbol explorer: toggle
 
