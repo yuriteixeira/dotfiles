@@ -36,8 +36,6 @@ let g:user_emmet_leader_key='<C-X>'
 let g:jsx_ext_required=0
 
 " TagBar 
-nnoremap <leader>s :TagbarToggle<CR>
-
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
