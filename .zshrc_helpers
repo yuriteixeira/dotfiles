@@ -82,10 +82,10 @@ function notify {
 
 # Watch dir and exec command
 function watch-n-do {
-  echo ">>> Waiting for changes"
-  echo "Path: $1"
-  echo "Command: $2"
-  fswatch -r -o $1 | while read; do clear && $2; done
+    echo ">>> Waiting for changes"
+    echo "Path: $1"
+    echo "Command: $2"
+    fswatch -r -o $1 | while read; do clear && $2; done
 }
 
 # Watch files and reload browser with fswatch and osacript
