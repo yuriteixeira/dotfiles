@@ -20,6 +20,7 @@ if [[ "$(uname)" == "Darwin" ]] then
     export PYTHON_PATH="/usr/local/opt/python/bin"
     export GCLOUD_PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin"
     export GOPATH="$HOME/Dev/workspace/go"
+    export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
 
     export MY_PATH="/usr/local/bin:/usr/local/sbin"
     export MY_PATH="$PYTHON_PATH:$MY_PATH"
