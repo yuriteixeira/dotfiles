@@ -63,6 +63,15 @@ alias tml="tmux list-sessions"
 alias f="fzf"
 alias fp='fzf --preview "head -$LINES {}"'
 
+function agvim  {
+    CHOICE=$(ag --color $* | fzf -0 -1 --ansi)
+
+    if [ -n "$CHOICE" ]
+    then
+        nvim $(echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') 
+    fi
+}
+
 # SourceTree
 alias s="stree ."
 
