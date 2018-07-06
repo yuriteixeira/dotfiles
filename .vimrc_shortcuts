@@ -6,10 +6,10 @@ nnoremap <leader>f :NERDTreeFind<CR>|               " File tree: Locate current 
 nnoremap <leader><leader> :b#<CR>|                  " Buffers: Toggle current buffer with last opened one
 nnoremap <leader>c :ccl <bar> lcl<CR>|              " Quick fix windows: close
 nnoremap <leader>qq :qa<CR>|                        " Exit: close all
-nnoremap <leader>s :%s///g<left><left><left><left>| " Find/replace: will put cursor in position to add search criteria
+nnoremap <leader>s :%s///g<left><left><left>|       " Find/replace: will put cursor in position to add search criteria
 nnoremap <leader>ws :%s/<C-R><C-W>//g<left><left>|  " Find/replace: word under cursor (will put cursor in position to add replacement)
 nnoremap <leader>g :Ag <C-R><C-W><CR>|              " Grep: word under cursor
-nnoremap <leader>s :TagbarToggle<CR>|               " Symbol explorer: toggle
+nnoremap <leader>t :TagbarToggle<CR>|               " Symbol explorer: toggle
 nnoremap <leader>,n :set relativenumber!<CR>|       " Line numbers: toggle relative line numbers
 nnoremap <leader>,l :set cursorline!<CR>|           " Highlight: line
 nnoremap <leader>,c :set cursorcolumn!<CR>|         " Highlitht: column
