@@ -3,4 +3,5 @@
 .DS_Store
 .vim/plugged
 .vim/.netrwhist
+.vimrc_background
 *.swp
