@@ -101,3 +101,6 @@ set ttimeoutlen=50
 
 " Gutentag
 set statusline+=%{gutentags#statusline()}
+
+" Vim-gutter
+let g:gitgutter_map_keys = 0
