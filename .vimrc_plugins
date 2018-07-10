@@ -14,6 +14,7 @@ Plug 'chriskempson/base16-vim'                           " Base 16 Colorscheme
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'      " Ubiquitous anf fast fuzzy finder
 Plug 'ludovicchabant/vim-gutentags'                      " CTags auto-updater
 Plug 'tmux-plugins/vim-tmux-focus-events'                " Fix FocusGained and FocusLost when using tmux (https://github.com/tmux-plugins/vim-tmux-focus-events) 
+Plug 'kshenoy/vim-signature'                             " Show marks on gutter
 
 " Language 
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }       " Go lang
