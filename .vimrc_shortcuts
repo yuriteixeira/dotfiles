@@ -1,6 +1,7 @@
 " Key mappings
 nnoremap <leader>b :Buffers<CR>|                    " Fuzzy finder: Buffers
 nnoremap <leader>p :Files<CR>|                      " Fuzzy finder: Files
+nnoremap <leader>h :History<CR>|                    " Fuzzy finder: History
 nnoremap <leader>n :NERDTreeToggle<CR>|             " File tree: Toggle
 nnoremap <leader>f :NERDTreeFind<CR>|               " File tree: Locate current file
 nnoremap <leader><leader> :b#<CR>|                  " Buffers: Toggle current buffer with last opened one
