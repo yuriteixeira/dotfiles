@@ -1,5 +1,6 @@
 # Dotfiles
 alias dot='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
+alias private-dot='git --git-dir=$HOME/.private.dotfiles.git/ --work-tree=$HOME'
 
 # Common commands improvement
 alias a="alias"
