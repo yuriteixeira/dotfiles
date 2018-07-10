@@ -2,14 +2,14 @@
 nnoremap <leader>b :Buffers<CR>|                    " Fuzzy finder: Buffers
 nnoremap <leader>p :Files<CR>|                      " Fuzzy finder: Files
 nnoremap <leader>h :History<CR>|                    " Fuzzy finder: History
+nnoremap <leader>m :Marks<CR>|                      " Fuzzy finder: Marks
 nnoremap <leader>n :NERDTreeToggle<CR>|             " File tree: Toggle
 nnoremap <leader>f :NERDTreeFind<CR>|               " File tree: Locate current file
 nnoremap <leader><leader> :b#<CR>|                  " Buffers: Toggle current buffer with last opened one
-nnoremap <leader>c :ccl <bar> lcl<CR>|              " Quick fix windows: close
 nnoremap <leader>qq :qa<CR>|                        " Exit: close all
 nnoremap <leader>s :%s///g<left><left><left>|       " Find/replace: will put cursor in position to add search criteria
 nnoremap <leader>ws :%s/<C-R><C-W>//g<left><left>|  " Find/replace: word under cursor (will put cursor in position to add replacement)
-nnoremap <leader>g :Ag <C-R><C-W><CR>|              " Grep: word under cursor
+nnoremap <leader>g :Ag <C-R><C-W>|                  " Grep: word under cursor
 nnoremap <leader>t :TagbarToggle<CR>|               " Symbol explorer: toggle
 nnoremap <leader>,n :set relativenumber!<CR>|       " Line numbers: toggle relative line numbers
 nnoremap <leader>,l :set cursorline!<CR>|           " Highlight: line
