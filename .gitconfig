@@ -13,3 +13,13 @@
 	tool = vimdiff
 [mergetool]
 	path = nvim
+[alias]
+	b = branch
+	c = commit -v
+  ca = commit -v --amend
+	co = checkout
+	d = diff
+  l = log
+	r = rebase
+	ri = rebase -i
+	s = status
