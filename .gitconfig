@@ -1,25 +1,25 @@
 [core]
-	excludesfile = /Users/yuriteixeira/.gitignore_global
-	autocrlf = input
+  excludesfile = /Users/yuriteixeira/.gitignore_global
+  autocrlf = input
 [push]
-	default = current
+  default = current
 [pull]
-	default = current
+  default = current
 [color "diff"]
   meta = yellow bold
 [rebase]
   autosquash = true
 [merge]
-	tool = vimdiff
+  tool = vimdiff
 [mergetool]
-	path = nvim
+  path = nvim
 [alias]
-	b = branch
-	c = commit -v
+  b = branch
+  c = commit -v
   ca = commit -v --amend
-	co = checkout
-	d = diff
+  co = checkout
+  d = diff
   l = log
-	r = rebase
-	ri = rebase -i
-	s = status
+  r = rebase
+  ri = rebase -i
+  s = status
