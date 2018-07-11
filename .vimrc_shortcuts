@@ -11,6 +11,7 @@ nnoremap <leader>s :%s///g<left><left><left>|       " Find/replace: will put cur
 nnoremap <leader>ws :%s/<C-R><C-W>//g<left><left>|  " Find/replace: word under cursor (will put cursor in position to add replacement)
 nnoremap <leader>g :Ag <C-R><C-W>|                  " Grep: word under cursor
 nnoremap <leader>t :TagbarToggle<CR>|               " Symbol explorer: toggle
+nnoremap <leader>u :GitGutterUndoHunk<CR>|          " GitGutter: undo hunk under cursor
 nnoremap <leader>,n :set relativenumber!<CR>|       " Line numbers: toggle relative line numbers
 nnoremap <leader>,l :set cursorline!<CR>|           " Highlight: line
 nnoremap <leader>,c :set cursorcolumn!<CR>|         " Highlitht: column
