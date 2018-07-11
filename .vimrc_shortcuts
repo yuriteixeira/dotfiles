@@ -15,5 +15,5 @@ nnoremap <leader>u :GitGutterUndoHunk<CR>|          " GitGutter: undo hunk under
 nnoremap <leader>,n :set relativenumber!<CR>|       " Line numbers: toggle relative line numbers
 nnoremap <leader>,l :set cursorline!<CR>|           " Highlight: line
 nnoremap <leader>,c :set cursorcolumn!<CR>|         " Highlitht: column
-inoremap <C-Space> <C-x><C-o>|                      " Omni completion: all
+inoremap <C-Space> <C-x><C-o>|                      " Omni completion
 
