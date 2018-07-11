@@ -42,6 +42,8 @@ set splitright
 
 " Auto-reload .vimrc
 autocmd! bufwritepost .vimrc source %
-
+"
 " Omni completion
-set completeopt=menuone,longest
+set complete=.,w,b,u
+set completeopt=menu,longest
+set omnifunc=syntaxcomplete#Complete
