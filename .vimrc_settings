@@ -45,4 +45,3 @@ autocmd! bufwritepost .vimrc source %
 
 " Omni completion
 set completeopt=menuone,longest
-inoremap <C-Space> <C-x><C-o>
