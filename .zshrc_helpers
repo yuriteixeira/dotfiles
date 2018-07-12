@@ -73,6 +73,9 @@ function agvim  {
     fi
 }
 
+# fswatch
+alias fw="fswatch -r -o -t -x -l 2"
+
 # SourceTree
 alias s="stree ."
 
@@ -83,10 +86,16 @@ function notify {
 
 # Watch dir and exec command
 function watch-n-do {
+    [ -z "$1" ] || [ -z "$2" ] && echo "Usage: watch-n-do <path> <command>" && return 1
+
     echo ">>> Waiting for changes"
     echo "Path: $1"
     echo "Command: $2"
-    fswatch -r -o $1 | while read; do clear && $2; done
+    echo ""
+
+    bash -c $2
+
+    fw $1 | while read; do bash -c $2; echo ""; echo ">>> DONE at $(date)"; done
 }
 
 # Watch files and reload browser with fswatch and osacript
