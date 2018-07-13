@@ -18,4 +18,5 @@ nnoremap <leader>,n :set relativenumber!<CR>|       " Line numbers: toggle relat
 nnoremap <leader>,l :set cursorline!<CR>|           " Highlight: line
 nnoremap <leader>,c :set cursorcolumn!<CR>|         " Highlitht: column
 inoremap <C-Space> <C-x><C-o>|                      " Omni completion
+inoremap <C-F> <C-x><C-f>|                          " File completion
 
