@@ -95,7 +95,7 @@ function watch-n-do {
 
     bash -c $2
 
-    fw $1 | while read; do bash -c $2; echo ""; echo ">>> DONE at $(date)"; done
+    fw $1 | while read; do bash -c $2; done
 }
 
 # Watch files and reload browser with fswatch and osacript
