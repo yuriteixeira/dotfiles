@@ -6,6 +6,7 @@ PROMPT_EOL_MARK=""
 export EDITOR='nvim -p'
 export DOTFILES='github.com/yuriteixeira/dotfiles'
 export PROJECTS_HOME=$HOME/src
+export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 
 if [[ "$(uname)" == "Darwin" ]] then
     export LC_ALL=en_US.UTF-8
