@@ -113,7 +113,7 @@ alias s="stree ."
 
 # Notifications (OSX)
 function notify {
-    osascript -e "display notification \"${1}\" with title \"$([[ ! -z ${2} ]] && echo ${1} || echo "ATTENTION")\""
+    osascript -e "display notification \"${1}\" with title \"$([[ ! -z ${2} ]] && echo ${2} || echo "ATTENTION")\""
 }
 
 # Watch dir and exec command
