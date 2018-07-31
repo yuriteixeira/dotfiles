@@ -30,7 +30,6 @@ alias b=brew
 alias bc="brew cask"
 
 # NodeJS / Yarn
-export NODE_VERSION=9
 
 # Use of eval was needed to expand $NODE_OPTIONS in multiple arguments for docker run
 # See more: https://stackoverflow.com/questions/7454526/bash-variable-containing-multiple-args-with-quotes
