@@ -1,5 +1,6 @@
 " Key mappings
 nnoremap <leader>b :Buffers<CR>|                    " Fuzzy finder: Buffers
+nnoremap <leader>o :Files<CR>|                      " Fuzzy finder: Files
 nnoremap <leader>p :GFiles<CR>|                     " Fuzzy finder: Files (git ls style)
 nnoremap <leader>h :History<CR>|                    " Fuzzy finder: History
 nnoremap <leader>m :Marks<CR>|                      " Fuzzy finder: Marks
