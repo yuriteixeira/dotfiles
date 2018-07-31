@@ -13,4 +13,4 @@ source ~/.zshrc_autojump
 source ~/.zshrc_spaceship
 source ~/.zshrc_git
 
-[ -f "~/.zshrc_private" ] && source ~/.zshrc_private
+[ -f ~/.zshrc_private ] && source ~/.zshrc_private
