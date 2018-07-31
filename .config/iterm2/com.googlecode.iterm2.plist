@@ -22,8 +22,16 @@
 	<string>BF1B3553-FA47-431A-9B6D-38B46E932A73</string>
 	<key>EscapeShellCharsWithBackslash</key>
 	<false/>
+	<key>Hotkey</key>
+	<true/>
+	<key>HotkeyChar</key>
+	<integer>16</integer>
+	<key>HotkeyCode</key>
+	<integer>110</integer>
 	<key>HotkeyMigratedFromSingleToMulti</key>
 	<true/>
+	<key>HotkeyModifiers</key>
+	<integer>256</integer>
 	<key>ILMediaBrowserImageSplitViewPosition</key>
 	<integer>140</integer>
 	<key>ILMediaBrowserMediaType</key>
@@ -81,7 +89,7 @@
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>1709 425 606 456 1440 286 1920 1058 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>-1129 507 796 473 -1920 0 1920 1080 </string>
+	<string>-1656 353 796 473 -1920 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>-1920 0 1920 1080 -1920 0 1920 1058 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
@@ -248,14 +256,16 @@
 				<key>Red Component</key>
 				<real>0.0</real>
 			</dict>
-			<key>Background Image Location</key>
-			<string></string>
+			<key>Blend</key>
+			<real>0.60442958733974372</real>
 			<key>Blink Allowed</key>
 			<true/>
 			<key>Blinking Cursor</key>
 			<true/>
 			<key>Blur</key>
 			<false/>
+			<key>Blur Radius</key>
+			<real>0.10000000000000001</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -613,7 +623,7 @@
 				</dict>
 			</dict>
 			<key>Minimum Contrast</key>
-			<real>0.16574367088607594</real>
+			<real>0.17697975852272727</real>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
@@ -624,6 +634,8 @@
 			<true/>
 			<key>Normal Font</key>
 			<string>InputMonoNarrow-ExtraLight 14</string>
+			<key>Only The Default BG Color Uses Transparency</key>
+			<false/>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -668,8 +680,12 @@
 			<array/>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
+			<key>Thin Strokes</key>
+			<integer>4</integer>
 			<key>Transparency</key>
-			<real>0.0</real>
+			<real>0.065833201142131981</real>
+			<key>Unicode Version</key>
+			<integer>8</integer>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
@@ -700,6 +716,10 @@
 	<string>DAB3D738-6E17-4B9A-A855-D695618562D3</string>
 	<key>NoSyncLastTipTime</key>
 	<real>510834809.80345201</real>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
+	<true/>
+	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
+	<integer>0</integer>
 	<key>NoSyncPermissionToShowTip</key>
 	<true/>
 	<key>NoSyncTimeOfFirstLaunchOfVersionWithTip</key>
@@ -788,11 +808,11 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2018-07-03T07:45:55Z</date>
+	<date>2018-07-24T07:50:31Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<true/>
+	<false/>
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
@@ -817,6 +837,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.1.6</string>
+	<string>3.1.7</string>
 </dict>
 </plist>
