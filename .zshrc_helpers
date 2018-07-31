@@ -52,11 +52,13 @@ alias di='docker images'
 alias dc="docker-compose"
 
 # Update them all
-function upgrade-package-managers {
+function upgrade {
   echo ">>> Brew / Brew Cask"
   brew update
   brew upgrade
   brew cask outdated | xargs -n1 brew cask reinstall
+  brew cleanup
+  brew prune
 
   echo ">>> Yarn (Global)"
   yarn global upgrade
@@ -70,8 +72,14 @@ function upgrade-package-managers {
   echo ">>> Pip 3"
   pip3 freeze | cut -d = -f 1 | xargs -n1 pip install -U 
 
-  echo ">>> Nvim"
+  echo ">>> Nvim Plugins"
   nvr --remote-send ':PlugUpgrade | :PlugUpdate<CR> | q | :qa<CR>'
+
+  echo ">>> Tmux Plugins"
+  ~/.tmux/plugins/tpm/bin/update_plugins all
+
+  echo ">>> Docker cleanup"
+  docker system prune
 }
 
 function drl {
