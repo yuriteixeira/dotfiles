@@ -49,3 +49,13 @@ au BufEnter * if(exists('b:winview')) | call winrestview(b:winview)
 set complete=.,w,b,u
 set completeopt=menu,longest
 set omnifunc=syntaxcomplete#Complete
+
+""" OPTIMISATIONS 
+
+" Python based plugins might slow startup, this should fix it
+" To profile startup: https://github.com/bchretien/vim-profiler
+let g:loaded_python_provider=1
+let g:python_host_skip_check=1
+let g:python_host_prog='/usr/local/bin/python'
+let g:python3_host_skip_check=1
+let g:python3_host_prog='/usr/local/bin/python3'
