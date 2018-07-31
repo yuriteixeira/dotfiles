@@ -40,7 +40,11 @@ set splitright
 
 " Auto-reload .vimrc
 autocmd! bufwritepost .vimrc source %
-"
+
+" Keep cursor position while toggling buffers
+au BufLeave * let b:winview = winsaveview()
+au BufEnter * if(exists('b:winview')) | call winrestview(b:winview)
+
 " Omni completion
 set complete=.,w,b,u
 set completeopt=menu,longest
