@@ -15,7 +15,7 @@ set iskeyword+=-                                      " dashes as part of word o
 set nohlsearch                                        " disables highlighted search results (so annoying)
 
 """ MOUSE
-set mouse=a                                           " enable mouse support
+" set mouse=a                                           " enable mouse support
 
 " Fix tmux vs vim mouse conflicts (eg: split resize doesn't work anymore)
 if has("mouse_sgr")
