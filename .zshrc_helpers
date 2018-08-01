@@ -104,12 +104,12 @@ alias tml="tmux list-sessions"
 alias f="fzf"
 alias fp='fzf --preview "head -$LINES {}"'
 
-function agvim  {
+function age {
     CHOICE=$(ag --color $* | fzf -0 -1 --ansi)
 
     if [ -n "$CHOICE" ]
     then
-        nvim $(echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') 
+        $EDITOR $(echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') 
     fi
 }
 
@@ -146,3 +146,9 @@ function livereload {
     fswatch -o $pathToWatch | xargs -n1 -I {} osascript -e "tell application \"$browser\" to tell the active tab of its first window to reload"
 }
 
+# Google Chrome for remote control (Chrome Dev Tools Protocol)
+alias gcdt='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir=/tmp/google_chrome_dev_tools_profile --remote-debugging-port=9222 http://localhost:9222 &'
+
+# Chromium bundled with puppeteer for remote control (Chrome Dev Tools Protocol)
+alias cmdt='node_modules/puppeteer/.local-chromium/mac-575458/chrome-mac/Chromium.app/Contents/MacOS/Chromium
+--user-data-dir=/tmp/chromium_dev_tools_profile --remote-debugging-port=9222 http://localhost:9222 &'
