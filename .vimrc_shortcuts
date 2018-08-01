@@ -1,23 +1,34 @@
 " Key mappings
-nnoremap <leader>b :Buffers<CR>|                    " Fuzzy finder: Buffers
-nnoremap <leader>o :Files<CR>|                      " Fuzzy finder: Files
-nnoremap <leader>p :GFiles<CR>|                     " Fuzzy finder: Files (git ls style)
-nnoremap <leader>h :History<CR>|                    " Fuzzy finder: History
-nnoremap <leader>m :Marks<CR>|                      " Fuzzy finder: Marks
-nnoremap <leader>n :NERDTreeToggle<CR>|             " File tree: Toggle
-nnoremap <leader>f :NERDTreeFind<CR>|               " File tree: Locate current file
-nnoremap <leader><leader> :b#<CR>|                  " Buffers: Toggle current buffer with last opened one
-nnoremap <leader>qq :q<CR>|                         " Exit: close current
-nnoremap <leader>,q :qa<CR>|                        " Exit: close all
-nnoremap <leader>s :%s///g<left><left><left>|       " Find/replace: will put cursor in position to add search criteria
-nnoremap <leader>ws :%s/<C-R><C-W>//g<left><left>|  " Find/replace: word under cursor (will put cursor in position to add replacement)
-nnoremap <leader>g :Ag <C-R><C-W>|                  " Grep: word under cursor
-nnoremap <leader>t :TagbarToggle<CR>|               " Symbol explorer: toggle
-nnoremap <leader>u :GitGutterUndoHunk<CR>|          " GitGutter: undo hunk under cursor
-nnoremap <leader>c :GitGutterStageHunk<CR>|         " GitGutter: stage hunk under cursor
-nnoremap <leader>,n :set relativenumber!<CR>|       " Line numbers: toggle relative line numbers
-nnoremap <leader>,l :set cursorline!<CR>|           " Highlight: line
-nnoremap <leader>,c :set cursorcolumn!<CR>|         " Highlitht: column
-inoremap <C-Space> <C-x><C-o>|                      " Omni completion
-inoremap <C-F> <C-x><C-f>|                          " File completion
+nnoremap <leader><leader> :b#<CR>|                   " Buffers: Toggle current buffer with last opened one
+
+nnoremap <leader>b :Buffers<CR>|                     " Fuzzy finder: Buffers
+nnoremap <leader>o :Files<CR>|                       " Fuzzy finder: Files
+nnoremap <leader>p :GFiles<CR>|                      " Fuzzy finder: Files (git ls style)
+nnoremap <leader>h :History<CR>|                     " Fuzzy finder: History
+nnoremap <leader>m :Marks<CR>|                       " Fuzzy finder: Marks
+
+nnoremap <leader>n :NERDTreeToggle<CR>|              " File tree: Toggle
+nnoremap <leader>f :NERDTreeFind<CR>|                " File tree: Locate current file
+
+nnoremap <leader>qq :q<CR>|                          " Exit: close current
+nnoremap <leader>qa :qa<CR>|                         " Exit: close all
+
+nnoremap <leader>ss :%s///g<left><left><left>|       " Find/replace: will put cursor in position to add search criteria
+nnoremap <leader>sw :%s/<C-R><C-W>//g<left><left>|   " Find/replace: word under cursor (will put cursor in position to add replacement)
+
+nnoremap <leader>aa :Ag <C-R><C-W>|                  " Grep: word under cursor
+
+nnoremap <leader>tt :TagbarToggle<CR>|               " Symbol explorer: toggle
+
+nnoremap <leader>gb :GBlame<CR>|                     " Fugitive: Git blame
+nnoremap <leader>gc :GRead<CR>|                      " Fugitive: Git checkout file
+nnoremap <leader>ga :GWrite<CR>|                     " Fugitive: Git add file
+nnoremap <leader>g- :GitGutterUndoHunk<CR>|          " GitGutter: undo hunk under cursor
+nnoremap <leader>g+ :GitGutterStageHunk<CR>|         " GitGutter: stage hunk under cursor
+
+nnoremap <leader>,n :set relativenumber!<CR>|        " Line numbers: toggle relative line numbers
+nnoremap <leader>,l :set cursorline!<CR>|            " Highlight: line
+nnoremap <leader>,c :set cursorcolumn!<CR>|          " Highlitht: column
+inoremap <C-Space> <C-x><C-o>|                       " Omni completion
+inoremap <C-F> <C-x><C-f>|                           " File completion
 
