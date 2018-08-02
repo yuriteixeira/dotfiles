@@ -15,10 +15,13 @@
   path = nvim
 [alias]
   a = add
+  aa = add .
   ap = add -p
   b = branch
   c = commit -v
   ca = commit -v --amend
+  cn = commit -v -n
+  can = commit -v --amend -n
   co = checkout
   d = diff
   cl = checkout -- . && git reset --hard && git clean -idfx
