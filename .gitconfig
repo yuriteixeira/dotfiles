@@ -21,7 +21,8 @@
   ca = commit -v --amend
   co = checkout
   d = diff
-  l = log --graph --pretty='%C(red)%h%C(reset) -%C(yellow)%d%C(reset) %s %C(green)(%cr) %C(bold blue)<%an>%C(reset)'
+  cl = checkout -- . && git reset --hard && git clean -idfx
+  l = log --pretty='%C(red)%h %C(reset)%s %C(bold blue)%an, %C(green)%cr%C(yellow)%d %C(reset)'
   lo = log
   p = push
   pf = push --force-with-lease
