@@ -1,18 +1,13 @@
 
 ### Git
-alias gs='gst'
-alias gclean="git checkout -- . && git reset --hard && git clean -idfx"
-alias gd="git diff HEAD"
-alias gu='gup'
+alias gclean="git "
 
-# https://gist.github.com/akatrevorjay/9fc061e8371529c4007689a696d33c62
-# https://asciinema.org/a/101366
-git-fshow() {
+# Git log with preview
+#
+# Based on https://gist.github.com/akatrevorjay/9fc061e8371529c4007689a696d33c62
+glp() {
 	local g=(
-		git log
-		--graph
-		--format='%C(auto)%h%d %s %C(white)%C(bold)%cr'
-		--color=always
+		git log --color=always --pretty='%C(red)%h %C(reset)%s %C(bold blue)%an, %C(green)%cr%C(yellow)%d %C(reset)'
 		"$@"
 	)
 
