@@ -50,6 +50,10 @@ set complete=.,w,b,u
 set completeopt=menu,longest
 set omnifunc=syntaxcomplete#Complete
 
+" Goyo activates Limelight
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
 """ OPTIMISATIONS 
 
 " Python based plugins might slow startup, this should fix it
