@@ -76,7 +76,7 @@ function upgrade {
   ~/.tmux/plugins/tpm/bin/update_plugins all
 
   echo ">>> Docker cleanup"
-  docker system prune
+  docker system prune -f
 }
 
 function drl {
