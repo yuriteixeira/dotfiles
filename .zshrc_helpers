@@ -72,9 +72,6 @@ function upgrade {
   echo ">>> Pip 3"
   pip3 freeze | cut -d = -f 1 | xargs -n1 pip install -U 
 
-  echo ">>> Nvim Plugins"
-  nvr --remote-send ':PlugUpgrade | :PlugUpdate<CR> | q | :qa<CR>'
-
   echo ">>> Tmux Plugins"
   ~/.tmux/plugins/tpm/bin/update_plugins all
 
