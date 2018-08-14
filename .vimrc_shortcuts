@@ -1,4 +1,3 @@
-" Key mappings
 nnoremap <leader><leader> :b#<CR>|                   " Buffers: Toggle current buffer with last opened one
 
 nnoremap <leader>b :Buffers<CR>|                     " Fuzzy finder: Buffers
@@ -26,9 +25,13 @@ nnoremap <leader>ga :GWrite<CR>|                     " Fugitive: Git add file
 nnoremap <leader>g- :GitGutterUndoHunk<CR>|          " GitGutter: undo hunk under cursor
 nnoremap <leader>g+ :GitGutterStageHunk<CR>|         " GitGutter: stage hunk under cursor
 
-nnoremap <leader>,n :set relativenumber!<CR>|        " Line numbers: toggle relative line numbers
-nnoremap <leader>,l :set cursorline!<CR>|            " Highlight: line
-nnoremap <leader>,c :set cursorcolumn!<CR>|          " Highlitht: column
+nnoremap <leader>g :Goyo<CR>|                        " Focus: toggle prose mode
+nnoremap <leader>l :Limelight!!<CR>|                 " Focus: toggle prose mode
+
+nnoremap <leader>;n :set relativenumber!<CR>|        " Line numbers: toggle relative line numbers
+nnoremap <leader>;hl :set cursorline!<CR>|           " Highlight: line
+nnoremap <leader>;hc :set cursorcolumn!<CR>|         " Highlight: column
+
 inoremap <C-Space> <C-x><C-o>|                       " Omni completion
 inoremap <C-F> <C-x><C-f>|                           " File completion
 

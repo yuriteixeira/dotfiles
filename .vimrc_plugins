@@ -19,11 +19,10 @@ Plug 'christoomey/vim-tmux-navigator'                    " Tmux/Vim seamless nav
 Plug 'junegunn/goyo.vim'                                 " Distraction-free prose writting 
 Plug 'junegunn/limelight.vim'                            " Highlight only the current paragraph
 
-" Language 
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }       " Go lang
+" Programming language 
 Plug 'mattn/emmet-vim'                                   " HTML with Emmet (formerly Zencoding)
 
-" Syntax support
+" Syntax highlight
 Plug 'dzeban/vim-log-syntax'                             " Log files syntax
 Plug 'martinda/Jenkinsfile-vim-syntax'                   " Jenkinsfile syntax
 Plug 'mxw/vim-jsx'                                       " JSX syntax support
