@@ -6,8 +6,9 @@ nnoremap <leader>p :GFiles<CR>|                      " Fuzzy finder: Files (git 
 nnoremap <leader>h :History<CR>|                     " Fuzzy finder: History
 nnoremap <leader>m :Marks<CR>|                       " Fuzzy finder: Marks
 
-nnoremap <leader>n :NERDTreeToggle<CR>|              " File tree: Toggle
-nnoremap <leader>f :NERDTreeFind<CR>|                " File tree: Locate current file
+nnoremap <C-n> :NERDTreeToggle<CR>|                  " File tree: Toggle
+nnoremap <C-_> :NERDTreeFind<CR>|                    " File tree: Locate current file (C-_ actually means C-/)
+nnoremap <C-t> :TagbarToggle<CR>|                    " Symbol explorer: toggle
 
 nnoremap <leader>qq :q<CR>|                          " Exit: close current
 nnoremap <leader>qa :qa<CR>|                         " Exit: close all
@@ -16,16 +17,13 @@ nnoremap <leader>ss :%s///g<left><left><left>|       " Find/replace: will put cu
 nnoremap <leader>sw :%s/<C-R><C-W>//g<left><left>|   " Find/replace: word under cursor (will put cursor in position to add replacement)
 
 nnoremap <leader>aa :Ag <C-R><C-W>|                  " Grep: word under cursor
-
-nnoremap <leader>tt :TagbarToggle<CR>|               " Symbol explorer: toggle
-
 nnoremap <leader>gb :GBlame<CR>|                     " Fugitive: Git blame
 nnoremap <leader>gc :GRead<CR>|                      " Fugitive: Git checkout file
 nnoremap <leader>ga :GWrite<CR>|                     " Fugitive: Git add file
 nnoremap <leader>g- :GitGutterUndoHunk<CR>|          " GitGutter: undo hunk under cursor
 nnoremap <leader>g+ :GitGutterStageHunk<CR>|         " GitGutter: stage hunk under cursor
 
-nnoremap <leader>g :Goyo<CR>|                        " Focus: toggle prose mode
+nnoremap <leader>f :Goyo<CR>|                        " Focus: toggle prose mode
 nnoremap <leader>l :Limelight!!<CR>|                 " Focus: toggle prose mode
 
 nnoremap <leader>;n :set relativenumber!<CR>|        " Line numbers: toggle relative line numbers
