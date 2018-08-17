@@ -47,7 +47,7 @@ au BufEnter * if(exists('b:winview')) | call winrestview(b:winview)
 
 " Omni completion
 set complete=.,w,b,u
-set completeopt=menu,longest
+set completeopt=menu,longest,preview
 set omnifunc=syntaxcomplete#Complete
 
 " Goyo activates Limelight
