@@ -30,6 +30,6 @@ nnoremap <leader>;n :set relativenumber!<CR>|        " Line numbers: toggle rela
 nnoremap <leader>;hl :set cursorline!<CR>|           " Highlight: line
 nnoremap <leader>;hc :set cursorcolumn!<CR>|         " Highlight: column
 
-inoremap <C-Space> <C-x><C-o>|                       " Omni completion
+inoremap <C-Space> <C-p>|                            " Word completion
 inoremap <C-F> <C-x><C-f>|                           " File completion
 
