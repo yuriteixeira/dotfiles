@@ -33,3 +33,4 @@
   ri = rebase -i
   rl = reflog
   s = status
+  h = log --follow -p --
