@@ -12,5 +12,6 @@ source ~/.zshrc_fzf
 source ~/.zshrc_autojump
 source ~/.zshrc_spaceship
 source ~/.zshrc_git
+source ~/.zshrc_tmux
 
 [ -f ~/.zshrc_private ] && source ~/.zshrc_private
