@@ -120,5 +120,6 @@ function! s:ZoomToggle() abort
         let t:zoomed = 1
     endif
 endfunction
+
 command! ZoomToggle call s:ZoomToggle()
-nnoremap <leader>z :ZoomToggle<CR>
+nnoremap <leader>,, :ZoomToggle<CR>

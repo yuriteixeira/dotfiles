@@ -11,7 +11,8 @@ nnoremap <C-_> :NERDTreeFind<CR>|                    " File tree: Locate current
 nnoremap <C-t> :TagbarToggle<CR>|                    " Symbol explorer: toggle
 
 nnoremap <leader>qq :q<CR>|                          " Exit: close current
-nnoremap <leader>qa :qa<CR>|                         " Exit: close all
+nnoremap <leader>zz :wqa<CR>|                        " Exit: write and close all
+nnoremap <leader>zq :qa!<CR>|                        " Exit: close all, saves nothing
 
 nnoremap <leader>ss :%s///g<left><left><left>|       " Find/replace: will put cursor in position to add search criteria
 nnoremap <leader>sw :%s/<C-R><C-W>//g<left><left>|   " Find/replace: word under cursor (will put cursor in position to add replacement)
@@ -30,6 +31,6 @@ nnoremap <leader>;n :set relativenumber!<CR>|        " Line numbers: toggle rela
 nnoremap <leader>;hl :set cursorline!<CR>|           " Highlight: line
 nnoremap <leader>;hc :set cursorcolumn!<CR>|         " Highlight: column
 
-inoremap <C-Space> <C-p>|                            " Word completion
-inoremap <C-F> <C-x><C-f>|                           " File completion
+inoremap <C-Space> <C-n>|                            " Word completion
+inoremap <C-f> <C-x><C-f>|                           " File completion
 
