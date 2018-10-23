@@ -29,6 +29,8 @@
   cn = commit -v -n # no hooks
   can = commit -v --amend -n
   co = checkout
+  re = reset
+  rh = reset HEAD
   d = diff
   dc = diff --cached
   cl = checkout -- . && git reset --hard && git clean -idfx
