@@ -45,5 +45,6 @@
   u = pull --rebase
   f = fetch
   fa = fetch --all
+  fo = fetch origin
 
   cl = checkout -- . && git reset --hard && git clean -idfx
