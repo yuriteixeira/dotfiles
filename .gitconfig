@@ -33,7 +33,6 @@
   rh = reset HEAD
   d = diff
   dc = diff --cached
-  cl = checkout -- . && git reset --hard && git clean -idfx
   l = log --pretty='%C(red)%h %C(reset)%s %C(bold blue)%an, %C(green)%cr%C(yellow)%d %C(reset)' # usually my favorite format
   lo = log # default format (more info)
   p = push
@@ -46,3 +45,5 @@
   u = pull --rebase
   f = fetch
   fa = fetch --all
+
+  cl = checkout -- . && git reset --hard && git clean -idfx
