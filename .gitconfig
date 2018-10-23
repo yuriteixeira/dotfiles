@@ -18,19 +18,23 @@
   aa = add .
   ap = add -p
   b = branch
-  c = commit -v
+  c = commit -v # with diff
   ca = commit -v --amend
-  cn = commit -v -n
+  cn = commit -v -n # no hooks
   can = commit -v --amend -n
   co = checkout
   d = diff
+  dc = diff --cached
   cl = checkout -- . && git reset --hard && git clean -idfx
-  l = log --pretty='%C(red)%h %C(reset)%s %C(bold blue)%an, %C(green)%cr%C(yellow)%d %C(reset)'
-  lo = log
+  l = log --pretty='%C(red)%h %C(reset)%s %C(bold blue)%an, %C(green)%cr%C(yellow)%d %C(reset)' # usually my favorite format
+  lo = log # default format (more info)
   p = push
-  pf = push --force-with-lease
+  pf = push --force-with-lease # checks for same parent commit on origin before 
   r = rebase
   ri = rebase -i
   rl = reflog
   s = status
-  h = log --follow -p --
+  h = log --follow -p -- # history of a file
+  u = pull --rebase
+  f = fetch
+  fa = fetch --all
