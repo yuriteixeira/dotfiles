@@ -5,14 +5,16 @@
   default = current
 [pull]
   default = current
-[color "diff"]
-  meta = yellow bold
 [rebase]
   autosquash = true
 [merge]
   tool = vimdiff
 [mergetool]
   path = nvim
+
+[color "diff"]
+  meta = yellow bold
+
 [alias]
   a = add
   aa = add .
