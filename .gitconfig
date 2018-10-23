@@ -7,10 +7,14 @@
   default = current
 [rebase]
   autosquash = true
+
+[diff]
+  tool = nvim-diff
 [merge]
-  tool = vimdiff
-[mergetool]
-  path = nvim
+  tool = nvim-diff
+  conflictstyle = diff3
+[mergetool "nvim-diff"]
+  cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
 [color "diff"]
   meta = yellow bold
