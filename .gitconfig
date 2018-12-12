@@ -29,8 +29,6 @@
   cn = commit -v -n # no hooks
   can = commit -v --amend -n
   co = checkout
-  re = reset
-  rh = reset HEAD
   d = diff
   dc = diff --cached
   l = log --pretty='%C(red)%h %C(reset)%s %C(bold blue)%an, %C(green)%cr%C(yellow)%d %C(reset)' # usually my favorite format
