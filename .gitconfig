@@ -34,6 +34,7 @@
   l = log --pretty='%C(red)%h %C(reset)%s %C(bold blue)%an, %C(green)%cr%C(yellow)%d %C(reset)' # usually my favorite format
   lo = log # default format (more info)
   p = push
+  pu = push -u
   pf = push --force-with-lease # checks for same parent commit on origin before 
   r = rebase
   ri = rebase -i
