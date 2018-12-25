@@ -161,3 +161,26 @@ alias cmdt='node_modules/puppeteer/.local-chromium/mac-575458/chrome-mac/Chromiu
 function gh-clone {
     git clone git@github.com:$@.git
 }
+
+# Convert CLDC from PC to Mac
+# https://github.com/rscustom/rocksmith-custom-song-toolkit/wiki/Batch-Convert-CDLC-for-macOS
+function rsconvert {
+	echo ">>> Starting CLDC conversion..."
+  songsFolder=~/Downloads
+  rocksmithToolkitLocation=/Applications/RocksmithCustomSongToolkit.app
+  appId=248750 # Cherub Rock - https://github.com/rscustom/rocksmith-custom-song-toolkit/blob/master/RocksmithToolkitLib/RocksmithToolkitLib.SongAppId.xml
+  monoPath=$(which mono)
+  monoPath=/Library/Frameworks/Mono.framework/Versions/Current/bin/mono
+
+  # Delete already existing mac songs from download folder which do not work
+  find $songsFolder -name "*_m.psarc" -exec rm {} \;
+
+  # Convert the songs from pc to mac format in same folder
+  find $songsFolder -name "*_p.psarc" -exec $monoPath $rocksmithToolkitLocation/Contents/Resources/cdlcconverter.exe -s Pc -t Mac --appid $appId -i {} \;
+
+  # Move to CLDC folder
+  # find $songsFolder -name "*_m.psarc" -exec mv {} $HOME/Library/Application\ Support/Steam/steamapps/common/Rocksmith2014/dlc \;
+
+	echo ">>> DONE!"
+}
+
