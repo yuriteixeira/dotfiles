@@ -117,6 +117,20 @@ function age {
     fi
 }
 
+# watch (time based, not file change based)
+function watch {
+    time=$1
+    shift
+
+		while :; 
+		do 
+				clear
+				date
+				$@
+				sleep $time
+		done
+}
+
 # fswatch
 alias fw="fswatch -r -o -t -x -l 2"
 
