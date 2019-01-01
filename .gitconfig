@@ -37,7 +37,9 @@
   pu = push -u
   pf = push --force-with-lease # checks for same parent commit on origin before 
   r = rebase
+  rom = rebase origin/master
   ri = rebase -i
+  ri = rebase -i origin/master
   rl = reflog
   s = status
   h = log --follow -p -- # history of a file
@@ -45,5 +47,4 @@
   f = fetch
   fa = fetch --all
   fo = fetch origin
-
   cl = checkout -- . && git reset --hard && git clean -idfx
