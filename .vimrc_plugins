@@ -27,6 +27,7 @@ Plug 'dzeban/vim-log-syntax'                             " Log files syntax
 Plug 'martinda/Jenkinsfile-vim-syntax'                   " Jenkinsfile syntax
 Plug 'mxw/vim-jsx'                                       " JSX syntax support
 Plug 'pangloss/vim-javascript'                           " JS syntax support
+Plug 'ap/vim-css-color'                                  " Show the color of every color string (also auto-completes?)
 
 call plug#end()
 
