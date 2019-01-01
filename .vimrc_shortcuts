@@ -29,6 +29,7 @@ nnoremap <leader>g+ :GitGutterStageHunk<CR>|         " GitGutter: stage hunk und
 nnoremap <leader>f :Goyo<CR>|                        " Focus: toggle prose mode
 nnoremap <leader>l :Limelight!!<CR>|                 " Focus: toggle prose mode
 
+nnoremap <leader>w :set nowrap!<CR>|                 " Line wrap: toggle
 nnoremap <leader>;n :set relativenumber!<CR>|        " Line numbers: toggle relative line numbers
 nnoremap <leader>;hl :set cursorline!<CR>|           " Highlight: line
 nnoremap <leader>;hc :set cursorcolumn!<CR>|         " Highlight: column
