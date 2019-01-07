@@ -15,7 +15,7 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'      " Ubiquitous anf fast f
 Plug 'ludovicchabant/vim-gutentags'                      " CTags auto-updater
 Plug 'tmux-plugins/vim-tmux-focus-events'                " Fix FocusGained and FocusLost when using tmux (https://github.com/tmux-plugins/vim-tmux-focus-events) 
 Plug 'kshenoy/vim-signature'                             " Show marks on gutter
-"Plug 'christoomey/vim-tmux-navigator'                    " Tmux/Vim seamless navigation
+Plug 'christoomey/vim-tmux-navigator'                    " Tmux/Vim seamless navigation
 Plug 'junegunn/goyo.vim'                                 " Distraction-free prose writting 
 Plug 'junegunn/limelight.vim'                            " Highlight only the current paragraph
 
