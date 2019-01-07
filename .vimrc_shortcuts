@@ -14,6 +14,7 @@ nnoremap <C-_> :NERDTreeFind<CR>|                    " File tree: Locate current
 nnoremap <C-t> :TagbarToggle<CR>|                    " Symbol explorer: toggle
 
 nnoremap <leader>qq :q<CR>|                          " Exit: close current
+nnoremap <leader>qa :windo lcl\|ccl<CR>|             " Exit: close all around current
 nnoremap <leader>zz :wqa<CR>|                        " Exit: write and close all
 nnoremap <leader>zq :qa!<CR>|                        " Exit: close all, saves nothing
 
