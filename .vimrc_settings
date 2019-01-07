@@ -13,6 +13,7 @@ set timeout timeoutlen=5000 ttimeoutlen=100           " fix shift + o delay
 let mapleader=" "                                     " maps leader to space
 set iskeyword+=-                                      " dashes as part of word object
 set nohlsearch                                        " disables highlighted search results (so annoying)
+hi CursorLine term=bold cterm=bold
 
 """ MOUSE
 set mouse=a                                           " enable mouse support
