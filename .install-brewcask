@@ -1,26 +1,26 @@
+1password
 adobe-acrobat-reader
-alfred                  # File launcher + automation
-android-platform-tools  
+alfred
+android-platform-tools
 android-sdk
-authy                   # 2-factor auth client that syncs to the cloud
+authy
 docker
+drop-to-gif
 firefox
 google-chrome
 google-cloud-sdk
-imageoptim              
+imageoptim
 intellij-idea
-iterm2                  # Best terminal client (even though after tmux, I'm not depending on it's features much)
+iterm2
 java8
-jdiskreport             # Disk usage analyser
-karabiner-elements      # Keyboard hacks for 
-lastpass                # Password manager
-qlmarkdown              # Quick look previews for markdown files
-qlstephen               # Quick look previews for plain text files
-screenhero              # Remote pair programming
+jdiskreport
+karabiner-elements
+qlmarkdown
+qlstephen
+screenhero
 sketch
-sourcetree              # Better than gitk
-spectacle               # Window manager
-spotify 
-teamviewer              # Remote access
-virtualbox
-xquartz                 # Gimp dependency (or any X based app)
+sourcetree
+spectacle
+spotify
+teamviewer
+xquartz

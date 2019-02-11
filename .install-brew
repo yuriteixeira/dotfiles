@@ -1,10 +1,11 @@
 autojump                                            # move between dirs fast
+bat                                                 # cat with syntax highlight + line-numbers + scrolling, etc
 fpp                                                 # pipe output with paths, ui to select file will appear, can open edit and run cmds
 fswatch                                             # file system watcher, do something when changes are detected
 fzf                                                 # fuzzy search all the things (even inside vim)
 git                                       
-go
 htop                                                # better top
+imagemagick                                         # image manipulation
 jq                                                  # format and manipulate json outputs
 n                                                   # better nvm (choose node versions)
 ncdu                                                # disk report (like jdisk report, but cli)
@@ -14,4 +15,4 @@ reattach-to-user-namespace                          # tmux + system clipboards t
 the_silver_searcher                                 # better than grep
 tmux                                                # terminal multi-plexing and automation (screen replacement)
 universal-ctags/universal-ctags/universal-ctags     # a ctags that is actually maintained 
-watch                                               # time based watcher
+yarn                                                # node package manager
