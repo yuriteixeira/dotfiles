@@ -66,23 +66,21 @@ function upgrade {
   yarn global upgrade
 
   echo ""
-  echo ">>> Composer (Global)"
-  composer global update
-
-  echo ""
-  echo ">>> Pip 2"
-  pip2 freeze | cut -d = -f 1 | xargs -n1 pip install -U 
-
-  echo ">>> Pip 3"
-  pip3 freeze | cut -d = -f 1 | xargs -n1 pip install -U 
-
-  echo ""
   echo ">>> Tmux Plugins"
   ~/.tmux/plugins/tpm/bin/update_plugins all
 
   echo ""
   echo ">>> Docker cleanup"
   docker system prune -f
+
+  echo ""
+  echo ">>> Google Cloud CLI"
+  yes | gcloud components update
+
+  echo ""
+  echo ">>> Other updates"
+  git -C ~/.config/base16-fzf pull
+  git -C ~/.config/base16-shell pull
 }
 
 function drl {
