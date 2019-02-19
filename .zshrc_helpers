@@ -43,6 +43,13 @@ alias pip3deps='python3 -m pipdeptree | grep -v "\s -"'
 alias pip2upgrade='pip2 freeze | cut -d = -f 1 | xargs -n1 pip2 install -U'
 alias pip3upgrade='pip3 freeze | cut -d = -f 1 | xargs -n1 pip3 install -U'
 
+### Git
+alias g="git"
+
+function gh-clone {
+    git clone git@github.com:$@.git
+}
+
 ### Docker, Kubernetes and Google Cloud Platform
 alias d=docker
 alias di='docker images'
@@ -176,11 +183,6 @@ alias gcdt='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --use
 # Chromium bundled with puppeteer for remote control (Chrome Dev Tools Protocol)
 alias cmdt='node_modules/puppeteer/.local-chromium/mac-575458/chrome-mac/Chromium.app/Contents/MacOS/Chromium
 --user-data-dir=/tmp/chromium_dev_tools_profile --remote-debugging-port=9222 http://localhost:9222 &'
-
-# Github Git Clone
-function gh-clone {
-    git clone git@github.com:$@.git
-}
 
 # Convert CLDC from PC to Mac
 # https://github.com/rscustom/rocksmith-custom-song-toolkit/wiki/Batch-Convert-CDLC-for-macOS
