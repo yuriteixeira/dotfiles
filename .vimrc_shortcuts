@@ -40,3 +40,4 @@ inoremap <C-Space> <C-n>|                            " Word completion
 inoremap <C-f> <C-x><C-f>|                           " File completion
 
 command MarksReset delm! | delm A-Z0-9               " Delete all marks
+command RemoveTrailingSpaces %s/\s\+$//e             " Yes, that thing
