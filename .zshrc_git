@@ -1,10 +1,5 @@
 # Alias for the aliases (yeah, I'm THAT lazy!)
-alias ga='git ap'
-alias gs='git s'
-alias gd='git d'
-alias gu='git pull --rebase'
 alias gl='glp'
-alias gc='git cn'
 
 # Git log with preview
 #
