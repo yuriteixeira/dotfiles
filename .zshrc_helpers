@@ -43,11 +43,12 @@ alias pip3deps='python3 -m pipdeptree | grep -v "\s -"'
 alias pip2upgrade='pip2 freeze | cut -d = -f 1 | xargs -n1 pip2 install -U'
 alias pip3upgrade='pip3 freeze | cut -d = -f 1 | xargs -n1 pip3 install -U'
 
-# Docker & Kubernetes
+### Docker, Kubernetes and Google Cloud Platform
 alias d=docker
 alias di='docker images'
 alias dc="docker-compose"
 alias k="kubectl"
+alias gc="gcloud"
 
 function drl {
     registry=$1
