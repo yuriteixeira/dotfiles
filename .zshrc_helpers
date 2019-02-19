@@ -110,6 +110,15 @@ function age {
     fi
 }
 
+function agx {
+    CHOICE=$(ag --color $* | fzf -0 -1 --ansi)
+
+    if [ -n "$CHOICE" ]
+    then
+        echo $CHOICE | cut -d ":" -f 1
+    fi
+}
+
 # watch (time based, not file change based)
 function watch {
     time=$1
