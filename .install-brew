@@ -3,7 +3,8 @@ bat                                                 # cat with syntax highlight 
 fpp                                                 # pipe output with paths, ui to select file will appear, can open edit and run cmds
 fswatch                                             # file system watcher, do something when changes are detected
 fzf                                                 # fuzzy search all the things (even inside vim)
-git                                       
+git                                                 # The DVCS!
+gnu-sed                                             # Mac sed sucks
 htop                                                # better top
 imagemagick                                         # image manipulation
 jq                                                  # format and manipulate json outputs
