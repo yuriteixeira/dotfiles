@@ -30,11 +30,6 @@ alias b=brew
 alias bc="brew cask"
 
 # NodeJS / Yarn
-
-# Use of eval was needed to expand $NODE_OPTIONS in multiple arguments for docker run
-# See more: https://stackoverflow.com/questions/7454526/bash-variable-containing-multiple-args-with-quotes
-alias nsh='eval docker run -it -v $PWD:/mnt/app:cached -w /mnt/app $NODE_OPTIONS node:$NODE_VERSION'
-
 alias y='yarn'
 alias yg='yarn global'
 
