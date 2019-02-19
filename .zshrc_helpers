@@ -106,7 +106,7 @@ function age {
 
     if [ -n "$CHOICE" ]
     then
-        $EDITOR $(echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') 
+        e -p $(echo "$CHOICE" | awk 'BEGIN { FS=":" } { printf "+%d %s\n", $2, $1 } ') 
     fi
 }
 
