@@ -1,6 +1,6 @@
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 
-plugins=(common-aliases git vi-mode)
+plugins=(common-aliases vi-mode)
 
 source ~/.zshrc_env
 source $ZSH/oh-my-zsh.sh
