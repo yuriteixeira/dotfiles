@@ -71,7 +71,6 @@ function upgrade {
   brew upgrade
   brew cask outdated | xargs -n1 brew cask reinstall
   brew cleanup
-  brew prune
 
   echo ""
   echo ">>> Yarn (Global)"
