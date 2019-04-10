@@ -4,7 +4,7 @@ alias pdot='git --git-dir=$HOME/.private.dotfiles.git/ --work-tree=$HOME'
 
 # Common commands improvement
 alias a="alias"
-alias p="ps aux"
+alias pa="ps aux"
 alias e=$EDITOR
 alias ip='ifconfig | grep "inet " | grep -v 127.0.0.1 | grep -v 169 | cut -d\  -f2'
 alias h="head"
@@ -24,7 +24,7 @@ alias rpf="source ~/.zshrc"
 alias hosts="sudo $EDITOR /etc/hosts"
 
 # Important directories (aliases and working directories)
-alias pj="cd $PROJECTS_HOME"
+alias p="cd $PROJECTS_HOME"
 
 ### Package managers
 
