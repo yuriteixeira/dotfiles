@@ -67,6 +67,11 @@ function drl {
 # Update them all
 function upgrade {
   echo ""
+  echo ">>> Dot files"
+  dot pull --rebase
+  dot push
+
+  echo ""
   echo ">>> Brew / Brew Cask"
   brew update
   brew upgrade
