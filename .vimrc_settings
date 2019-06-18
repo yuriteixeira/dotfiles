@@ -57,6 +57,13 @@ set omnifunc=syntaxcomplete#Complete
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
+" Snippets
+let g:ultisnips_javascript = {
+     \ 'keyword-spacing': 'always',
+     \ 'semi': 'never',
+     \ 'space-before-function-paren': 'never',
+     \ }
+
 """ OPTIMISATIONS 
 
 " Python based plugins might slow startup, this should fix it
