@@ -29,6 +29,7 @@
   cn = commit -v -n # no hooks
   can = commit -v --amend -n
   co = checkout
+  com = checkout master
   d = diff
   dc = diff --cached
   l = log --pretty='%C(red)%h %C(reset)%s %C(bold blue)%an, %C(green)%cr%C(yellow)%d %C(reset)' # usually my favorite format
@@ -39,7 +40,6 @@
   r = rebase
   rom = rebase origin/master
   ri = rebase -i
-  ri = rebase -i origin/master
   rl = reflog
   s = status
   h = log --follow -p -- # history of a file
