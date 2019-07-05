@@ -53,18 +53,38 @@ set complete=.,w,b,u
 set completeopt=menu,longest,preview
 set omnifunc=syntaxcomplete#Complete
 
-" Goyo activates Limelight
-autocmd! User GoyoEnter Limelight
-autocmd! User GoyoLeave Limelight!
+""" HELPERS
 
-" Snippets
-let g:ultisnips_javascript = {
-     \ 'keyword-spacing': 'always',
-     \ 'semi': 'never',
-     \ 'space-before-function-paren': 'never',
-     \ }
+" Zoom / Restore window.
+function! s:ZoomToggle() abort
+    if exists('t:zoomed') && t:zoomed
+        execute t:zoom_winrestcmd
+        let t:zoomed = 0
+    else
+        let t:zoom_winrestcmd = winrestcmd()
+        resize
+        vertical resize
+        let t:zoomed = 1
+    endif
+endfunction
+
+command! ZoomToggle call s:ZoomToggle()
+
+" Zoom / Restore window.
+function! s:ZoomToggle() abort
+    if exists('t:zoomed') && t:zoomed
+        execute t:zoom_winrestcmd
+        let t:zoomed = 0
+    else
+        let t:zoom_winrestcmd = winrestcmd()
+        resize
+        vertical resize
+        let t:zoomed = 1
+    endif
+endfunction
+
+command! ZoomToggle call s:ZoomToggle()
 
 """ OPTIMISATIONS 
-
 " Python based plugins might slow startup, this should fix it
 " To profile startup: https://github.com/bchretien/vim-profiler
