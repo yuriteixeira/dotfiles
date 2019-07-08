@@ -5,8 +5,7 @@ nnoremap <leader>,, :ZoomToggle<CR>                  " Toggle zoom to current wi
 
 nnoremap <leader>b :Buffers<CR>|                     " Fuzzy finder: Buffers
 nnoremap <leader>o :Files<CR>|                       " Fuzzy finder: Files
-nnoremap <leader>p :GFiles<CR>|                      " Fuzzy finder: Files (git ls style)
-nnoremap <leader>h :History<CR>|                     " Fuzzy finder: History
+nnoremap <leader>p :History<CR>|                     " Fuzzy finder: History
 nnoremap <leader>m :Marks<CR>|                       " Fuzzy finder: Marks
 
 nnoremap <C-n> :NERDTreeToggle<CR>|                  " File tree: Toggle
@@ -21,17 +20,20 @@ nnoremap <leader>zq :qa!<CR>|                        " Exit: close all, saves no
 nnoremap <leader>ss :%s///g<left><left><left>|       " Find/replace: will put cursor in position to add search criteria
 nnoremap <leader>sw :%s/<C-R><C-W>//g<left><left>|   " Find/replace: word under cursor (will put cursor in position to add replacement)
 
-nnoremap <leader>aa :Ag <C-R><C-W>|                  " Grep: word under cursor
+nnoremap <leader>aa :Ag |                            " Grep: word under cursor
+nnoremap <leader>aw :Ag <C-R><C-W>|                  " Grep: word under cursor
+
+nnoremap <leader>go :GFiles<CR>|                     " Fuzzy finder: Files (git ls style)
 nnoremap <leader>gb :GBlame<CR>|                     " Fugitive: Git blame
 nnoremap <leader>gc :GRead<CR>|                      " Fugitive: Git checkout file
 nnoremap <leader>ga :GWrite<CR>|                     " Fugitive: Git add file
 nnoremap <leader>g- :GitGutterUndoHunk<CR>|          " GitGutter: undo hunk under cursor
 nnoremap <leader>g+ :GitGutterStageHunk<CR>|         " GitGutter: stage hunk under cursor
 
-nnoremap <leader>f :Goyo<CR>|                        " Focus: toggle prose mode
-nnoremap <leader>l :Limelight!!<CR>|                 " Focus: toggle prose mode
+nnoremap <leader>;f :Goyo<CR>|                       " Focus: toggle prose mode
+nnoremap <leader>;l :Limelight!!<CR>|                " Focus: toggle prose mode
 
-nnoremap <leader>w :set nowrap!<CR>|                 " Line wrap: toggle
+nnoremap <leader>;w :set nowrap!<CR>|                " Line wrap: toggle
 nnoremap <leader>;n :set relativenumber!<CR>|        " Line numbers: toggle relative line numbers
 nnoremap <leader>;hl :set cursorline!<CR>|           " Highlight: line
 nnoremap <leader>;hc :set cursorcolumn!<CR>|         " Highlight: column

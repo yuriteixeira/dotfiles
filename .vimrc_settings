@@ -3,7 +3,7 @@ syntax on
 filetype indent on                                    " activates indenting for files
 set backspace=2                                       " backspace in insert mode works like normal editor
 set autoindent                                        
-set number                                            " line numbers
+set nonumber                                          " no line numbers
 set ruler                                             " show current line and column
 set nobackup                                          " get rid of anoying ~file
 set noswapfile                                        " no swap files
@@ -13,6 +13,7 @@ let mapleader=" "                                     " maps leader to space
 set iskeyword+=-                                      " dashes as part of word object
 set nohlsearch                                        " disables highlighted search results (so annoying)
 set hidden                                            " keeps buffer history even after you toggle between buffers
+set cursorline                                        " highlights selected line
 hi CursorLine term=bold cterm=bold
 
 """ MOUSE
@@ -53,21 +54,6 @@ set completeopt=menu,longest,preview
 set omnifunc=syntaxcomplete#Complete
 
 """ HELPERS
-
-" Zoom / Restore window.
-function! s:ZoomToggle() abort
-    if exists('t:zoomed') && t:zoomed
-        execute t:zoom_winrestcmd
-        let t:zoomed = 0
-    else
-        let t:zoom_winrestcmd = winrestcmd()
-        resize
-        vertical resize
-        let t:zoomed = 1
-    endif
-endfunction
-
-command! ZoomToggle call s:ZoomToggle()
 
 " Zoom / Restore window.
 function! s:ZoomToggle() abort
