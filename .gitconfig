@@ -33,13 +33,13 @@
   d = diff
   dc = diff --cached
   l = log --pretty='%C(red)%h %C(reset)%s %C(bold blue)%an, %C(green)%cr%C(yellow)%d %C(reset)' # usually my favorite format
-  lo = log # default format (more info)
-  p = push
-  pu = push -u
+  lo = log # default format (comes with more info)
+  p = push -u
   pf = push --force-with-lease # checks for same parent commit on origin before 
   r = rebase
   rom = rebase origin/master
   ri = rebase -i
+  riom = rebase -i origin/master
   rl = reflog
   s = status
   h = log --follow -p -- # history of a file
@@ -47,4 +47,6 @@
   f = fetch
   fa = fetch --all
   fo = fetch origin
+  forom = fetch origin && git rebase origin/master
+  foriom = fetch origin && git rebase -i origin/master
   cl = checkout -- . && git reset --hard && git clean -idfx
