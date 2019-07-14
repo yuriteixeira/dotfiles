@@ -7,6 +7,13 @@ export EDITOR='nvim -p'
 export DOTFILES='github.com/yuriteixeira/dotfiles'
 export PROJECTS_HOME=$HOME/src
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
+export TIMEFMT='%J   %U  user %S system %P cpu %*E total'$'\n'\
+'avg shared (code):         %X KB'$'\n'\
+'avg unshared (data/stack): %D KB'$'\n'\
+'total (sum):               %K KB'$'\n'\
+'max memory:                %M MB'$'\n'\
+'page faults from disk:     %F'$'\n'\
+'other page faults:         %R'
 
 if [[ "$(uname)" == "Darwin" ]] then
     export LC_ALL=en_US.UTF-8
