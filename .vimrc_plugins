@@ -19,7 +19,7 @@ Plug 'christoomey/vim-tmux-navigator'                    " Tmux/Vim seamless nav
 Plug 'junegunn/goyo.vim'                                 " Distraction-free prose writting 
 Plug 'junegunn/limelight.vim'                            " Highlight only the current paragraph
 
-" Programming language 
+" Language support
 Plug 'mattn/emmet-vim'                                   " HTML with Emmet (formerly Zencoding)
 
 " Syntax highlight
@@ -37,45 +37,39 @@ Plug 'honza/vim-snippets'
 
 call plug#end()
 
-" Auto-save
-let g:auto_save=1
+"""""""""""""  PLUGIN CONFIGS
 
-" Emmet
-let g:user_emmet_leader_key='<C-X>'
+""" Auto-save
+let g:auto_save = 1
 
-" JSX
-let g:jsx_ext_required=0
+""" Emmet
+let g:user_emmet_leader_key = '<C-X>'
 
-" TagBar 
+""" JSX
+let g:jsx_ext_required = 0
+
+""" TagBar 
 let g:tagbar_autoclose = 1
 let g:tagbar_autofocus = 1
 let g:tagbar_compact = 1
 let g:tagbar_show_visibility = 1
 let g:tagbar_autopreview = 0
 
-let g:tagbar_type_php  = {
-  \ 'ctagstype' : 'php',
-  \ 'kinds'     : [
-      \ 'i:interfaces',
-      \ 'c:classes',
-      \ 'd:constant definitions',
-      \ 'f:functions',
-  \ ]
-\ }
-
-" NerdTree
+""" NerdTree
 let NERDTreeShowHidden = 1
 let NERDTreeQuitOnOpen = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeWinSize=40 
+let g:NERDTreeWinSize = 40 
+
+" Ensure closing nerdtree when exiting (closing all buffers)
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")) | q | endif
 
-" FZF (https://github.com/junegunn/fzf.vim#command-local-options)
+""" FZF (https://github.com/junegunn/fzf.vim#command-local-options)
 let g:fzf_buffers_jump = 1
 
-" Customize fzf colors to match your color scheme
+""" Customize fzf colors to match your color scheme
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -94,42 +88,32 @@ let g:fzf_colors =
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
 
-" command! -bang -nargs=* Ag
-"   \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview(), <bang>0)
-
-" Augmenting Ag command using fzf#vim#with_preview function
-"   * fzf#vim#with_preview([[options], preview window, [toggle keys...]])
-"     * For syntax-highlighting, Ruby and any of the following tools are required:
-"       - Highlight: http://www.andre-simon.de/doku/highlight/en/highlight.php
-"       - CodeRay: http://coderay.rubychan.de/
-"       - Rouge: https://github.com/jneen/rouge
-"
-"   :Ag  - Start fzf with hidden preview window that can be enabled with "?" key
-"   :Ag! - Start fzf in fullscreen and display the preview window above
+"""   :Ag  - Start fzf with hidden preview window that can be enabled with "?""" key
+"""   :Ag! - Start fzf in fullscreen and display the preview window above
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>,
   \                 <bang>0 ? fzf#vim#with_preview('up:60%')
   \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
   \                 <bang>0)
 
-" Airline
-let g:airline_left_sep=''
-let g:airline_right_sep=''
-set laststatus=2
+""" Airline
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+set laststatus = 2
 set noshowmode
-set ttimeoutlen=50
+set ttimeoutlen = 50
 
-" Gutentag
-set statusline+=%{gutentags#statusline()}
+""" Gutentag
+set statusline += %{gutentags#statusline()}
 
-" Vim-gutter
+""" Vim-gutter
 let g:gitgutter_map_keys = 1
 
-" Goyo activates Limelight
+""" Goyo activates Limelight
 autocmd! User GoyoEnter Limelight
 autocmd! User GoyoLeave Limelight!
 
-" Snippets
+""" Snippets
 let g:ultisnips_javascript = {
      \ 'keyword-spacing': 'always',
      \ 'semi': 'never',
