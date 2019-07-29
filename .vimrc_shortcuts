@@ -28,7 +28,6 @@ nnoremap <C-t> :TagbarToggle<CR>|                    " Symbol explorer: toggle
 nnoremap <leader>qq :q<CR>|                          " Exit: close current
 nnoremap <leader>qa :windo lcl\|ccl<CR>|             " Exit: close all around current
 nnoremap <leader>zz :wqa<CR>|                        " Exit: write and close all
-nnoremap <leader>zq :qa!<CR>|                        " Exit: close all, saves nothing
 
 nnoremap <leader>ss :%s///g<left><left><left>|       " Find/replace: will put cursor in position to add search criteria
 nnoremap <leader>sw :%s/<C-R><C-W>//g<left><left>|   " Find/replace: word under cursor (will put cursor in position to add replacement)
