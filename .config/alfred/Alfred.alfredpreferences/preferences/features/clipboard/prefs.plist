@@ -23,5 +23,7 @@
 	<integer>2</integer>
 	<key>persistForImages</key>
 	<integer>1</integer>
+	<key>viewerKeyword</key>
+	<string>clip</string>
 </dict>
 </plist>
