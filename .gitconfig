@@ -43,8 +43,9 @@
   ri = rebase -i
   riom = rebase -i origin/master
   rl = reflog
+  ch = cherry-pick
   s = status
-  h = log --follow -p -- # history of a file
+  h = log --follow -p -M --stat  # history of a file
   u = pull --rebase
   f = fetch
   fa = fetch --all
