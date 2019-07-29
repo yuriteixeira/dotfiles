@@ -1,6 +1,15 @@
 command MarksReset delm! | delm A-Z0-9               " Delete all marks
 command RemoveTrailingSpaces %s/\s\+$//e             " Yes, that thing
 
+command PathFull let @+ = expand("%:p")              " full path
+nnoremap <leader>ff :PathFull<CR>|
+
+command PathRel let @+ = expand("%")                 " relative path
+nnoremap <leader>fr :PathRel<CR>|
+
+command PathFilename let @+ = expand("%:t")          " just filename
+nnoremap <leader>fn :PathName<CR>|
+
 nnoremap <leader><leader> :b#<CR>|                   " Buffers: Toggle current buffer with last opened one
 nnoremap <leader>t gt<CR>|                           " Tab next
 nnoremap <leader>T gT<CR>|                           " Tab previous
