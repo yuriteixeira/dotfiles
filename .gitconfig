@@ -29,7 +29,7 @@
   c = commit -v # with diff
   ca = commit -v --amend
   cn = commit -v -n # no hooks
-  can = commit -v --amend -n
+  can = commit -v --amend --no-edit
   co = checkout
   com = checkout master
   d = diff
