@@ -1,6 +1,7 @@
 command MarksReset delm! | delm A-Z0-9               " Delete all marks
 command RemoveTrailingSpaces %s/\s\+$//e             " Yes, that thing
 
+" Paths
 command PathFull let @+ = expand("%:p")              " full path
 nnoremap <leader>ff :PathFull<CR>|
 
@@ -19,9 +20,8 @@ vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
 nnoremap <leader><leader> :b#<CR>|                   " Buffers: Toggle current buffer with last opened one
-nnoremap <leader>t gt<CR>|                           " Tab next
-nnoremap <leader>T gT<CR>|                           " Tab previous
-nnoremap <leader>,, :ZoomToggle<CR>                  " Toggle zoom to current window split
+nnoremap <C-l> gt<CR>|                               " Tab next
+nnoremap <C-h> gT<CR>|                               " Tab previous
 
 nnoremap <leader>b :Buffers<CR>|                     " Fuzzy finder: Buffers
 nnoremap <leader>o :Files<CR>|                       " Fuzzy finder: Files
@@ -29,34 +29,19 @@ nnoremap <leader>p :History<CR>|                     " Fuzzy finder: History
 nnoremap <leader>m :Marks<CR>|                       " Fuzzy finder: Marks
 
 nnoremap <C-x> :Vexplore<CR>|                        " File tree (Bundled): Show
-nnoremap <C-n> :NERDTreeToggle<CR>|                  " File tree (NERDTree): Toggle
-nnoremap <C-_> :NERDTreeFind<CR>|                    " File tree (NERDTree): Locate current file (C-_ actually means C-/)
-nnoremap <C-t> :TagbarToggle<CR>|                    " Symbol explorer: toggle
+nnoremap <leader>z :ZoomToggle<CR>                   " Toggle zoom to current window split
 
-nnoremap <leader>qq :q<CR>|                          " Exit: close current
-nnoremap <leader>qa :windo lcl\|ccl<CR>|             " Exit: close all around current
-nnoremap <leader>zz :wqa<CR>|                        " Exit: write and close all
+nnoremap <leader>qq :qa<CR>|                          " Exit: close current
 
 nnoremap <leader>ss :%s///g<left><left><left>|       " Find/replace: will put cursor in position to add search criteria
 nnoremap <leader>sw :%s/<C-R><C-W>//g<left><left>|   " Find/replace: word under cursor (will put cursor in position to add replacement)
 
-nnoremap <leader>aa :Ag |                            " Grep: word under cursor
-nnoremap <leader>aw :Ag <C-R><C-W>|                  " Grep: word under cursor
+nnoremap <leader>a :Ag <C-R><C-W>|                   " Grep: word under cursor
 
-nnoremap <leader>go :GFiles<CR>|                     " Fuzzy finder: Files (git ls style)
-nnoremap <leader>gb :GBlame<CR>|                     " Fugitive: Git blame
-nnoremap <leader>gc :GRead<CR>|                      " Fugitive: Git checkout file
-nnoremap <leader>ga :GWrite<CR>|                     " Fugitive: Git add file
-nnoremap <leader>g- :GitGutterUndoHunk<CR>|          " GitGutter: undo hunk under cursor
-nnoremap <leader>g+ :GitGutterStageHunk<CR>|         " GitGutter: stage hunk under cursor
+nnoremap <leader>cw :set nowrap!<CR>|                " Line wrap: toggle
+nnoremap <leader>cn :set relativenumber!<CR>|        " Line numbers: toggle relative line numbers
+nnoremap <leader>chl :set cursorline!<CR>|           " Highlight: line
+nnoremap <leader>chc :set cursorcolumn!<CR>|         " Highlight: column
 
-nnoremap <leader>;f :Goyo<CR>|                       " Focus: toggle prose mode
-nnoremap <leader>;l :Limelight!!<CR>|                " Focus: toggle prose mode
-
-nnoremap <leader>;w :set nowrap!<CR>|                " Line wrap: toggle
-nnoremap <leader>;n :set relativenumber!<CR>|        " Line numbers: toggle relative line numbers
-nnoremap <leader>;hl :set cursorline!<CR>|           " Highlight: line
-nnoremap <leader>;hc :set cursorcolumn!<CR>|         " Highlight: column
-
-inoremap <C-Space> <C-n>|                            " Word completion
+inoremap <C-Space> <C-p>|                            " Word completion
 inoremap <C-f> <C-x><C-f>|                           " File completion
