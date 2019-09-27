@@ -20,8 +20,6 @@ vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
 nnoremap <leader><leader> :b#<CR>|                   " Buffers: Toggle current buffer with last opened one
-nnoremap <C-l> gt<CR>|                               " Tab next
-nnoremap <C-h> gT<CR>|                               " Tab previous
 
 nnoremap <leader>b :Buffers<CR>|                     " Fuzzy finder: Buffers
 nnoremap <leader>o :Files<CR>|                       " Fuzzy finder: Files
@@ -45,3 +43,4 @@ nnoremap <leader>chc :set cursorcolumn!<CR>|         " Highlight: column
 
 inoremap <C-Space> <C-p>|                            " Word completion
 inoremap <C-f> <C-x><C-f>|                           " File completion
+
