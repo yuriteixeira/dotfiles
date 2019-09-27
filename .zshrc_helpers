@@ -8,8 +8,7 @@ alias a="alias"
 alias pa="ps aux"
 alias e=$EDITOR
 alias ip='ifconfig | grep "inet " | grep -v 127.0.0.1 | grep -v 169 | cut -d\  -f2'
-alias h="head"
-alias t="tail"
+alias t="touch"
 alias m="more"
 
 # Open profile with editor
