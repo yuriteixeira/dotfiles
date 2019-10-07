@@ -218,3 +218,6 @@ function rsconvert {
 	echo ">>> DONE!"
 }
 
+# JENV Activation
+eval "$(jenv init -)"
+
