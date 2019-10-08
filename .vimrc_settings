@@ -1,20 +1,19 @@
 """ GENERAL
-syntax on                                   
-filetype indent on                                    " activates indenting for files
-set backspace=2                                       " backspace in insert mode works like normal editor
-set autoindent                                        
-set nonumber                                          " no line numbers
-set ruler                                             " show current line and column
-set nobackup                                          " get rid of anoying ~file
-set noswapfile                                        " no swap files
-set clipboard=unnamed                                 " access to operational system clibboard
-set timeout timeoutlen=5000 ttimeoutlen=100           " fix shift + o delay
-let mapleader=" "                                     " maps leader to space
-set iskeyword+=-                                      " dashes as part of word object
-set nohlsearch                                        " disables highlighted search results (so annoying)
-set hidden                                            " keeps buffer history even after you toggle between buffers
-set cursorline                                        " highlights selected line
-hi CursorLine term=bold cterm=bold
+syntax on
+filetype indent on                                                        " activates indenting for files
+set backspace=2                                                           " backspace in insert mode works like normal editor
+set autoindent
+set nonumber                                                              " no line numbers
+set ruler                                                                 " show current line and column
+set nobackup                                                              " get rid of anoying ~file
+set noswapfile                                                            " no swap files
+set clipboard=unnamed                                                     " access to operational system clibboard
+set timeout timeoutlen=5000 ttimeoutlen=100                               " fix shift + o delay
+let mapleader=" "                                                         " maps leader to space
+set iskeyword+=-                                                          " dashes as part of word object
+set nohlsearch                                                            " disables highlighted search results (so annoying)
+set hidden                                                                " keeps buffer history even after you toggle between buffers
+set cursorline                                                            " highlights selected line
 
 """ MOUSE
 set mouse=a                                           " enable mouse support
