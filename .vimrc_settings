@@ -14,6 +14,8 @@ set iskeyword+=-                                                          " dash
 set nohlsearch                                                            " disables highlighted search results (so annoying)
 set hidden                                                                " keeps buffer history even after you toggle between buffers
 set cursorline                                                            " highlights selected line
+set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»   " invisible characters
+
 
 """ MOUSE
 set mouse=a                                           " enable mouse support
