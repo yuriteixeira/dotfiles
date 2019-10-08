@@ -12,6 +12,8 @@ Plug 'airblade/vim-gitgutter'                            " Git: show changes on 
 Plug 'kshenoy/vim-signature'                             " Show marks on gutter
 Plug 'tmux-plugins/vim-tmux-focus-events'                " Fix FocusGained and FocusLost when using tmux (https://github.com/tmux-plugins/vim-tmux-focus-events)
 Plug 'christoomey/vim-tmux-navigator'                    " Tmux/Vim seamless navigation
+Plug 'junegunn/goyo.vim'                                 " Distraction-free prose writting
+Plug 'junegunn/limelight.vim'                            " Highlight only the current paragraph
 
 " Syntax highlight
 Plug 'mxw/vim-jsx'                                       " JSX syntax support
