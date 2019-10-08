@@ -1,5 +1,6 @@
 command MarksReset delm! | delm A-Z0-9               " Delete all marks
 command RemoveTrailingSpaces %s/\s\+$//e             " Yes, that thing
+command Focus set fcs=eob:\ | Goyo | Limelight | set nocul " Focus mode
 
 " Paths
 command PathFull let @+ = expand("%:p")              " full path
