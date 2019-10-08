@@ -1,18 +1,20 @@
-command MarksReset delm! | delm A-Z0-9               " Delete all marks
-command RemoveTrailingSpaces %s/\s\+$//e             " Yes, that thing
 command Focus set fcs=eob:\ | Goyo | Limelight | set nocul " Focus mode
 
-" Paths
-command PathFull let @+ = expand("%:p")              " full path
+command MarksReset delm! | delm A-Z0-9                     " Delete all marks
+
+command RemoveTrailingSpaces %s/\s\+$//e                   " Yes, that thing
+
+""" Paths
+command PathFull let @+ = expand("%:p")                    " Full path
 nnoremap <leader>ff :PathFull<CR>|
 
-command PathRel let @+ = expand("%")                 " relative path
+command PathRel let @+ = expand("%")                       " Relative path
 nnoremap <leader>fr :PathRel<CR>|
 
-command PathFilename let @+ = expand("%:t")          " just filename
+command PathFilename let @+ = expand("%:t")                " Just filename
 nnoremap <leader>fn :PathName<CR>|
 
-" Indenting with Tab
+""" Indenting with Tab
 " https://vim.fandom.com/wiki/Shifting_blocks_visually
 nnoremap <Tab> >>_
 nnoremap <S-Tab> <<_
@@ -20,28 +22,23 @@ inoremap <S-Tab> <C-D>
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
-nnoremap <leader><leader> :b#<CR>|                   " Buffers: Toggle current buffer with last opened one
+nnoremap <leader><leader> :b#<CR>|                         " Buffers: Toggle current buffer with last opened one
 
-nnoremap <leader>b :Buffers<CR>|                     " Fuzzy finder: Buffers
-nnoremap <leader>o :Files<CR>|                       " Fuzzy finder: Files
-nnoremap <leader>p :History<CR>|                     " Fuzzy finder: History
-nnoremap <leader>m :Marks<CR>|                       " Fuzzy finder: Marks
+nnoremap <leader>b :Buffers<CR>|                           " Fuzzy finder: Buffers
+nnoremap <leader>o :Files<CR>|                             " Fuzzy finder: Files
+nnoremap <leader>p :History<CR>|                           " Fuzzy finder: History
+nnoremap <leader>m :Marks<CR>|                             " Fuzzy finder: Marks
 
-nnoremap <C-x> :Vexplore<CR>|                        " File tree (Bundled): Show
-nnoremap <leader>z :ZoomToggle<CR>                   " Toggle zoom to current window split
+nnoremap <C-x> :Vexplore<CR>|                              " File tree (Bundled): Show
+nnoremap <leader>z :ZoomToggle<CR>                         " Toggle zoom to current window split
 
-nnoremap <leader>qq :qa<CR>|                          " Exit: close current
+nnoremap <leader>qq :qa<CR>|                               " Exit: close current
 
-nnoremap <leader>ss :%s///g<left><left><left>|       " Find/replace: will put cursor in position to add search criteria
-nnoremap <leader>sw :%s/<C-R><C-W>//g<left><left>|   " Find/replace: word under cursor (will put cursor in position to add replacement)
+nnoremap <leader>ss :%s///g<left><left><left>|             " Find/replace: will put cursor in position to add search criteria
+nnoremap <leader>sw :%s/<C-R><C-W>//g<left><left>|         " Find/replace: word under cursor (will put cursor in position to add replacement)
 
-nnoremap <leader>a :Ag <C-R><C-W>|                   " Grep: word under cursor
+nnoremap <leader>a :Ag <C-R><C-W>|                         " Grep: word under cursor
 
-nnoremap <leader>cw :set nowrap!<CR>|                " Line wrap: toggle
-nnoremap <leader>cn :set relativenumber!<CR>|        " Line numbers: toggle relative line numbers
-nnoremap <leader>chl :set cursorline!<CR>|           " Highlight: line
-nnoremap <leader>chc :set cursorcolumn!<CR>|         " Highlight: column
-
-inoremap <C-Space> <C-p>|                            " Word completion
-inoremap <C-f> <C-x><C-f>|                           " File completion
+inoremap <C-Space> <C-p>|                                  " Word completion
+inoremap <C-f> <C-x><C-f>|                                 " File completion
 

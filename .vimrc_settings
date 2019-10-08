@@ -78,6 +78,6 @@ endfunction
 
 command! ZoomToggle call s:ZoomToggle()
 
-""" OPTIMISATIONS 
+""" OPTIMISATIONS
 " Python based plugins might slow startup, this should fix it
 " To profile startup: https://github.com/bchretien/vim-profiler
