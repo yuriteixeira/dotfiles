@@ -1,4 +1,4 @@
-command Focus set fcs=eob:\ | Goyo | Limelight | set nocul " Focus mode
+command! Focus set fcs=eob:\ | Goyo | Limelight!! | set nocul " Focus mode
 
 command MarksReset delm! | delm A-Z0-9                     " Delete all marks
 
