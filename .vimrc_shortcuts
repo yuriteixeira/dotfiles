@@ -31,6 +31,7 @@ nnoremap <leader>m :Marks<CR>|                             " Fuzzy finder: Marks
 
 nnoremap <C-x> :Vexplore<CR>|                              " File tree (Bundled): Show
 nnoremap <leader>z :ZoomToggle<CR>                         " Toggle zoom to current window split
+nnoremap <leader>h :set list!<CR>                          " Toggle hidden characters
 
 nnoremap <leader>qq :qa<CR>|                               " Exit: close current
 
