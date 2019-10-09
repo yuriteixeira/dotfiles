@@ -210,9 +210,13 @@
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>218 451 928 394 0 0 1440 877 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>0 0 1440 900 0 0 1440 877 </string>
+	<string>0 0 1920 1080 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>0 430 650 627 0 0 1920 1057 </string>
+	<key>NeverWarnAboutShortLivedSessions_BF1B3553-FA47-431A-9B6D-38B46E932A73</key>
+	<true/>
+	<key>NeverWarnAboutShortLivedSessions_BF1B3553-FA47-431A-9B6D-38B46E932A73_selection</key>
+	<integer>0</integer>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -804,7 +808,7 @@
 			<key>Thin Strokes</key>
 			<integer>4</integer>
 			<key>Transparency</key>
-			<real>0.031372937817258882</real>
+			<real>0.11719344860406092</real>
 			<key>Unicode Version</key>
 			<integer>8</integer>
 			<key>Unlimited Scrollback</key>
@@ -848,9 +852,9 @@
 	<key>NoSyncFrame_SharedPreferences</key>
 	<dict>
 		<key>screenFrame</key>
-		<string>{{0, 0}, {1440, 900}}</string>
+		<string>{{0, 0}, {1920, 1080}}</string>
 		<key>topLeft</key>
-		<string>{510, 877}</string>
+		<string>{269, 595}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -863,7 +867,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>510834809.80345201</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>40</integer>
+	<integer>42</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1684,7 +1688,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-10-07T13:05:21Z</date>
+	<date>2019-10-08T13:05:21Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
