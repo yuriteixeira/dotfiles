@@ -204,7 +204,7 @@
 	<key>NSWindow Frame NSFontPanel</key>
 	<string>561 258 445 77 0 0 1440 900 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>410 363 620 392 0 0 1440 877 </string>
+	<string>650 498 620 392 0 0 1920 1057 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>1709 425 606 456 1440 286 1920 1058 </string>
 	<key>NSWindow Frame SharedPreferences</key>
@@ -212,7 +212,7 @@
 	<key>NSWindow Frame iTerm Window 0</key>
 	<string>0 0 1920 1080 0 0 1920 1057 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>0 430 650 627 0 0 1920 1057 </string>
+	<string>0 0 1440 900 0 0 1440 877 </string>
 	<key>NeverWarnAboutShortLivedSessions_BF1B3553-FA47-431A-9B6D-38B46E932A73</key>
 	<true/>
 	<key>NeverWarnAboutShortLivedSessions_BF1B3553-FA47-431A-9B6D-38B46E932A73_selection</key>
@@ -808,7 +808,7 @@
 			<key>Thin Strokes</key>
 			<integer>4</integer>
 			<key>Transparency</key>
-			<real>0.11719344860406092</real>
+			<real>0.041901967005076139</real>
 			<key>Unicode Version</key>
 			<integer>8</integer>
 			<key>Unlimited Scrollback</key>
@@ -841,6 +841,7 @@
 		<string>3.3.4</string>
 		<string>3.3.5</string>
 		<string>3.3.3</string>
+		<string>3.3.6</string>
 	</array>
 	<key>NoSyncBFPRecents</key>
 	<array>
@@ -854,7 +855,7 @@
 		<key>screenFrame</key>
 		<string>{{0, 0}, {1920, 1080}}</string>
 		<key>topLeft</key>
-		<string>{269, 595}</string>
+		<string>{231, 845}</string>
 	</dict>
 	<key>NoSyncHaveRequestedFullDiskAccess</key>
 	<true/>
@@ -867,7 +868,7 @@
 	<key>NoSyncLastTipTime</key>
 	<real>510834809.80345201</real>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>42</integer>
+	<integer>45</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1688,7 +1689,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2019-10-08T13:05:21Z</date>
+	<date>2019-10-21T09:26:04Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateRelaunchingMarker</key>
@@ -1723,6 +1724,6 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.3.5</string>
+	<string>3.3.6</string>
 </dict>
 </plist>
