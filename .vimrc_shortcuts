@@ -40,6 +40,7 @@ nnoremap <leader>h :set list!<CR>                          " Toggle hidden chara
 nnoremap <leader>ss :%s///g<left><left><left>|             " Find/replace: will put cursor in position to add search criteria
 nnoremap <leader>sw :%s/<C-R><C-W>//g<left><left>|         " Find/replace: word under cursor (will put cursor in position to add replacement)
 nnoremap <leader>a :Ag <C-R><C-W>|                         " Grep: word under cursor
+nnoremap <leader>t :Tags <C-R><C-W>|                       " CTags
 
 """ Completion
 inoremap <C-Space> <C-p>|                                  " Word completion
