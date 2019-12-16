@@ -1,19 +1,33 @@
-autojump                                            # move between dirs fast
-bat                                                 # cat with syntax highlight + line-numbers + scrolling, etc
-fpp                                                 # pipe output with paths, ui to select file will appear, can open edit and run cmds
-fswatch                                             # file system watcher, do something when changes are detected
-fzf                                                 # fuzzy search all the things (even inside vim)
-git                                                 # The DVCS!
-gnu-sed                                             # Mac sed sucks
-htop                                                # better top
-imagemagick                                         # image manipulation
-jq                                                  # format and manipulate json outputs
-n                                                   # better nvm (choose node versions)
-ncdu                                                # disk report (like jdisk report, but cli)
-neovim                                              # vim improved XD
-parallel                                            # pipe a list to it and run things in parallel
-reattach-to-user-namespace                          # tmux + system clipboards together
-the_silver_searcher                                 # better than grep
-tmux                                                # terminal multi-plexing and automation (screen replacement)
-universal-ctags/universal-ctags/universal-ctags     # a ctags that is actually maintained 
-yarn                                                # node package manager
+autojump
+automake
+awscli
+bat
+cookiecutter
+docutils
+fpp
+fswatch
+fzf
+git
+gnu-sed
+grpcurl
+spotify/public/helios-solo
+spotify/sptaps/hmtools
+htop
+imagemagick
+jemalloc
+jenv
+maven
+n
+ncdu
+neovim
+parallel
+pkg-config
+protobuf
+python@2
+reattach-to-user-namespace
+spotify/sptaps/techdocs-cli
+the_silver_searcher
+tmux
+tree
+universal-ctags/universal-ctags/universal-ctags
+urlview
