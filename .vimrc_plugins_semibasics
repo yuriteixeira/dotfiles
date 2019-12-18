@@ -15,7 +15,8 @@ Plug 'christoomey/vim-tmux-navigator'                    " Tmux/Vim seamless nav
 Plug 'junegunn/goyo.vim'                                 " Distraction-free prose writting
 Plug 'junegunn/limelight.vim'                            " Highlight only the current paragraph
 
-" Syntax highlight
+" Syntax support
+Plug 'mattn/emmet-vim'                                   " HTML with Emmet (formerly Zencoding)
 Plug 'mxw/vim-jsx'                                       " JSX syntax support
 Plug 'pangloss/vim-javascript'                           " JS syntax support
 Plug 'herringtondarkholme/yats.vim'                      " TypeScript
