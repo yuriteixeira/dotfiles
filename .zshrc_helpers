@@ -221,3 +221,5 @@ function rsconvert {
 # JENV Activation
 eval "$(jenv init -)"
 
+# Facebook FPP
+alias x='fpp'
