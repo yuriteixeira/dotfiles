@@ -3,7 +3,7 @@ syntax on
 filetype indent on                                                        " activates indenting for files
 set backspace=2                                                           " backspace in insert mode works like normal editor
 set autoindent
-set nonumber                                                              " no line numbers
+set number                                                                " line numbers
 set ruler                                                                 " show current line and column
 set nobackup                                                              " get rid of anoying ~file
 set noswapfile                                                            " no swap files

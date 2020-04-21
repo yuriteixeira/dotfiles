@@ -1,6 +1,6 @@
 command! Focus set fcs=eob:\ | Goyo | Limelight!! | set nocul " Focus mode
 command MarksReset delm! | delm A-Z0-9                        " Delete all marks
-command RemoveTrailingSpaces %s/\s\+$//e                      " Yes, that thing
+command TrimTrailingSpaces %s/\s\+$//e                        " Remove all trailing spaces from file
 
 """ Paths
 command PathFull let @+ = expand("%:p")                       " Full path
