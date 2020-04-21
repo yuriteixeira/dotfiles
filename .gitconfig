@@ -3,16 +3,20 @@
   autocrlf = input
 [push]
   default = current
+
 [pull]
   default = current
+
 [rebase]
   autosquash = true
 
 [diff]
   tool = nvim-diff
+
 [merge]
   tool = nvim-diff
   conflictstyle = diff3
+
 [mergetool "nvim-diff"]
   cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
@@ -20,36 +24,50 @@
   meta = yellow bold
 
 [alias]
-  a = add
-  aa = add .
-  ap = add -p
-  st = stash
-  stu = stash -u
-  b = branch
-  c = commit -v # with diff
-  ca = commit -v --amend
-  cn = commit -v -n # no hooks
-  can = commit -v --amend --no-edit
-  co = checkout
-  com = checkout master
-  d = diff
-  dc = diff --cached
-  l = log --pretty='%C(red)%h %C(reset)%s %C(bold blue)%an, %C(green)%cr%C(yellow)%d %C(reset)' # usually my favorite format
-  lo = log # default format (comes with more info)
-  p = push -u
-  pf = push --force-with-lease # checks for same parent commit on origin before 
-  r = rebase
-  rom = rebase origin/master
-  ri = rebase -i
-  riom = rebase -i origin/master
-  rl = reflog
-  ch = cherry-pick
-  s = status
-  h = log --follow -p -M --stat # history of a file
+  ### Flow
+
+  # pull stuff
   u = pull --rebase
   f = fetch
   fa = fetch --all
   fo = fetch origin
-  forom = fetch origin && git rebase origin/master
-  foriom = fetch origin && git rebase -i origin/master
+
+  # branch out
+  b = branch
+  co = checkout
+  com = checkout master
+
+  # change
+  a = add
+  ap = add -p
+  st = stash
+  c = commit -v # with diff
+  ca = commit -v --amend
+  can = commit -v --amend --no-edit
+  ch = cherry-pick
+  re = reset
+  rep = reset HEAD~
+  reom = restore origin/master
+
+  # understand
+  s = status
+  h = log --follow -p -M --stat # history of a file
+  l = log --pretty='%C(red)%h %C(reset)%s %C(bold blue)%an, %C(green)%cr%C(yellow)%d %C(reset)' # usually my favorite format
+  lo = log # default format (comes with more info)
+  rl = reflog
+  d = diff
+  dc = diff --cached
+
+  # organise
+  r = rebase
+  rom = rebase origin/master
+  ri = rebase -i
+  riom = rebase -i origin/master
+
+  # publish
+  p = push -u
+  pf = push --force-with-lease # checks for same parent commit on origin before
+
+  # clean up
   cl = checkout -- . && git reset --hard && git clean -idfx
+
