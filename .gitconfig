@@ -1,6 +1,11 @@
 [core]
   excludesfile = /Users/yuriteixeira/.gitignore_global
   autocrlf = input
+	pager = diff-so-fancy | less --tabs=4 -RFX
+
+[interactive]
+  diffFilter = (echo && diff-so-fancy)
+
 [push]
   default = current
 
