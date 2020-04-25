@@ -12,6 +12,9 @@ nnoremap <leader>fr :PathRel<CR>|
 command PathFilename let @+ = expand("%:t")                   " Just filename
 nnoremap <leader>fn :PathName<CR>|
 
+command PathDir let @+ = expand('%:p:h')                      " Just dir of file
+nnoremap <leader>fd :PathDir<CR>|
+
 """ Indenting with Tab: https://vim.fandom.com/wiki/Shifting_blocks_visually
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
@@ -19,21 +22,24 @@ vnoremap <S-Tab> <gv
 """ Navigation
 nnoremap <leader><leader> :b#<CR>|                         " Buffers: Toggle current buffer with last opened one
 nnoremap <leader>b :Buffers<CR>|                           " Fuzzy finder: Buffers
-nnoremap <leader>o :Files<CR>|                             " Fuzzy finder: Files
+nnoremap <leader>a :Files<CR>|                             " Fuzzy finder: Files
+nnoremap <leader>d :DirFiles<CR>|                          " Fuzzy finder: Files relative to current file directory
 nnoremap <leader>p :History<CR>|                           " Fuzzy finder: History
 nnoremap <leader>m :Marks<CR>|                             " Fuzzy finder: Marks
 nnoremap <leader>qq :qa<CR>|                               " Exit: close current
+nnoremap <leader>sa :Ag <C-R><C-W>|                        " Search (FZF): word under cursor
+nnoremap <leader>st :Tags <C-R><C-W>|                      " Search (FZF): CTags 
+
 nnoremap <C-x> :Vexplore<CR>|                              " File tree (Bundled): Show
+
 nnoremap <leader>z :ZoomToggle<CR>                         " Toggle zoom to current window split
 
 """ Misc
 nnoremap <leader>h :set list!<CR>                          " Toggle hidden characters
 
 """ Search / Replace
-nnoremap <leader>ss :%s///g<left><left><left>|             " Find/replace: will put cursor in position to add search criteria
-nnoremap <leader>sw :%s/<C-R><C-W>//g<left><left>|         " Find/replace: word under cursor (will put cursor in position to add replacement)
-nnoremap <leader>a :Ag <C-R><C-W>|                         " Grep: word under cursor
-nnoremap <leader>t :Tags <C-R><C-W>|                       " CTags
+nnoremap <leader>rr :%s///g<left><left><left>|             " Replace: will put cursor in position to add search criteria
+nnoremap <leader>rw :%s/<C-R><C-W>//g<left><left>|         " Replace: word under cursor (will put cursor in position to add replacement)
 
 """ Completion
 inoremap <C-Space> <C-p>|                                  " Word completion
