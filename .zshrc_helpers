@@ -11,7 +11,7 @@ alias ip='ifconfig | grep "inet " | grep -v 127.0.0.1 | grep -v 169 | cut -d\  -
 alias m="more"
 
 # Open profile with editor
-alias pf="$EDITOR \
+alias pf="nvim -p \
 ~/.zshrc \
 ~/.config/nvim/init.vim \
 ~/.tmux.conf \

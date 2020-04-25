@@ -3,7 +3,7 @@ ZSH_THEME="spaceship"
 DEFAULT_USER="$(whoami)"
 PROMPT_EOL_MARK=""
 
-export EDITOR='nvim -p'
+export EDITOR='nvim'
 export DOTFILES='github.com/yuriteixeira/dotfiles'
 export PROJECTS_HOME=$HOME/src
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
