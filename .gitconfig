@@ -52,7 +52,7 @@
   ch = cherry-pick
   re = reset
   rep = reset HEAD~
-  reom = restore origin/master
+  reom = reset origin/master
 
   # understand
   s = status
