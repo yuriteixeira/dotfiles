@@ -3,3 +3,9 @@
 BASE16_SHELL=$HOME/.config/base16-shell/
 [ -n "$PS1"  ] && [ -s $BASE16_SHELL/profile_helper.sh ] && eval "$($BASE16_SHELL/profile_helper.sh)"
 
+function b16 {
+  eval $(sort -R ~/.base16_favorites | head -n1 | sed 's/base16-//g' | xargs -I {} echo base16_{})
+  echo ""
+  echo ">>> Random favorite theme is now: $BASE16_THEME"
+  echo ""
+}
