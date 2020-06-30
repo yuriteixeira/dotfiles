@@ -37,17 +37,16 @@ set softtabstop=2                                     " sets the number of colum
 set expandtab                                         " spaces instead of tabs
 
 """ SPLITS
-set splitbelow
 set splitright
 
 """ AUTOMATION
 
 " Auto-reload .vimrc
-autocmd! bufwritepost .vimrc source %
+autocmd! BufWritePost .vimrc* source %
 
 " Keep cursor position while toggling buffers
-au BufLeave * let b:winview = winsaveview()
-au BufEnter * if(exists('b:winview')) | call winrestview(b:winview)
+autocmd BufLeave * let b:winview = winsaveview()
+autocmd BufEnter * if(exists('b:winview')) | call winrestview(b:winview)
 
 " Omni completion
 set complete=.,w,b,u

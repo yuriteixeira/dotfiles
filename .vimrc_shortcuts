@@ -1,6 +1,5 @@
 command! Focus set fcs=eob:\ | Goyo | Limelight!! | set nocul " Focus mode
 command MarksReset delm! | delm A-Z0-9                        " Delete all marks
-command TrimTrailingSpaces %s/\s\+$//e                        " Remove all trailing spaces from file
 
 """ Paths
 command PathFull let @+ = expand("%:p")                       " Full path
@@ -19,8 +18,8 @@ nnoremap <leader>fd :PathDir<CR>|
 " https://vim.fandom.com/wiki/Shifting_blocks_visually
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
-command Fix ALEFix
-command Lint ALELint
+nnoremap <leader>l :ALEFix<CR>|                           " Lint
+nnoremap <leader>f :ALEFix<CR>|                           " Fix linter issues
 
 """ Navigation
 nnoremap <leader><leader> :b#<CR>|                         " Buffers: Toggle current buffer with last opened one
@@ -30,14 +29,14 @@ nnoremap <leader>o :Files<CR>|                             " Fuzzy finder: Files
 nnoremap <leader>d :DirFiles<CR>|                          " Fuzzy finder: Files relative to current file directory
 nnoremap <leader>p :History<CR>|                           " Fuzzy finder: History
 nnoremap <leader>m :Marks<CR>|                             " Fuzzy finder: Marks
-nnoremap <leader>qq :qa<CR>|                               " Exit: close current
+nnoremap <leader>qq :q<CR>|                                " Exit: close current
+nnoremap <leader>qa :qa<CR>|                               " Exit: close all
 nnoremap <leader>sa :Ag <C-R><C-W>|                        " Search (FZF): word under cursor
 nnoremap <leader>st :Tags <C-R><C-W>|                      " Search (FZF): CTags
-
-nnoremap <C-x> :Vexplore<CR>|                              " File tree (Bundled): Show
+nnoremap <C-x> :Lexplore<CR>|                              " File tree (Bundled): Show
 
 """ Misc
-nnoremap <leader>h :set list!<CR>                          " Toggle hidden characters
+nnoremap <leader>s :set list!<CR>                          " Toggle hidden characters
 nnoremap <leader>z :ZoomToggle<CR>                         " Toggle zoom to current window split
 
 """ Search / Replace
