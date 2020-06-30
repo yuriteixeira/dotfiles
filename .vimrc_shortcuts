@@ -32,14 +32,13 @@ nnoremap <leader>p :History<CR>|                           " Fuzzy finder: Histo
 nnoremap <leader>m :Marks<CR>|                             " Fuzzy finder: Marks
 nnoremap <leader>qq :qa<CR>|                               " Exit: close current
 nnoremap <leader>sa :Ag <C-R><C-W>|                        " Search (FZF): word under cursor
-nnoremap <leader>st :Tags <C-R><C-W>|                      " Search (FZF): CTags 
+nnoremap <leader>st :Tags <C-R><C-W>|                      " Search (FZF): CTags
 
 nnoremap <C-x> :Vexplore<CR>|                              " File tree (Bundled): Show
 
-nnoremap <leader>z :ZoomToggle<CR>                         " Toggle zoom to current window split
-
 """ Misc
 nnoremap <leader>h :set list!<CR>                          " Toggle hidden characters
+nnoremap <leader>z :ZoomToggle<CR>                         " Toggle zoom to current window split
 
 """ Search / Replace
 nnoremap <leader>rr :%s///g<left><left><left>|             " Replace: will put cursor in position to add search criteria
@@ -48,4 +47,3 @@ nnoremap <leader>rw :%s/<C-R><C-W>//g<left><left>|         " Replace: word under
 """ Completion
 inoremap <C-Space> <C-n>|                                  " Word completion
 inoremap <C-f> <C-x><C-f>|                                 " File completion
-
