@@ -18,8 +18,8 @@ nnoremap <leader>fd :PathDir<CR>|
 " https://vim.fandom.com/wiki/Shifting_blocks_visually
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
-nnoremap <leader>l :ALEFix<CR>|                           " Lint
-nnoremap <leader>f :ALEFix<CR>|                           " Fix linter issues
+nnoremap <leader>c :ALELint<CR>|                           " Check lint
+nnoremap <leader>l :ALEFix<CR>|                            " Linter fixes
 
 """ Navigation
 nnoremap <leader>h :help <C-R><C-W>|                       " Provide help
@@ -34,10 +34,11 @@ nnoremap <leader>qq :q<CR>|                                " Exit: close current
 nnoremap <leader>qa :qa<CR>|                               " Exit: close all
 nnoremap <leader>sa :Ag <C-R><C-W>|                        " Search (FZF): word under cursor
 nnoremap <leader>st :Tags <C-R><C-W>|                      " Search (FZF): CTags
-nnoremap <C-x> :Lexplore<CR>|                              " File tree (Bundled): Show
+nnoremap <C-d> :Vexplore<CR>|                              " File tree (Bundled): Show current directory
+nnoremap <C-x> :Lexplore<CR>|                              " File tree (Bundled): Show all
 
 """ Misc
-nnoremap <leader>s :set list!<CR>                          " Toggle hidden characters
+nnoremap <leader>$ :set list!<CR>                          " Toggle hidden characters
 nnoremap <leader>z :ZoomToggle<CR>                         " Toggle zoom to current window split
 
 """ Search / Replace
