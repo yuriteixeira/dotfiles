@@ -15,11 +15,17 @@ Plug 'christoomey/vim-tmux-navigator'                    " Tmux/Vim seamless nav
 Plug 'junegunn/goyo.vim'                                 " Distraction-free prose writting
 Plug 'junegunn/limelight.vim'                            " Highlight only the current paragraph
 
-" Syntax support
+" Language support
 Plug 'mattn/emmet-vim'                                   " HTML with Emmet (formerly Zencoding)
 Plug 'mxw/vim-jsx'                                       " JSX syntax support
 Plug 'pangloss/vim-javascript'                           " JS syntax support
 Plug 'herringtondarkholme/yats.vim'                      " TypeScript
+Plug 'dense-analysis/ale'                                " Linter/Fixer
+
+" Snippets
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'mlaursen/vim-react-snippets'
 
 call plug#end()
 
@@ -67,6 +73,31 @@ command! -bang -nargs=* Ag
 command! -nargs=* -complete=dir Cd call fzf#run(fzf#wrap(
   \ {'source': 'find '.(empty(<q-args>) ? '.' : <q-args>).' -type d',
   \  'sink': 'cd'}))
+
+" ALE Linter/Fixer
+let g:ale_completion_enabled = 1
+let g:ale_completion_tsserver_autoimport = 1
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'typescript': ['eslint'],
+\}
+let g:ale_fixers = {
+\   '*': ['remove_trailing_lines', 'trim_whitespace'],
+\   'javascript': ['prettier'],
+\   'typescript': ['prettier'],
+\}
+let g:ale_lint_on_text_changed = 0
+let g:ale_lint_on_insert_leave = 0
+let g:ale_lint_on_enter = 0
+let g:ale_lint_on_save = 0
+let g:ale_lint_on_filetype_changed = 0
+let g:ale_fix_on_save = 0
+
+" UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
 
 
 """ Auto-save

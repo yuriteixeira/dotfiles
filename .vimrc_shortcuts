@@ -15,9 +15,12 @@ nnoremap <leader>fn :PathName<CR>|
 command PathDir let @+ = expand('%:p:h')                      " Just dir of file
 nnoremap <leader>fd :PathDir<CR>|
 
-""" Indenting with Tab: https://vim.fandom.com/wiki/Shifting_blocks_visually
+""" Formating
+" https://vim.fandom.com/wiki/Shifting_blocks_visually
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
+command Fix ALEFix
+command Lint ALELint
 
 """ Navigation
 nnoremap <leader><leader> :b#<CR>|                         " Buffers: Toggle current buffer with last opened one
