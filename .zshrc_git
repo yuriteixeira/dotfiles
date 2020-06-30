@@ -1,7 +1,9 @@
 # Alias for the aliases (yeah, I'm THAT lazy!)
+alias ga='cat ~/.gitconfig G'
 alias gl='glp'
 alias glo='gl origin/master..HEAD'
 alias glou='g fo ; glo'
+
 
 # Git log with preview
 #
