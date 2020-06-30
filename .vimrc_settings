@@ -48,6 +48,9 @@ autocmd! BufWritePost .vimrc* source %
 autocmd BufLeave * let b:winview = winsaveview()
 autocmd BufEnter * if(exists('b:winview')) | call winrestview(b:winview)
 
+" Help on vertical split
+autocmd FileType help wincmd L
+
 " Omni completion
 set complete=.,w,b,u
 set completeopt=menu,longest,preview
