@@ -11,9 +11,5 @@
 	</array>
 	<key>fallbacksMode</key>
 	<integer>1</integer>
-	<key>showFolders</key>
-	<true/>
-	<key>showTextFiles</key>
-	<true/>
 </dict>
 </plist>
