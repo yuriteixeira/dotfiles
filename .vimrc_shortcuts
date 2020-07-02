@@ -22,7 +22,7 @@ nnoremap <leader>c :ALELint<CR>|                           " Check lint
 nnoremap <leader>l :ALEFix<CR>|                            " Linter fixes
 
 """ Navigation
-nnoremap <leader>h :help <C-R><C-W>|                       " Provide help
+nnoremap <leader>? :help <C-R><C-W>|                       " Provide help
 nnoremap <leader><leader> :b#<CR>|                         " Buffers: Toggle current buffer with last opened one
 nnoremap <leader>b :Buffers<CR>|                           " Fuzzy finder: Buffers
 nnoremap <leader>a :Files<CR>|                             " Fuzzy finder: Files
