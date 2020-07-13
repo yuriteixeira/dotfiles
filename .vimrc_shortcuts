@@ -1,7 +1,7 @@
 command! Focus set fcs=eob:\ | Goyo | Limelight!! | set nocul " Focus mode
 command MarksReset delm! | delm A-Z0-9                        " Delete all marks
 
-""" Paths
+""" Filesystem
 command PathFull let @+ = expand("%:p")                       " Full path
 nnoremap <leader>ff :PathFull<CR>|
 
@@ -13,6 +13,10 @@ nnoremap <leader>fn :PathName<CR>|
 
 command PathDir let @+ = expand('%:p:h')                      " Just dir of file
 nnoremap <leader>fd :PathDir<CR>|
+
+command -nargs=* PathDirEdit edit %:p:h/<args>                " Edit file inside current dir
+nnoremap <leader>fc :PathDirEdit <C-R><C-W>|
+command -nargs=1 New PathDirEdit <args>                
 
 """ Formating
 " https://vim.fandom.com/wiki/Shifting_blocks_visually

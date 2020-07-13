@@ -21,7 +21,7 @@ set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:�
 set mouse=a                                           " enable mouse support
 set mousemodel=popup
 
-" Fix tmux vs vim mouse conflicts (eg: split resize doesn't work anymore)
+"" Fix tmux vs vim mouse conflicts (eg: split resize doesn't work anymore)
 if has("mouse_sgr")
     set ttymouse=sgr
 end
@@ -41,10 +41,10 @@ set splitright
 
 """ AUTOMATION
 
-" Auto-reload .vimrc
+"" Auto-reload .vimrc
 autocmd! BufWritePost .vimrc* source %
 
-" Keep cursor position while toggling buffers
+"" Keep cursor position while toggling buffers
 autocmd BufLeave * let b:winview = winsaveview()
 autocmd BufEnter * if(exists('b:winview')) | call winrestview(b:winview)
 
@@ -56,7 +56,7 @@ set complete=.,w,b,u
 set completeopt=menu,longest,preview
 set omnifunc=syntaxcomplete#Complete
 
-" Explorer
+"" Explorer
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
@@ -66,7 +66,7 @@ let g:netrw_keepdir = 1
 
 """ HELPERS
 
-" Zoom / Restore window.
+"" Zoom / Restore window.
 function! s:ZoomToggle() abort
     if exists('t:zoomed') && t:zoomed
         execute t:zoom_winrestcmd
@@ -82,5 +82,6 @@ endfunction
 command! ZoomToggle call s:ZoomToggle()
 
 """ OPTIMISATIONS
-" Python based plugins might slow startup, this should fix it
-" To profile startup: https://github.com/bchretien/vim-profiler
+
+"" Python based plugins might slow startup, this should fix it
+"" To profile startup: https://github.com/bchretien/vim-profiler
