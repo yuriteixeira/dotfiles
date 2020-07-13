@@ -16,7 +16,8 @@ module BrowserTabs
         'WebKit',
         'Google Chrome',
         'Google Chrome Canary',
-        'Chromium'
+        'Chromium',
+        'Brave Browser'
       ]
     end
 
