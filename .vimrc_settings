@@ -48,13 +48,12 @@ autocmd! BufWritePost .vimrc* source %
 autocmd BufLeave * let b:winview = winsaveview()
 autocmd BufEnter * if(exists('b:winview')) | call winrestview(b:winview)
 
-" Help on vertical split
-autocmd FileType help wincmd L
+"" Omni completion
+"set omnifunc=ale#completion#OmniFunc
+set completeopt=menu,menuone,longest
 
-" Omni completion
-set complete=.,w,b,u
-set completeopt=menu,longest,preview
-set omnifunc=syntaxcomplete#Complete
+"" Enter selects, Tab navigates
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "" Explorer
 let g:netrw_banner = 0
