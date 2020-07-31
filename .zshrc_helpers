@@ -34,6 +34,8 @@ alias bc="brew cask"
 # NodeJS / Yarn
 alias y='yarn'
 alias yg='yarn global'
+alias ys='yarn start'
+alias yb='yarn build'
 
 # Python / Pip
 alias pip2deps='python2 -m pipdeptree | grep -v "\s -"'
