@@ -30,7 +30,6 @@ nnoremap <leader>? :help <C-R><C-W>|                       " Provide help
 nnoremap <leader><leader> :b#<CR>|                         " Buffers: Toggle current buffer with last opened one
 nnoremap <leader>b :Buffers<CR>|                           " Fuzzy finder: Buffers
 nnoremap <leader>a :Files<CR>|                             " Fuzzy finder: Files
-nnoremap <leader>o :Files<CR>|                             " Fuzzy finder: Files
 nnoremap <leader>d :DirFiles<CR>|                          " Fuzzy finder: Files relative to current file directory
 nnoremap <leader>p :History<CR>|                           " Fuzzy finder: History
 nnoremap <leader>m :Marks<CR>|                             " Fuzzy finder: Marks
