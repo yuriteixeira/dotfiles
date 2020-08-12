@@ -49,11 +49,8 @@ autocmd BufLeave * let b:winview = winsaveview()
 autocmd BufEnter * if(exists('b:winview')) | call winrestview(b:winview)
 
 "" Omni completion
-"set omnifunc=ale#completion#OmniFunc
-set completeopt=menu,menuone,longest
-
-"" Enter selects, Tab navigates
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+set omnifunc=ale#completion#OmniFunc
+set completeopt=menuone,longest,noinsert
 
 "" Explorer
 let g:netrw_banner = 0
