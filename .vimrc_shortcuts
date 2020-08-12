@@ -22,23 +22,29 @@ command -nargs=1 New PathDirEdit <args>
 " https://vim.fandom.com/wiki/Shifting_blocks_visually
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
-nnoremap <leader>c :ALELint<CR>|                           " Check lint
-nnoremap <leader>l :ALEFix<CR>|                            " Linter fixes
+nnoremap <leader>c :ALEFix<CR>|                           " Fixer
+nnoremap <leader>l :ALELint<CR>|                          " Linter
 
 """ Navigation
 nnoremap <leader>? :help <C-R><C-W>|                       " Provide help
+
 nnoremap <leader><leader> :b#<CR>|                         " Buffers: Toggle current buffer with last opened one
 nnoremap <leader>b :Buffers<CR>|                           " Fuzzy finder: Buffers
 nnoremap <leader>a :Files<CR>|                             " Fuzzy finder: Files
 nnoremap <leader>d :DirFiles<CR>|                          " Fuzzy finder: Files relative to current file directory
 nnoremap <leader>p :History<CR>|                           " Fuzzy finder: History
 nnoremap <leader>m :Marks<CR>|                             " Fuzzy finder: Marks
+
 nnoremap <leader>qq :q<CR>|                                " Exit: close current
 nnoremap <leader>qa :qa<CR>|                               " Exit: close all
+
 nnoremap <leader>sa :Ag <C-R><C-W>|                        " Search (FZF): word under cursor
 nnoremap <leader>st :Tags <C-R><C-W>|                      " Search (FZF): CTags
-nnoremap <C-d> :Vexplore<CR>|                              " File tree (Bundled): Show current directory
-nnoremap <C-x> :Lexplore<CR>|                              " File tree (Bundled): Show all
+
+nnoremap <leader>gg :GFiles?|                              " Git: Changed files
+nnoremap <leader>gf :GFiles!?|                             " Git: Changed files (Fullscreen)
+
+nnoremap <C-t> :Lexplore<CR>|                              " File tree (Bundled): Show all
 
 """ Misc
 nnoremap <leader>$ :set list!<CR>                          " Toggle hidden characters
@@ -47,6 +53,7 @@ nnoremap <leader>z :ZoomToggle<CR>                         " Toggle zoom to curr
 """ Search / Replace
 nnoremap <leader>rr :%s///g<left><left><left>|             " Replace: will put cursor in position to add search criteria
 nnoremap <leader>rw :%s/<C-R><C-W>//g<left><left>|         " Replace: word under cursor (will put cursor in position to add replacement)
+nnoremap <leader>re :%s/\<<C-R><C-W>\>//g<left><left>|     " Replace: word under cursor (will put cursor in position to add replacement)
 
 """ Completion
 inoremap <C-Space> <C-n>|                              " Word completion
