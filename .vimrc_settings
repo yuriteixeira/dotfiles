@@ -16,7 +16,6 @@ set hidden                                                                " keep
 set cursorline                                                            " highlights selected line
 set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»   " invisible characters
 
-
 """ MOUSE
 set mouse=a                                           " enable mouse support
 set mousemodel=popup
@@ -49,7 +48,6 @@ autocmd BufLeave * let b:winview = winsaveview()
 autocmd BufEnter * if(exists('b:winview')) | call winrestview(b:winview)
 
 "" Omni completion
-set omnifunc=ale#completion#OmniFunc
 set completeopt=menuone,longest,noinsert
 
 "" Explorer

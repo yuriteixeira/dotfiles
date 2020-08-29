@@ -1,35 +1,37 @@
 command! Focus set fcs=eob:\ | Goyo | Limelight!! | set nocul " Focus mode
-command MarksReset delm! | delm A-Z0-9                        " Delete all marks
+command! MarksReset delm! | delm A-Z0-9                        " Delete all marks
 
 """ Filesystem
-command PathFull let @+ = expand("%:p")                       " Full path
+command! PathFull let @+ = expand("%:p")                       " Full path
 nnoremap <leader>ff :PathFull<CR>|
 
-command PathRel let @+ = expand("%")                          " Relative path
+command! PathRel let @+ = expand("%")                          " Relative path
 nnoremap <leader>fr :PathRel<CR>|
 
-command PathFilename let @+ = expand("%:t")                   " Just filename
+command! PathFilename let @+ = expand("%:t")                   " Just filename
 nnoremap <leader>fn :PathName<CR>|
 
-command PathDir let @+ = expand('%:p:h')                      " Just dir of file
+command! PathDir let @+ = expand('%:p:h')                      " Just dir of file
 nnoremap <leader>fd :PathDir<CR>|
 
-command -nargs=* PathDirEdit edit %:p:h/<args>                " Edit file inside current dir
+command! -nargs=* PathDirEdit edit %:p:h/<args>                " Edit file inside current dir
 nnoremap <leader>fc :PathDirEdit <C-R><C-W>|
-command -nargs=1 New PathDirEdit <args>                
 
 """ Formating
 " https://vim.fandom.com/wiki/Shifting_blocks_visually
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
-nnoremap <leader>c :ALEFix<CR>|                           " Fixer
-nnoremap <leader>l :ALELint<CR>|                          " Linter
+nnoremap <leader>cc :ALEFix<CR>|                           " Fixer
+nnoremap <leader>cl :ALELint<CR>|                          " Linter
+nnoremap <leader>cd :ALEDisable<CR>|                       " Disable ALE (useful to remove noise)
 
 """ Navigation
 nnoremap <leader>? :help <C-R><C-W>|                       " Provide help
 
 nnoremap <leader><leader> :b#<CR>|                         " Buffers: Toggle current buffer with last opened one
 nnoremap <leader>b :Buffers<CR>|                           " Fuzzy finder: Buffers
+nnoremap <leader>l :BLines<CR>|                            " Fuzzy finder: Buffer Lines
+nnoremap <leader>t :BTags<CR>|                             " Fuzzy finder: Buffer Tags
 nnoremap <leader>a :Files<CR>|                             " Fuzzy finder: Files
 nnoremap <leader>d :DirFiles<CR>|                          " Fuzzy finder: Files relative to current file directory
 nnoremap <leader>p :History<CR>|                           " Fuzzy finder: History
@@ -56,25 +58,13 @@ nnoremap <leader>rw :%s/<C-R><C-W>//g<left><left>|         " Replace: word under
 nnoremap <leader>re :%s/\<<C-R><C-W>\>//g<left><left>|     " Replace: word under cursor (will put cursor in position to add replacement)
 
 """ Completion
-inoremap <C-Space> <C-n>|                              " Word completion
-inoremap <S-Space> <C-x><C-o>|                         " Omni completion
-inoremap <C-f> <C-x><C-f>|                             " File completion
-
 " See https://vim.fandom.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
 
-" Enter selects option
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <S-Space> :ALEComplete|                       " Omni completion
+inoremap <C-Space> <C-n>|
 
-" Bettern C-n/C-Space, inside menu
+"" Word completion: pre-selects first
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
   \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <C-Space> pumvisible() ? '<C-n>' :
+inoremap <expr> <C-Space> pumvisible() ? '<C-Space>' :
   \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-
-" Menu closing previous if open and opening new menu without changing the text
-inoremap <expr> <C-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Esc>i') : '') .
-  \ '<C-x><C-o><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
-
-" Menu closing previous if open and opening new menu without changing the text
-inoremap <expr> <S-Space> (pumvisible() ? (col('.') > 1 ? '<Esc>i<Right>' : '<Esc>i') : '') .
-  \ '<C-x><C-u><C-r>=pumvisible() ? "\<lt>C-n>\<lt>C-p>\<lt>Down>" : ""<CR>'
