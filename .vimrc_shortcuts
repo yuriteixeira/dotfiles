@@ -34,7 +34,7 @@ nnoremap <leader>l :BLines<CR>|                            " Fuzzy finder: Buffe
 nnoremap <leader>t :BTags<CR>|                             " Fuzzy finder: Buffer Tags
 nnoremap <leader>a :Files<CR>|                             " Fuzzy finder: Files
 nnoremap <leader>d :DirFiles<CR>|                          " Fuzzy finder: Files relative to current file directory
-nnoremap <leader>p :History<CR>|                           " Fuzzy finder: History
+nnoremap <leader>] :History<CR>|                           " Fuzzy finder: History
 nnoremap <leader>m :Marks<CR>|                             " Fuzzy finder: Marks
 
 nnoremap <leader>qq :q<CR>|                                " Exit: close current
@@ -46,7 +46,7 @@ nnoremap <leader>st :Tags <C-R><C-W>|                      " Search (FZF): CTags
 nnoremap <leader>gg :GFiles?|                              " Git: Changed files
 nnoremap <leader>gf :GFiles!?|                             " Git: Changed files (Fullscreen)
 
-nnoremap <C-t> :Lexplore<CR>|                              " File tree (Bundled): Show all
+nnoremap <C-t> :Vexplore<CR>|                              " File tree (Bundled): Current
 
 """ Misc
 nnoremap <leader>$ :set list!<CR>                          " Toggle hidden characters
