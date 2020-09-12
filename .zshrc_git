@@ -1,12 +1,17 @@
+### Git
+alias g="git"
+
+function gh-clone {
+    git clone git@github.com:$@.git
+}
+
 # Alias for the aliases (yeah, I'm THAT lazy!)
 alias ga='cat ~/.gitconfig G'
 alias gl='glp'
 alias glo='gl origin/master..HEAD'
 alias glou='g fo ; glo'
 
-
 # Git log with preview
-#
 # Based on https://gist.github.com/akatrevorjay/9fc061e8371529c4007689a696d33c62
 glp() {
 	local g=(

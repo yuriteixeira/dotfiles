@@ -1,32 +1,18 @@
-### Source: https://github.com/wellle/tmux-complete.vim/blob/master/sh/tmuxcomplete
+function t {
+    tmux attach
 
-# Usage: Get a list of all words visible in current window
-#     sh tmuxcomplete
-#
-# Words visible in current window, excluding current pane
-#     sh tmuxcomplete -e
-#
-# Words visible in current session
-#     sh tmuxcomplete -l '-s'
-#
-# Words visible in all sessions
-#     sh tmuxcomplete -l '-a'
-#
-# Words containing 'foo'
-#     sh tmuxcomplete -p 'foo'
-#
-# List of lines
-#     sh tmuxcomplete -s lines
-#
-# Words containing 'foo', ignoring case
-#     sh tmuxcomplete -p 'foo' -g '-i'
-#
-# Words beginning with 'foo'
-#     sh tmuxcomplete -p '^foo'
-#
-# Words including 2000 lines of history per pane
-#     sh tmuxcomplete -c '-S -2000'
-tmuxcomplete() {
+    if [ $? -ne 0 ]; then
+      tmux
+    fi
+}
+
+alias tm="tmux"
+alias tmn="tmux new-session -s"
+alias tmk="tmux kill-session"
+alias tml="tmux list-sessions"
+
+# TMUX Completion: https://github.com/wellle/tmux-complete.vim/blob/master/sh/tmuxcomplete
+tmc() {
     if ! tmux info > /dev/null 2>&1; then
         echo "[tmux-complete.vim]"
         echo "No tmux found!"
@@ -178,7 +164,7 @@ tmuxcomplete() {
 }
 
 _zsh_tmuxcomplete() {
-    local selection=$(tmuxcomplete -s ilines,words -g '-i' | fzf --tac)
+    local selection=$(tmc -s ilines,words -g '-i' | fzf --tac)
     RBUFFER="${RBUFFER}${selection}"
     zle end-of-line
 }

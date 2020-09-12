@@ -45,12 +45,6 @@ alias pip3deps='python3 -m pipdeptree | grep -v "\s -"'
 alias pip2upgrade='pip2 freeze | cut -d = -f 1 | xargs -n1 pip2 install -U'
 alias pip3upgrade='pip3 freeze | cut -d = -f 1 | xargs -n1 pip3 install -U'
 
-### Git
-alias g="git"
-
-function gh-clone {
-    git clone git@github.com:$@.git
-}
 
 ### Docker, Kubernetes and Google Cloud Platform
 alias d=docker
@@ -101,21 +95,7 @@ function upgrade {
   git -C ~/.config/base16-shell pull
 }
 
-# Tmux
-function tm {
-    tmux attach
-
-    if [ $? -ne 0 ]; then
-      tmux
-    fi
-}
-
-alias tmk="tmux kill-session"
-alias tml="tmux list-sessions"
-
 # FZF
-alias f="fzf"
-alias fp='fzf --preview "head -$LINES {}"'
 
 # Touch + Creates dir path (if needed)
 function to {
