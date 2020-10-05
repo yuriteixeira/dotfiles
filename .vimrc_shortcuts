@@ -1,5 +1,9 @@
 command! Focus set fcs=eob:\ | Goyo | Limelight!! | set nocul " Focus mode
-command! MarksReset delm! | delm A-Z0-9                        " Delete all marks
+command! MarksReset delm! | delm A-Z0-9                       " Delete all marks
+
+""" Date/Time
+nnoremap <leader>id "=strftime('%Y-%m-%d (%a)')<C-M>pa|       " Date
+nnoremap <leader>it "=strftime('%T (%Z)')<C-M>pa|             " Time
 
 """ Filesystem
 command! PathFull let @+ = expand("%:p")                       " Full path
