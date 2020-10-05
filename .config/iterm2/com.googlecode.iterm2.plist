@@ -775,7 +775,7 @@
 				</dict>
 			</dict>
 			<key>Minimum Contrast</key>
-			<real>0.37273615056818182</real>
+			<real>0.34483753551136365</real>
 			<key>Mouse Reporting</key>
 			<true/>
 			<key>Name</key>
@@ -888,10 +888,12 @@
 		<key>topLeft</key>
 		<string>{181, 730}</string>
 	</dict>
+	<key>NoSyncHaveUsedCopyMode</key>
+	<true/>
 	<key>NoSyncInstallationId</key>
 	<string>3C88619C-AC4C-4EC2-943C-C8D3055AD443</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>148</integer>
+	<integer>189</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1694,7 +1696,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-08-18T08:29:16Z</date>
+	<date>2020-09-28T08:22:32Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
