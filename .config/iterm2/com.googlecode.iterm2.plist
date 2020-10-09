@@ -893,7 +893,7 @@
 	<key>NoSyncInstallationId</key>
 	<string>3C88619C-AC4C-4EC2-943C-C8D3055AD443</string>
 	<key>NoSyncLaunchExperienceControllerRunCount</key>
-	<integer>189</integer>
+	<integer>201</integer>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile</key>
 	<true/>
 	<key>NoSyncNeverRemindPrefsChangesLostForFile_selection</key>
@@ -1696,7 +1696,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2020-09-28T08:22:32Z</date>
+	<date>2020-10-07T11:37:12Z</date>
 	<key>SUSendProfileInfo</key>
 	<false/>
 	<key>SUUpdateGroupIdentifier</key>
@@ -1704,7 +1704,7 @@
 	<key>SUUpdateRelaunchingMarker</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
-	<false/>
+	<true/>
 	<key>ShowPaneTitles</key>
 	<false/>
 	<key>SoundForEsc</key>
