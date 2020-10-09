@@ -1,4 +1,4 @@
-function t {
+function tm {
     tmux attach
 
     if [ $? -ne 0 ]; then
@@ -6,7 +6,6 @@ function t {
     fi
 }
 
-alias tm="tmux"
 alias tmn="tmux new-session -s"
 alias tmk="tmux kill-session"
 alias tml="tmux list-sessions"
