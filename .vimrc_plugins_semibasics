@@ -14,6 +14,8 @@ Plug 'tmux-plugins/vim-tmux-focus-events'                " Fix FocusGained and F
 Plug 'christoomey/vim-tmux-navigator'                    " Tmux/Vim seamless navigation
 Plug 'junegunn/goyo.vim'                                 " Distraction-free prose writting
 Plug 'junegunn/limelight.vim'                            " Highlight only the current paragraph
+Plug 'will133/vim-dirdiff'                               " Directory diff (life is more than git)
+
 
 " Language support
 Plug 'mattn/emmet-vim'                                   " HTML with Emmet (formerly Zencoding)
