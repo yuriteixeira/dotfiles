@@ -46,7 +46,9 @@ nnoremap <leader>qa :qa<CR>|                               " Exit: close all
 
 nnoremap <leader>sa :Ag <C-R><C-W>|                        " Search (FZF): word under cursor
 nnoremap <leader>st :Tags <C-R><C-W>|                      " Search (FZF): CTags
-
+nnoremap <leader>ss :Snippets<CR>                          " Search (FZF): Snippets (UltiSnips)
+nnoremap <leader>sm :Maps<CR>|                             " Search (FZF): Maps
+ 
 nnoremap <leader>gg :GFiles?|                              " Git: Changed files
 nnoremap <leader>gf :GFiles!?|                             " Git: Changed files (Fullscreen)
 
@@ -64,11 +66,11 @@ nnoremap <leader>re :%s/\<<C-R><C-W>\>//g<left><left>|     " Replace: word under
 """ Completion
 " See https://vim.fandom.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
 
-inoremap <S-Space> :ALEComplete|                       " Omni completion
-inoremap <C-Space> <C-n>|
-
+inoremap <S-Space> :ALEComplete|                            " Omni completion
 "" Word completion: pre-selects first
+
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
   \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <C-Space> pumvisible() ? '<C-Space>' :
+inoremap <expr> <C-Space> pumvisible() ? '<C-n>' :
   \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
+
