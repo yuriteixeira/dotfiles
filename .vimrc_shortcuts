@@ -25,9 +25,15 @@ nnoremap <leader>fc :PathDirEdit <C-R><C-W>|
 " https://vim.fandom.com/wiki/Shifting_blocks_visually
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
-nnoremap <leader>cc :ALEFix<CR>|                           " Fixer
-nnoremap <leader>cl :ALELint<CR>|                          " Linter
-nnoremap <leader>cd :ALEDisable<CR>|                       " Disable ALE (useful to remove noise)
+nnoremap <leader>cc :ALEToggleBuffer<CR>|
+nnoremap <leader>cl :ALELint<CR>|
+nnoremap <leader>cr :ALERename<CR>|
+nnoremap <leader>cf :ALEFindReferences<CR>|
+nnoremap <leader>ci :ALEImport<CR>|
+nnoremap <leader>co :ALEOrganizeImports<CR>|
+nnoremap <leader>cn :ALENext<CR>|
+nnoremap <leader>cp :ALEPrevious<CR>|
+nnoremap <leader>cd :ALEDetail<CR>|
 
 """ Navigation
 nnoremap <leader>? :help <C-R><C-W>|                       " Provide help
@@ -46,7 +52,7 @@ nnoremap <leader>qa :qa<CR>|                               " Exit: close all
 
 nnoremap <leader>sa :Ag <C-R><C-W>|                        " Search (FZF): word under cursor
 nnoremap <leader>st :Tags <C-R><C-W>|                      " Search (FZF): CTags
-nnoremap <leader>ss :Snippets<CR>                          " Search (FZF): Snippets (UltiSnips)
+nnoremap <leader>ss :Snippets<CR>|                         " Search (FZF): Snippets (UltiSnips)
 nnoremap <leader>sm :Maps<CR>|                             " Search (FZF): Maps
  
 nnoremap <leader>gg :GFiles?|                              " Git: Changed files
