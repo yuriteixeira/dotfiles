@@ -23,6 +23,7 @@ Plug 'mxw/vim-jsx'                                       " JSX syntax support
 Plug 'pangloss/vim-javascript'                           " JS syntax support
 Plug 'herringtondarkholme/yats.vim'                      " TypeScript
 Plug 'dense-analysis/ale'                                " Linter/Fixer
+Plug 'prettier/vim-prettier'                             " Prettier
 
 " Snippets
 Plug 'SirVer/ultisnips'
