@@ -1,6 +1,7 @@
 """ GENERAL
 syntax on
 filetype indent on                                                        " activates indenting for files
+filetype plugin on
 set backspace=2                                                           " backspace in insert mode works like normal editor
 set autoindent
 set number                                                                " line numbers
@@ -47,8 +48,16 @@ autocmd! BufWritePost .vimrc* source %
 autocmd BufLeave * let b:winview = winsaveview()
 autocmd BufEnter * if(exists('b:winview')) | call winrestview(b:winview)
 
-"" Omni completion
+"" Completion
 set completeopt=menuone,longest,noinsert
+
+"" Omni completion
+if has("autocmd") && exists("+omnifunc")
+  autocmd Filetype *
+          \	if &omnifunc == "" |
+          \		setlocal omnifunc=syntaxcomplete#Complete |
+          \	endif
+endif
 
 "" Explorer
 let g:netrw_banner = 0
