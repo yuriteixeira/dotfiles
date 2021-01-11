@@ -25,7 +25,7 @@ if [[ "$(uname)" == "Darwin" ]] then
 
     export JAVA_HOME="$(/usr/libexec/java_home)"
     export JAVA8_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_221.jdk/Contents/Home"
-    export PYTHON_PATH="/usr/local/opt/python/bin"
+    export PYTHON_PATH="/usr/local/opt/python@3.8/bin:/usr/local/opt/python@3.8/libexec/bin"
     export GCLOUD_PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin"
     export ANDROID_SDK_ROOT="/usr/local/share/android-sdk"
     export GNU_PATH="/usr/local/opt/gnu-sed/libexec/gnubin"
