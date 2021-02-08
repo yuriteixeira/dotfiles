@@ -2,7 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 " General
 Plug 'editorconfig/editorconfig-vim'                     " Editor config (http://editorconfig.org/)
-Plug 'jiangmiao/auto-pairs'                              " Auto-close brackets
+Plug 'LunarWatcher/auto-pairs', { 'tag': '*' }           " Auto-close brackets
 Plug 'chriskempson/base16-vim'                           " Base 16 Colorscheme
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'      " Ubiquitous anf fast fuzzy finder
 
@@ -15,7 +15,6 @@ Plug 'christoomey/vim-tmux-navigator'                    " Tmux/Vim seamless nav
 Plug 'junegunn/goyo.vim'                                 " Distraction-free prose writting
 Plug 'junegunn/limelight.vim'                            " Highlight only the current paragraph
 Plug 'will133/vim-dirdiff'                               " Directory diff (life is more than git)
-
 
 " Language support
 Plug 'mattn/emmet-vim'                                   " HTML with Emmet (formerly Zencoding)
@@ -111,3 +110,4 @@ let g:auto_save = 1
 
 """ Vim-gutter
 let g:gitgutter_map_keys = 1
+
