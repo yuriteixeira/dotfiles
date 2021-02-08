@@ -29,7 +29,6 @@ alias p="cd $PROJECTS_HOME"
 
 # Brew
 alias b=brew
-alias bc="brew cask"
 
 # NodeJS / Yarn
 alias y='yarn'
@@ -73,7 +72,7 @@ function upgrade {
   echo ">>> Brew / Brew Cask"
   brew update
   brew upgrade
-  brew cask outdated | xargs -n1 brew cask reinstall
+  brew outdated --cask | xargs -n1 brew reinstall --cask
   brew cleanup
 
   echo ""
