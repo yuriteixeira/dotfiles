@@ -15,3 +15,6 @@ source ~/.zshrc_git
 source ~/.zshrc_tmux
 
 [ -f ~/.zshrc_private ] && source ~/.zshrc_private
+
+export YVM_DIR=/Users/yuriteixeira/.yvm
+[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
