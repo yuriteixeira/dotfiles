@@ -1,20 +1,33 @@
-cd "$( dirname "${BASH_SOURCE[0]}" )"
+# Profiling: Un-comment to enable
+# zmodload zsh/zprof
 
 plugins=(common-aliases vi-mode)
-
-source ~/.zshrc_env
+ 
+cd "$( dirname "${BASH_SOURCE[0]}" )"
+ 
+source $HOME/.zshrc_env
 source $ZSH/oh-my-zsh.sh
+source $HOME/.zshrc_helpers
+source $HOME/.zshrc_vim
+source $HOME/.zshrc_base16
+source $HOME/.zshrc_fzf
+source $HOME/.zshrc_autojump
+source $HOME/.zshrc_spaceship
+source $HOME/.zshrc_git
+source $HOME/.zshrc_tmux
 
-source ~/.zshrc_helpers
-source ~/.zshrc_vim
-source ~/.zshrc_base16
-source ~/.zshrc_fzf
-source ~/.zshrc_autojump
-source ~/.zshrc_spaceship
-source ~/.zshrc_git
-source ~/.zshrc_tmux
+[ -f $HOME/.zshrc_private ] && source $HOME/.zshrc_private
 
-[ -f ~/.zshrc_private ] && source ~/.zshrc_private
+export YVM_DIR="$HOME/.yvm"
+[ -f $YVM_DIR/yvm.sh ] && source $YVM_DIR/yvm.sh
 
-export YVM_DIR=/Users/yuriteixeira/.yvm
-[ -r $YVM_DIR/yvm.sh ] && . $YVM_DIR/yvm.sh
+export NVM_DIR="$HOME/.nvm"
+export NVM_BIN_DIR="/usr/local/opt/nvm"
+[ -f $NVM_BIN_DIR/nvm.sh ] && source $NVM_BIN_DIR/nvm.sh
+[ -f $NVM_BIN_DIR/etc/bash_completion.d/nvm ] && source $NVM_BIN_DIR/etc/bash_completion.d/nvm
+
+[ rbenv > /dev/null ] && eval "$(rbenv init -)"
+
+# Profiling: Un-comment to enable
+# zprof -c 
+

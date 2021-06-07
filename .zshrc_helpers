@@ -3,7 +3,6 @@ alias dot='git --git-dir=$HOME/.dotfiles.git/ --work-tree=$HOME'
 alias pdot='git --git-dir=$HOME/.private.dotfiles.git/ --work-tree=$HOME'
 
 # Common commands improvement
-unalias lt
 alias a="alias"
 alias pa="ps aux"
 alias e=$EDITOR
@@ -29,6 +28,7 @@ alias p="cd $PROJECTS_HOME"
 
 # Brew
 alias b=brew
+alias bc=brew --cask
 
 # NodeJS / Yarn
 alias y='yarn'

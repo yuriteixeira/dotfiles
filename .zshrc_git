@@ -1,6 +1,11 @@
 ### Git
 alias g="git"
 
+function gitcred {
+  git config user.name "Yuri Teixeira"
+  git config user.email "oyuriteixeira@gmail.com"
+}
+
 function gh-clone {
     git clone git@github.com:$@.git
 }
