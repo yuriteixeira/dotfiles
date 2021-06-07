@@ -95,6 +95,10 @@ function upgrade {
   echo ">>> Other updates"
   git -C ~/.config/base16-fzf pull
   git -C ~/.config/base16-shell pull
+
+  echo ""
+  echo "Oh-my-zsh"
+  omz update
 }
 
 # FZF
