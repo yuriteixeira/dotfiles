@@ -48,7 +48,11 @@ autocmd! BufWritePost .vimrc* source %
 autocmd BufLeave * let b:winview = winsaveview()
 autocmd BufEnter * if(exists('b:winview')) | call winrestview(b:winview)
 
-"" Completion
+"" Spell check
+autocmd FileType gitcommit setlocal spell
+autocmd FileType markdown setlocal spell
+
+""" COMPLETION
 set completeopt=menuone,longest,noinsert
 
 "" Omni completion
