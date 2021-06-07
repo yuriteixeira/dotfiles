@@ -25,13 +25,6 @@
 			<key>Text</key>
 			<string></string>
 		</dict>
-		<key>0x6b-0x100000</key>
-		<dict>
-			<key>Action</key>
-			<integer>13</integer>
-			<key>Text</key>
-			<string></string>
-		</dict>
 		<key>0x9-0x40000</key>
 		<dict>
 			<key>Action</key>
@@ -822,6 +815,8 @@
 	<key>Print In Black And White</key>
 	<true/>
 	<key>PromptOnQuit</key>
+	<false/>
+	<key>RunJobsInServers</key>
 	<false/>
 	<key>ShowFullScreenTabBar</key>
 	<false/>
