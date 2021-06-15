@@ -3,5 +3,4 @@
 export SPACESHIP_VI_MODE_SHOW=false
 export SPACESHIP_TIME_SHOW=false
 export SPACESHIP_PACKAGE_SHOW=false
-export SPACESHIP_NODE_SHOW=false
 export SPACESHIP_BATTERY_SHOW=false
