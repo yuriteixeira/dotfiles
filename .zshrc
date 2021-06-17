@@ -21,9 +21,9 @@ source $HOME/.zshrc_tmux
 export YVM_DIR="$HOME/.yvm"
 [ -f $YVM_DIR/yvm.sh ] && source $YVM_DIR/yvm.sh
 
-# export NVM_DIR="$HOME/.nvm"
-# export NVM_BIN_DIR="/usr/local/opt/nvm"
-# [ -f $NVM_BIN_DIR/nvm.sh ] && source $NVM_BIN_DIR/nvm.sh
+export NVM_DIR="$HOME/.nvm"
+export NVM_BIN_DIR="/usr/local/opt/nvm"
+[ -f $NVM_BIN_DIR/nvm.sh ] && source $NVM_BIN_DIR/nvm.sh
 # [ -f $NVM_BIN_DIR/etc/bash_completion.d/nvm ] && source $NVM_BIN_DIR/etc/bash_completion.d/nvm
 
 # [ rbenv > /dev/null ] && eval "$(rbenv init -)"
