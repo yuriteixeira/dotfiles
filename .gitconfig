@@ -3,8 +3,8 @@
   autocrlf = input
 	pager = diff-so-fancy | less --tabs=4 -RFX
 
-#[interactive]
-#  diffFilter = (echo && diff-so-fancy)
+[interactive]
+  diffFilter = (echo && diff-so-fancy)
 
 [push]
   default = current
@@ -30,32 +30,33 @@
   meta = yellow bold
 
 [alias]
-  ### Flow
+  ### FLOW
 
-  # pull stuff
+  # clean
+  cl = checkout -- . && git reset --hard && git clean -idfx
+
+  # get
   u = pull --rebase
   f = fetch
   fa = fetch --all
   fo = fetch origin
 
-  # branch out
+  # change
   b = branch
   co = checkout
   com = checkout master
-
-  # change
   a = add
   ap = add -p
   st = stash
   c = commit -v # with diff
-  ca = commit -v --amend
-  can = commit -v --amend --no-edit
+  ca = commit -v --amend --no-edit
+  can = commit -v --amend --no-edit -n
   ch = cherry-pick
   re = reset
   rep = reset HEAD~
   reom = reset origin/master
 
-  # understand
+  # check
   s = status
   h = log --follow -p -M --stat # history of a file
   l = log --pretty='%C(red)%h %C(reset)%s %C(bold blue)%an, %C(green)%cr%C(yellow)%d %C(reset)' # usually my favorite format
@@ -70,10 +71,7 @@
   ri = rebase -i
   riom = rebase -i origin/master
 
-  # publish
+  # send
   p = push -u
   pf = push --force-with-lease # checks for same parent commit on origin before
-
-  # clean up
-  cl = checkout -- . && git reset --hard && git clean -idfx
 
