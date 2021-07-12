@@ -51,6 +51,8 @@
   c = commit -v # with diff
   ca = commit -v --amend --no-edit
   can = commit -v --amend --no-edit -n
+  cae = commit -v --amend
+  cane = commit -v --amend -n
   ch = cherry-pick
   re = reset
   rep = reset HEAD~
