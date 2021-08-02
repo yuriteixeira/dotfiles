@@ -7,7 +7,8 @@ Plug 'chriskempson/base16-vim'                           " Base 16 Colorscheme
 Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'      " Ubiquitous anf fast fuzzy finder
 
 Plug '907th/vim-auto-save'                               " Auto-save files
-Plug 'ludovicchabant/vim-gutentags'                      " CTags auto-updater
+" VERY BUGGY while saving git commit messages
+" Plug 'ludovicchabant/vim-gutentags'                      " CTags auto-updater
 Plug 'airblade/vim-gitgutter'                            " Git: show changes on editor
 Plug 'kshenoy/vim-signature'                             " Show marks on gutter
 Plug 'tmux-plugins/vim-tmux-focus-events'                " Fix FocusGained and FocusLost when using tmux (https://github.com/tmux-plugins/vim-tmux-focus-events)
