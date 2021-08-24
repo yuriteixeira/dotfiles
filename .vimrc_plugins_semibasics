@@ -8,7 +8,7 @@ Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'      " Ubiquitous anf fast f
 
 Plug '907th/vim-auto-save'                               " Auto-save files
 " VERY BUGGY while saving git commit messages
-" Plug 'ludovicchabant/vim-gutentags'                      " CTags auto-updater
+Plug 'ludovicchabant/vim-gutentags'                      " CTags auto-updater
 Plug 'airblade/vim-gitgutter'                            " Git: show changes on editor
 Plug 'kshenoy/vim-signature'                             " Show marks on gutter
 Plug 'tmux-plugins/vim-tmux-focus-events'                " Fix FocusGained and FocusLost when using tmux (https://github.com/tmux-plugins/vim-tmux-focus-events)
@@ -112,3 +112,8 @@ let g:auto_save = 1
 """ Vim-gutter
 let g:gitgutter_map_keys = 1
 
+""" Guten Tags
+let g:gutentags_enabled = 0
+augroup auto_gutentags
+  au FileType python,java,scala,json,yml,yaml,css,scss,less,xml,html,xhtml,svg,js,javascript,ts,typescript,vim let g:gutentags_enabled=1
+augroup end
