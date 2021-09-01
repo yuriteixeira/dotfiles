@@ -72,7 +72,7 @@
   mt = mergetool
 
   # check
-  s = status
+  s = status --ignore-submodules
   h = log --follow -p -M --stat # history of a file
   l = log --pretty='%C(red)%h %C(reset)%s %C(bold blue)%an, %C(green)%cr%C(yellow)%d %C(reset)' # usually my favorite format
   lo = log # default format (comes with more info)
