@@ -1,10 +1,21 @@
 [core]
   excludesfile = /Users/yuriteixeira/.gitignore_global
   autocrlf = input
-	pager = diff-so-fancy | less --tabs=4 -RFX
+
+[pager]
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta
+
+[delta]
+  plus-style = "syntax #012800"
+  minus-style = "syntax #340001"
+  syntax-theme = base16-256
+  navigate = true
 
 [interactive]
-  diffFilter = (echo && diff-so-fancy)
+  diffFilter = delta --color-only
 
 [push]
   default = current
