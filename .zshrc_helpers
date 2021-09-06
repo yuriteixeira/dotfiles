@@ -61,7 +61,15 @@ function drl {
     curl -L http://${registry}/${image}/tags/list | jq
 }
 
-# Update them all
+function docker-api {
+  docker kill socat
+  docker rm socat
+  docker run -d -v /var/run/docker.sock:/var/run/docker.sock --name socat -p 127.0.0.1:2375:2375 bobrik/socat TCP-LISTEN:2375,fork UNIX-CONNECT:/var/run/docker.sock && export DOCKER_HOST=tcp://localhost:2375
+  curl localhost:2375/images/json | jq .
+  echo ">>> If a list of images appeared above, it worked."
+}
+
+### Tooling upgrade
 function upgrade {
   echo ""
   echo ">>> Dot files"
