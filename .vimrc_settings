@@ -16,7 +16,7 @@ set nohlsearch                                                            " disa
 set hidden                                                                " keeps buffer history even after you toggle between buffers
 set cursorline                                                            " highlights selected line
 set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»   " invisible characters
-
+set smartcase                                                             " case insensitive search (unless a capital letter is present)
 """ MOUSE
 set mouse=a                                           " enable mouse support
 set mousemodel=popup
@@ -52,17 +52,6 @@ autocmd BufEnter * if(exists('b:winview')) | call winrestview(b:winview)
 autocmd FileType gitcommit setlocal spell
 autocmd FileType markdown setlocal spell
 
-""" COMPLETION
-set completeopt=menuone,longest,noinsert
-
-"" Omni completion
-if has("autocmd") && exists("+omnifunc")
-  autocmd Filetype *
-          \	if &omnifunc == "" |
-          \		setlocal omnifunc=syntaxcomplete#Complete |
-          \	endif
-endif
-
 "" Explorer
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
@@ -70,6 +59,9 @@ let g:netrw_browse_split = 4
 let g:netrw_altv = 1
 let g:netrw_winsize = 25
 let g:netrw_keepdir = 1
+
+"" FZF
+let g:fzf_layout = { 'down': '~40%' }
 
 """ HELPERS
 

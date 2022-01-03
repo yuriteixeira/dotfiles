@@ -1,34 +1,49 @@
 call plug#begin('~/.vim/plugged')
 
-" General
-Plug 'editorconfig/editorconfig-vim'                     " Editor config (http://editorconfig.org/)
-Plug 'LunarWatcher/auto-pairs', { 'tag': '*' }           " Auto-close brackets
-Plug 'chriskempson/base16-vim'                           " Base 16 Colorscheme
-Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'      " Ubiquitous anf fast fuzzy finder
+""" General
+Plug 'editorconfig/editorconfig-vim'                                    " Editor config (http://editorconfig.org/)
+Plug 'LunarWatcher/auto-pairs', { 'tag': '*' }                          " Auto-close brackets
+Plug 'chriskempson/base16-vim'                                          " Base 16 Colorscheme
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'                     " Ubiquitous anf fast fuzzy finder
+Plug '907th/vim-auto-save'                                              " Auto-save files
+Plug 'kshenoy/vim-signature'                                            " Show marks on gutter
+Plug 'tmux-plugins/vim-tmux-focus-events'                               " Fix FocusGained and FocusLost when using tmux (https://github.com/tmux-plugins/vim-tmux-focus-events)
+Plug 'christoomey/vim-tmux-navigator'                                   " Tmux/Vim seamless navigation
+Plug 'junegunn/goyo.vim'                                                " Distraction-free prose writting
+Plug 'junegunn/limelight.vim'                                           " Highlight only the current paragraph
+Plug 'will133/vim-dirdiff'                                              " Directory diff (life is more than git)
 
-Plug '907th/vim-auto-save'                               " Auto-save files
-" VERY BUGGY while saving git commit messages
-Plug 'ludovicchabant/vim-gutentags'                      " CTags auto-updater
-Plug 'airblade/vim-gitgutter'                            " Git: show changes on editor
-Plug 'kshenoy/vim-signature'                             " Show marks on gutter
-Plug 'tmux-plugins/vim-tmux-focus-events'                " Fix FocusGained and FocusLost when using tmux (https://github.com/tmux-plugins/vim-tmux-focus-events)
-Plug 'christoomey/vim-tmux-navigator'                    " Tmux/Vim seamless navigation
-Plug 'junegunn/goyo.vim'                                 " Distraction-free prose writting
-Plug 'junegunn/limelight.vim'                            " Highlight only the current paragraph
-Plug 'will133/vim-dirdiff'                               " Directory diff (life is more than git)
+""" Coding support
 
-" Language support
-Plug 'mattn/emmet-vim'                                   " HTML with Emmet (formerly Zencoding)
-Plug 'mxw/vim-jsx'                                       " JSX syntax support
-Plug 'pangloss/vim-javascript'                           " JS syntax support
-Plug 'herringtondarkholme/yats.vim'                      " TypeScript
-Plug 'dense-analysis/ale'                                " Linter/Fixer
-Plug 'prettier/vim-prettier'                             " Prettier
+" Navigation
+Plug 'ludovicchabant/vim-gutentags'                                     " CTags auto-updater
+
+" Git
+Plug 'airblade/vim-gitgutter'                                           " Git: show changes on editor
+
+" Linting & Formatting
+Plug 'prettier/vim-prettier'                                            " Prettier
+
+" Markup + CSS
+Plug 'mattn/emmet-vim'                                                  " HTML with Emmet (formerly Zencoding)
+Plug 'mxw/vim-jsx'                                                      " JSX syntax support
+Plug 'hail2u/vim-css3-syntax'                                           " CSS3 syntax support
+Plug 'cakebaker/scss-syntax.vim'                                        " SCSS syntax support
+Plug 'alvan/vim-closetag'                                               " Auto-close X(HT)ML tags
+
+" Syntaxes
+Plug 'pangloss/vim-javascript'                                          " JavaScript syntax support
+Plug 'herringtondarkholme/yats.vim', {'do': 'rm -rf UltiSnips'}         " TypeScript syntax support
+
+" Auto-completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}                         " Better auto-completion
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}  " TypeScript auto-completion
+Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}  " Snippets auto-completion
 
 " Snippets
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'epilande/vim-react-snippets'
+Plug 'mlaursen/vim-react-snippets'
 
 call plug#end()
 
@@ -81,25 +96,8 @@ command! -nargs=* -complete=dir Cd call fzf#run(fzf#wrap(
   \ {'source': 'find '.(empty(<q-args>) ? '.' : <q-args>).' -type d',
   \  'sink': 'cd'}))
 
-" ALE Linter/Fixer
-let g:ale_set_balloons = 1
-let g:ale_completion_enabled = 1
-let g:ale_completion_autoimport = 1
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'typescript': ['eslint', 'tsserver'],
-\}
-let g:ale_fixers = {
-\   '*': ['remove_trailing_lines', 'trim_whitespace'],
-\   'javascript': ['prettier'],
-\   'typescript': ['prettier'],
-\}
-let g:ale_lint_on_text_changed = 0
-let g:ale_lint_on_insert_leave = 0
-let g:ale_lint_on_enter = 0
-let g:ale_lint_on_save = 0
-let g:ale_lint_on_filetype_changed = 0
-let g:ale_fix_on_save = 0
+" :Maps override - Show ALL types of vim maps (defaults to normal mode)
+command! -bar -bang Maps call fzf#vim#maps('', <bang>0)
 
 " UltiSnips
 let g:UltiSnipsJumpForwardTrigger="<C-]>"

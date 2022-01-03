@@ -18,13 +18,12 @@ nnoremap <leader>fn :PathName<CR>|
 command! PathDir let @+ = expand('%:p:h')                      " Just dir of file
 nnoremap <leader>fd :PathDir<CR>|
 
-command! -nargs=* PathDirEdit edit %:p:h/<args>                " Edit file inside current dir
-nnoremap <leader>fc :PathDirEdit <C-R><C-W>|
-
 """ Formating
 " https://vim.fandom.com/wiki/Shifting_blocks_visually
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
+
+""" Code 
 nnoremap <leader>cc :ALEToggleBuffer<CR>|
 nnoremap <leader>cl :ALELint<CR>|
 nnoremap <leader>cr :ALERename<CR>|
@@ -71,10 +70,9 @@ nnoremap <leader>re :%s/\<<C-R><C-W>\>//g<left><left>|     " Replace: word under
 
 """ Completion
 " See https://vim.fandom.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
-
 inoremap <S-Space> :ALEComplete|                            " Omni completion
-"" Word completion: pre-selects first
 
+"" Word completion: pre-selects first
 inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
   \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 inoremap <expr> <C-Space> pumvisible() ? '<C-n>' :
