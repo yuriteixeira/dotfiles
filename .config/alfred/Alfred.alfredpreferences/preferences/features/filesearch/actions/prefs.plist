@@ -4,6 +4,17 @@
 <dict>
 	<key>escapeCopiedPath</key>
 	<true/>
+	<key>finderSelectionHotkey</key>
+	<dict>
+		<key>key</key>
+		<integer>0</integer>
+		<key>mod</key>
+		<integer>1966080</integer>
+		<key>string</key>
+		<string>A</string>
+	</dict>
+	<key>showWithFn</key>
+	<false/>
 	<key>sortByUsage</key>
 	<true/>
 </dict>
