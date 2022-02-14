@@ -1,4 +1,4 @@
-# Profiling: Un-comment to enable
+# Profiling: Un-comment to enable (see https://xebia.com/profiling-zsh-shell-scripts/)
 # zmodload zsh/zprof
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
