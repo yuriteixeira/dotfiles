@@ -36,9 +36,13 @@ Plug 'pangloss/vim-javascript'                                          " JavaSc
 Plug 'herringtondarkholme/yats.vim', {'do': 'rm -rf UltiSnips'}         " TypeScript syntax support
 
 " Auto-completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}                         " Better auto-completion
-Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}  " TypeScript auto-completion
-Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}  " Snippets auto-completion
+Plug 'neoclide/coc.nvim', {'branch': 'release'}                                                      " Better auto-completion
+Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}                               " TypeScript auto-completion
+Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' } " Python auto-completion
+Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}                               " Snippets auto-completion   
+
+" Refactorings
+Plug 'python-rope/ropevim'                                                                         " Python refactorings
 
 " Snippets
 Plug 'SirVer/ultisnips'
