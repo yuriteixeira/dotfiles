@@ -1,5 +1,7 @@
 {
   "dependencies": {
+    "alfred-fkill": "^0.4.1",
+    "prettier": "^2.5.1",
     "syncyarnlock": "^1.0.19"
   }
 }
