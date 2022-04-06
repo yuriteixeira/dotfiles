@@ -12,7 +12,7 @@ function gh-clone {
 
 # Alias for the aliases (yeah, I'm THAT lazy!)
 alias ga='cat ~/.gitconfig G'
-alias gl='glp'
+alias gl='glp | cut -d " " -f 1'
 alias glo='gl origin/master..HEAD'
 alias glou='g fo ; glo'
 
