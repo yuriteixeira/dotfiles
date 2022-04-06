@@ -5,5 +5,5 @@
 .vim/.netrwhist
 .vimrc_background
 *.swp
-tags
+./tags
 .idea
