@@ -119,3 +119,6 @@ let g:gutentags_enabled = 0
 augroup auto_gutentags
   au FileType python,java,scala,json,yml,yaml,css,scss,less,xml,html,xhtml,svg,js,javascript,ts,typescript,vim let g:gutentags_enabled=1
 augroup end
+
+""" CoC
+let g:coc_start_at_startup = 0
