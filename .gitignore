@@ -4,6 +4,7 @@
 .vim/plugged
 .vim/.netrwhist
 .vimrc_background
+node_modules
 *.swp
 ./tags
 .idea
