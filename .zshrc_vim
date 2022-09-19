@@ -1,7 +1,6 @@
 
 ### Vim Mode for Terminal
 bindkey -v
-bindkey '^R' history-incremental-search-backward
 
 ### Vim + Zsh functions
 function dirdiff()
