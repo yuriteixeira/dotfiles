@@ -5,7 +5,7 @@ DEFAULT_USER="$(whoami)"
 PROMPT_EOL_MARK=""
 
 export EDITOR='nvim'
-export PROJECTS_HOME=$HOME/src
+export PROJECTS_HOME=$HOME/Workspaces
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 export TIMEFMT='%J   %U  user %S system %P cpu %*E total'$'\n'\
 'avg shared (code):         %X KB'$'\n'\
@@ -19,13 +19,13 @@ if [[ "$(uname)" == "Darwin" ]] then
     export LC_ALL=en_US.UTF-8
     export LANG=en_US.UTF-8
 
-    export PROJECTS_HOME=$HOME/Projects
     export LA_HOME=$HOME/Library/LaunchAgents
     export LD_HOME=/Library/LaunchDaemons
 
     # See: https://docs.python.org/3/using/cmdline.html
     export BLENDER_PATH="/Applications/Blender.app/Contents/Resources/3.0"
     export BLENDER_PYTHON_MODULES_PATH="$BLENDER_PATH/scripts/startup:$BLENDER_PATH/scripts/modules"
+
     export PYTHONPATH="/Library/Frameworks/Python.framework/Versions/3.9"
     export PYTHON_BIN_PATH="/usr/local/opt/python@3.9/bin:/usr/local/opt/python@3.9/libexec/bin"
 
