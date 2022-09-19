@@ -7,7 +7,7 @@ function gitcred {
 }
 
 function gh-clone {
-    git clone git@github.com:$@.git
+  git clone git@github.com:$@.git
 }
 
 # Alias for the aliases (yeah, I'm THAT lazy!)
