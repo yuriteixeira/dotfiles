@@ -4,6 +4,8 @@ alias pa="ps aux"
 alias e=$EDITOR
 alias ip='ifconfig | grep "inet " | grep -v 127.0.0.1 | grep -v 169 | cut -d\  -f2'
 alias m="more"
+alias dot="cd ~/Workspace/github/yuriteixeira/dotfiles"
+alias pdot="cd ~/Workspace/ghe/yuriteixeira/dotfiles"
 
 # Open profile with editor
 alias pf="nvim -p \
@@ -23,7 +25,9 @@ alias p="cd $PROJECTS_HOME"
 ### Package managers
 
 # Brew
-alias b=brew
+alias b="brew"
+alias bi="brew install"
+alias bic="brew install --cask"
 
 # NodeJS / Yarn
 alias y='yarn'
