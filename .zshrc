@@ -17,6 +17,7 @@ source $HOME/.zshrc_tmux
 
 [ -f $HOME/.zshrc_private ] && source $HOME/.zshrc_private
 
+setopt +o nomatch
 # Profiling: Un-comment to enable
 # zprof -c
 # zprof 

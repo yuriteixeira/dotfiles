@@ -26,15 +26,17 @@ if [[ "$(uname)" == "Darwin" ]] then
     export BLENDER_PATH="/Applications/Blender.app/Contents/Resources/3.0"
     export BLENDER_PYTHON_MODULES_PATH="$BLENDER_PATH/scripts/startup:$BLENDER_PATH/scripts/modules"
 
-    export PYTHONPATH="/Library/Frameworks/Python.framework/Versions/3.9"
-    export PYTHON_BIN_PATH="/usr/local/opt/python@3.9/bin:/usr/local/opt/python@3.9/libexec/bin"
+    export PYTHON_ROOT="/opt/homebrew/opt/python@3.10"
+    export PYTHON_BIN_PATH="$PYTHON_ROOT/bin:$PYTHON_ROOT/libexec/bin"
+    # https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH
+    export PYTHONPATH="$PYTHON_ROOT/Frameworks/Python.framework/Versions/Current"
 
     export GCLOUD_PATH="/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin"
     export GNU_PATH="/usr/local/opt/gnu-sed/libexec/gnubin"
     export JENV_PATH="$HOME/.jenv/bin"
 
     export MY_PATH="/usr/local/bin:/usr/local/sbin"
-    export MY_PATH="$PYTHON_BIN_PATH:$PYTHONPATH:$MY_PATH"
+    export MY_PATH="$PYTHON_BIN_PATH:$MY_PATH"
     export MY_PATH="$GCLOUD_PATH:$MY_PATH"
     export MY_PATH="$GNU_PATH:$MY_PATH"
     export MY_PATH="$JENV_PATH:$MY_PATH"
