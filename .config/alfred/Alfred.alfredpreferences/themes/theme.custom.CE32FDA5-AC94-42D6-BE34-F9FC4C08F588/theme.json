@@ -22,12 +22,13 @@
         "color" : "#FFFFFFD8"
       },
       "iconPaddingHorizontal" : 8,
+      "roundness" : 0,
       "paddingVertical" : 9,
       "iconSize" : 40
     },
     "search" : {
-      "paddingVertical" : 5,
-      "background" : "#00000000",
+      "backgroundSelected" : "#016BDEFF",
+      "paddingHorizontal" : 8,
       "spacing" : 4,
       "text" : {
         "size" : 51,
@@ -35,12 +36,14 @@
         "font" : "InputMono Light",
         "color" : "#FFFFFFD8"
       },
-      "backgroundSelected" : "#016BDEFF"
+      "background" : "#00000000",
+      "roundness" : 0,
+      "paddingVertical" : 5
     },
     "window" : {
       "color" : "#353535D8",
       "paddingHorizontal" : 0,
-      "width" : 559,
+      "width" : 1024,
       "borderPadding" : 0,
       "borderColor" : "#0000007F",
       "blur" : 15,
