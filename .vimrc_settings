@@ -17,8 +17,9 @@ set hidden                                                                " keep
 set cursorline                                                            " highlights selected line
 set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»   " invisible characters
 set smartcase                                                             " case insensitive search (unless a capital letter is present)
+
 """ MOUSE
-set mouse=a                                           " enable mouse support
+set mouse=a                                                               " enable mouse support
 set mousemodel=popup
 
 "" Fix tmux vs vim mouse conflicts (eg: split resize doesn't work anymore)

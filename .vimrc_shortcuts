@@ -23,17 +23,6 @@ nnoremap <leader>fd :PathDir<CR>|
 vnoremap <Tab> >gv
 vnoremap <S-Tab> <gv
 
-""" Code 
-nnoremap <leader>cc :ALEToggleBuffer<CR>|
-nnoremap <leader>cl :ALELint<CR>|
-nnoremap <leader>cr :ALERename<CR>|
-nnoremap <leader>cf :ALEFindReferences<CR>|
-nnoremap <leader>ci :ALEImport<CR>|
-nnoremap <leader>co :ALEOrganizeImports<CR>|
-nnoremap <leader>cn :ALENext<CR>|
-nnoremap <leader>cp :ALEPrevious<CR>|
-nnoremap <leader>cd :ALEDetail<CR>|
-
 """ Navigation
 nnoremap <leader>? :help <C-R><C-W>|                       " Provide help
 
@@ -67,14 +56,4 @@ nnoremap <leader>z :ZoomToggle<CR>                         " Toggle zoom to curr
 nnoremap <leader>rr :%s///g<left><left><left>|             " Replace: will put cursor in position to add search criteria
 nnoremap <leader>rw :%s/<C-R><C-W>//g<left><left>|         " Replace: word under cursor (will put cursor in position to add replacement)
 nnoremap <leader>re :%s/\<<C-R><C-W>\>//g<left><left>|     " Replace: word under cursor (will put cursor in position to add replacement)
-
-""" Completion
-" See https://vim.fandom.com/wiki/Make_Vim_completion_popup_menu_work_just_like_in_an_IDE
-inoremap <S-Space> :ALEComplete|                            " Omni completion
-
-"" Word completion: pre-selects first
-inoremap <expr> <C-n> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
-inoremap <expr> <C-Space> pumvisible() ? '<C-n>' :
-  \ '<C-n><C-r>=pumvisible() ? "\<lt>Down>" : ""<CR>'
 
