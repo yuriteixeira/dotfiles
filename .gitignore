@@ -10,3 +10,4 @@ node_modules
 .idea
 .config/yarn/link/
 .config/alfred/Alfred.alfredpreferences/workflows/
+.config/nvim/spell/*.spl
