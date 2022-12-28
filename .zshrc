@@ -1,7 +1,7 @@
 # Profiling: Un-comment to enable (see https://xebia.com/profiling-zsh-shell-scripts/)
 # zmodload zsh/zprof
 
-plugins=(common-aliases vi-mode nvm fzf)
+plugins=(common-aliases vi-mode nvm fzf timer)
  
 cd "$( dirname "${BASH_SOURCE[0]}" )"
  
