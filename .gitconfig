@@ -63,8 +63,9 @@
   ca = commit -v --amend --no-edit
   can = commit -v --amend --no-edit -n
   cae = commit -v --amend
-  cane = commit -v --amend -n
   ch = cherry-pick
+  chc = cherry-pick --continue
+  cha = cherry-pick --abort
   re = reset
   rep = reset HEAD~
   reom = reset origin/master
@@ -82,8 +83,9 @@
 
   # organise
   r = rebase
+  rc = rebase --continue
+  ra = rebase --abort
   rom = rebase origin/master
-  ri = rebase -i
   riom = rebase -i origin/master
 
   # send
