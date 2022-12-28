@@ -9,3 +9,4 @@ node_modules
 ./tags
 .idea
 .config/yarn/link/
+.config/alfred/Alfred.alfredpreferences/workflows/
