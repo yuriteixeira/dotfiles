@@ -86,7 +86,9 @@
   rc = rebase --continue
   ra = rebase --abort
   rom = rebase origin/master
+  ri = rebase -i
   riom = rebase -i origin/master
+  rih = rebase HEAD
 
   # send
   p = push -u
