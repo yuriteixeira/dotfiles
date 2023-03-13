@@ -61,9 +61,6 @@ let g:netrw_altv = 1
 let g:netrw_winsize = 25
 let g:netrw_keepdir = 1
 
-"" FZF
-let g:fzf_layout = { 'down': '~40%' }
-
 """ HELPERS
 
 "" Zoom / Restore window.

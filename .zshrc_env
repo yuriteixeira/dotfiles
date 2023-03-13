@@ -7,6 +7,7 @@ PROMPT_EOL_MARK=""
 export EDITOR='nvim'
 export PROJECTS_HOME=$HOME/Workspace
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
+
 export TIMEFMT='%J   %U  user %S system %P cpu %*E total'$'\n'\
 'avg shared (code):         %X KB'$'\n'\
 'avg unshared (data/stack): %D KB'$'\n'\
