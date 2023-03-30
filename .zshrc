@@ -4,10 +4,13 @@
 plugins=(common-aliases vi-mode nvm fzf timer)
  
 cd "$( dirname "${BASH_SOURCE[0]}" )"
- 
+
 source $HOME/.zshrc_env
 source $HOME/.zshrc_fzf
+source $HOME/.zshrc_nvm
+
 source $ZSH/oh-my-zsh.sh
+
 source $HOME/.zshrc_helpers
 source $HOME/.zshrc_vim
 source $HOME/.zshrc_base16
