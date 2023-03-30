@@ -43,6 +43,12 @@ alias yb='yarn build'
 alias yc='yarn clean'
 
 alias p='pnpm'
+alias ps='yarn start'
+alias pt='yarn test'
+alias pl='yarn lint'
+alias pco='yarn commit'
+alias pb='yarn build'
+alias pc='yarn clean'
 
 # Python / Pip
 alias pip2deps='python2 -m pipdeptree | grep -v "\s -"'
