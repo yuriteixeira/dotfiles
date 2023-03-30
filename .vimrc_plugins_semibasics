@@ -190,3 +190,9 @@ nmap <leader>crr <Plug>(coc-rename)
 
 " Apply the most preferred quickfix action to fix diagnostic on the current line
 nmap <leader>cf  <Plug>(coc-fix-current)
+
+" Go to definition
+nmap <leader>cd <Plug>(coc-definition)
+
+" Show errors
+nmap <leader>ce <Plug>(coc-diagnostic-info)
