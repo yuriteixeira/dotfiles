@@ -1,2 +1,5 @@
 {
+  "suggest.floatConfig": {
+    "border": true
+  }
 }

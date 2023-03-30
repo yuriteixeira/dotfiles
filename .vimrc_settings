@@ -17,9 +17,18 @@ set hidden                                                                " keep
 set cursorline                                                            " highlights selected line
 set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»   " invisible characters
 set smartcase                                                             " case insensitive search (unless a capital letter is present)
+set laststatus=2                                                          " show statuts bar (bottom)
+
+""" STATUS LINE
+set statusline=%t       "tail of the filename
+set statusline+=%r      "read only flag
+set statusline+=%=      "left/right separator
+set statusline+=%c,     "cursor column
+set statusline+=%l/%L   "cursor line/total lines
+set statusline+=\ %P    "percent through file
 
 """ MOUSE
-set mouse=a                                                               " enable mouse support
+set mouse=n                                                               " enable mouse support
 set mousemodel=popup
 
 "" Fix tmux vs vim mouse conflicts (eg: split resize doesn't work anymore)

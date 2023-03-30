@@ -122,7 +122,7 @@ augroup auto_gutentags
 augroup end
 
 """ CoC (https://github.com/neoclide/coc.nvim#example-vim-configuration)
-let g:coc_start_at_startup = 0
+let g:coc_start_at_startup = 1
 
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 " delays and poor user experience
@@ -169,7 +169,7 @@ inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
 " Add (Neo)Vim's native statusline support
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline
-set statusline=%{coc#status()}%{get(b:,'coc_current_function','')}
+set statusline+=%{coc#status()}%{get(b:,'coc_current_function','')}
 
 " Use K to show documentation in preview window
 nnoremap <silent> K :call ShowDocumentation()<CR>
@@ -183,14 +183,10 @@ function! ShowDocumentation()
 endfunction
 
 " Refactorings
-nmap <silent> <leader>crl <Plug>(coc-codeaction-refactor)
+nmap <leader>crl <Plug>(coc-codeaction-refactor)
 
 " Symbol renaming
 nmap <leader>crr <Plug>(coc-rename)
 
 " Apply the most preferred quickfix action to fix diagnostic on the current line
 nmap <leader>cf  <Plug>(coc-fix-current)
-
-" Fix colors
-hi link CocFloating Comment
-
