@@ -1,6 +1,6 @@
 # Common commands improvement
 alias a="alias"
-alias pa="ps aux"
+alias psa="ps aux"
 alias e=$EDITOR
 alias ip='ifconfig | grep "inet " | grep -v 127.0.0.1 | grep -v 169 | cut -d\  -f2'
 alias m="more"
@@ -20,7 +20,7 @@ alias rpf="source ~/.zshrc"
 alias hosts="sudo $EDITOR /etc/hosts"
 
 # Important directories (aliases and working directories)
-alias p="cd $PROJECTS_HOME"
+alias ws="cd $PROJECTS_HOME"
 
 ### Package managers
 
@@ -29,7 +29,7 @@ alias b="brew"
 alias bi="brew install"
 alias bic="brew install --cask"
 
-# NodeJS / Yarn
+# NodeJS / Yarn / NPM / PNPM
 alias y='yarn'
 alias yg='yarn global'
 alias ys='yarn start'
@@ -41,6 +41,8 @@ alias yl='yarn lint'
 alias yco='yarn commit'
 alias yb='yarn build'
 alias yc='yarn clean'
+
+alias p='pnpm'
 
 # Python / Pip
 alias pip2deps='python2 -m pipdeptree | grep -v "\s -"'
