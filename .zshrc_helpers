@@ -6,6 +6,7 @@ alias ip='ifconfig | grep "inet " | grep -v 127.0.0.1 | grep -v 169 | cut -d\  -
 alias m="more"
 alias dot="cd ~/Workspace/github/yuriteixeira/dotfiles"
 alias pdot="cd ~/Workspace/ghe/yuriteixeira/dotfiles"
+alias ag="ag --hidden"
 
 # Open profile with editor
 alias pf="nvim -p \
