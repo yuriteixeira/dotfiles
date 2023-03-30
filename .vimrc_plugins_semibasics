@@ -39,7 +39,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}                                 
 Plug 'neoclide/coc-tsserver', {'do': 'yarn install --frozen-lockfile'}                               " TypeScript auto-completion
 Plug 'pappasam/coc-jedi', { 'do': 'yarn install --frozen-lockfile && yarn build', 'branch': 'main' } " Python auto-completion
 Plug 'neoclide/coc-snippets', {'do': 'yarn install --frozen-lockfile'}                               " Snippets auto-completion   
-Plug 'neoclide/coc-pairs', {'do': 'yarn install --frozen-lockfile'}                                    " Snippets auto-completion   
+Plug 'neoclide/coc-pairs', {'do': 'yarn install --frozen-lockfile'}                                  
 
 " Snippets
 Plug 'SirVer/ultisnips'
@@ -59,6 +59,7 @@ let g:jsx_ext_required=0
 
 """ FZF (https://github.com/junegunn/fzf.vim#command-local-options)
 let g:fzf_buffers_jump = 1
+let g:fzf_layout = { 'down': '~40%' }
 
 " Customize fzf colors to match your color scheme
 let g:fzf_colors =
@@ -75,10 +76,6 @@ let g:fzf_colors =
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
-
-
-""" FZF
-let g:fzf_layout = { 'down': '~40%' }
 
 " :Files override - Preview included
 command! -bang -nargs=? -complete=dir Files
@@ -122,7 +119,7 @@ augroup auto_gutentags
 augroup end
 
 """ CoC (https://github.com/neoclide/coc.nvim#example-vim-configuration)
-" let g:coc_start_at_startup = 0
+let g:coc_start_at_startup = 0
 
 " Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
 " delays and poor user experience
