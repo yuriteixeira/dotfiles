@@ -44,12 +44,15 @@ alias yb='yarn build'
 alias yc='yarn clean'
 
 alias p='pnpm'
-alias ps='yarn start'
-alias pt='yarn test'
-alias pl='yarn lint'
-alias pco='yarn commit'
-alias pb='yarn build'
-alias pc='yarn clean'
+
+# To avoid conflicts with ps (process listing)
+alias pss='pnpm start'
+
+alias pt='pnpm test'
+alias pl='pnpm lint'
+alias pco='pnpm commit'
+alias pb='pnpm build'
+alias pc='pnpm clean'
 
 # Python / Pip
 alias pip2deps='python2 -m pipdeptree | grep -v "\s -"'
