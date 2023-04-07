@@ -32,6 +32,7 @@ alias bic="brew install --cask"
 
 # NodeJS / Yarn / NPM / PNPM
 alias y='yarn'
+alias yi='yarn install'
 alias yg='yarn global'
 alias ys='yarn start'
 alias yt='yarn test'
@@ -47,7 +48,7 @@ alias p='pnpm'
 
 # To avoid conflicts with ps (process listing)
 alias pss='pnpm start'
-
+alias pi='pnpm install'
 alias pt='pnpm test'
 alias pl='pnpm lint'
 alias pco='pnpm commit'
