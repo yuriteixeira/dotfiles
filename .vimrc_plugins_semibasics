@@ -195,4 +195,4 @@ nmap <leader>cf  <Plug>(coc-fix-current)
 nmap <leader>cd <Plug>(coc-definition)
 
 " Show errors
-nmap <leader>ce <Plug>(coc-diagnostic-info)
+nnoremap <leader>ce :CocDiagnostics<CR>|
