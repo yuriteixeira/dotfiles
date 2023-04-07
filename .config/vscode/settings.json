@@ -11,20 +11,23 @@
   "workbench.tree.indent": 25,
   "workbench.colorTheme": "One Dark Pro",
   "vim.useSystemClipboard": true,
-  "files.autoSave": "afterDelay",
-  "files.autoSaveDelay": 300,
   "vim.visualstar": true,
   "vim.textwidth": 120,
   "terminal.external.osxExec": "iTerm.app",
   "terminal.integrated.fontSize": 14,
   "terminal.integrated.lineHeight": 1.5,
   "editor.tabSize": 2,
-  "window.zoomLevel": 1,
   "editor.formatOnSave": true,
   "editor.defaultFormatter": "esbenp.prettier-vscode",
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
   "eslint.validate": ["javascript", "typescript"],
-  "extensions.ignoreRecommendations": true
+  "extensions.ignoreRecommendations": true,
+  "editor.autoClosingDelete": "always",
+  "files.autoSave": "afterDelay",
+  "editor.mouseWheelZoom": true,
+  "prettier.useEditorConfig": false,
+  "editor.wordBasedSuggestions": true,
+  "security.workspace.trust.untrustedFiles": "open"
 }

@@ -67,10 +67,6 @@
     "when": "textInputFocus && !editorReadonly"
   },
   {
-    "key": "ctrl+t",
-    "command": "editor.action.refactor.preview"
-  },
-  {
     "key": "ctrl+shift+t",
     "command": "editor.action.refactor"
   },
@@ -91,5 +87,36 @@
   {
     "key": "cmd+r",
     "command": "editor.action.startFindReplaceAction"
+  },
+  {
+    "key": "ctrl+shift+alt+cmd+enter",
+    "command": "editor.action.sourceAction"
+  },
+  {
+    "key": "ctrl+shift+alt+cmd+d",
+    "command": "editor.action.showDefinitionPreviewHover"
+  },
+  {
+    "key": "alt+cmd+l",
+    "command": "-toggleFindInSelection",
+    "when": "editorFocus"
+  },
+  {
+    "key": "alt+cmd+l",
+    "command": "-toggleSearchEditorContextLines",
+    "when": "inSearchEditor"
+  },
+  {
+    "key": "alt+cmd+l",
+    "command": "eslint.executeAutofix"
+  },
+  {
+    "key": "alt+cmd+f",
+    "command": "prettier.forceFormatDocument"
+  },
+  {
+    "key": "alt+enter",
+    "command": "-notebook.cell.executeAndInsertBelow",
+    "when": "notebookCellListFocused && notebookCellType == 'markup' || notebookCellListFocused && notebookMissingKernelExtension && !notebookCellExecuting && notebookCellType == 'code' || notebookCellListFocused && !notebookCellExecuting && notebookCellType == 'code' && notebookKernelCount > 0 || notebookCellListFocused && !notebookCellExecuting && notebookCellType == 'code' && notebookKernelSourceCount > 0"
   }
 ]
