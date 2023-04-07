@@ -42,6 +42,7 @@ nnoremap <leader>sa :Ag <C-R><C-W>|                        " Search (FZF): word 
 nnoremap <leader>st :Tags <C-R><C-W>|                      " Search (FZF): CTags
 nnoremap <leader>ss :Snippets<CR>|                         " Search (FZF): Snippets (UltiSnips)
 nnoremap <leader>sm :Maps<CR>|                             " Search (FZF): Maps
+nnoremap <leader>sc :Commands<CR>|                         " Search (FZF): Commands
  
 nnoremap <leader>gg :GFiles?|                              " Git: Changed files
 nnoremap <leader>gf :GFiles!?|                             " Git: Changed files (Fullscreen)
