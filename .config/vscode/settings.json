@@ -29,5 +29,9 @@
   "editor.mouseWheelZoom": true,
   "prettier.useEditorConfig": false,
   "editor.wordBasedSuggestions": true,
-  "security.workspace.trust.untrustedFiles": "open"
+  "security.workspace.trust.untrustedFiles": "open",
+  "eslint.enable": false,
+  "todohighlight.defaultStyle": {
+    "backgroundColor": "infoBackground"
+  }
 }
