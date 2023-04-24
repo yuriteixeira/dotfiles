@@ -1,0 +1,122 @@
+call plug#begin('~/.vim/plugged')
+
+" General
+Plug 'scrooloose/nerdtree'                               " File navigator 
+Plug 'editorconfig/editorconfig-vim'                     " Editor config (http://editorconfig.org/)
+Plug '907th/vim-auto-save'                               " Auto-save files
+Plug 'jiangmiao/auto-pairs'                              " Auto-close brackets
+Plug 'bling/vim-airline'                                 " Status line (powerline like)
+Plug 'vim-airline/vim-airline-themes'                    " Status line color themes
+Plug 'airblade/vim-gitgutter'                            " Git: show changes on editor
+Plug 'tpope/vim-fugitive'                                " Git plugin
+Plug 'majutsushi/tagbar'                                 " Symbols navigator
+Plug 'chriskempson/base16-vim'                           " Base 16 Colorscheme
+Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'      " Ubiquitous anf fast fuzzy finder
+Plug 'ludovicchabant/vim-gutentags'                      " CTags auto-updater
+Plug 'tmux-plugins/vim-tmux-focus-events'                " Fix FocusGained and FocusLost when using tmux (https://github.com/tmux-plugins/vim-tmux-focus-events) 
+Plug 'kshenoy/vim-signature'                             " Show marks on gutter
+Plug 'christoomey/vim-tmux-navigator'                    " Tmux/Vim seamless navigation
+Plug 'junegunn/goyo.vim'                                 " Distraction-free prose writting 
+Plug 'junegunn/limelight.vim'                            " Highlight only the current paragraph
+
+" Language support
+Plug 'mattn/emmet-vim'                                   " HTML with Emmet (formerly Zencoding)
+
+" Syntax highlight
+Plug 'dzeban/vim-log-syntax'                             " Log files syntax
+Plug 'martinda/Jenkinsfile-vim-syntax'                   " Jenkinsfile syntax
+Plug 'mxw/vim-jsx'                                       " JSX syntax support
+Plug 'pangloss/vim-javascript'                           " JS syntax support
+Plug 'herringtondarkholme/yats.vim'                      " TypeScript
+
+" Snippets
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
+
+call plug#end()
+
+"""""""""""""  PLUGIN CONFIGS
+
+""" Auto-save
+let g:auto_save = 1
+
+""" Emmet
+let g:user_emmet_leader_key = '<C-X>'
+
+""" JSX
+let g:jsx_ext_required = 0
+
+""" TagBar 
+let g:tagbar_autoclose = 1
+let g:tagbar_autofocus = 1
+let g:tagbar_compact = 1
+let g:tagbar_show_visibility = 1
+let g:tagbar_autopreview = 0
+
+""" NerdTree
+let NERDTreeShowHidden = 1
+let NERDTreeQuitOnOpen = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
+let NERDTreeAutoDeleteBuffer = 1
+let g:NERDTreeWinSize = 40 
+
+" Ensure closing nerdtree when exiting (closing all buffers)
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")) | q | endif
+
+""" FZF (https://github.com/junegunn/fzf.vim#command-local-options)
+let g:fzf_buffers_jump = 1
+
+""" Customize fzf colors to match your color scheme
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
+
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview(), <bang>0)
+
+"""   :Ag  - Start fzf with hidden preview window that can be enabled with "?""" key
+"""   :Ag! - Start fzf in fullscreen and display the preview window above
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('up:60%')
+  \                         : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \                 <bang>0)
+
+""" Airline
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+set laststatus = 2
+set noshowmode
+set ttimeoutlen = 50
+
+""" Gutentag
+set statusline += %{gutentags#statusline()}
+
+""" Vim-gutter
+let g:gitgutter_map_keys = 1
+
+""" Goyo activates Limelight
+autocmd! User GoyoEnter Limelight
+autocmd! User GoyoLeave Limelight!
+
+""" Snippets
+let g:ultisnips_javascript = {
+     \ 'keyword-spacing': 'always',
+     \ 'semi': 'never',
+     \ 'space-before-function-paren': 'never',
+     \ }
+

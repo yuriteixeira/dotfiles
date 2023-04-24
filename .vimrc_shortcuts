@@ -58,3 +58,22 @@ nnoremap <leader>rr :%s///g<left><left><left>|             " Replace: will put c
 nnoremap <leader>rw :%s/<C-R><C-W>//g<left><left>|         " Replace: word under cursor (will put cursor in position to add replacement)
 nnoremap <leader>re :%s/\<<C-R><C-W>\>//g<left><left>|     " Replace: word under cursor (will put cursor in position to add replacement)
 
+""" CoC 
+
+" Refactorings
+nmap <leader>ca <Plug>(coc-codeaction)
+
+" Symbol renaming
+nmap <leader>crr <Plug>(coc-rename)
+
+" Apply the most preferred quickfix action to fix diagnostic on the current line
+nmap <leader>cf  <Plug>(coc-fix-current)
+
+" Go to definition
+nmap <leader>cd <Plug>(coc-definition)
+
+" Show errors
+nnoremap <leader>ce :CocDiagnostics<CR>|
+
+" Use K to show documentation in preview window
+nnoremap <silent> K :call ShowDocumentation()<CR>

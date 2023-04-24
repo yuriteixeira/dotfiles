@@ -3,6 +3,7 @@
 --exclude=node_modules
 --exclude=vendor
 --exclude=build
+--exclude=dist
 --exclude=*.json
 --exclude=*.yml
 --exclude=*.yaml
@@ -10,3 +11,5 @@
 --exclude=*.txt
 --exclude=*.html
 --exclude=*.spec.js
+--exclude=*.test.js
+--langmap=TypeScript:.ts.tsx

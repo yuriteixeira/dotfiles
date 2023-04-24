@@ -18,8 +18,6 @@ ln -sf "$PWD/.base16_favorites" $HOME
 ln -sf "$PWD/.gitconfig" $HOME
 ln -sf "$PWD/.gitignore_global" $HOME
 
-ln -sf "$PWD/.ideavimrc" $HOME
-
 ln -sf "$PWD/.tmux.conf" $HOME
 ln -sf "$PWD/.tmux.plugins.conf" $HOME
 ln -sf "$PWD/.tmux.settings.conf" $HOME
@@ -27,12 +25,15 @@ ln -sf "$PWD/.tmux.shortcuts.conf" $HOME
 ln -sf "$PWD/.tmux.styles.conf" $HOME
 ln -sf "$PWD/.tmux.vi.conf" $HOME
 
+ln -sf "$PWD/.ideavimrc" $HOME
 ln -sf "$PWD/.vim" $HOME
 ln -sf "$PWD/.vimrc_colors" $HOME
-ln -sf "$PWD/.vimrc_plugins" $HOME
-ln -sf "$PWD/.vimrc_plugins_semibasics" $HOME
 ln -sf "$PWD/.vimrc_settings" $HOME
 ln -sf "$PWD/.vimrc_shortcuts" $HOME
+ln -sf "$PWD/.vimrc_plugins_v3" "$HOME/.vimrc_plugins"
+ln -sf "$PWD/.vimrc_plugins_lualine" $HOME
+ln -sf "$PWD/.vimrc_plugins_coc" $HOME
+ln -sf "$PWD/.vimrc_plugins_fzf" $HOME
 
 ln -sf "$PWD/.zshrc" $HOME
 ln -sf "$PWD/.zshrc_autojump" $HOME
