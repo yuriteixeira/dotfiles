@@ -7,7 +7,7 @@ ln -sf "$PWD/.config/bat" $HOME/.config
 ln -sf "$PWD/.config/karabiner" $HOME/.config
 ln -sf "$PWD/.config/nvim" $HOME/.config
 ln -sf "$PWD/.config/vscode" $HOME/.config
-ln -sf "$PWD/.config/yarn" $HOME/.config
+ln -sf "$PWD/.config/iterm" $HOME/.config
 
 ln -sf "$PWD/.ctags.d" $HOME
 
