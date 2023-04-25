@@ -1,4 +1,3 @@
-command! Focus set fcs=eob:\ | Goyo | Limelight!! | set nocul " Focus mode
 command! MarksReset delm! | delm A-Z0-9                       " Delete all marks
 
 """ Date/Time
@@ -27,25 +26,18 @@ vnoremap <S-Tab> <gv
 nnoremap <leader>? :help <C-R><C-W>|                       " Provide help
 
 nnoremap <leader><leader> :b#<CR>|                         " Buffers: Toggle current buffer with last opened one
-nnoremap <leader>b :Buffers<CR>|                           " Fuzzy finder: Buffers
-nnoremap <leader>l :BLines<CR>|                            " Fuzzy finder: Buffer Lines
-nnoremap <leader>t :BTags<CR>|                             " Fuzzy finder: Buffer Tags
-nnoremap <leader>a :Files<CR>|                             " Fuzzy finder: Files
-nnoremap <leader>d :DirFiles<CR>|                          " Fuzzy finder: Files relative to current file directory
-nnoremap <leader>] :History<CR>|                           " Fuzzy finder: History
-nnoremap <leader>m :Marks<CR>|                             " Fuzzy finder: Marks
+nnoremap <leader>ab :Buffers<CR>|                          " Fuzzy finder: Buffers
+nnoremap <leader>al :BLines<CR>|                           " Fuzzy finder: Buffer Lines
+nnoremap <leader>at :BTags<CR>|                            " Fuzzy finder: Buffer Tags
+nnoremap <leader>aa :Files<CR>|                            " Fuzzy finder: Files
+nnoremap <leader>ad :DirFiles<CR>|                         " Fuzzy finder: Files relative to current file directory
+nnoremap <leader>ah :History<CR>|                          " Fuzzy finder: History
+nnoremap <leader>am :Marks<CR>|                            " Fuzzy finder: Marks
+nnoremap <leader>agg :GFiles?|                             " Git: Changed files
+nnoremap <leader>agf :GFiles!?|                            " Git: Changed files (Fullscreen)
 
 nnoremap <leader>qq :q<CR>|                                " Exit: close current
 nnoremap <leader>qa :qa<CR>|                               " Exit: close all
-
-nnoremap <leader>sa :Ag <C-R><C-W>|                        " Search (FZF): word under cursor
-nnoremap <leader>st :Tags <C-R><C-W>|                      " Search (FZF): CTags
-nnoremap <leader>ss :Snippets<CR>|                         " Search (FZF): Snippets (UltiSnips)
-nnoremap <leader>sm :Maps<CR>|                             " Search (FZF): Maps
-nnoremap <leader>sc :Commands<CR>|                         " Search (FZF): Commands
- 
-nnoremap <leader>gg :GFiles?|                              " Git: Changed files
-nnoremap <leader>gf :GFiles!?|                             " Git: Changed files (Fullscreen)
 
 nnoremap <C-t> :Vexplore<CR>|                              " File tree (Bundled): Current
 
@@ -54,6 +46,12 @@ nnoremap <leader>$ :set list!<CR>                          " Toggle hidden chara
 nnoremap <leader>z :ZoomToggle<CR>                         " Toggle zoom to current window split
 
 """ Search / Replace
+nnoremap <leader>sa :Ag <C-R><C-W>|                        " Search (FZF): word under cursor
+nnoremap <leader>st :Tags <C-R><C-W>|                      " Search (FZF): CTags
+nnoremap <leader>ss :Snippets<CR>|                         " Search (FZF): Snippets (UltiSnips)
+nnoremap <leader>sm :Maps<CR>|                             " Search (FZF): Maps
+nnoremap <leader>sc :Commands<CR>|                         " Search (FZF): Commands
+
 nnoremap <leader>rr :%s///g<left><left><left>|             " Replace: will put cursor in position to add search criteria
 nnoremap <leader>rw :%s/<C-R><C-W>//g<left><left>|         " Replace: word under cursor (will put cursor in position to add replacement)
 nnoremap <leader>re :%s/\<<C-R><C-W>\>//g<left><left>|     " Replace: word under cursor (will put cursor in position to add replacement)
