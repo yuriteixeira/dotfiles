@@ -46,6 +46,8 @@ ln -sf "$PWD/.zshrc_nvm" $HOME
 ln -sf "$PWD/.zshrc_tmux" $HOME
 ln -sf "$PWD/.zshrc_vim" $HOME
 
+ln -sf "$PWD/.huskyrc" $HOME
+
 
 ### Configs
 defaults write -g ApplePressAndHoldEnabled -bool false 
