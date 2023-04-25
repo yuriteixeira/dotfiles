@@ -1,4 +1,4 @@
-# Common commands improvement
+### Common
 alias a="alias"
 alias psa="ps aux"
 alias e=$EDITOR
@@ -30,7 +30,7 @@ alias b="brew"
 alias bi="brew install"
 alias bic="brew install --cask"
 
-# NodeJS / Yarn / NPM / PNPM
+# Yarn
 alias y='yarn'
 alias yi='yarn install'
 alias yg='yarn global'
@@ -44,10 +44,10 @@ alias yco='yarn commit'
 alias yb='yarn build'
 alias yc='yarn clean'
 
+# PNPM
 alias p='pnpm'
 
-# To avoid conflicts with ps (process listing)
-alias pss='pnpm start'
+alias pss='pnpm start' # To avoid conflicts with ps (process listing)
 alias pi='pnpm install'
 alias pt='pnpm test'
 alias pl='pnpm lint'
@@ -74,14 +74,6 @@ function drl {
     registry=$1
     image=$2
     curl -L http://${registry}/${image}/tags/list | jq
-}
-
-function docker-api {
-  docker kill socat
-  docker rm socat
-  docker run -d -v /var/run/docker.sock:/var/run/docker.sock --name socat -p 127.0.0.1:2375:2375 bobrik/socat TCP-LISTEN:2375,fork UNIX-CONNECT:/var/run/docker.sock && export DOCKER_HOST=tcp://localhost:2375
-  curl localhost:2375/images/json | jq .
-  echo ">>> If a list of images appeared above, it worked."
 }
 
 ### Tooling upgrade
@@ -119,8 +111,6 @@ function upgrade {
   omz update
 }
 
-# FZF
-
 # Touch + Creates dir path (if needed)
 function to {
   [ -z "$1" ] && echo "ERROR: Path, pls..." && return 1
@@ -130,6 +120,9 @@ function to {
   touch $filepath
   echo ">>> File $filepath created!"
 }
+
+
+### FZF
 
 # Search + Edit (ag/fzf/e)
 function age {
@@ -151,25 +144,10 @@ function agx {
     fi
 }
 
-# Watch (time based, not file change based)
-function watch {
-    time=$1
-    shift
-
-		while :; 
-		do 
-				clear
-				date
-				$@
-				sleep $time
-		done
-}
+### Watchers & Friends
 
 # Watch file system changes
 alias fw="fswatch -r -o -t -x -l 2"
-
-# SourceTree
-alias s="stree ."
 
 # Notifications (OSX)
 function notify {
@@ -190,41 +168,6 @@ function watch-n-do {
     fw $1 | while read; do bash -c $2; done
 }
 
-# Watch files and reload browser with fswatch and osacript
-function livereload {
-    local pathToWatch=${1:-"$PWD"}
-    local browser=${2:-"Google Chrome"}
-    echo ">>> Watching changes on $pathToWatch (will reload first tab on $browser) \n"
-    fswatch -o $pathToWatch | xargs -n1 -I {} osascript -e "tell application \"$browser\" to tell the active tab of its first window to reload"
-}
-
-# Google Chrome for remote control (Chrome Dev Tools Protocol)
-alias gcdt='/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --user-data-dir=/tmp/google_chrome_dev_tools_profile --remote-debugging-port=9222 http://localhost:9222 &'
-
-# Chromium bundled with puppeteer for remote control (Chrome Dev Tools Protocol)
-alias cmdt='node_modules/puppeteer/.local-chromium/mac-575458/chrome-mac/Chromium.app/Contents/MacOS/Chromium
---user-data-dir=/tmp/chromium_dev_tools_profile --remote-debugging-port=9222 http://localhost:9222 &'
-
-# Convert CLDC from PC to Mac
-# https://github.com/rscustom/rocksmith-custom-song-toolkit/wiki/Batch-Convert-CDLC-for-macOS
-function rsconvert {
-	echo ">>> Starting CLDC conversion..."
-  songsFolder=~/Downloads
-  rocksmithToolkitLocation=/Applications/RocksmithCustomSongToolkit.app
-  appId=248750 # Cherub Rock - https://github.com/rscustom/rocksmith-custom-song-toolkit/blob/master/RocksmithToolkitLib/RocksmithToolkitLib.SongAppId.xml
-  monoPath=$(which mono32)
-
-  # Delete already existing mac songs from download folder which do not work
-  find $songsFolder -name "*_m.psarc" -exec rm {} \;
-
-  # Convert the songs from pc to mac format in same folder
-  find $songsFolder -name "*_p.psarc" -exec $monoPath $rocksmithToolkitLocation/Contents/Resources/cdlcconverter.exe --sp Pc --tp Mac --appid $appId -i {} \;
-
-  # Move to CLDC folder
-  find $songsFolder -name "*_m.psarc" -exec mv {} $HOME/Library/Application\ Support/Steam/steamapps/common/Rocksmith2014/dlc \;
-
-	echo ">>> DONE!"
-}
 
 # JENV Activation
 eval "$(jenv init -)"
