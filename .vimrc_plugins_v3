@@ -2,7 +2,7 @@ call plug#begin('~/.vim/plugged')
 
 """ General
 Plug 'editorconfig/editorconfig-vim'                                    " Editor config (http://editorconfig.org/)
-Plug 'chriskempson/base16-vim'                                          " Base 16 Colorscheme
+Plug 'RRethy/nvim-base16'                                               " Base16 colorscheme support
 Plug '/opt/homebrew/opt/fzf' | Plug 'junegunn/fzf.vim'                  " Ubiquitous anf fast fuzzy finder
 Plug '907th/vim-auto-save'                                              " Auto-save files
 Plug 'kshenoy/vim-signature'                                            " Marks on gutter
