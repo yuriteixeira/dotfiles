@@ -2444,26 +2444,6 @@
             "description": "Hyper Application",
             "manipulators": [
               {
-                "description": "hyper + f = finder",
-                "from": {
-                  "key_code": "f",
-                  "modifiers": {
-                    "mandatory": [
-                      "right_command",
-                      "right_control",
-                      "right_shift",
-                      "right_option"
-                    ]
-                  }
-                },
-                "to": [
-                  {
-                    "shell_command": "open -a finder"
-                  }
-                ],
-                "type": "basic"
-              },
-              {
                 "description": "hyper + t = terminal",
                 "from": {
                   "key_code": "t",
@@ -2524,9 +2504,9 @@
                 "type": "basic"
               },
               {
-                "description": "hyper + d = Dictionary",
+                "description": "hyper + b = Chrome Browser",
                 "from": {
-                  "key_code": "d",
+                  "key_code": "b",
                   "modifiers": {
                     "mandatory": [
                       "right_command",
@@ -2538,17 +2518,18 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a Dictionary"
+                    "shell_command": "open -a 'Google Chrome'"
                   }
                 ],
                 "type": "basic"
               },
               {
-                "description": "hyper + b = Brave",
+                "description": "hyper + ctrl + b = Brave Browser",
                 "from": {
                   "key_code": "b",
                   "modifiers": {
                     "mandatory": [
+                      "left_control",
                       "right_command",
                       "right_control",
                       "right_shift",
@@ -2564,7 +2545,7 @@
                 "type": "basic"
               },
               {
-                "description": "hyper + c = Chrome",
+                "description": "hyper + c = Calendar",
                 "from": {
                   "key_code": "c",
                   "modifiers": {
@@ -2578,7 +2559,47 @@
                 },
                 "to": [
                   {
-                    "shell_command": "open -a 'Google Chrome'"
+                    "shell_command": "open '/Users/yuriteixeira/Applications/Chrome Apps.localized/Calendar.app'"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "description": "hyper + m = Meet",
+                "from": {
+                  "key_code": "m",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_control",
+                      "right_shift",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open '/Users/yuriteixeira/Applications/Chrome Apps.localized/Google Meet.app'"
+                  }
+                ],
+                "type": "basic"
+              },
+              {
+                "description": "hyper + g = Gmail",
+                "from": {
+                  "key_code": "g",
+                  "modifiers": {
+                    "mandatory": [
+                      "right_command",
+                      "right_control",
+                      "right_shift",
+                      "right_option"
+                    ]
+                  }
+                },
+                "to": [
+                  {
+                    "shell_command": "open '/Users/yuriteixeira/Applications/Chrome Apps.localized/Mail.app'"
                   }
                 ],
                 "type": "basic"
@@ -2644,12 +2665,11 @@
                 "type": "basic"
               },
               {
-                "description": "hyper + cmd + s = Simulator",
+                "description": "hyper + i = iPhone Simulator",
                 "from": {
-                  "key_code": "s",
+                  "key_code": "i",
                   "modifiers": {
                     "mandatory": [
-                      "left_command",
                       "right_command",
                       "right_control",
                       "right_shift",
@@ -2665,12 +2685,11 @@
                 "type": "basic"
               },
               {
-                "description": "hyper + ctrl + s = Sourcetree",
+                "description": "hyper + d = Diff with Sourcetree",
                 "from": {
-                  "key_code": "s",
+                  "key_code": "d",
                   "modifiers": {
                     "mandatory": [
-                      "left_control",
                       "right_command",
                       "right_control",
                       "right_shift",
