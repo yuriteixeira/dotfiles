@@ -62,13 +62,16 @@ nnoremap <leader>re :%s/\<<C-R><C-W>\>//g<left><left>|     " Replace: word under
 nmap <leader>ca <Plug>(coc-codeaction)
 
 " Symbol renaming
-nmap <leader>crr <Plug>(coc-rename)
+nmap <leader>cr <Plug>(coc-rename)
 
 " Apply the most preferred quickfix action to fix diagnostic on the current line
-nmap <leader>cf <Plug>(coc-fix-current)
+nmap <leader>cq <Plug>(coc-fix-current)
 
 " Go to definition
 nmap <leader>cd <Plug>(coc-definition)
+
+" Find references
+nmap <leader>cf <Plug>(coc-references)
 
 " Show errors
 nnoremap <leader>ce :CocDiagnostics<CR>|

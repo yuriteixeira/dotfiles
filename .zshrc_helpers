@@ -7,6 +7,7 @@ alias m="more"
 alias dot="cd ~/Workspace/github/yuriteixeira/dotfiles"
 alias pdot="cd ~/Workspace/ghe/yuriteixeira/dotfiles"
 alias ag="ag --hidden"
+alias sed="gsed"
 
 # Open profile with editor
 alias pf="nvim -p \

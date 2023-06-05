@@ -53,7 +53,7 @@
   fo = fetch origin
 
   # change
-  b = branch
+  b = branch --sort=-committerdate 
   co = checkout
   com = checkout master
   a = add
