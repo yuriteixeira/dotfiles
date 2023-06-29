@@ -103,18 +103,18 @@ require('lualine').setup {
 
     theme = my_theme,
     component_separators = '',
-    section_separators = { left = '', right = '' },
+    section_separators = { left = ' ', right = ' ' },
   },
   sections = {
     lualine_a = {
-      { 'mode', separator = { left = '' }, color = { gui = 'bold'} },
+      { 'mode', separator = { left = ' ' }, color = { gui = 'bold'} },
     },
     lualine_b = { 'filename' },
     lualine_c = {},
     lualine_x = {},
     lualine_y = { 'progress' },
     lualine_z = {
-      { 'location', separator = { right = '' }, left_padding = 2 },
+      { 'location', separator = { right = ' ' }, left_padding = 2 },
     },
   },
   inactive_sections = {
