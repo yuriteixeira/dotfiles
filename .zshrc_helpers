@@ -169,7 +169,11 @@ function watch-n-do {
     fw $1 | while read; do bash -c $2; done
 }
 
+### IntelliJ (https://www.jetbrains.com/help/idea/working-with-the-ide-features-from-command-line.html)
+function idea {
+  open -na "IntelliJ IDEA.app" --args "$@"
+}
 
-# JENV Activation
+# Java stuff
 eval "$(jenv init -)"
-
+source "$HOME/.sdkman/bin/sdkman-init.sh"
