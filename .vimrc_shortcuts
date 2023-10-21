@@ -56,6 +56,13 @@ nnoremap <leader>rr :%s///g<left><left><left>|             " Replace: will put c
 nnoremap <leader>rw :%s/<C-R><C-W>//g<left><left>|         " Replace: word under cursor (will put cursor in position to add replacement)
 nnoremap <leader>re :%s/\<<C-R><C-W>\>//g<left><left>|     " Replace: word under cursor (will put cursor in position to add replacement)
 
+""" Diagrams
+noremap <Leader>D :Diagon<Space>
+
+noremap <Leader>dm :Diagon Math<CR>
+noremap <Leader>ds :Diagon Sequence<CR>
+noremap <Leader>dt :Diagon Tree<CR>
+
 """ CoC 
 
 " Refactorings

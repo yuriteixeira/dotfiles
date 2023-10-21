@@ -18,9 +18,6 @@ Plug 'ludovicchabant/vim-gutentags'                                     " CTags 
 " Git
 Plug 'airblade/vim-gitgutter'                                           " Git changes on gutter
 
-" Linting & Formatting
-Plug 'prettier/vim-prettier'                                            " Prettier
-
 " Markup + CSS
 Plug 'mattn/emmet-vim'                                                  " HTML with Emmet (formerly Zencoding)
 Plug 'mxw/vim-jsx'                                                      " JSX syntax support
@@ -33,16 +30,14 @@ Plug 'pangloss/vim-javascript'                                          " JavaSc
 Plug 'herringtondarkholme/yats.vim', {'do': 'rm -rf UltiSnips'}         " TypeScript syntax support
 
 " Auto-completion
-Plug 'neoclide/coc.nvim', {'branch': 'release'}                                                      " Better auto-completion
-
-" Snippets
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-Plug 'mlaursen/vim-react-snippets'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}                         " Better auto-completion
 
 " Status line
 Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
+
+" Diagrams
+Plug 'willchao612/vim-diagon'                                           " https://arthursonzogni.com/Diagon
 
 call plug#end()
 
@@ -58,12 +53,6 @@ let g:jsx_ext_required=0
 """ FZF (https://github.com/junegunn/fzf.vim#command-local-options)
 let g:fzf_buffers_jump = 1
 let g:fzf_layout = { 'down': '~40%' }
-
-
-""" UltiSnips
-let g:UltiSnipsJumpForwardTrigger="<C-]>"
-let g:UltiSnipsJumpBackwardTrigger="<C-[>"
-let g:UltiSnipsEditSplit="vertical"
 
 """ Auto-save
 let g:auto_save = 1
