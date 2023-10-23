@@ -40,6 +40,7 @@ if [[ "$(uname)" == "Darwin" ]] then
     export ANDROID_SDK_PATH="$HOME/Library/Android/sdk"
     export ANDROID_SDK_PLATFORMTOOLS_PATH="$ANDROID_SDK_PATH/platform-tools"
     export ANDROID_SDK_EMULATOR_PATH="$ANDROID_SDK_PATH/emulator"
+    export CMVM_PATH="/Users/yuriteixeira/Library/Application Support/com.iepsen.cmvm/current/bin"
 
     export PNPM_HOME="$HOME/Library/pnpm"
 
@@ -50,6 +51,7 @@ if [[ "$(uname)" == "Darwin" ]] then
     export MY_PATH="$JENV_PATH:$MY_PATH"
     export MY_PATH="$ANDROID_SDK_PLATFORMTOOLS_PATH:$MY_PATH"
     export MY_PATH="$ANDROID_SDK_EMULATOR_PATH:$MY_PATH"
+    export MY_PATH="$CMVM_PATH:$MY_PATH"
     export MY_PATH="$PNPM_HOME:$MY_PATH"
 
     export PATH="$MY_PATH:$PATH"
