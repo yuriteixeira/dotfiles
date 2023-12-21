@@ -1,21 +1,5 @@
-command! MarksReset delm! | delm A-Z0-9                       " Delete all marks
 
-""" Date/Time
-nnoremap <leader>id "=strftime('%Y-%m-%d (%a)')<C-M>pa|       " Date
-nnoremap <leader>it "=strftime('%T (%Z)')<C-M>pa|             " Time
-
-""" Filesystem
-command! PathFull let @+ = expand("%:p")                       " Full path
-nnoremap <leader>ff :PathFull<CR>|
-
-command! PathRel let @+ = expand("%")                          " Relative path
-nnoremap <leader>fr :PathRel<CR>|
-
-command! PathFilename let @+ = expand("%:t")                   " Just filename
-nnoremap <leader>fn :PathName<CR>|
-
-command! PathDir let @+ = expand('%:p:h')                      " Just dir of file
-nnoremap <leader>fd :PathDir<CR>|
+""""" PRIMARY
 
 """ Formating
 " https://vim.fandom.com/wiki/Shifting_blocks_visually
@@ -26,61 +10,52 @@ vnoremap <S-Tab> <gv
 nnoremap <leader>? :help <C-R><C-W>|                       " Provide help
 
 nnoremap <leader><leader> :b#<CR>|                         " Buffers: Toggle current buffer with last opened one
-nnoremap <leader>ab :Buffers<CR>|                          " Fuzzy finder: Buffers
-nnoremap <leader>al :BLines<CR>|                           " Fuzzy finder: Buffer Lines
-nnoremap <leader>at :BTags<CR>|                            " Fuzzy finder: Buffer Tags
-nnoremap <leader>aa :Files<CR>|                            " Fuzzy finder: Files
-nnoremap <leader>ad :DirFiles<CR>|                         " Fuzzy finder: Files relative to current file directory
-nnoremap <leader>ah :History<CR>|                          " Fuzzy finder: History
-nnoremap <leader>am :Marks<CR>|                            " Fuzzy finder: Marks
-nnoremap <leader>agg :GFiles?|                             " Git: Changed files
-nnoremap <leader>agf :GFiles!?|                            " Git: Changed files (Fullscreen)
+
+nnoremap <leader>ff :Files<CR>|                            " Fuzzy finder: Files
+nnoremap <leader>fb :Buffers<CR>|                          " Fuzzy finder: Buffers
+nnoremap <leader>fl :BLines<CR>|                           " Fuzzy finder: Buffer Lines
+nnoremap <leader>ft :BTags<CR>|                            " Fuzzy finder: Buffer Tags
+nnoremap <leader>fd :DirFiles<CR>|                         " Fuzzy finder: Files relative to current file directory
+nnoremap <leader>fh :History<CR>|                          " Fuzzy finder: History
+nnoremap <leader>fm :Marks<CR>|                            " Fuzzy finder: Marks
+nnoremap <leader>fgg :GFiles?|                             " Git: Changed files
+nnoremap <leader>fgf :GFiles!?|                            " Git: Changed files (Fullscreen)
 
 nnoremap <leader>qq :q<CR>|                                " Exit: close current
 nnoremap <leader>qa :qa<CR>|                               " Exit: close all
 
 nnoremap <C-t> :Vexplore<CR>|                              " File tree (Bundled): Current
 
+""" Search
+nnoremap ,sa :Ag <C-R><C-W>|                        " Search (FZF): word under cursor
+nnoremap ,st :Tags <C-R><C-W>|                      " Search (FZF): CTags
+nnoremap ,ss :Snippets<CR>|                         " Search (FZF): Snippets (UltiSnips)
+nnoremap ,sm :Maps<CR>|                             " Search (FZF): Maps
+nnoremap ,sc :Commands<CR>|                         " Search (FZF): Commands
+
+""" Replace
+nnoremap ,rr :%s///g<left><left><left>|             " Replace: will put cursor in position to add search criteria
+nnoremap ,rw :%s/<C-R><C-W>//g<left><left>|         " Replace: word under cursor (will put cursor in position to add replacement)
+nnoremap ,re :%s/\<<C-R><C-W>\>//g<left><left>|     " Replace: word under cursor (will put cursor in position to add replacement)
+
+""" Metadata
+command! PathFull let @+ = expand("%:p")                       " Full path
+nnoremap ,mm :PathFull<CR>|
+
+command! PathRel let @+ = expand("%")                          " Relative path
+nnoremap ,mr :PathRel<CR>|
+
+command! PathFilename let @+ = expand("%:t")                   " Just filename
+nnoremap ,mn :PathFilename<CR>|
+
+command! PathDir let @+ = expand('%:p:h')                      " Just dir of file
+nnoremap ,md :PathDir<CR>|
+
+""" Date/Time
+nnoremap <leader>id "=strftime('%Y-%m-%d (%a)')<C-M>pa|       " Date
+nnoremap <leader>it "=strftime('%T (%Z)')<C-M>pa|             " Time
+
 """ Misc
 nnoremap <leader>$ :set list!<CR>                          " Toggle hidden characters
 nnoremap <leader>z :ZoomToggle<CR>                         " Toggle zoom to current window split
-
-""" Search / Replace
-nnoremap <leader>sa :Ag <C-R><C-W>|                        " Search (FZF): word under cursor
-nnoremap <leader>st :Tags <C-R><C-W>|                      " Search (FZF): CTags
-nnoremap <leader>ss :Snippets<CR>|                         " Search (FZF): Snippets (UltiSnips)
-nnoremap <leader>sm :Maps<CR>|                             " Search (FZF): Maps
-nnoremap <leader>sc :Commands<CR>|                         " Search (FZF): Commands
-
-nnoremap <leader>rr :%s///g<left><left><left>|             " Replace: will put cursor in position to add search criteria
-nnoremap <leader>rw :%s/<C-R><C-W>//g<left><left>|         " Replace: word under cursor (will put cursor in position to add replacement)
-nnoremap <leader>re :%s/\<<C-R><C-W>\>//g<left><left>|     " Replace: word under cursor (will put cursor in position to add replacement)
-
-""" Diagrams
-noremap <Leader>D :Diagon<Space>
-
-noremap <Leader>dm :Diagon Math<CR>
-noremap <Leader>ds :Diagon Sequence<CR>
-noremap <Leader>dt :Diagon Tree<CR>
-
-""" CoC 
-
-" Refactorings
-nnoremap <leader>ca <Plug>(coc-codeaction)
-nnoremap <leader>cn <Plug>(coc-rename)
-nnoremap <leader>cr <Plug>(coc-codeaction-refactor-selected)
-
-" Apply the most preferred quickfix action to fix diagnostic on the current line
-nnoremap <leader>cq <Plug>(coc-fix-current)
-
-" Go to definition
-nnoremap <leader>cd <Plug>(coc-definition)
-
-" Find references
-nnoremap <leader>cf <Plug>(coc-references)
-
-" Show errors
-nnoremap <leader>ce :CocDiagnostics<CR>|
-
-" Use K to show documentation in preview window
-nnoremap K :call ShowDocumentation()<CR>
+command! MarksReset delm! | delm A-Z0-9                       " Delete all marks

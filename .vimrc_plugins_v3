@@ -29,6 +29,9 @@ Plug 'alvan/vim-closetag'                                               " Auto-c
 Plug 'pangloss/vim-javascript'                                          " JavaScript syntax support
 Plug 'herringtondarkholme/yats.vim', {'do': 'rm -rf UltiSnips'}         " TypeScript syntax support
 
+" Linting & Formatting
+Plug 'prettier/vim-prettier'                                            " Prettier
+
 " Auto-completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                         " Better auto-completion
 
