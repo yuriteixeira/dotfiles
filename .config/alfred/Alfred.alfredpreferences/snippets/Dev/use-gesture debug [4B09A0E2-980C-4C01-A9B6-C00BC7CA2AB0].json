@@ -1,6 +1,7 @@
 {
   "alfredsnippet" : {
     "snippet" : "  console.log('>>> togglePanelDisplay', {\n    'swipe.y': swipe[1],\n    'gesture.movement': gesture.movement[1],\n    'gesture.velocity': gesture.velocity[1],\n    'gesture.elapsedTime': gesture.elapsedTime,\n    'gesture.last': gesture.last,\n  });",
+    "dontautoexpand" : true,
     "uid" : "4B09A0E2-980C-4C01-A9B6-C00BC7CA2AB0",
     "name" : "use-gesture debug",
     "keyword" : ""

@@ -175,5 +175,7 @@ function idea {
 }
 
 # Java stuff
-eval "$(jenv init -)"
-source "$HOME/.sdkman/bin/sdkman-init.sh"
+if [ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]; then
+  eval "$(jenv init -)"
+  source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
