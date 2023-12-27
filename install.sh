@@ -36,7 +36,7 @@ ln -sf "$PWD/.vimrc_plugins_lualine" $HOME
 ln -sf "$PWD/.vimrc_plugins_coc" $HOME
 ln -sf "$PWD/.vimrc_plugins_fzf" $HOME
 
-ln -sf "$PWD/.zshrc" $HOME
+ln -sf "$PWD/.zshrc_public" $HOME
 ln -sf "$PWD/.zshrc_autojump" $HOME
 ln -sf "$PWD/.zshrc_base16" $HOME
 ln -sf "$PWD/.zshrc_env" $HOME
@@ -48,7 +48,6 @@ ln -sf "$PWD/.zshrc_tmux" $HOME
 ln -sf "$PWD/.zshrc_vim" $HOME
 
 ln -sf "$PWD/.huskyrc" $HOME
-
 
 ### Configs
 defaults write -g ApplePressAndHoldEnabled -bool false 
