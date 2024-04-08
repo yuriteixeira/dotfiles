@@ -18,6 +18,7 @@ set cursorline                                                            " high
 set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»   " invisible characters
 set smartcase                                                             " case insensitive search (unless a capital letter is present)
 set laststatus=2                                                          " show statuts bar (bottom)
+set termguicolors                                                         " seems to be necessary now https://github.com/RRethy/base16-nvim/issues/94#issuecomment-1949620437
 
 """ STATUS LINE
 set statusline=%t       "tail of the filename

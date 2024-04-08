@@ -1,5 +1,8 @@
 ### Git
 alias g="git"
+alias gd="DELTA_FEATURES=+side-by-side g d"
+alias gdc="DELTA_FEATURES=+side-by-side g dc"
+
 alias gui="gitui"
 
 function gitcred {
