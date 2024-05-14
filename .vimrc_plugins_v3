@@ -20,14 +20,10 @@ Plug 'airblade/vim-gitgutter'                                           " Git ch
 
 " Markup + CSS
 Plug 'mattn/emmet-vim'                                                  " HTML with Emmet (formerly Zencoding)
-Plug 'mxw/vim-jsx'                                                      " JSX syntax support
-Plug 'hail2u/vim-css3-syntax'                                           " CSS3 syntax support
-Plug 'cakebaker/scss-syntax.vim'                                        " SCSS syntax support
 Plug 'alvan/vim-closetag'                                               " Auto-close X(HT)ML tags
 
 " Syntaxes
-Plug 'pangloss/vim-javascript'                                          " JavaScript syntax support
-Plug 'herringtondarkholme/yats.vim', {'do': 'rm -rf UltiSnips'}         " TypeScript syntax support
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}             
 
 " Linting & Formatting
 Plug 'prettier/vim-prettier'                                            " Prettier
@@ -68,6 +64,9 @@ let g:gutentags_enabled = 1
 augroup auto_gutentags
   au FileType python,java,scala,json,yml,yaml,css,scss,less,xml,html,xhtml,svg,js,javascript,ts,typescript,vim let g:gutentags_enabled=1
 augroup end
+
+""" Tree-sitter
+luafile ~/.vimrc_plugins_nvim_treesitter
 
 """ FZF
 source ~/.vimrc_plugins_fzf
