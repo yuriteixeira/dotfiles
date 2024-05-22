@@ -1,5 +1,5 @@
 """ GENERAL
-syntax on
+syntax off                                                                " since we're using nvim-treesitter for syntax highlighting now (see also https://github.com/nvim-treesitter/nvim-treesitter/issues/359)
 filetype indent on                                                        " activates indenting for files
 filetype plugin on
 set backspace=2                                                           " backspace in insert mode works like normal editor
@@ -18,7 +18,6 @@ set cursorline                                                            " high
 set listchars=tab:→\ ,space:·,nbsp:␣,trail:•,eol:¶,precedes:«,extends:»   " invisible characters
 set smartcase                                                             " case insensitive search (unless a capital letter is present)
 set laststatus=2                                                          " show statuts bar (bottom)
-set termguicolors                                                         " seems to be necessary now https://github.com/RRethy/base16-nvim/issues/94#issuecomment-1949620437
 
 """ STATUS LINE
 set statusline=%t       "tail of the filename
