@@ -34,5 +34,8 @@
         "usePlaceholders": true
       }
     }
-  }
+  },
+
+  "outline.showLineNumber": false,
+  "outline.expandLevel": 0,
 }
