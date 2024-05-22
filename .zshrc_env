@@ -5,6 +5,10 @@ DEFAULT_USER="$(whoami)"
 PROMPT_EOL_MARK=""
 
 export EDITOR='nvim'
+export PAGER='nvim -R'
+export MANPAGER='nvim +Man!'
+export BAT_PAGER=''
+
 export PROJECTS_HOME=$HOME/Workspace
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 

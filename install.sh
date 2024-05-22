@@ -50,5 +50,8 @@ ln -sf "$PWD/.zshrc_vim" $HOME
 
 ln -sf "$PWD/.huskyrc" $HOME
 
+# See: https://unencumberedbyfacts.com/2016/01/04/psql-vim-happy-face/
+ln -sf "$PWD/.inputrc" $HOME
+
 ### Configs
 defaults write -g ApplePressAndHoldEnabled -bool false 
