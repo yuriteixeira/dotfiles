@@ -22,5 +22,17 @@
     "shadow": true,
     "rounded": true
   },
-  "svelte.enable-ts-plugin": true
+
+  "svelte.enable-ts-plugin": true,
+
+  "languageserver": {
+    "go": {
+      "command": "gopls",
+      "rootPatterns": ["go.work", "go.mod", ".vim/", ".git/", ".hg/"],
+      "filetypes": ["go"],
+      "initializationOptions": {
+        "usePlaceholders": true
+      }
+    }
+  }
 }
