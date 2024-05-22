@@ -47,7 +47,11 @@ if [[ "$(uname)" == "Darwin" ]] then
     export GO_HOME="$HOME/go"
     export GO_BIN="$GO_HOME/bin"
 
-    export PSQL_BIN="/usr/local/opt/libpq/bin"
+    if [[ $(arch) == 'arm64' ]]; then
+        export PSQL_BIN="/opt/homebrew/opt/libpq/bin"
+    else
+        export PSQL_BIN="/usr/local/opt/libpq/bin"
+    fi
 
     export MY_PATH="/usr/local/bin:/usr/local/sbin"
     export MY_PATH="$PYTHON_BIN_PATH:$MY_PATH"
