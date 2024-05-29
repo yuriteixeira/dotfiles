@@ -37,17 +37,11 @@ alias yi='yarn install'
 alias yg='yarn global'
 alias ys='yarn start'
 alias yt='yarn test'
-alias yj='yarn jest'
-alias yji='yarn jest-integration'
-alias yje='yarn jest-e2e'
-alias yl='yarn lint'
-alias yco='yarn commit'
 alias yb='yarn build'
 alias yc='yarn clean'
 
 # PNPM
 alias p='pnpm'
-
 alias pss='pnpm start' # To avoid conflicts with ps (process listing)
 alias pi='pnpm install'
 alias pt='pnpm test'
@@ -55,6 +49,18 @@ alias pl='pnpm lint'
 alias pco='pnpm commit'
 alias pb='pnpm build'
 alias pc='pnpm clean'
+
+# NPM
+alias n='npm'
+alias nx='npx'
+alias nr='npm run'
+alias ns='npm start'
+alias ni='npm install'
+alias nt='npm test'
+alias nl='npm lint'
+alias nco='npm commit'
+alias nb='npm build'
+alias nc='npm clean'
 
 # Python / Pip
 alias pip2deps='python2 -m pipdeptree | grep -v "\s -"'
