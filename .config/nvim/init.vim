@@ -3,3 +3,5 @@ source ~/.vimrc_plugins
 source ~/.vimrc_shortcuts
 source ~/.vimrc_colors
 
+luafile ~/.vimrc_lsp
+

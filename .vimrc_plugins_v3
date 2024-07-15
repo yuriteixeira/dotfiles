@@ -30,6 +30,7 @@ Plug 'prettier/vim-prettier'                                            " Pretti
 
 " Auto-completion
 Plug 'neoclide/coc.nvim', {'branch': 'release'}                         " Better auto-completion
+Plug 'neovim/nvim-lspconfig'                                            " Fallback when Coc.Nvim doesn't work (eg: GQL)
 
 " Status line
 Plug 'nvim-lualine/lualine.nvim'
