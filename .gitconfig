@@ -31,11 +31,18 @@
   tool = nvim-diff
 
 [merge]
-  tool = nvim-diff
-  conflictstyle = diff3
+	tool = diffconflicts
+  #conflictstyle = diff3
 
 [mergetool "nvim-diff"]
   cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
+
+[mergetool "diffconflicts"]
+	cmd = nvim -c DiffConflictsWithHistory \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+	trustExitCode = true
+
+[mergetool]
+	keepBackup = false
 
 [color "diff"]
   meta = yellow bold

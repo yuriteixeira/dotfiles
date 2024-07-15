@@ -17,6 +17,7 @@ Plug 'ludovicchabant/vim-gutentags'                                     " CTags 
 
 " Git
 Plug 'airblade/vim-gitgutter'                                           " Git changes on gutter
+Plug 'whiteinge/diffconflicts'                                          " 2-way diff 
 
 " Markup + CSS
 Plug 'mattn/emmet-vim'                                                  " HTML with Emmet (formerly Zencoding)
