@@ -40,6 +40,9 @@ Plug 'nvim-tree/nvim-web-devicons'
 " Diagrams
 Plug 'willchao612/vim-diagon'                                           " https://arthursonzogni.com/Diagon
 
+" AI
+Plug 'github/copilot.vim'
+
 call plug#end()
 
 """""""""""""  PLUGIN CONFIGS
