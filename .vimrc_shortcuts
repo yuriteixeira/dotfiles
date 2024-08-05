@@ -31,12 +31,11 @@ nnoremap <leader><leader> :b#<CR>|                         " Buffers: Toggle cur
 nnoremap <leader>qq :q<CR>|                                " Exit: close current
 nnoremap <leader>qa :qa<CR>|                               " Exit: close all
 
-nnoremap <C-t> :Vexplore<CR>|                              " File tree (Bundled): Current
+nnoremap <C-t> :NvimTreeFindFile<CR>|                      " File tree (Bundled): Current
 
 nnoremap <leader>ff :Files<CR>|                            " Fuzzy finder: Files
 nnoremap <leader>fb :Buffers<CR>|                          " Fuzzy finder: Buffers
 nnoremap <leader>fl :BLines<CR>|                           " Fuzzy finder: Buffer Lines
-nnoremap <leader>ft :BTags<CR>|                            " Fuzzy finder: Buffer Tags
 nnoremap <leader>fd :DirFiles<CR>|                         " Fuzzy finder: Files relative to current file directory
 nnoremap <leader>fh :History<CR>|                          " Fuzzy finder: History
 nnoremap <leader>fm :Marks<CR>|                            " Fuzzy finder: Marks
@@ -48,8 +47,6 @@ nnoremap <leader>fgf :GFiles!?|                            " Git: Changed files 
 """ Search
 
 nnoremap ,sa :Ag <C-R><C-W>|                        " Search (FZF): word under cursor
-nnoremap ,st :Tags <C-R><C-W>|                      " Search (FZF): CTags
-nnoremap ,ss :Snippets<CR>|                         " Search (FZF): Snippets (UltiSnips)
 nnoremap ,sm :Maps<CR>|                             " Search (FZF): Maps
 nnoremap ,sc :Commands<CR>|                         " Search (FZF): Commands
 
@@ -64,6 +61,7 @@ nnoremap ,re :%s/\<<C-R><C-W>\>//g<left><left>|     " Replace: word under cursor
 
 
 """ Metadata
+
 command! PathFull let @+ = expand("%:p")                       " Full path
 nnoremap ,mm :PathFull<CR>|
 
@@ -79,12 +77,14 @@ nnoremap ,md :PathDir<CR>|
 
 
 """ Date/Time
+
 nnoremap <leader>id "=strftime('%Y-%m-%d (%a)')<C-M>pa|       " Date
 nnoremap <leader>it "=strftime('%T (%Z)')<C-M>pa|             " Time
 
 
 
 """ Misc
+
 nnoremap <leader>$ :set list!<CR>                          " Toggle hidden characters
 nnoremap <leader>z :ZoomToggle<CR>                         " Toggle zoom to current window split
 
