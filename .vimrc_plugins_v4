@@ -60,7 +60,7 @@ let g:auto_save = 1
 let g:gitgutter_map_keys = 1
 
 """ Tree-sitter
-luafile ~/.vimrc_plugins_nvim_treesitter
+source ~/.vimrc_plugins_nvim_treesitter
 
 """ FZF
 source ~/.vimrc_plugins_fzf
