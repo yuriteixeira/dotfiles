@@ -12,8 +12,6 @@ ln -sf "$PWD/.config/gitui" $HOME/.config
 
 ln -sf "$PWD/.ctags.d" $HOME
 
-ln -sf "$PWD/.vim" $HOME
-
 ln -sf "$PWD/.base16_favorites" $HOME
 
 ln -sf "$PWD/.gitconfig" $HOME
@@ -27,7 +25,6 @@ ln -sf "$PWD/.tmux.styles.conf" $HOME
 ln -sf "$PWD/.tmux.vi.conf" $HOME
 
 ln -sf "$PWD/.ideavimrc" $HOME
-ln -sf "$PWD/.vim" $HOME
 ln -sf "$PWD/.vimrc_colors" $HOME
 ln -sf "$PWD/.vimrc_settings" $HOME
 ln -sf "$PWD/.vimrc_shortcuts" $HOME
