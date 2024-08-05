@@ -1,0 +1,62 @@
+call plug#begin('~/.vim/plugged')
+
+""" General
+Plug 'editorconfig/editorconfig-vim'                                    " Editor config (http://editorconfig.org/)
+Plug 'RRethy/nvim-base16'                                               " Base16 colorscheme support
+Plug '/opt/homebrew/opt/fzf' | Plug 'junegunn/fzf.vim'                  " Ubiquitous anf fast fuzzy finder
+Plug '907th/vim-auto-save'                                              " Auto-save files
+
+""" Tmux Integration
+Plug 'tmux-plugins/vim-tmux-focus-events'                               " Fix FocusGained and FocusLost when using tmux (https://github.com/tmux-plugins/vim-tmux-focus-events)
+Plug 'christoomey/vim-tmux-navigator'                                   " Tmux/Vim seamless navigation
+
+""" Coding support
+
+" Git
+Plug 'airblade/vim-gitgutter'                                           " Git changes on gutter
+
+" Syntaxes
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}             
+
+" Linting & Formatting
+Plug 'prettier/vim-prettier'                                            
+
+" LSP
+Plug 'neovim/nvim-lspconfig'                                            
+
+" Auto-completion
+Plug 'hrsh7th/cmp-nvim-lsp'                                             
+" Plug 'hrsh7th/cmp-buffer'
+" Plug 'hrsh7th/cmp-path'
+" Plug 'hrsh7th/cmp-cmdline'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v4.x'}                    
+
+" Status line
+Plug 'nvim-lualine/lualine.nvim'
+
+" AI
+Plug 'github/copilot.vim'
+
+call plug#end()
+
+"""""""""""""  PLUGIN CONFIGS
+
+""" FZF (https://github.com/junegunn/fzf.vim#command-local-options)
+let g:fzf_buffers_jump = 1
+let g:fzf_layout = { 'down': '~40%' }
+
+""" Auto-save
+let g:auto_save = 1
+
+""" Vim-gutter
+let g:gitgutter_map_keys = 1
+
+""" Tree-sitter
+luafile ~/.vimrc_plugins_nvim_treesitter
+
+""" FZF
+source ~/.vimrc_plugins_fzf
+
+""" Lualine
+source ~/.vimrc_plugins_lualine
