@@ -1,16 +1,17 @@
 """ LSP
 
-nnoremap <leader>gd :lua vim.lsp.buf.definition()<CR>|      
-nnoremap <leader>gD :lua vim.lsp.buf.declaration()<CR>|     
-nnoremap <leader>gi :lua vim.lsp.buf.implementation()<CR>|  
-nnoremap <leader>go :lua vim.lsp.buf.type_definition()<CR>| 
-nnoremap <leader>gr :lua vim.lsp.buf.references()<CR>|      
-nnoremap <leader>gs :lua vim.lsp.buf.signature_help()<CR>|  
+nnoremap <leader>gd <Cmd>lua vim.lsp.buf.definition()<CR>|      
+nnoremap <leader>gD <Cmd>lua vim.lsp.buf.declaration()<CR>|     
+nnoremap <leader>gi <Cmd>lua vim.lsp.buf.implementation()<CR>|  
+nnoremap <leader>go <Cmd>lua vim.lsp.buf.type_definition()<CR>| 
+nnoremap <leader>gr <Cmd>lua vim.lsp.buf.references()<CR>|      
+nnoremap <leader>gs <Cmd>lua vim.lsp.buf.signature_help()<CR>|  
 
-nnoremap K :lua vim.lsp.buf.hover()<CR>|                    
-nnoremap <F2> :lua vim.lsp.buf.rename()<CR>|                
-nnoremap <F3> :lua vim.lsp.buf.format({async = true})<CR>|  
-nnoremap <F4> :lua vim.lsp.buf.code_action()<CR>|           
+nnoremap K <Cmd>lua vim.lsp.buf.hover()<CR>|                    
+nnoremap <F2> <Cmd>lua vim.lsp.buf.rename()<CR>|                
+nnoremap <F3> <Cmd>lua vim.lsp.buf.format({async = true})<CR>|  
+nnoremap <F4> <Cmd>lua vim.lsp.buf.code_action()<CR>|           
+vnoremap <F4> <Cmd>lua vim.lsp.buf.code_action()<CR>|           
 
 
 
