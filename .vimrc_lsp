@@ -53,18 +53,25 @@ lsp_zero.ui({
 })
 
 -- https://github.com/neovim/neovim/issues/20784#issuecomment-1288085253
-require('typescript-tools').setup {
+require('typescript-tools').setup {}
+
+require 'lspconfig'.eslint.setup {}
+
+require 'lspconfig'.svelte.setup {}
+
+require 'lspconfig'.graphql.setup {}
+
+require 'lspconfig'.gopls.setup {}
+
+require'lspconfig'.lua_ls.setup {} 
+
+require'lspconfig'.cssls.setup {}
+
+require 'nvim-tree'.setup {
+  view = {
+    width = 50,
+  },
 }
 
-require 'lspconfig'.svelte.setup {
-}
-
-require 'lspconfig'.graphql.setup {
-}
-
-require 'lspconfig'.gopls.setup {
-}
-
-require("nvim-tree").setup()
-require("lsp-file-operations").setup()
+require 'lsp-file-operations'.setup {}
 END
