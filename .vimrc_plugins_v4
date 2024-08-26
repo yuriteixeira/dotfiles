@@ -30,8 +30,8 @@ Plug 'prettier/vim-prettier'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'                                            
-Plug 'pmizio/typescript-tools.nvim'
 Plug 'antosha417/nvim-lsp-file-operations'
+Plug 'gfanto/fzf-lsp.nvim'
 
 " Auto-completion
 Plug 'hrsh7th/cmp-nvim-lsp'                                             

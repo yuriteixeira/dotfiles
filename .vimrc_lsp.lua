@@ -1,7 +1,5 @@
-lua << END
-
 local cmp = require 'cmp'
-local cmp_format = require('lsp-zero').cmp_format({details = true})
+local cmp_format = require('lsp-zero').cmp_format({ details = true })
 
 cmp.setup({
   preselect = 'item',
@@ -27,7 +25,7 @@ cmp.setup({
     ['<C-e>'] = cmp.mapping.abort(),
 
     -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
-    ['<CR>'] = cmp.mapping.confirm({ select = true }), 
+    ['<CR>'] = cmp.mapping.confirm({ select = true }),
   }),
 
   formatting = cmp_format,
@@ -36,6 +34,8 @@ cmp.setup({
 local lsp_zero = require('lsp-zero')
 
 local cmp_lsp_default_capabilities = require('cmp_nvim_lsp').default_capabilities()
+
+require 'lspconfig.ui.windows'.default_options.border = 'single'
 
 lsp_zero.extend_lspconfig({
   sign_text = true,
@@ -52,8 +52,27 @@ lsp_zero.ui({
   },
 })
 
+vim.diagnostic.config({
+  virtual_text = false,
+  severity_sort = true,
+  float = {
+    style = 'minimal',
+    border = 'rounded',
+    source = 'always',
+    header = '',
+    prefix = '',
+  },
+})
+
 -- https://github.com/neovim/neovim/issues/20784#issuecomment-1288085253
-require('typescript-tools').setup {}
+
+require 'lspconfig'.vtsls.setup {
+  settings = {
+    vtsls = {
+      enableMoveToFileCodeAction = true,
+    },
+  }
+}
 
 require 'lspconfig'.eslint.setup {}
 
@@ -61,11 +80,13 @@ require 'lspconfig'.svelte.setup {}
 
 require 'lspconfig'.graphql.setup {}
 
-require 'lspconfig'.gopls.setup {}
+require 'lspconfig'.lua_ls.setup {}
 
-require'lspconfig'.lua_ls.setup {} 
+require 'lspconfig'.cssls.setup {}
 
-require'lspconfig'.cssls.setup {}
+require 'fzf_lsp'.setup {
+  override_ui_select = true
+}
 
 require 'nvim-tree'.setup {
   view = {
@@ -74,4 +95,3 @@ require 'nvim-tree'.setup {
 }
 
 require 'lsp-file-operations'.setup {}
-END

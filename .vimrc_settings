@@ -62,7 +62,7 @@ autocmd BufEnter * if(exists('b:winview')) | call winrestview(b:winview)
 autocmd FileType gitcommit setlocal spell
 autocmd FileType markdown setlocal spell
 
-"" Explorer
+""" FILE EXPLORER
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
 let g:netrw_browse_split = 4
