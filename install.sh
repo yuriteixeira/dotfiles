@@ -29,10 +29,9 @@ ln -sf "$PWD/.vimrc_colors" $HOME
 ln -sf "$PWD/.vimrc_settings" $HOME
 ln -sf "$PWD/.vimrc_shortcuts" $HOME
 ln -sf "$PWD/.vimrc_lsp" $HOME
-ln -sf "$PWD/.vimrc_plugins_v3" "$HOME/.vimrc_plugins"
+ln -sf "$PWD/.vimrc_plugins_v4" "$HOME/.vimrc_plugins"
 ln -sf "$PWD/.vimrc_plugins_lualine" $HOME
 ln -sf "$PWD/.vimrc_plugins_nvim_treesitter" $HOME
-ln -sf "$PWD/.vimrc_plugins_coc" $HOME
 ln -sf "$PWD/.vimrc_plugins_fzf" $HOME
 
 ln -sf "$PWD/.zshrc_public" $HOME
