@@ -64,12 +64,16 @@ vim.diagnostic.config({
   },
 })
 
--- https://github.com/neovim/neovim/issues/20784#issuecomment-1288085253
-
 require 'lspconfig'.vtsls.setup {
   settings = {
     vtsls = {
       enableMoveToFileCodeAction = true,
+      autoUseWorkspaceTsdk = true,
+    },
+    typescript = {
+      suggest = {
+        completeFunctionCalls = true,
+      },
     },
   }
 }
@@ -80,6 +84,7 @@ require 'lspconfig'.svelte.setup {}
 
 require 'lspconfig'.graphql.setup {}
 
+-- https://github.com/neovim/nvim-lspconfig/blob/master/doc/server_configurations.md#lua_ls
 require 'lspconfig'.lua_ls.setup {}
 
 require 'lspconfig'.cssls.setup {}
