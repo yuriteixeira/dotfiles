@@ -1,0 +1,86 @@
+after-login-command = []
+after-startup-command = []
+start-at-login = true
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+
+accordion-padding = 0
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+key-mapping.preset = 'qwerty'
+on-focused-monitor-changed = ['move-mouse monitor-lazy-center']
+
+[workspace-to-monitor-force-assignment]
+5 = 'secondary'
+6 = 'secondary'
+7 = 'secondary'
+8 = 'secondary'
+
+[gaps]
+inner.horizontal = 10
+inner.vertical =   10
+outer.left =       10
+outer.bottom =     10
+outer.top =        10
+outer.right =      10
+
+[mode.main.binding]
+ctrl-1 = ['workspace 5', 'workspace 1']
+ctrl-2 = ['workspace 6', 'workspace 2']
+ctrl-3 = ['workspace 7', 'workspace 3']
+ctrl-4 = ['workspace 8', 'workspace 4']
+ctrl-5 = ['workspace 1', 'workspace 5']
+ctrl-6 = ['workspace 2', 'workspace 6']
+ctrl-7 = ['workspace 3', 'workspace 7'] 
+ctrl-8 = ['workspace 4', 'workspace 8']
+
+ctrl-alt-enter = 'fullscreen'
+ctrl-alt-equal = 'balance-sizes'
+ctrl-alt-backslash = 'layout tiles horizontal vertical'
+ctrl-alt-slash = 'layout accordion horizontal vertical'
+
+ctrl-alt-h = 'focus left'
+ctrl-alt-j = 'focus down'
+ctrl-alt-k = 'focus up'
+ctrl-alt-l = 'focus right'
+
+cmd-ctrl-alt-h = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors left'
+cmd-ctrl-alt-j = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors down'
+cmd-ctrl-alt-k = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors up'
+cmd-ctrl-alt-l = 'focus --boundaries all-monitors-outer-frame --boundaries-action wrap-around-all-monitors right'
+cmd-ctrl-alt-rightSquareBracket = 'focus-monitor --wrap-around next'
+cmd-ctrl-alt-leftSquareBracket = 'focus-monitor --wrap-around prev'
+
+ctrl-shift-h = 'move left'
+ctrl-shift-j = 'move down'
+ctrl-shift-k = 'move up'
+ctrl-shift-l = 'move right'
+
+ctrl-shift-rightSquareBracket = 'move-node-to-monitor --wrap-around next'
+ctrl-shift-leftSquareBracket  = 'move-node-to-monitor --wrap-around prev'
+
+ctrl-shift-1 = ['move-node-to-workspace 1', 'workspace 1']
+ctrl-shift-2 = ['move-node-to-workspace 2', 'workspace 2']
+ctrl-shift-3 = ['move-node-to-workspace 3', 'workspace 3']
+ctrl-shift-4 = ['move-node-to-workspace 4', 'workspace 4']
+ctrl-shift-5 = ['move-node-to-workspace 5', 'workspace 5']
+ctrl-shift-6 = ['move-node-to-workspace 6', 'workspace 6'] 
+ctrl-shift-7 = ['move-node-to-workspace 7', 'workspace 7'] 
+ctrl-shift-8 = ['move-node-to-workspace 8', 'workspace 8'] 
+
+ctrl-shift-minus = 'resize smart -50'
+ctrl-shift-equal = 'resize smart +50'
+
+ctrl-0 = 'mode service'
+
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+
+r = ['flatten-workspace-tree', 'mode main'] # reset layout
+f = ['layout floating tiling', 'mode main'] # toggle between floating and tiling layout
+backspace = ['close-all-windows-but-current', 'mode main']
+
+h = ['join-with left', 'mode main']
+j = ['join-with down', 'mode main']
+k = ['join-with up', 'mode main']
+l = ['join-with right', 'mode main']
