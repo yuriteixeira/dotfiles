@@ -4,6 +4,12 @@
 <dict>
 	<key>autoExpandMidString</key>
 	<true/>
+	<key>autoExpandSnippetPlaySound</key>
+	<false/>
+	<key>autoExpandSnippetSound</key>
+	<string>Tink</string>
+	<key>autoExpandSnippetTriggerPlaySound</key>
+	<false/>
 	<key>autoExpandSnippetsSound</key>
 	<false/>
 	<key>hotkey</key>
