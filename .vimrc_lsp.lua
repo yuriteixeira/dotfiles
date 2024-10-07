@@ -88,6 +88,8 @@ require 'lspconfig'.lua_ls.setup {}
 
 require 'lspconfig'.cssls.setup {}
 
+require'lspconfig'.bashls.setup{}
+
 require 'fzf_lsp'.setup {
   override_ui_select = true
 }

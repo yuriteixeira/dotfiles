@@ -43,8 +43,7 @@ ctrl-alt-equal = 'balance-sizes'
 ctrl-alt-backslash = 'layout tiles horizontal vertical'
 ctrl-alt-slash = 'layout accordion horizontal vertical'
 
-cmd-ctrl-alt-enter = 'fullscreen'
-cmd-ctrl-alt-space = 'fullscreen'
+cmd-ctrl-alt-f = 'fullscreen'
 cmd-ctrl-alt-h = 'focus left'
 cmd-ctrl-alt-j = 'focus down'
 cmd-ctrl-alt-k = 'focus up'
@@ -91,7 +90,7 @@ r = ['flatten-workspace-tree', 'mode main'] # reset layout
 f = ['layout floating tiling', 'mode main'] # toggle between floating and tiling layout
 backspace = ['close-all-windows-but-current', 'mode main']
 
-h = ['join-with left', 'layout accordion horizontal vertical', 'mode main']
-j = ['join-with down', 'layout accordion horizontal vertical', 'mode main']
-k = ['join-with up', 'layout accordion horizontal vertical', 'mode main']
-l = ['join-with right', 'layout accordion horizontal vertical', 'mode main']
+h = ['join-with left', 'mode main']
+j = ['join-with down', 'mode main']
+k = ['join-with up', 'mode main']
+l = ['join-with right', 'mode main']
