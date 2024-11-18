@@ -89,7 +89,7 @@ function upgrade {
   echo ">>> Brew / Brew Cask"
   brew update
   brew upgrade
-  brew outdated --cask | xargs -n1 brew reinstall --cask
+  brew upgrade --casks --greedy
   brew cleanup
 
   echo ""
