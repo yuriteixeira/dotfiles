@@ -8,7 +8,7 @@ export EDITOR='nvim'
 export PAGER='nvim -R'
 export MANPAGER='nvim +Man!'
 export BAT_PAGER=''
-export HOMEBREW_VERIFY_ATTESTATIONS=false
+export HOMEBREW_NO_VERIFY_ATTESTATIONS=1
 export PROJECTS_HOME=$HOME/Workspace
 export NVIM_LISTEN_ADDRESS=/tmp/nvimsocket
 

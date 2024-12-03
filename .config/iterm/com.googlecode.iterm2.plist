@@ -535,12 +535,14 @@
 				<key>Red Component</key>
 				<real>0.92929404973983765</real>
 			</dict>
+			<key>Blend</key>
+			<real>0.49749771897810213</real>
 			<key>Blinking Cursor</key>
 			<false/>
 			<key>Blur</key>
-			<false/>
+			<true/>
 			<key>Blur Radius</key>
-			<real>25.900540226063828</real>
+			<real>24.718260650170969</real>
 			<key>Bold Color</key>
 			<dict>
 				<key>Blue Component</key>
@@ -733,7 +735,7 @@
 			<key>Idle Code</key>
 			<integer>0</integer>
 			<key>Initial Use Transparency</key>
-			<false/>
+			<true/>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
@@ -1118,6 +1120,8 @@
 			<true/>
 			<key>Normal Font</key>
 			<string>JetBrainsMonoNFM-ExtraLight 14</string>
+			<key>Only The Default BG Color Uses Transparency</key>
+			<false/>
 			<key>Option Key Sends</key>
 			<integer>2</integer>
 			<key>Prompt Before Closing 2</key>
@@ -1207,7 +1211,7 @@
 			<key>Title Components</key>
 			<integer>260</integer>
 			<key>Transparency</key>
-			<real>0.0</real>
+			<real>0.053588169642857265</real>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
