@@ -1,10 +1,9 @@
 require "nvchad.mappings"
 
--- add yours here
-
 local map = vim.keymap.set
 
+-- bundled example (very useful, actually)
 map("n", ";", ":", { desc = "CMD enter command mode" })
-map("i", "jk", "<ESC>")
+map('n', '<Leader>dd', ':lua vim.diagnostic.config { virtual_text = false }<CR>', { desc = "Diagnostics Disabled"})
+map('n', '<Leader>de', ':lua vim.diagnostic.config { virtual_text = true }<CR>', { desc = "Diagnostics Enabled"})
 
--- map({ "n", "i", "v" }, "<C-s>", "<cmd> w <cr>")

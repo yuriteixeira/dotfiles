@@ -1,3 +1,4 @@
+-- source for most files referenced here: https://github.com/NvChad/NvChad/blob/v2.5/lua/nvchad/
 vim.g.base46_cache = vim.fn.stdpath "data" .. "/base46/"
 vim.g.mapleader = " "
 
