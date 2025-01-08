@@ -10,6 +10,7 @@ ln -sf "$PWD/.config/vscode" $HOME/.config
 ln -sf "$PWD/.config/iterm" $HOME/.config
 ln -sf "$PWD/.config/gitui" $HOME/.config
 ln -sf "$PWD/.config/aerospace" $HOME/.config
+ln -sf "$PWD/.config/borders" $HOME/.config
 
 ln -sf "$PWD/.ctags.d" $HOME
 
