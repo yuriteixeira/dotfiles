@@ -21,7 +21,7 @@ return {
           keymap = {
             next = '<C-]>',
             prev = '<C-[',
-            accept = '<CR>',
+            accept = '<C-CR>',
             dismiss = '<Esc>'
           }
         }
