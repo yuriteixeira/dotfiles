@@ -2,3 +2,12 @@
 # yarn lockfile v1
 
 
+create-playwright@^1.17.134:
+  version "1.17.134"
+  resolved "https://registry.yarnpkg.com/create-playwright/-/create-playwright-1.17.134.tgz#48f8c9152e8db6547cafa284fb1ea7a08e7bd644"
+  integrity sha512-7ioaBsy04VikfB1p2tib2WJC9GIVEcmaCbwxzyNsarDbUgFRNuYKDRLFueyqlDLH83USCB9Kq7EZu889Q1uXaw==
+
+create-vite@^6.1.1:
+  version "6.1.1"
+  resolved "https://registry.yarnpkg.com/create-vite/-/create-vite-6.1.1.tgz#49156a4f0c75866ca41123a809bd180434587871"
+  integrity sha512-oHcCcikmJqWVwUCf3OhwRwnTHY062koziG7niDvMPBEXnie/ME5b22v/Z9PuyWhnM0Yy4iTXk0y9ZRMivNXhvQ==

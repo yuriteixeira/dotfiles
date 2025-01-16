@@ -53,8 +53,8 @@ ctrl-shift-j = 'move down'
 ctrl-shift-k = 'move up'
 ctrl-shift-l = 'move right'
 
-ctrl-shift-rightSquareBracket = 'move-node-to-monitor --wrap-around next'
-ctrl-shift-leftSquareBracket  = 'move-node-to-monitor --wrap-around prev'
+ctrl-shift-rightSquareBracket = 'move-node-to-monitor --focus-follows-window --wrap-around next'
+ctrl-shift-leftSquareBracket  = 'move-node-to-monitor --focus-follows-window --wrap-around prev'
 
 ctrl-shift-1 = ['move-node-to-workspace 1', 'trigger-binding --mode main ctrl-1']
 ctrl-shift-2 = ['move-node-to-workspace 2', 'trigger-binding --mode main ctrl-2']

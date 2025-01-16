@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "create-playwright": "^1.17.134",
+    "create-vite": "^6.1.1"
+  }
+}
