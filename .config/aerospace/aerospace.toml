@@ -87,3 +87,8 @@ h = ['join-with left', 'mode main']
 j = ['join-with down', 'mode main']
 k = ['join-with up', 'mode main']
 l = ['join-with right', 'mode main']
+
+[[on-window-detected]]
+    if.app-id = 'com.1password.1password'
+    check-further-callbacks = true
+    run = ['layout floating']
