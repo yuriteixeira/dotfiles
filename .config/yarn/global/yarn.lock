@@ -3,9 +3,9 @@
 
 
 create-playwright@^1.17.134:
-  version "1.17.134"
-  resolved "https://registry.yarnpkg.com/create-playwright/-/create-playwright-1.17.134.tgz#48f8c9152e8db6547cafa284fb1ea7a08e7bd644"
-  integrity sha512-7ioaBsy04VikfB1p2tib2WJC9GIVEcmaCbwxzyNsarDbUgFRNuYKDRLFueyqlDLH83USCB9Kq7EZu889Q1uXaw==
+  version "1.17.135"
+  resolved "https://registry.yarnpkg.com/create-playwright/-/create-playwright-1.17.135.tgz#3e8f70cf70f6b2e9068373764115085fe817d823"
+  integrity sha512-ra/cDAeSCrE7waEccqYCt5WiFtOtLZI7xBVqhd8kQUI3rwAk9f/dIhZLSb/rGHoGKe2KxcPAngXZiCDJPoQ5uA==
 
 create-vite@^6.1.1:
   version "6.1.1"
