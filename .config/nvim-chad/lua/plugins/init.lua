@@ -16,16 +16,16 @@ return {
     cmd = "Copilot",
     event = "InsertEnter",
     config = function()
-      require("copilot").setup({
+      require("copilot").setup {
         suggestion = {
           keymap = {
-            next = '<C-]>',
-            prev = '<C-[',
-            accept = '<C-CR>',
-            dismiss = '<Esc>'
-          }
-        }
-      })
+            next = "<C-]>",
+            prev = "<C-[",
+            accept = "<C-CR>",
+            dismiss = "<Esc>",
+          },
+        },
+      }
     end,
   },
 
@@ -55,5 +55,18 @@ return {
         ft = { "markdown", "Avante" },
       },
     },
+  },
+
+  {
+    "brianhuster/autosave.nvim",
+    lazy = false,
+  },
+
+  {
+    "irohn/focus.nvim",
+    opts = {},
+    cmd = { "Focus", "FocusOn", "FocusOff" },
+    keys = { { "<leader>tf", "<cmd>Focus<cr>", desc = "Toggle focus mode" } },
+    ft = { "markdown", "text" },
   },
 }
