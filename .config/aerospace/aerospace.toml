@@ -92,3 +92,9 @@ l = ['join-with right', 'mode main']
     if.app-id = 'com.1password.1password'
     check-further-callbacks = true
     run = ['layout floating']
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.Preview'
+    check-further-callbacks = true
+    run = ['layout floating']
+
