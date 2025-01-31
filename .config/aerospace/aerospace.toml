@@ -68,10 +68,9 @@ ctrl-shift-8 = ['move-node-to-workspace 8', 'trigger-binding --mode main ctrl-8'
 ctrl-shift-minus = 'resize smart -50'
 ctrl-shift-equal = 'resize smart +50'
 
-# Disable shortcuts to hide and minimize windows
+# Disable shortcuts to hide windows
 cmd-h = []
 cmd-alt-h = []
-cmd-m = []
 
 ctrl-esc = 'mode service'
 
