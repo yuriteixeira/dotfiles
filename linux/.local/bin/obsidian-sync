@@ -1,0 +1,45 @@
+#!/bin/bash
+
+echo '>>> Obsidian Sync STARTED'
+
+obsidianApp="obsidian"
+previouslyFocusedApp=""
+
+cd $HOME/Workspaces/github/yuriteixeira/notes
+
+swaymsg -t subscribe '["window"]' -m | while read -r event; do
+  echo '>>> Obsidian Sync: EVENT RECEIVED'
+
+  waylandSelector='.container.app_id'
+  xwaylandSelector='.container.window_properties.class'
+  focusEventSelector='select(.change == "focus")'
+  openedAppEventSelector='select(.change == "new")'
+
+  currentlyFocusedApp=$(echo "$event" | jq -r "$focusEventSelector | $waylandSelector // $xwaylandSelector")
+  openedApp=$(echo "$event" | jq -r "$openedAppEventSelector | $waylandSelector // $xwaylandSelector")
+
+  if [ "$openedApp" == "$obsidianApp" ]; then
+    git pull --rebase 
+    notify-send "Notes pulled!"
+    echo '>>> Obsidian Sync: NOTES PULLED'
+  fi
+
+  if [ -z "$currentlyFocusedApp" ] || [ "$currentlyFocusedApp" == "null" ]; then
+    echo '>>> Obsidian Sync: EVENT SKIPPED (no app is focused)'
+    continue
+  fi
+
+  gainedFocus=$([ "$currentlyFocusedApp" == "$obsidianApp" ] && [ "$previouslyFocusedApp" != "$obsidianApp" ] && echo 1)
+  lostFocus=$([ "$previouslyFocusedApp" == "$obsidianApp" ] && [ "$currentlyFocusedApp" != "$obsidianApp" ] && echo 1)
+
+  if [ "$lostFocus" == "1" ]; then
+    git add . 
+    git commit -m "updates"
+    git push
+    echo '>>> Obsidian Sync: NOTES PUSHED'
+  fi
+
+  previouslyFocusedApp="$currentlyFocusedApp"
+done
+
+echo '>>> Obsidian Sync ENDED'

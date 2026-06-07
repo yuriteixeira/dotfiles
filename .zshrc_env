@@ -1,0 +1,151 @@
+### Env variables 
+
+export EDITOR='nvim'
+export MANPAGER='nvim +Man!'
+
+export DOTFILES=$HOME/Workspaces/github/yuriteixeira/dotfiles
+
+export NODE_OPTIONS="--dns-result-order=ipv4first"
+
+# Suppress pkg_resources deprecation warning from Google Cloud SDK
+export PYTHONWARNINGS="ignore::UserWarning"
+
+export TIMEFMT='%J   %U  user %S system %P cpu %*E total'$'\n'\
+'avg shared (code):         %X KB'$'\n'\
+'avg unshared (data/stack): %D KB'$'\n'\
+'total (sum):               %K KB'$'\n'\
+'max memory:                %M MB'$'\n'\
+'page faults from disk:     %F'$'\n'\
+'other page faults:         %R'
+export TIMER_FORMAT='\n\n⏱  %d'
+
+export DOT_LOCAL_BIN="$HOME/.local/bin"
+case ":$PATH:" in
+  *":$DOT_LOCAL_BIN:"*) ;;
+  *) export PATH="$DOT_LOCAL_BIN:$PATH" ;;
+esac
+
+if [[ "$(uname)" == "Linux" ]] then
+  export XDG_RUNTIME_DIR="/run/user/$(id -u)"
+  export XDG_SCREENSHOTS_DIR="$HOME/Screenshots"
+  export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
+
+  function distrobox_prompt_info() {
+    if [[ -n "$CONTAINER_ID" ]]; then
+      echo "%{$fg[magenta]%}📦 [$CONTAINER_ID]%{$reset_color%} "
+    fi
+  }
+
+  PROMPT='$(distrobox_prompt_info)'$PROMPT
+
+  export PNPM_HOME="$HOME/.local/share/pnpm"
+  case ":$PATH:" in
+    *":$PNPM_HOME:"*) ;;
+    *) export PATH="$PNPM_HOME:$PATH" ;;
+  esac
+  case ":$PATH:" in
+    *":$PNPM_HOME/bin:"*) ;;
+    *) export PATH="$PATH:$PNPM_HOME/bin" ;;
+  esac
+  path=("$DOT_LOCAL_BIN" ${path:#$DOT_LOCAL_BIN})
+
+  export CARGO_BIN="$HOME/.cargo/bin"
+  case ":$PATH:" in
+    *":$CARGO_BIN:"*) ;;
+    *) export PATH="$CARGO_BIN:$PATH" ;;
+  esac
+fi
+
+if [[ "$(uname)" == "Darwin" ]] then
+    if command -v brew &> /dev/null; then
+        export HOMEBREW_NO_VERIFY_ATTESTATIONS=1
+        export BREW_PREFIX=$(brew --prefix)
+    fi
+
+    export LC_ALL=en_US.UTF-8
+    export LANG=en_US.UTF-8
+
+    export LA_HOME=$HOME/Library/LaunchAgents
+    export LD_HOME=/Library/LaunchDaemons
+
+    # See: https://docs.python.org/3/using/cmdline.html
+    export BLENDER_PATH="/Applications/Blender.app/Contents/Resources/3.0"
+    export BLENDER_PYTHON_MODULES_PATH="$BLENDER_PATH/scripts/startup:$BLENDER_PATH/scripts/modules"
+
+    # https://docs.python.org/3/using/cmdline.html#envvar-PYTHONPATH
+    export PYTHON_ROOT="/opt/homebrew/opt/python@3.10"
+    export PYTHON_BIN_PATH="$PYTHON_ROOT/bin:$PYTHON_ROOT/libexec/bin"
+    export PYTHONPATH="$PYTHON_ROOT/Frameworks/Python.framework/Versions/Current"
+
+    export GCLOUD_PATH="/opt/homebrew/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/bin"
+    export GNU_PATH="/usr/local/opt/gnu-sed/libexec/gnubin"
+    export JENV_PATH="$HOME/.jenv/bin"
+
+    export ANDROID_SDK_PATH="$HOME/Library/Android/sdk"
+    export ANDROID_HOME="$ANDROID_SDK_PATH"
+    export ANDROID_SDK_PLATFORMTOOLS_PATH="$ANDROID_SDK_PATH/platform-tools"
+    export ANDROID_SDK_EMULATOR_PATH="$ANDROID_SDK_PATH/emulator"
+    export CMVM_PATH="$HOME/Library/Application Support/com.iepsen.cmvm/current/bin"
+
+    export PNPM_HOME="$HOME/Library/pnpm"
+
+    export GO_HOME="$HOME/go"
+    export GO_BIN="$GO_HOME/bin"
+
+    export RUSTUP_BIN="/opt/homebrew/opt/rustup/bin"
+
+    export JAVA_HOME="$HOME/.sdkman/candidates/java/current"
+
+
+    if [[ $(arch) == 'arm64' ]]; then
+        export PSQL_BIN="/opt/homebrew/opt/libpq/bin"
+    else
+        export PSQL_BIN="/usr/local/opt/libpq/bin"
+    fi
+
+    export MY_PATH="/usr/local/bin:/usr/local/sbin"
+
+    export MY_PATH="$ANDROID_SDK_PLATFORMTOOLS_PATH:$MY_PATH"
+    export MY_PATH="$ANDROID_SDK_EMULATOR_PATH:$MY_PATH"
+    #export MY_PATH="$CMVM_PATH:$MY_PATH"
+    #export MY_PATH="$GO_BIN:$MY_PATH"
+    #export MY_PATH="$PSQL_BIN:$MY_PATH"
+    export MY_PATH="$PYTHON_BIN_PATH:$MY_PATH"
+    export MY_PATH="$PNPM_HOME:$MY_PATH"
+    export MY_PATH="$GNU_PATH:$MY_PATH"
+    export MY_PATH="$JENV_PATH:$MY_PATH"
+    export MY_PATH="$GCLOUD_PATH:$MY_PATH"
+    export MY_PATH="$RUSTUP_BIN:$MY_PATH"
+
+    export PATH="$PATH:$MY_PATH"
+fi
+
+
+### Initializations 
+
+if [ -f "$HOME/.sdkman/bin/sdkman-init.sh" ]; then
+  source "$HOME/.sdkman/bin/sdkman-init.sh"
+fi
+
+if command -v zoxide &> /dev/null; then
+  eval "$(zoxide init --cmd cd zsh)"
+  alias j='cd'
+  alias ji='cdi'
+fi
+
+if command -v eza &> /dev/null; then
+  alias ls='eza --icons=auto --hyperlink'
+fi
+
+if [ -n "$BREW_PREFIX" ]; then
+  FPATH=$BREW_PREFIX/share/zsh-completions:$FPATH
+fi
+
+autoload -Uz compinit
+compinit
+
+# Also, run this if necessary
+# rm -f ~/.zcompdump
+# compinit
+# chmod go-w '/opt/homebrew/share'
+# chmod -R go-w '/opt/homebrew/share/zsh'

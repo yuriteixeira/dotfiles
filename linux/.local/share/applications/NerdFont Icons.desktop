@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=NerdFont Icons
+Comment=NerdFont Icons
+Exec=brave --app="https://www.nerdfonts.com/cheat-sheet" --name="NerdFont Icons" --class="NerdFont Icons"
+Terminal=false
+Type=Application
+Icon=app-nerdfont-icons
+StartupNotify=true

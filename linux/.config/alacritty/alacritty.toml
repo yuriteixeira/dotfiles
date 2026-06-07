@@ -1,0 +1,13 @@
+[env]
+TERM = "xterm-256color"
+
+[font]
+normal = { family = "JetBrainsMono Nerd Font", style = "Thin" }
+size = 11
+
+[window]
+padding.x = 10
+padding.y = 10
+decorations = "None"
+opacity = 0.95
+blur = true

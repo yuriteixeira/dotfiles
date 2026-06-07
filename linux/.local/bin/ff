@@ -1,0 +1,8 @@
+COLUMNS=$(tput cols)
+
+if [ -n "$COLUMNS" ] && [ $COLUMNS -ge 80 ]; 
+then
+  fastfetch $@
+else
+  fastfetch -l none $@
+fi

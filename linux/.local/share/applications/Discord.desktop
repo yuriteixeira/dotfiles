@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Discord
+Comment=Discord
+Exec=brave --app="https://discord.com/channels/@me" --name="Discord" --class="Discord"
+Terminal=false
+Type=Application
+Icon=app-discord
+StartupNotify=true

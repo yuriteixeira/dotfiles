@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Translate
+Comment=Translate
+Exec=brave --app="https://translate.google.com" --name="Translate" --class="Translate"
+Terminal=false
+Type=Application
+Icon=app-translate
+StartupNotify=true

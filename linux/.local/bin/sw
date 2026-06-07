@@ -1,0 +1,13 @@
+#! env /bin/bash
+
+export ELECTRON_OZONE_PLATFORM_HINT=wayland
+
+profile=$1
+
+if [ -n "$profile" ];
+then
+  rm -rf $HOME/.config/sway/profiles/current
+  ln -sf $HOME/.config/sway/profiles/$profile $HOME/.config/sway/profiles/current
+fi
+
+sway --unsupported-gpu

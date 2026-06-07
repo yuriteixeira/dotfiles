@@ -1,0 +1,8 @@
+{
+  "alfredsnippet" : {
+    "snippet" : "{isodate} {time:short}",
+    "uid" : "379E12F0-28CF-43C6-A6FE-416C6B57F1A1",
+    "name" : "datetime",
+    "keyword" : "datetime"
+  }
+}

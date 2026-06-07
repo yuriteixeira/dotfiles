@@ -1,0 +1,81 @@
+* {
+  font-family: 'JetBrainsMono NF';
+  font-size: 14px;
+  transition: background-color .3s ease-out;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+window#waybar {
+  background:rgba(0, 0, 0, .9);
+  transition: background-color .5s;
+}
+
+.modules-left,
+.modules-center,
+.modules-right {
+  margin: 0 10px;
+  padding: 0 5px;
+  border-radius: 10px;
+}
+
+.modules-left {
+  padding: 0;
+}
+
+.modules-center {
+  font-family: 'JetBrainsMono NF Thin', sans-serif;
+  border-radius: 5px;
+  padding: 0 5px;
+}
+
+#clock,
+#battery,
+#cpu,
+#memory,
+#network,
+#pulseaudio,
+#temperature
+{
+  padding: 0 5px;
+  margin: 0 2.5px;
+}
+
+#clock:hover,
+#battery:hover,
+#cpu:hover,
+#memory:hover,
+#network:hover,
+#pulseaudio:hover,
+#temperature:hover
+{
+  background: rgba(26, 27, 38, 0.9);
+}
+
+#workspaces button {
+  background: transparent;
+  font-weight: 900;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+}
+
+#workspaces button.focused,
+#workspaces button.active {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#workspaces button:hover {
+  background: #11111b;
+  box-shadow: none;
+}
+
+#custom-arch {
+  margin-left: 5px;
+  padding: 0 10px;
+  font-size: 25px;
+  transition: color .5s;
+}
+
+#custom-arch:hover {
+  color: #1793d1;
+}

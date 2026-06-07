@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Instagram
+Comment=Instagram
+Exec=brave --app="https://instagram.com/direct" --name="Instagram" --class="Instagram"
+Terminal=false
+Type=Application
+Icon=app-instagram
+StartupNotify=true

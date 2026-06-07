@@ -1,0 +1,137 @@
+start-at-login = true
+enable-normalization-flatten-containers = true
+enable-normalization-opposite-orientation-for-nested-containers = true
+accordion-padding = 25
+default-root-container-layout = 'tiles'
+default-root-container-orientation = 'auto'
+key-mapping.preset = 'qwerty'
+
+[gaps]
+inner.horizontal = 10
+inner.vertical = 10
+
+outer.left = 10
+outer.bottom = 10
+outer.top = 10
+outer.right = 10
+
+[workspace-to-monitor-force-assignment]
+1 = 'primary'
+2 = 'primary'
+3 = 'primary'
+4 = 'primary'
+5 = 'secondary'
+6 = 'secondary'
+7 = 'secondary'
+8 = 'secondary'
+
+[mode.main.binding]
+cmd-ctrl-v = 'layout vertical'
+cmd-ctrl-h = 'layout horizontal'
+cmd-ctrl-l = 'layout horizontal vertical'
+
+cmd-1 = ['workspace 1']
+cmd-2 = ['workspace 2']
+cmd-3 = ['workspace 3']
+cmd-4 = ['workspace 4'] 
+cmd-5 = ['workspace 5']
+cmd-6 = ['workspace 6']
+cmd-7 = ['workspace 7']
+cmd-8 = ['workspace 8']
+
+cmd-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
+cmd-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
+cmd-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+cmd-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
+cmd-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
+cmd-shift-6 = 'move-node-to-workspace 6 --focus-follows-window' 
+cmd-shift-7 = 'move-node-to-workspace 7 --focus-follows-window' 
+cmd-shift-8 = 'move-node-to-workspace 8 --focus-follows-window' 
+
+cmd-alt-ctrl-h = 'focus --boundaries all-monitors-outer-frame --boundaries-action stop left'
+cmd-alt-ctrl-j = 'focus --boundaries all-monitors-outer-frame --boundaries-action stop down'
+cmd-alt-ctrl-k = 'focus --boundaries all-monitors-outer-frame --boundaries-action stop up'
+cmd-alt-ctrl-l = 'focus --boundaries all-monitors-outer-frame --boundaries-action stop right'
+
+cmd-shift-h = 'move left'
+cmd-shift-j = 'move down'
+cmd-shift-k = 'move up'
+cmd-shift-l = 'move right'
+
+cmd-ctrl-alt-rightSquareBracket = 'focus-monitor --wrap-around next'
+cmd-ctrl-alt-leftSquareBracket = 'focus-monitor --wrap-around prev'
+
+cmd-shift-rightSquareBracket = 'move-node-to-monitor --focus-follows-window --wrap-around next'
+cmd-shift-leftSquareBracket  = 'move-node-to-monitor --focus-follows-window --wrap-around prev'
+
+cmd-alt-ctrl-f = 'fullscreen'
+cmd-shift-minus = 'resize smart -50'
+cmd-shift-equal = 'resize smart +50'
+
+# Disable shortcuts to hide windows
+cmd-h = []
+
+### Apps
+cmd-ctrl-alt-shift-enter = 'exec-and-forget open -n -a Alacritty.app'
+
+cmd-ctrl-alt-shift-x = 'exec-and-forget open -a Finder'
+cmd-ctrl-alt-shift-e = 'exec-and-forget open -n -a Alacritty --args -e nvim'
+
+cmd-ctrl-alt-shift-c = 'exec-and-forget open -a Google\ Chrome'
+cmd-ctrl-alt-shift-b = 'exec-and-forget open -a Brave\ Browser'
+
+cmd-ctrl-alt-shift-s = 'exec-and-forget open -a Slack'
+cmd-ctrl-alt-shift-m = 'exec-and-forget open -a Google\ Meet'
+cmd-ctrl-alt-shift-n = 'exec-and-forget open -a Notes'
+cmd-ctrl-alt-shift-o = 'exec-and-forget open -a Obsidian'
+cmd-ctrl-alt-shift-i = 'exec-and-forget open -a IntelliJ\ IDEA'
+cmd-ctrl-alt-shift-l = 'exec-and-forget open -a LocalSend'
+
+cmd-ctrl-alt-shift-a = 'exec-and-forget open -a Claude'
+cmd-ctrl-alt-shift-f1 = 'exec-and-forget open -n -a Google\ Chrome --args --app=https://gemini.google.com'
+cmd-ctrl-alt-shift-f2 = 'exec-and-forget open -n -a Google\ Chrome --args --app=https://chatgpt.com'
+cmd-ctrl-alt-shift-f3 = 'exec-and-forget open -n -a Brave\ Browser --args --app=https://gemini.google.com'
+
+ctrl-esc = 'mode service'
+
+[mode.service.binding]
+esc = ['reload-config', 'mode main']
+
+backspace = ['close-all-windows-but-current', 'mode main']
+equal = ['balance-sizes', 'mode main']
+
+space = ['move-mouse window-force-center', 'mode main']
+enter = ['move-mouse monitor-force-center', 'mode main']
+
+r = ['flatten-workspace-tree', 'mode main']
+f = ['layout floating', 'mode main']
+t = ['layout tiling', 'mode main']
+s = ['layout accordion', 'mode main']
+
+h = ['join-with left', 'mode main']
+j = ['join-with down', 'mode main']
+k = ['join-with up', 'mode main']
+l = ['join-with right', 'mode main']
+
+rightSquareBracket = ['move-node-to-monitor --wrap-around next', 'mode main']
+leftSquareBracket  = ['move-node-to-monitor --wrap-around prev', 'mode main']
+
+shift-1 = ['move-node-to-workspace 1']
+shift-2 = ['move-node-to-workspace 2']
+shift-3 = ['move-node-to-workspace 3']
+shift-4 = ['move-node-to-workspace 4']
+shift-5 = ['move-node-to-workspace 5']
+shift-6 = ['move-node-to-workspace 6']
+shift-7 = ['move-node-to-workspace 7']
+shift-8 = ['move-node-to-workspace 8']
+
+[[on-window-detected]]
+    if.app-id = 'com.1password.1password'
+    check-further-callbacks = true
+    run = ['layout floating']
+
+[[on-window-detected]]
+    if.app-id = 'com.apple.Preview'
+    check-further-callbacks = true
+    run = ['layout floating']
+

@@ -1,0 +1,49 @@
+# Vim / NeoVim
+*.swp
+./tags
+.config/nvim/spell/*.spl
+lazy-lock.json
+
+# IntelliJ
+.idea
+
+# Zsh
+.zshrc
+.zshrc_private
+.zsh_history
+
+# Vim
+.vim/plugged
+.vim/.netrwhist
+
+# Node
+node_modules
+.config/yarn/link/
+
+# Wallpapers
+resources/wallpapers/private
+resources/wallpapers/current
+
+# Linux
+linux/.config/sway/outputs
+linux/.config/sway/workspaces
+linux/.config/sway/executions
+linux/.config/sway/profiles/current
+linux/.config/gtk*/bookmarks
+linux/.config/gtk*/gtkfilechooser.ini
+
+linux/.local/bin/omp
+
+# MacOS
+.DS_Store
+macos/.config/alfred/Alfred.alfredpreferences/workflows/
+macos/.config/karabiner/automatic_backups/
+
+# AI
+.claude/settings.local.json
+.codex/
+
+.pi/sessions
+.pi/agent/sessions
+.pi/agent/npm
+.pi/agent/auth.json

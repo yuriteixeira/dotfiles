@@ -1,0 +1,8 @@
+[interface]
+color-scheme='prefer-dark'
+gtk-theme='Adwaita'
+cursor-theme='default'
+cursor-size=24
+font-name='JetBrainsMono Nerd Font'
+document-font-name='JetBrainsMono Nerd Font'
+monospace-font-name='JetBrainsMono Nerd Font'

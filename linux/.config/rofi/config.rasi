@@ -1,0 +1,38 @@
+// Based on: https://github.com/binoymanoj
+configuration {
+    modi: "drun,run,filebrowser,window,emoji";
+    font: "JetBrainsMono Nerd Font 12";
+    drun-display-format: "{icon} {name}";
+    drun-match-fields: "name";
+    location: 0;
+    disable-history: true;
+    hide-scrollbar: true;
+    display-drun: " Apps";
+    display-run: " Run";
+    display-window: " Window";
+    display-filebrowser: " Files";
+    display-emoji: " Emojis";
+    sidebar-mode: true;
+    
+    // Item navigation
+    kb-row-up: "Up,Control+k";
+    kb-row-down: "Down,Control+j";
+
+    // Item page navigation
+    kb-row-left: "Left,Control+p";
+    kb-row-right: "Right,Control+n";
+
+    kb-accept-entry: "Return";
+    
+    kb-remove-char-back: "BackSpace";
+    kb-remove-word-back: "Alt+BackSpace";
+    kb-remove-to-eol: "Control+BackSpace";
+    kb-move-char-back: "Control+h";
+    kb-move-char-forward: "Control+l";
+    kb-row-select: "Alt+space";
+    kb-mode-complete: "Control+space";
+    
+    show-icons: true;
+}
+
+@theme "spotlight"

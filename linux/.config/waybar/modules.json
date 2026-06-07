@@ -1,0 +1,76 @@
+{
+    "custom/arch": {
+        "format": "󰣇",
+        "tooltip": true,
+        "tooltip-format": "btw... click to open launcher",
+        "on-click": "walker"
+    },
+
+    "pulseaudio": {
+        "interval": 1,
+        "format": "{icon}",
+        "format-bluetooth": "{icon} 󰂯",
+        "format-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", "󰕾"]
+        },
+        "on-click": "alacritty --class=Wiremix -e wiremix"
+    },
+
+    "network": {
+        "format": "",
+        "format-wifi": " ",
+        "tooltip-format": " {ifname} @ {ipaddr}",
+        "tooltip-format-wifi": "  {essid} @ {ipaddr} ({signalStrength}%)",
+        "format-linked": "{ifname} (No IP)",
+        "format-disconnected": "Disconnected ⚠",
+        "on-click": "alacritty -e impala"
+    },
+
+    "cpu": {
+        "format": " {usage}%",
+        "tooltip": true,
+        "on-click": "alacritty -e btop"
+    },
+
+    "memory": {
+        "format": " {}%",
+        "tooltip": true,
+        "on-click": "alacritty -e btop"
+    },
+
+    "battery": {
+        "interval": 10,
+        "format": "{icon} ",
+        "format-charging": "{icon}  ",
+        "tooltip-format": "{capacity}%, {time}",
+        "format-icons": ["", "", "", "", ""],
+        "states": {
+            "good": 95,
+            "warning": 10,
+            "critical": 5
+        },
+        "events": {
+            "on-discharging-critical": "notify-send -u critical 'Very Low Battery!'"
+        },
+        "on-click": "alacritty -e btop"
+    },
+
+    "temperature": {
+        "critical-threshold": 80,
+        "format": "{temperatureC}°C",
+        "on-click": "alacritty -e btop"
+    },
+
+    "clock": {
+        "format": "{:%H:%M}",
+        "format-alt": "{:%B %e, %H:%M}",
+        "tooltip-format": "<big>{:%B %e, %Y}</big>\n\n<tt><big>{calendar}</big></tt>"
+    }
+}

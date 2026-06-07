@@ -1,0 +1,21 @@
+# See: https://github.com/junegunn/fzf
+
+alias f="fzf"
+alias fp='fzf --preview "head -$LINES {}"'
+
+if [[ "$(uname)" == "Linux" ]] then
+  ### Yay wrappers
+
+  # List installed packages (explicitly)
+  alias fyq="yay -Qqe | fzf --multi --preview 'yay -Qli {}' --layout=reverse --bind 'f1:execute(yay -Qli {} | less)'"
+
+  # List installed packages (all)
+  alias fyqa="yay -Qq | fzf --multi --preview 'yay -Qli {}' --layout=reverse --bind 'f1:execute(yay -Qli {} | less)'"
+
+  # List available packages
+  alias fys="yay -Slq | fzf --multi --preview 'yay -Si {}' --layout=reverse --bind 'f1:execute(yay -Si {} | less)' --bind 'f2:execute(yay -Fl {} | less)'"
+fi
+
+export FZF_DEFAULT_COMMAND='rg --hidden --no-ignore --files'
+export FZF_DEFAULT_OPTS='--style=full --color=16'
+export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND 2> /dev/null"

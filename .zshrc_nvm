@@ -1,0 +1,6 @@
+zstyle ':omz:plugins:nvm' autoload no
+
+# Do not forget to run: 
+# nvm install --lts
+# corepack enable
+# pnpm --version

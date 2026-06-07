@@ -1,0 +1,19 @@
+output "InfoVision Optoelectronics (Kunshan) Co.,Ltd China 0x057D Unknown" {
+    mode  1920x1080@60.01Hz
+    pos 0 0
+    transform normal
+    scale 2.0
+    scale_filter nearest
+    adaptive_sync off
+    dpms on
+}
+
+output "Dell Inc. DELL U3219Q B26R413" {
+    disable
+    dpms off
+}
+
+output "Dell Inc. DELL P2415Q D8VXF6BS0CTB" {
+    disable
+    dpms off
+}

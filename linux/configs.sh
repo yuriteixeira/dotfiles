@@ -1,0 +1,63 @@
+set -ex
+originalDir=$PWD
+cd "$(dirname "$0")"
+
+# Prep
+ln -sf "$PWD/.local/bin" $HOME/.local
+ln -sf "$PWD/.local/share/applications" $HOME/.local/share
+ln -sf "$PWD/.local/share/icons" $HOME/.local/share
+
+# Window managers
+ln -sf "$PWD/.config/sway" $HOME/.config
+
+# Graphical toolkits
+ln -sf "$PWD/.config/gtk-2.0" $HOME/.config
+ln -sf "$PWD/.config/gtk-3.0" $HOME/.config
+ln -sf "$PWD/.config/gtk-4.0" $HOME/.config
+
+# Desktop environment
+ln -sf "$PWD/.config/swaylock" $HOME/.config
+ln -sf "$PWD/.config/mako" $HOME/.config
+ln -sf "$PWD/.config/waybar" $HOME/.config
+ln -sf "$PWD/.config/rofi" $HOME/.config
+
+# Terminal
+ln -sf "$PWD/.config/alacritty" $HOME/.config
+
+# TTY & Locale
+sudo ln -sf "$PWD/etc/vconsole.conf" /etc
+
+# Network discovery (needed for reaching hostnames with .local)
+sudo ln -sf "$PWD/etc/nsswitch.conf" /etc
+
+# Keyboard nav improvements: 
+# Caps lock -> Esc
+# Caps lock + h/j/k/l -> Arrow keys
+sudo ln -sf "$PWD/etc/keyd/default.conf" /etc/keyd
+# Fix palm rejection issue: https://github.com/rvaiya/keyd/issues/66#issuecomment-2906522829
+sudo ln -sf "$PWD/usr/share/libinput/99-system-keyd.quirks" /usr/share/libinput
+sudo systemctl enable --now keyd
+
+# To unlock a user manually: faillock --user yuriteixeira --reset
+sudo ln -sf "$PWD/etc/security/faillock.conf" /etc/security
+
+# Low battery protection
+sudo ln -sf "$PWD/etc/udev/rules.d/99-lowbat.rules" /etc/udev/rules.d/
+
+# Snapshots of /boot
+sudo mkdir -p /etc/pacman.d/hooks
+sudo cp "$PWD/etc/pacman.d/hooks/55-bootbackup_pre.hook" /etc/pacman.d/hooks
+sudo cp "$PWD/etc/pacman.d/hooks/55-bootbackup_post.hook" /etc/pacman.d/hooks
+sudo chown root: /etc/pacman.d/hooks/55-bootbackup_pre.hook
+sudo chown root: /etc/pacman.d/hooks/55-bootbackup_post.hook
+sudo chmod 750 /etc/pacman.d/hooks/55-bootbackup_pre.hook
+sudo chmod 750 /etc/pacman.d/hooks/55-bootbackup_post.hook
+
+# Load settings for gnome-based apps
+dconf load /org/gnome/desktop/ < ./misc/dconf-org-gnome-desktop-interface
+
+# Mime types
+xdg-mime default imv.desktop $(grep "^image/" /usr/share/mime/types)
+
+cd $originalDir
+set +x

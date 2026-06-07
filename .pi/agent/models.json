@@ -1,0 +1,15 @@
+{
+  "providers": {
+    "llama-server-local": {
+      "api": "openai-completions",
+      "apiKey": "llama-server",
+      "baseUrl": "http://yuri-studio.local:8080/v1",
+      "compat": {
+        "supportsStore": false,
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": false,
+        "supportsStrictMode": false
+      }
+    }
+  }
+}

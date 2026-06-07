@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=FlatPak Hub
+Comment=FlatPak Hub
+Exec=brave --app="https://flathub.org" --name="FlatPak Hub" --class="FlatPak Hub"
+Terminal=false
+Type=Application
+Icon=app-flatpak-hub
+StartupNotify=true

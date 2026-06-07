@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>defaultBundleId</key>
+	<string>br.com.yuriteixeira.alfred</string>
+	<key>defaultCreatedBy</key>
+	<string>Yuri Pereira Teixeira</string>
+	<key>defaultWebsite</key>
+	<string>https://www.yuriteixeira.com.br</string>
+	<key>showCanvasHints</key>
+	<false/>
+</dict>
+</plist>

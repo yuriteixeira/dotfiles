@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Telegram
+Comment=Telegram
+Exec=brave --app="https://web.telegram.org/k/" --name="Telegram" --class="Telegram"
+Terminal=false
+Type=Application
+Icon=app-telegram
+StartupNotify=true

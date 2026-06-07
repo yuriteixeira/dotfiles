@@ -1,0 +1,11 @@
+[general]
+import = [
+    "../../../linux/.config/alacritty/alacritty.toml"
+]
+
+[font]
+size = 14
+
+[window]
+option_as_alt = "OnlyLeft"
+decorations = "Buttonless"

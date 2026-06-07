@@ -1,0 +1,7 @@
+# Starting the ssh-agent 
+# See: https://wiki.archlinux.org/title/SSH_keys#ssh-agent
+
+if command -v keychain &> /dev/null; then
+  eval $(keychain --eval ~/.ssh/id_ed25519)
+fi
+

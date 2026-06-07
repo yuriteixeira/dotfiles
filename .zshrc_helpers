@@ -1,0 +1,132 @@
+### Common
+
+alias e=$EDITOR
+
+if command -v eza &> /dev/null; then
+  alias l="ls -l -X"
+else
+  alias ls="ls --color"
+fi
+
+alias ll="ls -l"
+alias la="ls -lah"
+
+alias dot="cd $DOTFILES"
+alias rg="rg --hidden"
+alias psa="ps aux"
+
+if [[ "$(uname)" == "Darwin" ]] then
+  alias sed="gsed"
+fi
+
+# Open profile with editor
+alias pf="nvim -p \
+~/.zshrc \
+~/.tmux.conf \
+"
+
+alias rpf="source ~/.zshrc"
+
+# Hosts
+alias hosts="sudo $EDITOR /etc/hosts"
+
+
+### Tooling upgrade
+function upgrade {
+  if [[ "$(uname)" == "Darwin" ]] then
+    echo ""
+    echo ">>> Brew / Brew Cask"
+    brew update
+    brew upgrade
+    brew upgrade --casks --greedy
+    brew cleanup
+  fi
+
+  if [[ "$(uname)" == "Linux" ]] then
+    echo ""
+    echo ">>> Pacman / AUR"
+    yay -Suy
+  fi
+
+  echo ""
+  echo ">>> PNPM (Global)"
+  pnpm -g update --latest
+
+  echo ""
+  echo ">>> Tmux Plugins"
+  ~/.tmux/plugins/tpm/bin/update_plugins all
+
+  echo ""
+  echo ">>> Docker cleanup"
+  docker system prune -f
+
+  if command -v gcloud &> /dev/null; then
+    echo ""
+    echo ">>> Google Cloud CLI"
+    yes | gcloud components update
+  fi
+
+  echo ""
+  echo ">>> Other updates"
+  git -C ~/.config/base16-shell pull
+  git -C ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting pull
+
+  echo ""
+  echo "Oh-my-zsh"
+  omz update
+}
+
+# Touch + Creates dir path (if needed)
+function mk {
+  [ -z "$1" ] && echo "ERROR: Path, pls..." && return 1
+  local filepath=$1
+  local dirpath=$(dirname $filepath)
+  [ ! -d "$dirpath" ] && mkdir -p $dirpath
+  touch $filepath
+  $EDITOR $filepath
+}
+
+
+### Watchers & Friends
+
+# Watch file system changes
+alias fw="fswatch -r -o -t -x -l 2"
+
+# Notifications (OSX)
+if [[ "$(uname)" == "Darwin" ]] then
+  function notify {
+      osascript -e "display notification \"${1}\" with title \"$([[ ! -z ${2} ]] && echo ${2} || echo "ATTENTION")\""
+  }
+fi
+
+# Watch dir and exec command
+function watch-n-do {
+    [ -z "$1" ] || [ -z "$2" ] && echo "Usage: watch-n-do <path> <command>" && return 1
+
+    echo ">>> Waiting for changes"
+    echo "Path: $1"
+    echo "Command: $2"
+    echo ""
+
+    bash -c $2
+
+    fw $1 | while read; do bash -c $2; done
+}
+
+### Editing + Dev stuff 
+
+# IntelliJ (https://www.jetbrains.com/help/idea/working-with-the-ide-features-from-command-line.html)
+function idea {
+  if [[ "$(uname)" == "Darwin" ]] then
+    open -na "IntelliJ IDEA.app" --args "$@"
+  fi
+}
+
+# Diff 2 dirs
+function dirdiff()
+{
+  # Shell-escape each path:
+  DIR1=$(printf '%q' "$1"); shift
+  DIR2=$(printf '%q' "$1"); shift
+  e $@ -c "DirDiff $DIR1 $DIR2"
+}

@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Gmail
+Comment=Gmail
+Exec=brave --app="https://gmail.com" --name="Gmail" --class="Gmail"
+Terminal=false
+Type=Application
+Icon=app-gmail
+StartupNotify=true
