@@ -81,16 +81,14 @@ cmd-ctrl-alt-shift-c = 'exec-and-forget open -a Google\ Chrome'
 cmd-ctrl-alt-shift-b = 'exec-and-forget open -a Brave\ Browser'
 
 cmd-ctrl-alt-shift-s = 'exec-and-forget open -a Slack'
-cmd-ctrl-alt-shift-m = 'exec-and-forget open -a Google\ Meet'
 cmd-ctrl-alt-shift-n = 'exec-and-forget open -a Notes'
 cmd-ctrl-alt-shift-o = 'exec-and-forget open -a Obsidian'
 cmd-ctrl-alt-shift-i = 'exec-and-forget open -a IntelliJ\ IDEA'
 cmd-ctrl-alt-shift-l = 'exec-and-forget open -a LocalSend'
 
 cmd-ctrl-alt-shift-a = 'exec-and-forget open -a Claude'
-cmd-ctrl-alt-shift-f1 = 'exec-and-forget open -n -a Google\ Chrome --args --app=https://gemini.google.com'
-cmd-ctrl-alt-shift-f2 = 'exec-and-forget open -n -a Google\ Chrome --args --app=https://chatgpt.com'
-cmd-ctrl-alt-shift-f3 = 'exec-and-forget open -n -a Brave\ Browser --args --app=https://gemini.google.com'
+cmd-ctrl-alt-shift-f1 = 'exec-and-forget open -n -a Google\ Chrome --args --app=https://chatgpt.com'
+cmd-ctrl-alt-shift-f2 = 'exec-and-forget open -n -a Google\ Chrome --args --app=https://gemini.google.com'
 
 ctrl-esc = 'mode service'
 
