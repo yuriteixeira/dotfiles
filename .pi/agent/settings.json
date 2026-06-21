@@ -3,14 +3,15 @@
   "defaultProvider": "openai-codex",
   "defaultThinkingLevel": "medium",
   "hideThinkingBlock": true,
-  "lastChangelogVersion": "0.78.1",
+  "lastChangelogVersion": "0.79.9",
   "llamaServerUrl": "http://yuri-studio.local:8080",
   "packages": [
     "npm:pi-searxng",
     "https://github.com/lukaspanni/pi-execution-time",
     "npm:pi-llama-cpp",
     "npm:@ff-labs/pi-fff",
-    "npm:pi-scroll"
+    "npm:pi-scroll",
+    "npm:pi-interactive-shell"
   ],
   "terminal": {
     "showTerminalProgress": true
