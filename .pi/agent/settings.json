@@ -9,9 +9,7 @@
     "npm:pi-searxng",
     "https://github.com/lukaspanni/pi-execution-time",
     "npm:pi-llama-cpp",
-    "npm:@ff-labs/pi-fff",
-    "npm:pi-scroll",
-    "npm:pi-interactive-shell"
+    "npm:pi-scroll"
   ],
   "terminal": {
     "showTerminalProgress": true

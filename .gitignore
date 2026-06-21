@@ -47,3 +47,4 @@ macos/.config/karabiner/automatic_backups/
 .pi/agent/sessions
 .pi/agent/npm
 .pi/agent/auth.json
+.pi/agent/debug-payloads/
