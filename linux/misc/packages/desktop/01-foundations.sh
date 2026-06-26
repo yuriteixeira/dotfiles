@@ -63,6 +63,7 @@ yay -S --noconfirm --needed \
  
 # Notifications
 yay -S --noconfirm --needed \
+  libnotify \
   mako \
 
 # Screenshot tools

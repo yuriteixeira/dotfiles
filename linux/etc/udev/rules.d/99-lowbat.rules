@@ -1,2 +1,4 @@
-# Suspend the system when battery level drops to 5% or lower
-SUBSYSTEM=="power_supply", ATTR{status}=="Discharging", ATTR{capacity}=="[0-5]", RUN+="/usr/bin/systemctl hibernate"
+# Trigger low-battery handler on battery changes.
+# The handler calculates aggregate capacity across all batteries, sends desktop
+# notifications via the active user's DBus session, and hibernates at 5%.
+ACTION=="change", SUBSYSTEM=="power_supply", KERNEL=="BAT*", TAG+="systemd", ENV{SYSTEMD_WANTS}+="low-battery@%k.service"

@@ -1,0 +1,11 @@
+[Unit]
+Description=Handle low battery event for %I
+Documentation=man:systemd-udevd.service(8)
+DefaultDependencies=no
+After=systemd-udevd.service
+Conflicts=shutdown.target
+Before=shutdown.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/local/bin/low-battery-handler %I

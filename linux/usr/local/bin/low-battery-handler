@@ -1,0 +1,175 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+readonly TRIGGER_BATTERY_NAME="${1:-}"
+readonly WARNING_THRESHOLD=10
+readonly CRITICAL_THRESHOLD=5
+readonly STATE_DIR="/run/low-battery-handler"
+readonly STATE_FILE="$STATE_DIR/state"
+readonly LOCK_FILE="$STATE_DIR/lock"
+
+is_integer() {
+  [[ "${1:-}" =~ ^[0-9]+$ ]]
+}
+
+read_power_value() {
+  local battery_dir="$1"
+  shift
+
+  local attribute
+  for attribute in "$@"; do
+    if [[ -r "$battery_dir/$attribute" ]]; then
+      <"$battery_dir/$attribute"
+      return 0
+    fi
+  done
+
+  return 1
+}
+
+calculate_battery_capacity() {
+  local total_now=0
+  local total_full=0
+  local capacity_sum=0
+  local battery_count=0
+  local discharging=false
+  local battery_dir status capacity now full
+
+  for battery_dir in /sys/class/power_supply/BAT*; do
+    [[ -r "$battery_dir/capacity" ]] || continue
+
+    battery_count=$((battery_count + 1))
+
+    status="$(<"$battery_dir/status")"
+    [[ "$status" == "Discharging" ]] && discharging=true
+
+    capacity="$(<"$battery_dir/capacity")"
+    if is_integer "$capacity"; then
+      capacity_sum=$((capacity_sum + capacity))
+    fi
+
+    now="$(read_power_value "$battery_dir" energy_now charge_now 2>/dev/null || true)"
+    full="$(read_power_value "$battery_dir" energy_full charge_full energy_full_design charge_full_design 2>/dev/null || true)"
+
+    if is_integer "$now" && is_integer "$full" && (( full > 0 )); then
+      total_now=$((total_now + now))
+      total_full=$((total_full + full))
+    fi
+  done
+
+  (( battery_count > 0 )) || return 1
+
+  if [[ "$discharging" != true ]]; then
+    printf 'not-discharging 0\n'
+    return 0
+  fi
+
+  if (( total_full > 0 )); then
+    printf 'discharging %d\n' $((total_now * 100 / total_full))
+  else
+    printf 'discharging %d\n' $((capacity_sum / battery_count))
+  fi
+}
+
+notify_sessions() {
+  local urgency="$1"
+  local title="$2"
+  local message="$3"
+
+  command -v notify-send >/dev/null 2>&1 || return 0
+  command -v loginctl >/dev/null 2>&1 || return 0
+  command -v runuser >/dev/null 2>&1 || return 0
+
+  local session uid user active remote runtime_dir
+  declare -A notified_uids=()
+
+  while read -r session _; do
+    [[ -n "$session" ]] || continue
+
+    active="$(loginctl show-session "$session" -p Active --value 2>/dev/null || true)"
+    remote="$(loginctl show-session "$session" -p Remote --value 2>/dev/null || true)"
+    uid="$(loginctl show-session "$session" -p User --value 2>/dev/null || true)"
+    user="$(loginctl show-session "$session" -p Name --value 2>/dev/null || true)"
+
+    [[ "$active" == "yes" && "$remote" == "no" ]] || continue
+    [[ -n "$uid" && -n "$user" ]] || continue
+    [[ -z "${notified_uids[$uid]:-}" ]] || continue
+
+    runtime_dir="/run/user/$uid"
+    [[ -S "$runtime_dir/bus" ]] || continue
+
+    notified_uids[$uid]=1
+
+    runuser -u "$user" -- \
+      env XDG_RUNTIME_DIR="$runtime_dir" \
+      DBUS_SESSION_BUS_ADDRESS="unix:path=$runtime_dir/bus" \
+      notify-send \
+        --app-name="Battery" \
+        --urgency="$urgency" \
+        "$title" \
+        "$message" \
+      || true
+  done < <(loginctl list-sessions --no-legend 2>/dev/null || true)
+}
+
+set_state() {
+  printf '%s\n' "$1" > "$STATE_FILE"
+}
+
+previous_state() {
+  if [[ -r "$STATE_FILE" ]]; then
+    <"$STATE_FILE"
+  else
+    printf 'normal\n'
+  fi
+}
+
+mkdir -p "$STATE_DIR"
+exec 9>"$LOCK_FILE"
+flock -n 9 || exit 0
+
+read -r battery_status capacity < <(calculate_battery_capacity) || exit 0
+previous="$(previous_state)"
+
+if [[ "$battery_status" != "discharging" ]]; then
+  set_state normal
+  exit 0
+fi
+
+if (( capacity <= CRITICAL_THRESHOLD )); then
+  set_state critical
+
+  if [[ "$previous" != "critical" ]]; then
+    notify_sessions \
+      critical \
+      "Very Low Battery" \
+      "Battery is at $capacity%. Hibernating now."
+    sleep 3
+  fi
+
+  if ! systemctl hibernate; then
+    notify_sessions \
+      critical \
+      "Hibernate Failed" \
+      "Battery is at $capacity%, but hibernate failed. Plug in power now."
+    exit 1
+  fi
+elif (( capacity <= WARNING_THRESHOLD )); then
+  set_state warning
+
+  if [[ "$previous" != "warning" && "$previous" != "critical" ]]; then
+    notify_sessions \
+      normal \
+      "Low Battery" \
+      "Battery is at $capacity%. Please plug in power."
+  fi
+else
+  set_state normal
+fi
+
+# Keep the triggering device visible in the journal when the script is run by
+# low-battery@.service, but do not make correctness depend on a single battery.
+printf 'trigger=%s aggregate_capacity=%s%% state=%s\n' \
+  "${TRIGGER_BATTERY_NAME:-unknown}" \
+  "$capacity" \
+  "$(previous_state)"

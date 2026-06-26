@@ -42,7 +42,12 @@ sudo systemctl enable --now keyd
 sudo ln -sf "$PWD/etc/security/faillock.conf" /etc/security
 
 # Low battery protection
+sudo mkdir -p /usr/local/bin /etc/systemd/system
+sudo ln -sf "$PWD/usr/local/bin/low-battery-handler" /usr/local/bin/
+sudo ln -sf "$PWD/etc/systemd/system/low-battery@.service" /etc/systemd/system/
 sudo ln -sf "$PWD/etc/udev/rules.d/99-lowbat.rules" /etc/udev/rules.d/
+sudo systemctl daemon-reload
+sudo udevadm control --reload-rules
 
 # Snapshots of /boot
 sudo mkdir -p /etc/pacman.d/hooks

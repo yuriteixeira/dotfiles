@@ -35,6 +35,14 @@ See [OBJECTIVES_AND_PRINCIPLES.md](./OBJECTIVES_AND_PRINCIPLES.md).
 
 Uses `yay` and `sudo` for a few system-level symlinks/services.
 
+Optional hibernation setup on Btrfs systems:
+
+```bash
+sudo ./linux/misc/setup-hibernation-swapfile.sh 40g
+```
+
+This creates `/swap/swapfile`, configures `resume` for mkinitcpio/systemd-boot, and should be followed by a reboot.
+
 ### macOS
 
 ```bash

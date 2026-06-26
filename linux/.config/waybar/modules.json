@@ -56,9 +56,6 @@
             "warning": 10,
             "critical": 5
         },
-        "events": {
-            "on-discharging-critical": "notify-send -u critical 'Very Low Battery!'"
-        },
         "on-click": "alacritty -e btop"
     },
 
