@@ -1,5 +1,5 @@
 import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
-import { mkdirSync, readFileSync, writeFileSync } from "node:fs";
+import { mkdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 const DEBUG_DIR = "/home/yuriteixeira/.pi/agent/debug-payloads";
@@ -9,7 +9,7 @@ type DebugCapture = {
   id: string;
   prompt: string;
   requestedAt: number;
-  summaryPath?: string;
+  payloadSummary?: string;
   fullPayloadPath?: string;
 };
 
@@ -27,23 +27,26 @@ type ToolSummary = {
   descriptionChars: number;
 };
 
+type ToolDeclaration = {
+  index: number;
+  value: unknown;
+};
+
 let pendingDebug: DebugCapture | null = null;
 let activeDebug: DebugCapture | null = null;
 
 export default function (pi: ExtensionAPI) {
-  mkdirSync(DEBUG_DIR, { recursive: true });
-
   pi.registerCommand("context-debug", {
     description: "Send a prompt and show the provider payload/context-size breakdown for that prompt",
     handler: async (args, ctx) => {
       const prompt = args.trim();
       if (!prompt) {
-        ctx.ui.notify("Usage: /debug <prompt>", "warning");
+        ctx.ui.notify("Usage: /context-debug <prompt>", "warning");
         return;
       }
 
       if (!ctx.isIdle()) {
-        ctx.ui.notify("Agent is busy. Wait until it is idle before using /debug.", "warning");
+        ctx.ui.notify("Agent is busy. Wait until it is idle before using /context-debug.", "warning");
         return;
       }
 
@@ -66,18 +69,16 @@ export default function (pi: ExtensionAPI) {
     activeDebug = capture;
 
     const payload = event.payload as ProviderPayload;
-    const summary = buildPayloadSummary(payload, capture);
-    const summaryPath = join(DEBUG_DIR, `${capture.id}.summary.md`);
-    writeFileSync(summaryPath, summary, "utf8");
-    capture.summaryPath = summaryPath;
+    capture.payloadSummary = buildPayloadSummary(payload, capture);
 
     if (process.env[FULL_DUMP_ENV] === "1") {
+      mkdirSync(DEBUG_DIR, { recursive: true });
       const fullPayloadPath = join(DEBUG_DIR, `${capture.id}.payload.json`);
       writeFileSync(fullPayloadPath, JSON.stringify(payload, null, 2), "utf8");
       capture.fullPayloadPath = fullPayloadPath;
     }
 
-    ctx.ui.notify(`Debug payload summary written: ${summaryPath}`, "info");
+    ctx.ui.notify("Debug payload summary captured; it will appear in the assistant response.", "info");
   });
 
   pi.on("message_end", (event, ctx) => {
@@ -91,9 +92,7 @@ export default function (pi: ExtensionAPI) {
     const contextUsage = safeGetContextUsage(ctx);
     const elapsedMs = Date.now() - capture.requestedAt;
     const completionSummary = buildCompletionSummary(capture, usage, contextUsage, elapsedMs);
-    const payloadSummary = capture.summaryPath
-      ? readSummaryHint(capture.summaryPath)
-      : "Payload summary was not written.";
+    const payloadSummary = capture.payloadSummary ?? "Payload summary was not captured.";
     const debugReport = `${payloadSummary}\n\n---\n\n${completionSummary}\n\n---\n\n`;
 
     return {
@@ -125,7 +124,7 @@ function buildPayloadSummary(payload: ProviderPayload, capture: DebugCapture) {
     : `Full payload JSON: disabled (rerun pi with ${FULL_DUMP_ENV}=1 to enable)`;
 
   return [
-    `# /debug payload report`,
+    `# /context-debug payload report`,
     ``,
     `Prompt: ${JSON.stringify(capture.prompt)}`,
     `Model: ${String(payload.model ?? "unknown")}`,
@@ -133,7 +132,7 @@ function buildPayloadSummary(payload: ProviderPayload, capture: DebugCapture) {
     `Message content chars: ${messageChars} (~${estimateTokens(messageChars)} rough tokens)`,
     `Tool schema chars: ${toolChars} (~${estimateTokens(toolChars)} rough tokens)`,
     `Messages: ${messages.length}`,
-    `Tools: ${tools.length}`,
+    `Tools: ${toolSummaries.length}`,
     ``,
     `## Messages`,
     messageLines.length ? messageLines.join("\n") : `(none)`,
@@ -141,7 +140,6 @@ function buildPayloadSummary(payload: ProviderPayload, capture: DebugCapture) {
     `## Tool schema sizes`,
     toolLines.length ? toolLines.join("\n") : `(none)`,
     ``,
-    `Summary file: ${join(DEBUG_DIR, `${capture.id}.summary.md`)}`,
     fullDumpNote,
   ].join("\n");
 }
@@ -153,7 +151,7 @@ function buildCompletionSummary(
   elapsedMs: number,
 ) {
   return [
-    `# /debug completion report`,
+    `# /context-debug completion report`,
     ``,
     `Prompt: ${JSON.stringify(capture.prompt)}`,
     `Elapsed wall time: ${(elapsedMs / 1000).toFixed(2)}s`,
@@ -161,7 +159,6 @@ function buildCompletionSummary(
     codeBlock(JSON.stringify(usage ?? null, null, 2)),
     `Current pi context usage:`,
     codeBlock(JSON.stringify(contextUsage ?? null, null, 2)),
-    `Summary file: ${capture.summaryPath ?? "not written"}`,
   ].join("\n");
 }
 
@@ -171,19 +168,51 @@ function formatMessageLine(message: { role?: string; content?: unknown }, index:
 }
 
 function summarizeTools(tools: unknown[]) {
-  return tools.map((tool, index) => {
-    const toolRecord = asRecord(tool);
-    const fn = asRecord(toolRecord.function);
-    const name = typeof fn.name === "string" ? fn.name : `tool_${index}`;
-    const description = typeof fn.description === "string" ? fn.description : "";
+  return flattenToolDeclarations(tools).map(({ value, index }) => {
+    const name = getToolName(value) ?? `tool_${index}`;
+    const description = getToolDescription(value) ?? "";
 
     return {
       index,
       name,
-      chars: compactJsonLength(tool),
+      chars: compactJsonLength(value),
       descriptionChars: description.length,
     };
   }).sort((a, b) => b.chars - a.chars);
+}
+
+function flattenToolDeclarations(tools: unknown[]): ToolDeclaration[] {
+  const declarations: ToolDeclaration[] = [];
+
+  for (const tool of tools) {
+    const toolRecord = asRecord(tool);
+    const nestedDeclarations = getArrayProperty(toolRecord, "functionDeclarations")
+      ?? getArrayProperty(toolRecord, "function_declarations");
+    const values = nestedDeclarations ?? [tool];
+
+    for (const value of values) {
+      declarations.push({ index: declarations.length, value });
+    }
+  }
+
+  return declarations;
+}
+
+function getToolName(tool: unknown): string | undefined {
+  const record = asRecord(tool);
+  return getStringProperty(record, "name")
+    ?? getStringProperty(asRecord(record.function), "name")
+    ?? getStringProperty(asRecord(record.toolSpec), "name")
+    ?? getStringProperty(asRecord(record.tool_spec), "name")
+    ?? getSingleStringKey(record);
+}
+
+function getToolDescription(tool: unknown): string | undefined {
+  const record = asRecord(tool);
+  return getStringProperty(record, "description")
+    ?? getStringProperty(asRecord(record.function), "description")
+    ?? getStringProperty(asRecord(record.toolSpec), "description")
+    ?? getStringProperty(asRecord(record.tool_spec), "description");
 }
 
 function formatToolLine(tool: ToolSummary) {
@@ -209,20 +238,30 @@ function asRecord(value: unknown): Record<string, unknown> {
   return value as Record<string, unknown>;
 }
 
+function getStringProperty(record: Record<string, unknown>, key: string) {
+  const value = record[key];
+  return typeof value === "string" ? value : undefined;
+}
+
+function getArrayProperty(record: Record<string, unknown>, key: string) {
+  const value = record[key];
+  return Array.isArray(value) ? value : undefined;
+}
+
+function getSingleStringKey(record: Record<string, unknown>) {
+  const keys = Object.keys(record);
+  return keys.length === 1 && isLikelyToolName(keys[0]) ? keys[0] : undefined;
+}
+
+function isLikelyToolName(value: string) {
+  return /^[a-zA-Z][a-zA-Z0-9_-]{1,63}$/.test(value);
+}
+
 function safeGetContextUsage(ctx: { getContextUsage?: () => unknown }) {
   try {
     return ctx.getContextUsage?.() ?? null;
   } catch (error) {
     return { error: error instanceof Error ? error.message : String(error) };
-  }
-}
-
-function readSummaryHint(path: string) {
-  try {
-    return readFileSync(path, "utf8");
-  } catch (error) {
-    const message = error instanceof Error ? error.message : String(error);
-    return `Could not read payload summary at ${path}: ${message}`;
   }
 }
 
