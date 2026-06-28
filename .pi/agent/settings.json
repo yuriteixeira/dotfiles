@@ -6,11 +6,11 @@
   "lastChangelogVersion": "0.80.2",
   "llamaServerUrl": "http://yuri-studio.local:8080",
   "packages": [
-    "npm:pi-searxng",
     "https://github.com/lukaspanni/pi-execution-time",
     "npm:pi-llama-cpp",
     "npm:@xynogen/pix-sudo",
-    "npm:pi-ask-user"
+    "npm:pi-ask-user",
+    "npm:@demigodmode/pi-web-agent"
   ],
   "terminal": {
     "showTerminalProgress": true

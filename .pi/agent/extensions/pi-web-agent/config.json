@@ -1,0 +1,18 @@
+{
+  "presentation": {
+    "defaultMode": "preview"
+  },
+  "backends": {
+    "search": {
+      "provider": "searxng",
+      "baseUrl": "http://yuri-studio.local:8000",
+      "fallback": "duckduckgo"
+    },
+    "fetch": {
+      "provider": "http"
+    },
+    "headless": {
+      "provider": "local-browser"
+    }
+  }
+}
