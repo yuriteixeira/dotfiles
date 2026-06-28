@@ -46,7 +46,7 @@ Made with ♥️ with the help of <provider>/<model> & https://pi.dev
 ## Rules
 
 - Use Conventional Commits: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, or `revert`.
-- **MANDATORY:** The attribution line (`Made with ♥️ with the help of <provider>/<model> & https://pi.dev`) must always appear as the last line of every commit message. Never omit it. Replace `<provider>/<model>` with the actual provider and model you are running as. Call the `get_provider_model` tool to retrieve this information.
+- **MANDATORY:** The attribution line (`Made with ♥️ with the help of <provider>/<model> & https://pi.dev`) must always appear as the last line of every commit message. Never omit it. Replace `<provider>/<model>` with the actual provider and model you are running as. Call the `get_provider_model` tool to retrieve this information, then **strip any URLs** from the output (e.g., `llama-server=http://yuri-studio.local:8080/1-smart-qwen3-6-35b-a3b` → `llama-server/1-smart-qwen3-6-35b-a3b`). Only keep the provider key and model identifier.
 - Keep the title imperative, lowercase after the colon, and under 72 characters when practical.
 - Use a markdown-formatted body with concise bullets.
 - Do not amend, rebase, push, or create tags unless explicitly requested.
