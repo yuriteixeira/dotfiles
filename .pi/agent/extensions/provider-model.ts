@@ -8,7 +8,7 @@ export default function (pi: ExtensionAPI) {
   pi.registerTool({
     name: "get_provider_model",
     label: "Get Provider/Model",
-    description: "Return the current provider and model identifier (e.g. 'google/gemini-2.5-flash')",
+    description: "Return the current provider and model identifier (e.g. 'open-ai/gpt-5.5')",
     parameters: {},
     async execute(_toolCallId, _params, _signal, _onUpdate, ctx) {
       const model = ctx.model;

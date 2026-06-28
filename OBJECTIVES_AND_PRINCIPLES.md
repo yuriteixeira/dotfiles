@@ -39,7 +39,7 @@ Not as smooth as the seamless network copy/paste on Apple's ecosystem, but it's 
 - nvim + https://github.com/yuriteixeira/kickstart-modular.nvim
 - ripgrep (text search tool, but I still use to filter output with grep #todo)
 - git, gitui & delta (all things version-control, with a nice UI + diff companion)
-- @google/gemini-cli (agentic AI on terminal)
+- @earendil-works/pi-coding-agent (agentic AI on terminal)
 - bat (cat replacement)
 - eza (ls/tree replacement)
 - zoxide (cd/autojump replacement)
