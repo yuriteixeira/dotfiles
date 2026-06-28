@@ -9,7 +9,6 @@
     "npm:pi-searxng",
     "https://github.com/lukaspanni/pi-execution-time",
     "npm:pi-llama-cpp",
-    "npm:pi-scroll",
     "npm:@xynogen/pix-sudo",
     "npm:pi-ask-user"
   ],
