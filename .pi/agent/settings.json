@@ -10,7 +10,8 @@
     "npm:pi-llama-cpp",
     "npm:@xynogen/pix-sudo",
     "npm:pi-ask-user",
-    "npm:@demigodmode/pi-web-agent"
+    "npm:@demigodmode/pi-web-agent",
+    "npm:pi-zentui"
   ],
   "terminal": {
     "showTerminalProgress": true
