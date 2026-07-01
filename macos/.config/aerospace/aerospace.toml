@@ -53,6 +53,11 @@ cmd-alt-ctrl-j = 'focus --boundaries all-monitors-outer-frame --boundaries-actio
 cmd-alt-ctrl-k = 'focus --boundaries all-monitors-outer-frame --boundaries-action stop up'
 cmd-alt-ctrl-l = 'focus --boundaries all-monitors-outer-frame --boundaries-action stop right'
 
+cmd-alt-h = 'focus --boundaries-action wrap-around-the-workspace left'
+cmd-alt-j = 'focus --boundaries-action wrap-around-the-workspace down'
+cmd-alt-k = 'focus --boundaries-action wrap-around-the-workspace up'
+cmd-alt-l = 'focus --boundaries-action wrap-around-the-workspace right'
+
 cmd-shift-h = 'move left'
 cmd-shift-j = 'move down'
 cmd-shift-k = 'move up'
@@ -103,8 +108,8 @@ enter = ['move-mouse monitor-force-center', 'mode main']
 
 r = ['flatten-workspace-tree', 'mode main']
 f = ['layout floating', 'mode main']
-t = ['layout tiling', 'mode main']
-s = ['layout accordion', 'mode main']
+t = ['layout tiles', 'mode main']
+a = ['layout accordion', 'mode main']
 
 h = ['join-with left', 'mode main']
 j = ['join-with down', 'mode main']
