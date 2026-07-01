@@ -133,3 +133,9 @@ shift-8 = ['move-node-to-workspace 8']
     check-further-callbacks = true
     run = ['layout floating']
 
+[[on-window-detected]]
+    if.app-id = 'com.apple.QuickTimePlayerX'
+    if.window-title-regex-substring = 'Recording'
+    check-further-callbacks = true
+    run = ['layout tiling']
+
