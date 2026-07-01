@@ -12,7 +12,7 @@ alias gdc="DELTA_FEATURES=+side-by-side g dc"
 
 # [Git diff stats] total delta of lines added/removed
 function gds = {
-    git diff --numstat --format="" | awk '{added+=$1; deleted+=$2} END {print "Total Delta:", added-deleted, "(+", added, "-", deleted, ")"}'
+    git diff --numstat --format="" "$@" | awk '{added+=$1; deleted+=$2} END {printf "Total Delta: %d (+%d, -%d)\n", added-deleted, added, deleted}'
 }
 
 # [Git log with preview]
