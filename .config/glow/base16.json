@@ -1,0 +1,73 @@
+{
+  "document": {
+    "color": "7"
+  },
+  "heading": {
+    "color": "12",
+    "bold": true
+  },
+  "h1": {
+    "color": "12",
+    "bold": true
+  },
+  "h2": {
+    "color": "13",
+    "bold": true
+  },
+  "h3": {
+    "color": "14",
+    "bold": true
+  },
+  "h4": {
+    "color": "11",
+    "bold": true
+  },
+  "h5": {
+    "color": "10",
+    "bold": true
+  },
+  "h6": {
+    "color": "8",
+    "bold": true
+  },
+  "strong": {
+    "color": "11",
+    "bold": true
+  },
+  "emph": {
+    "color": "14",
+    "italic": true
+  },
+  "codespan": {
+    "color": "10"
+  },
+  "code_block": {
+    "color": "7",
+    "background_color": "0"
+  },
+  "blockquote": {
+    "color": "8",
+    "italic": true
+  },
+  "block_quote": {
+    "color": "8",
+    "italic": true
+  },
+  "link": {
+    "color": "12",
+    "underline": true
+  },
+  "link_text": {
+    "color": "12",
+    "underline": true
+  },
+  "enumeration": {
+    "color": "8"
+  },
+  "table": {
+    "color": "7"
+  },
+  "definition_description": {
+    "color": "7"
+  }
+}

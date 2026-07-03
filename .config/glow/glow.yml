@@ -1,0 +1,11 @@
+# Keep Glow aligned with the active Base16 terminal palette.
+# The style uses ANSI color indexes instead of fixed hex colors.
+style: "/Users/yuriteixeira/.config/glow/base16.json"
+# mouse support (TUI-mode only)
+mouse: false
+# use pager to display markdown
+pager: false
+# word-wrap at width
+width: 80
+# show all files, including hidden and ignored.
+all: false
