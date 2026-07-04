@@ -5,4 +5,5 @@ yay -S --noconfirm --needed \
   swayidle \
   wlsunset \
   xorg-xwayland \
+  sway-contrib \
 

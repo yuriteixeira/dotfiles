@@ -1,6 +1,7 @@
-# BTRFS
+# File systems
 yay -S --noconfirm --needed \
   btrfsmaintenance \
+  exfatprogs \
 
 # Backup: Snapshots
 # See also: pacback (grep repo for previous setup using it)

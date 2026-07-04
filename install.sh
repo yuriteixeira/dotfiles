@@ -29,7 +29,7 @@ git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shel
 # rsync -> cp
 # bat -> cat
 # fd -> find
-cliTools='zsh tmux neovim tree-sitter tree-sitter-cli git git-delta gitui fzf eza zoxide ripgrep rsync btop dust ncdu fastfetch keychain bat jq fd wget glow'
+cliTools='zsh tmux neovim tree-sitter tree-sitter-cli git git-delta gitui fzf eza zoxide ripgrep rsync btop dust ncdu fastfetch bat jq fd wget glow'
 
 [ "$(uname)" = "Linux" ] && \
   sh -c "yay -S --noconfirm --needed $cliTools github-cli" && \
@@ -51,6 +51,7 @@ PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm
 nvm install --lts
 corepack enable
 pnpm --version
+pnpm add -g --ignore-scripts @earendil-works/pi-coding-agent
 
 # Nvim + Nerd Font (needed to render icons correctly)
 [ "$(uname)" = "Darwin" ] && \

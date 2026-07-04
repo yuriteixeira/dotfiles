@@ -66,10 +66,6 @@ yay -S --noconfirm --needed \
   libnotify \
   mako \
 
-# Screenshot tools
-yay -S --noconfirm --needed \
-  sway-contrib \
-
 # Clipboard
 # See also: wtype, cliphist (grep repo for previous setup using it)
 yay -S --noconfirm --needed \
