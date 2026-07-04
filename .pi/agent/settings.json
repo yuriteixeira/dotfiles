@@ -3,7 +3,7 @@
   "defaultProvider": "openai-codex",
   "defaultThinkingLevel": "medium",
   "hideThinkingBlock": true,
-  "lastChangelogVersion": "0.80.2",
+  "lastChangelogVersion": "0.80.3",
   "llamaServerUrl": "http://yuri-studio.local:8080",
   "packages": [
     "https://github.com/lukaspanni/pi-execution-time",
