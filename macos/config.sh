@@ -1,8 +1,8 @@
-ln -sfn "$PWD/.config/karabiner" $HOME/.config
-ln -sfn "$PWD/.config/aerospace" $HOME/.config
-ln -sfn "$PWD/.config/borders" $HOME/.config
-ln -sfn "$PWD/.config/alfred/" $HOME/.config
-ln -sfn "$PWD/.config/alacritty" $HOME/.config
+ln -sf "$PWD/.config/karabiner" $HOME/.config
+ln -sf "$PWD/.config/aerospace" $HOME/.config
+ln -sf "$PWD/.config/borders" $HOME/.config
+ln -sf "$PWD/.config/alfred/" $HOME/.config
+ln -sf "$PWD/.config/alacritty" $HOME/.config
 
 defaults write -g ApplePressAndHoldEnabled -bool false 
 

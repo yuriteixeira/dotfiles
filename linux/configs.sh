@@ -3,49 +3,49 @@ originalDir=$PWD
 cd "$(dirname "$0")"
 
 # Prep
-ln -sfn "$PWD/.local/bin" $HOME/.local
-ln -sfn "$PWD/.local/share/applications" $HOME/.local/share
-ln -sfn "$PWD/.local/share/icons" $HOME/.local/share
+ln -sf "$PWD/.local/bin" $HOME/.local
+ln -sf "$PWD/.local/share/applications" $HOME/.local/share
+ln -sf "$PWD/.local/share/icons" $HOME/.local/share
 
 # Window managers
-ln -sfn "$PWD/.config/sway" $HOME/.config
+ln -sf "$PWD/.config/sway" $HOME/.config
 
 # Graphical toolkits
-ln -sfn "$PWD/.config/gtk-2.0" $HOME/.config
-ln -sfn "$PWD/.config/gtk-3.0" $HOME/.config
-ln -sfn "$PWD/.config/gtk-4.0" $HOME/.config
+ln -sf "$PWD/.config/gtk-2.0" $HOME/.config
+ln -sf "$PWD/.config/gtk-3.0" $HOME/.config
+ln -sf "$PWD/.config/gtk-4.0" $HOME/.config
 
 # Desktop environment
-ln -sfn "$PWD/.config/swaylock" $HOME/.config
-ln -sfn "$PWD/.config/mako" $HOME/.config
-ln -sfn "$PWD/.config/waybar" $HOME/.config
-ln -sfn "$PWD/.config/rofi" $HOME/.config
+ln -sf "$PWD/.config/swaylock" $HOME/.config
+ln -sf "$PWD/.config/mako" $HOME/.config
+ln -sf "$PWD/.config/waybar" $HOME/.config
+ln -sf "$PWD/.config/rofi" $HOME/.config
 
 # Terminal
-ln -sfn "$PWD/.config/alacritty" $HOME/.config
+ln -sf "$PWD/.config/alacritty" $HOME/.config
 
 # TTY & Locale
-sudo ln -sfn "$PWD/etc/vconsole.conf" /etc
+sudo ln -sf "$PWD/etc/vconsole.conf" /etc
 
 # Network discovery (needed for reaching hostnames with .local)
-sudo ln -sfn "$PWD/etc/nsswitch.conf" /etc
+sudo ln -sf "$PWD/etc/nsswitch.conf" /etc
 
 # Keyboard nav improvements: 
 # Caps lock -> Esc
 # Caps lock + h/j/k/l -> Arrow keys
-sudo ln -sfn "$PWD/etc/keyd/default.conf" /etc/keyd
+sudo ln -sf "$PWD/etc/keyd/default.conf" /etc/keyd
 # Fix palm rejection issue: https://github.com/rvaiya/keyd/issues/66#issuecomment-2906522829
-sudo ln -sfn "$PWD/usr/share/libinput/99-system-keyd.quirks" /usr/share/libinput
+sudo ln -sf "$PWD/usr/share/libinput/99-system-keyd.quirks" /usr/share/libinput
 sudo systemctl enable --now keyd
 
 # To unlock a user manually: faillock --user yuriteixeira --reset
-sudo ln -sfn "$PWD/etc/security/faillock.conf" /etc/security
+sudo ln -sf "$PWD/etc/security/faillock.conf" /etc/security
 
 # Low battery protection
 sudo mkdir -p /usr/local/bin /etc/systemd/system
-sudo ln -sfn "$PWD/usr/local/bin/low-battery-handler" /usr/local/bin/
-sudo ln -sfn "$PWD/etc/systemd/system/low-battery@.service" /etc/systemd/system/
-sudo ln -sfn "$PWD/etc/udev/rules.d/99-lowbat.rules" /etc/udev/rules.d/
+sudo ln -sf "$PWD/usr/local/bin/low-battery-handler" /usr/local/bin/
+sudo ln -sf "$PWD/etc/systemd/system/low-battery@.service" /etc/systemd/system/
+sudo ln -sf "$PWD/etc/udev/rules.d/99-lowbat.rules" /etc/udev/rules.d/
 sudo systemctl daemon-reload
 sudo udevadm control --reload-rules
 

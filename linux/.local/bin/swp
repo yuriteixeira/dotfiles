@@ -6,7 +6,7 @@ profilesPath=$HOME/.config/sway/profiles/
 if [ -f "$profilesPath/$profile/outputs" ];
 then
   rm -rf $profilesPath/current
-  ln -sfn $profilesPath/$profile $profilesPath/current
+  ln -sf $profilesPath/$profile $profilesPath/current
 fi
 
 swaymsg reload
