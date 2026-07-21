@@ -1,24 +1,27 @@
 {
-  "defaultModel": "gpt-5.5",
+  "defaultModel": "gpt-5.6-luna",
   "defaultProvider": "openai-codex",
   "defaultThinkingLevel": "medium",
   "hideThinkingBlock": true,
   "lastChangelogVersion": "0.80.10",
   "llamaServerUrl": "http://yuri-studio.local:8080",
   "packages": [
-    "npm:@jamesjfoong/pi-ollama",
     "npm:@xynogen/pix-sudo",
     "npm:@demigodmode/pi-web-agent",
     "npm:pi-execution-time",
     "npm:pi-ask-user",
-    "npm:pi-zentui"
+    "npm:pi-zentui",
+    "npm:pi-llama-cpp"
   ],
   "terminal": {
     "showTerminalProgress": true
   },
   "enabledModels": [
     "openai-codex/gpt-5.5",
-    "openai-codex/gpt-5.4-mini"
+    "openai-codex/gpt-5.4-mini",
+    "openai-codex/gpt-5.6-luna",
+    "openai-codex/gpt-5.6-sol",
+    "openai-codex/gpt-5.6-terra"
   ],
   "theme": "base16"
 }
