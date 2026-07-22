@@ -12,6 +12,12 @@ alias gdc="DELTA_FEATURES=+side-by-side g dc"
 
 # [Git diff stats] total delta of lines added/removed
 function gds = {
+    echo ">>> File stats:"
+    echo ""
+    git diff --name-status --diff-filter=AMD "$@" | awk '{count[$1]++} END {print "Added:", count["A"]+0; print "Modified:", count["M"]+0; print "Deleted:", count["D"]+0}'
+    echo ""
+    echo ">>> Line stats:"
+    echo ""
     git diff --numstat --format="" "$@" | awk '{added+=$1; deleted+=$2} END {printf "Total Delta: %d (+%d, -%d)\n", added-deleted, added, deleted}'
 }
 
