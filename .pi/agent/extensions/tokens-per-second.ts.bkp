@@ -1,0 +1,121 @@
+/**
+ * Tokens Per Second Extension
+ *
+ * Shows provider-reported token generation speed in the footer status bar.
+ * Updates while Pi streams when the provider supplies partial usage, then
+ * keeps the final measurement visible until the next agent run.
+ */
+
+import type { AssistantMessage } from "@earendil-works/pi-ai";
+import type { ExtensionAPI, ExtensionContext } from "@earendil-works/pi-coding-agent";
+
+const STATUS_KEY = "tps";
+const RENDER_INTERVAL_MS = 250;
+
+interface GenerationState {
+  startedAt: number | null;
+  lastRenderedAt: number;
+}
+
+function createGenerationState(): GenerationState {
+  return {
+    startedAt: null,
+    lastRenderedAt: 0,
+  };
+}
+
+function resetGeneration(state: GenerationState): void {
+  state.startedAt = null;
+  state.lastRenderedAt = 0;
+}
+
+function clearStatus(ctx: ExtensionContext): void {
+  if (ctx.hasUI) {
+    ctx.ui.setStatus(STATUS_KEY, undefined);
+  }
+}
+
+function startGeneration(state: GenerationState, ctx: ExtensionContext): void {
+  state.startedAt = performance.now();
+  state.lastRenderedAt = state.startedAt;
+  clearStatus(ctx);
+}
+
+function getElapsedMilliseconds(state: GenerationState, now: number): number | null {
+  if (state.startedAt === null) return null;
+  return now - state.startedAt;
+}
+
+function calculateTokensPerSecond(outputTokens: number, elapsedMilliseconds: number): number | null {
+  if (outputTokens <= 0 || elapsedMilliseconds <= 0) return null;
+  return Math.round(outputTokens / (elapsedMilliseconds / 1000));
+}
+
+function updateStreamingStatus(
+  message: AssistantMessage,
+  state: GenerationState,
+  ctx: ExtensionContext,
+): void {
+  if (!ctx.hasUI) return;
+
+  const now = performance.now();
+  const elapsedMilliseconds = getElapsedMilliseconds(state, now);
+  if (elapsedMilliseconds === null || now - state.lastRenderedAt < RENDER_INTERVAL_MS) return;
+
+  state.lastRenderedAt = now;
+  const outputTokens = message.usage.output;
+  const tokensPerSecond = calculateTokensPerSecond(outputTokens, elapsedMilliseconds);
+  if (tokensPerSecond === null) return;
+
+  const speedLabel = ctx.ui.theme.fg("accent", `${tokensPerSecond} tok/s`);
+  const countLabel = ctx.ui.theme.fg("dim", `· ${outputTokens}`);
+  ctx.ui.setStatus(STATUS_KEY, `${speedLabel} ${countLabel}`);
+}
+
+function finalizeStatus(message: AssistantMessage, state: GenerationState, ctx: ExtensionContext): void {
+  const elapsedMilliseconds = getElapsedMilliseconds(state, performance.now());
+  resetGeneration(state);
+
+  if (!ctx.hasUI || elapsedMilliseconds === null) return;
+
+  const outputTokens = message.usage.output;
+  const tokensPerSecond = calculateTokensPerSecond(outputTokens, elapsedMilliseconds);
+  if (tokensPerSecond === null) return;
+
+  const elapsedSeconds = (elapsedMilliseconds / 1000).toFixed(1);
+  const speedLabel = ctx.ui.theme.fg("success", `${tokensPerSecond} tok/s`);
+  const countLabel = ctx.ui.theme.fg("dim", `· ${outputTokens} in ${elapsedSeconds}s`);
+  ctx.ui.setStatus(STATUS_KEY, `${speedLabel} ${countLabel}`);
+}
+
+export default function (pi: ExtensionAPI) {
+  const state = createGenerationState();
+
+  pi.on("agent_start", (_event, ctx) => {
+    resetGeneration(state);
+    clearStatus(ctx);
+  });
+
+  pi.on("message_start", (event, ctx) => {
+    if (event.message.role === "assistant") {
+      startGeneration(state, ctx);
+    }
+  });
+
+  pi.on("message_update", (event, ctx) => {
+    if (event.message.role === "assistant" && state.startedAt !== null) {
+      updateStreamingStatus(event.message, state, ctx);
+    }
+  });
+
+  pi.on("message_end", (event, ctx) => {
+    if (event.message.role === "assistant" && state.startedAt !== null) {
+      finalizeStatus(event.message, state, ctx);
+    }
+  });
+
+  pi.on("session_shutdown", (_event, ctx) => {
+    resetGeneration(state);
+    clearStatus(ctx);
+  });
+}
