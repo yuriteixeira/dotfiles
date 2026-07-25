@@ -12,7 +12,8 @@
     "npm:pi-ask-user",
     "npm:pi-zentui",
     "npm:pi-llama-cpp",
-    "npm:pi-token-speed"
+    "npm:pi-token-speed",
+    "npm:pi-llama-cpp"
   ],
   "terminal": {
     "showTerminalProgress": true
