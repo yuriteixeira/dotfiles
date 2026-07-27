@@ -134,7 +134,10 @@ if command -v zoxide &> /dev/null; then
 fi
 
 if command -v eza &> /dev/null; then
-  alias ls='eza --icons=auto --hyperlink'
+  alias ls='eza --icons=auto'
+  alias l="ls -l -X"
+else
+  alias ls="ls --color"
 fi
 
 if [ -n "$BREW_PREFIX" ]; then

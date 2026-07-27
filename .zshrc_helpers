@@ -1,13 +1,5 @@
 ### Common
 
-alias e=$EDITOR
-
-if command -v eza &> /dev/null; then
-  alias l="ls -l -X"
-else
-  alias ls="ls --color"
-fi
-
 alias ll="ls -l"
 alias la="ls -lah"
 
