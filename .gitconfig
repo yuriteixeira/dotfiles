@@ -2,21 +2,8 @@
   excludesfile = ~/.gitignore_global
   autocrlf = input
 
-[pager]
-  diff = delta
-  log = delta
-  reflog = delta
-  show = delta
-  branch = false
-
-[delta]
-  plus-style = "syntax #012800"
-  minus-style = "syntax #340001"
-  syntax-theme = base16-256
-  navigate = true
-
-[interactive]
-  diffFilter = delta --color-only
+[init]
+  defaultBranch = master
 
 [push]
   default = current
@@ -31,22 +18,46 @@
 [diff]
   tool = nvim-diff
 
-[merge]
-  tool = nvim-diff
-  conflictstyle = diff3
+[interactive]
+  diffFilter = delta --color-only
+
+[pager]
+  diff = delta
+  log = delta
+  reflog = delta
+  show = delta
+  branch = false
 
 [mergetool]
 	keepBackup = false
+	trustExitCode = true
+
+[mergetool "ec"]
+	cmd = ec \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
 
 [mergetool "nvim-diff"]
   cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
-[mergetool "diffconflicts"]
-  cmd = nvim -c DiffConflictsWithHistory \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
-  trustExitCode = true
+[merge]
+	tool = nvim-diff
+  conflictstyle = diff3
 
 [color "diff"]
   meta = yellow bold
+
+[filter "lfs"]
+  clean = git-lfs clean -- %f
+  smudge = git-lfs smudge -- %f
+  process = git-lfs filter-process
+  required = true
+
+### 3rd Party Tools
+
+[delta]
+  plus-style = "syntax #012800"
+  minus-style = "syntax #340001"
+  syntax-theme = base16-256
+  navigate = true
 
 [alias]
 
@@ -63,51 +74,45 @@
 
   # change
   b = branch --sort=-committerdate 
+
   co = checkout
   com = checkout master
+
   a = add
-  ap = add -p
+
   st = stash
+
   c = commit -v # with diff
   ca = commit -v --amend --no-edit
   can = commit -v --amend --no-edit -n
   cae = commit -v --amend
+
   ch = cherry-pick
-  chc = cherry-pick --continue
-  cha = cherry-pick --abort
+
   re = reset
   rep = reset HEAD~
   reom = reset origin/master
   rehom = reset --hard origin/master
+
   mt = mergetool
 
   # check
   s = status --ignore-submodules
+
   h = log --follow -p -M --stat # history of a file
   l = log --pretty='%C(red)%h %C(reset)%s %C(bold blue)%an, %C(green)%cr%C(yellow)%d %C(reset)' # usually my favorite format
   lo = log # default format (comes with more info)
   rl = reflog
+
   d = diff
   dc = diff --cached
 
   # organise
   r = rebase
-  rc = rebase --continue
-  ra = rebase --abort
   rom = rebase origin/master
   ri = rebase -i
   riom = rebase -i origin/master
-  rih = rebase HEAD
 
   # send
   p = push -u
   pf = push --force-with-lease # checks for same parent commit on origin before
-
-[filter "lfs"]
-  clean = git-lfs clean -- %f
-  smudge = git-lfs smudge -- %f
-  process = git-lfs filter-process
-  required = true
-
-[init]
-  defaultBranch = master

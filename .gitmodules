@@ -1,7 +1,11 @@
+[submodule "submodules/fzf-git"]
+path = submodules/fzf-git
+url = git@github.com:junegunn/fzf-git.sh.git
+
 [submodule ".pi/submodules/pi-skills"]
-	path = .pi/submodules/pi-skills
-	url = https://github.com/badlogic/pi-skills
+path = .pi/submodules/pi-skills
+url = git@github.com:badlogic/pi-skills
 
 [submodule ".pi/submodules/pi-dash"]
-	path = .pi/submodules/pi-dash
-	url = git@github.com:yuriteixeira/pi-dash
+path = .pi/submodules/pi-dash
+url = git@github.com:yuriteixeira/pi-dash.git

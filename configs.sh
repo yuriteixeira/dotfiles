@@ -42,6 +42,8 @@ ln -sf "$PWD/.config/gitui/" $HOME/.config
 ln -sf "$PWD/.config/bat/" $HOME/.config
 ln -sf "$PWD/.config/glow/" $HOME/.config
 
+ln -sf "$PWD/submodules/fzf-git" $HOME/.local/share
+
 if [ "$(uname)" = "Darwin" ]; then
   mkdir -p "$HOME/Library/Preferences/glow"
   ln -sf "$PWD/.config/glow/glow.yml" "$HOME/Library/Preferences/glow/glow.yml"
