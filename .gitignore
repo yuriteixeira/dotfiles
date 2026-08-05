@@ -49,6 +49,7 @@ macos/.config/karabiner/automatic_backups/
 .pi/agent/auth.json
 .pi/agent/debug-payloads/
 .pi/agent/models-store.json
+.pi/agent/extensions/pi-web-agent/state.json
 
 .playwright
 .playwright-cli
