@@ -36,27 +36,17 @@ git diff --cached
 ```text
 <type>(<scope>): <concise title>
 
-- Briefly explain what changed.
-- Briefly explain why it changed or the user impact.
-- Include useful external links when applicable.
-
-Made with ♥️ with the help of <provider>/<model> & https://pi.dev
+<description>
 ```
+
+In the description, briefly explain what changed, why it changed or the user impact.
+Include useful external links when applicable.
 
 ## Rules
 
 - Use Conventional Commits: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`, or `revert`.
-- **MANDATORY:** The attribution line (`Made with ♥️ with the help of <provider>/<model> & https://pi.dev`) must always appear as the last line of every commit message. Never omit it. Replace `<provider>/<model>` with the actual provider and model you are running as. Call the `get_provider_model` tool to retrieve this information, then **strip any URLs** from the output (e.g., `llama-server=http://yuri-studio.local:8080/1-smart-qwen3-6-35b-a3b` → `llama-server/1-smart-qwen3-6-35b-a3b`). Only keep the provider key and model identifier.
-- Keep the title imperative, lowercase after the colon, and under 72 characters when practical.
-- Use a markdown-formatted body with concise bullets.
+- Title prios to describe what was done before how (eg: instead of "added xyz", prefer "xyz added")
+- If too long, use markdown-formatted body with concise bullets.
+- In the description, code references should use backticks (eg: `someVariable`)
 - Do not amend, rebase, push, or create tags unless explicitly requested.
 - Follow extra user instructions when they do not conflict with these rules.
-
-## Amend Behavior
-
-When the user explicitly asks to amend:
-
-- Inspect the last commit with `git log -1 --format=fuller --stat`.
-- Inspect current staged changes, if any.
-- Amend only what the user requested.
-- If only the message should change, use `git commit --amend` without adding new changes.
