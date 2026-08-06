@@ -1,11 +1,12 @@
 ### Git
 
 # FZF Bindings
+export FZF_GIT_PAGER='delta --paging=never'
 [ -f $HOME/.local/share/fzf-git/fzf-git.sh ] && source $HOME/.local/share/fzf-git/fzf-git.sh
 
 # Wrappers
 alias g="git"
-alias gui="echo TBD..."
+alias gui="_fzf_git_files --bind 'start:reload(git -c core.quotePath=false -c color.status=always status --short --no-branch --untracked-files=all)'"
 
 function gitcred {
     git config user.name "${GIT_AUTHOR_NAME:-Your Name}"
