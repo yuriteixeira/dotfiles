@@ -1,33 +1,38 @@
 ### Git
 
-# FZF Bindings
+## fzf-git
 export FZF_GIT_PAGER='delta --paging=never'
+export FZF_GIT_FZF_CUSTOM_ARGS='--no-height --no-tmux'
+export FZF_GIT_KEY_TOGGLE_PREVIEW=f1
+export FZF_GIT_KEY_OPEN_BROWSER=f2
+export FZF_GIT_KEY_OPEN_EDITOR=f3
+export FZF_GIT_KEY_SHOW_ALL=f4
+export FZF_GIT_KEY_LIST_HASHES=f5
+export FZF_GIT_KEY_ACCEPT_WITHOUT_REMOTE=f6
+export FZF_GIT_KEY_TOGGLE_RAW=f7
+export FZF_GIT_KEY_LIST_FILES=f8
+export FZF_GIT_KEY_TOGGLE_SORT=f9
+export FZF_GIT_KEY_SHOW_DIFF=f10
+export FZF_GIT_KEY_DROP_STASH=f11
+export FZF_GIT_KEY_REMOVE_WORKTREE=f12
+
 [ -f $HOME/.local/share/fzf-git/fzf-git.sh ] && source $HOME/.local/share/fzf-git/fzf-git.sh
 
-# Show every fzf-git picker in the native fullscreen view instead of an inline
-# window or tmux popup.
-_fzf_git_fzf() {
-  fzf --no-height --no-tmux \
-    --layout reverse --multi \
-    --no-separator --header-border horizontal \
-    --border-label-pos 2 \
-    --color 'label:blue' \
-    --preview-window 'right,50%' --preview-border line \
-    --bind 'ctrl-/:change-preview-window(down,50%|hidden|)' "$@"
-}
-# Wrappers
+## Wrappers
 alias g="git"
-alias gui="_fzf_git_files --bind 'start:reload(git -c core.quotePath=false -c color.status=always status --short --no-branch --untracked-files=all)'"
 
 function gitcred {
     git config user.name "${GIT_AUTHOR_NAME:-Your Name}"
     git config user.email "${GIT_AUTHOR_EMAIL:-you@example.com}"
 }
 
+alias gs="_fzf_git_files --bind 'start:reload(git -c core.quotePath=false -c color.status=always status --short --no-branch --untracked-files=all)'"
+alias gl="_fzf_git_hashes"
+
 alias gd="DELTA_FEATURES=+side-by-side g d"
 alias gdc="DELTA_FEATURES=+side-by-side g dc"
 
-# Git diff: stats of total delta of lines added/removed
+# diff: stats of total delta of lines added/removed
 function gds = {
     echo ">>> File stats:"
     echo ""
@@ -38,8 +43,7 @@ function gds = {
     git diff --numstat --format="" "$@" | awk '{added+=$1; deleted+=$2} END {printf "Total Delta: %d (+%d, -%d)\n", added-deleted, added, deleted}'
 }
 
-
-# Git worktree: Create a worktree on parent dir
+# worktree: Create a worktree on parent dir
 function gw {
     local friendlyName=$1
     local gitRef=$2

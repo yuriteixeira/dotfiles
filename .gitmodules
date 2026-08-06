@@ -1,6 +1,6 @@
 [submodule "submodules/fzf-git"]
 path = submodules/fzf-git
-url = git@github.com:junegunn/fzf-git.sh.git
+url = git@github.com:yuriteixeira/fzf-git.sh.git
 
 [submodule ".pi/submodules/pi-skills"]
 path = .pi/submodules/pi-skills
