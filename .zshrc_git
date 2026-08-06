@@ -4,6 +4,17 @@
 export FZF_GIT_PAGER='delta --paging=never'
 [ -f $HOME/.local/share/fzf-git/fzf-git.sh ] && source $HOME/.local/share/fzf-git/fzf-git.sh
 
+# Show every fzf-git picker in the native fullscreen view instead of an inline
+# window or tmux popup.
+_fzf_git_fzf() {
+  fzf --no-height --no-tmux \
+    --layout reverse --multi \
+    --no-separator --header-border horizontal \
+    --border-label-pos 2 \
+    --color 'label:blue' \
+    --preview-window 'right,50%' --preview-border line \
+    --bind 'ctrl-/:change-preview-window(down,50%|hidden|)' "$@"
+}
 # Wrappers
 alias g="git"
 alias gui="_fzf_git_files --bind 'start:reload(git -c core.quotePath=false -c color.status=always status --short --no-branch --untracked-files=all)'"
