@@ -28,6 +28,52 @@ function gitcred {
 
 alias gs="_fzf_git_files --bind 'start:reload(git -c core.quotePath=false -c color.status=always status --short --no-branch --untracked-files=all)'"
 alias gl="_fzf_git_hashes"
+alias gls="_fzf_git_hashes_by_message"
+
+function _fzf_git_hashes_by_message {
+    _fzf_git_check || return
+
+    if [[ -z "$1" ]]; then
+        echo 'Usage: gls "commit message text"' >&2
+        return 2
+    fi
+
+    local query="$1"
+    local -x FZF_GIT_HASH_MESSAGE_QUERY="$query"
+    shift
+
+    {
+        echo "$(__fzf_git_key_label "${FZF_GIT_KEY_OPEN_BROWSER:-ctrl-o}") (open in browser) ╱ $(__fzf_git_key_label "${FZF_GIT_KEY_SHOW_DIFF:-ctrl-d}") (diff) ╱ $(__fzf_git_key_label "${FZF_GIT_KEY_TOGGLE_SORT:-ctrl-s}") (toggle sort)"
+        echo "$(__fzf_git_key_label "${FZF_GIT_KEY_TOGGLE_RAW:-alt-r}") (toggle raw mode) ╱ $(__fzf_git_key_label "${FZF_GIT_KEY_LIST_FILES:-alt-f}") (list files) ╱ $(__fzf_git_key_label "${FZF_GIT_KEY_SHOW_ALL:-alt-a}") (show all hashes)"
+        git log --fixed-strings --grep="$query" --date=short --format="%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)" --graph --color=$(__fzf_git_color)
+    } |
+    _fzf_git_fzf --ansi --no-sort --bind "${FZF_GIT_KEY_TOGGLE_SORT:-ctrl-s}:toggle-sort,${FZF_GIT_KEY_TOGGLE_RAW:-alt-r}:toggle-raw" \
+        --border-label "🍡 Hashes matching: $query " \
+        --header-lines 2 \
+        --bind "${FZF_GIT_KEY_OPEN_BROWSER:-ctrl-o}:execute-silent:bash \"$__fzf_git\" --list commit {}" \
+        --bind "${FZF_GIT_KEY_SHOW_DIFF:-ctrl-d}:execute:grep -o '[a-f0-9]\\{7,\\}' <<< {} | head -n 1 | xargs git diff --color=$(__fzf_git_color) > /dev/tty" \
+        --bind "${FZF_GIT_KEY_SHOW_ALL:-alt-a}:change-border-label(🍇 All matching hashes)+reload:git log --all --fixed-strings --grep=\"\$FZF_GIT_HASH_MESSAGE_QUERY\" --date=short --format=\"%C(green)%C(bold)%cd %C(auto)%h%d %s (%an)\" --graph --color=$(__fzf_git_color)" \
+        --bind "${FZF_GIT_KEY_LIST_FILES:-alt-f}:become:echo ::tree_files;
+          awk 'match(\$0, /[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]*/) { print substr(\$0, RSTART, RLENGTH) }' {+f} |
+            xargs bash \"$__fzf_git\" --run tree_files" \
+        --color hl:underline,hl+:underline \
+        --preview "grep -o '[a-f0-9]\\{7,\\}' <<< {} | head -n 1 | xargs git show --color=$(__fzf_git_color .) | $(__fzf_git_pager)" "$@" |
+    awk '
+        NR==1 && $0=="::tree_files" {
+            mode="tree_files"
+            next
+        }
+
+        mode=="tree_files" {
+            print
+            next
+        }
+
+        match($0, /[a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9][a-f0-9]*/) {
+            print substr($0, RSTART, RLENGTH)
+        }
+    '
+}
 
 alias gd="DELTA_FEATURES=+side-by-side g d"
 alias gdc="DELTA_FEATURES=+side-by-side g dc"
