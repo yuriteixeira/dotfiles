@@ -78,6 +78,9 @@ function _fzf_git_hashes_by_message {
 alias gd="DELTA_FEATURES=+side-by-side g d"
 alias gdc="DELTA_FEATURES=+side-by-side g dc"
 
+# diff: for merges, so I just see what matters in the diff
+alias gdm='git diff "$(git merge-tree --write-tree -Xours HEAD^1 HEAD^2 | head -1)" HEAD'
+
 # diff: stats of total delta of lines added/removed
 function gds = {
     echo ">>> File stats:"
