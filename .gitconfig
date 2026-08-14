@@ -32,15 +32,14 @@
 	keepBackup = false
 	trustExitCode = true
 
-[mergetool "ec"]
-	cmd = ec \"$BASE\" \"$LOCAL\" \"$REMOTE\" \"$MERGED\"
-
-[mergetool "nvim-diff"]
+[mergetool "nvim-bundled-diff"]
   cmd = nvim -d $BASE $LOCAL $REMOTE $MERGED -c '$wincmd w' -c 'wincmd J'
 
+[mergetool "nvim-plugin-diffconflicts"]
+	cmd = nvim -c DiffConflictsWithHistory \"$MERGED\" \"$BASE\" \"$LOCAL\" \"$REMOTE\"
+
 [merge]
-	tool = nvim-diff
-  conflictstyle = diff3
+	tool = nvim-plugin-diffconflicts
 
 [color "diff"]
   meta = yellow bold
