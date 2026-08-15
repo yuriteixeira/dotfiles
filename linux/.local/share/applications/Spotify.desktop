@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Name=Spotify
+Comment=Spotify
+Exec=brave --app="https://open.spotify.com" --name="Spotify" --class="Spotify"
+Terminal=false
+Type=Application
+Icon=app-spotify
+StartupNotify=true
