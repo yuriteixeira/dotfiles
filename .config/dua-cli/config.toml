@@ -1,0 +1,3 @@
+[keys]
+# Keep Escape consistent with Vim-style navigation in interactive mode.
+esc_navigates_back = true

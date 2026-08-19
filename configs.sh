@@ -42,12 +42,21 @@ ln -sf "$PWD/.config/gitui/" $HOME/.config
 ln -sf "$PWD/.config/bat/" $HOME/.config
 ln -sf "$PWD/.config/glow/" $HOME/.config
 
+if [ "$(uname)" = "Linux" ]; then
+  duaConfigDir="${XDG_CONFIG_HOME:-$HOME/.config}/dua-cli"
+  mkdir -p "$duaConfigDir"
+  ln -sf "$PWD/.config/dua-cli/config.toml" "$duaConfigDir/config.toml"
+fi
+
 ln -sf "$PWD/submodules/fzf-git" $HOME/.local/share
 
 if [ "$(uname)" = "Darwin" ]; then
   mkdir -p "$HOME/Library/Preferences/glow"
   ln -sf "$PWD/.config/glow/glow.yml" "$HOME/Library/Preferences/glow/glow.yml"
   ln -sf "$PWD/.config/glow/base16.json" "$HOME/Library/Preferences/glow/base16.json"
+
+  mkdir -p "$HOME/Library/Application Support/dua-cli"
+  ln -sf "$PWD/.config/dua-cli/config.toml" "$HOME/Library/Application Support/dua-cli/config.toml"
 fi
 
 # AI agent configuration

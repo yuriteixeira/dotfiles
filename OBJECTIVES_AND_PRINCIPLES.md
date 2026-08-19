@@ -45,7 +45,7 @@ Not as smooth as the seamless network copy/paste on Apple's ecosystem, but it's 
 - zoxide (cd/autojump replacement)
 - fastfetch (system info)
 - croc (network copy/paste, like localsend)
-- dunst + ncdu (disk usage overview + explorer)
+- dua (disk usage overview + interactive explorer)
 - rsync (for large transfers, both local or on network)
 - rclone (swiss knife to transfer files + misc utils like webdav implementation)
 - btop (process management TUI)

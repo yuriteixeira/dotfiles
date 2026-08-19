@@ -14,7 +14,7 @@ See [OBJECTIVES_AND_PRINCIPLES.md](./OBJECTIVES_AND_PRINCIPLES.md).
 - Alacritty
 - Sway (Linux) / Aerospace (macOS)
 - Caps Lock remaps (`Esc` tap, `hjkl` arrows when held)
-- Common CLI tools: git, fzf, eza, zoxide, ripgrep, bat, fd, btop, etc.
+- Common CLI tools: git, fzf, eza, zoxide, ripgrep, bat, fd, btop, dua, etc.
 
 ## Layout
 
