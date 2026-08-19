@@ -3,6 +3,7 @@ cd "$(dirname "$0")"
 brew install \
   felixkratz/formulae/borders \
   gnu-sed \
+  jq \
   lsusb \
   zsh-completions
 
