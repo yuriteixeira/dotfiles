@@ -53,6 +53,7 @@
 ### 3rd Party Tools
 
 [delta]
+  paging = never
   plus-style = "syntax #012800"
   minus-style = "syntax #340001"
   syntax-theme = base16-256
