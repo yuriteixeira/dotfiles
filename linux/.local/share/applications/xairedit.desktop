@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=X-AIR Edit
+Comment=Remote control program for Behringer X-AIR mixers
+Exec=xairedit
+Icon=/usr/share/pixmaps/xairedit.png
+Terminal=false
+StartupNotify=false
+Categories=Audio;Mixer;AudioVideo;
+Keywords=Mixer;
