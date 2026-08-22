@@ -1,0 +1,17 @@
+scale=${SCALE:-2}
+app=${1:-foot}
+
+outputEnv="OUTPUT=\$(wlr-randr | awk '/^[^[:space:]]/{name=\$1} /^[[:space:]]+Enabled: yes/{print name}')"
+scaleCmd="$outputEnv ; wlr-randr --output \$OUTPUT --scale $scale"
+appCmd="exec $app"
+cmd="$scaleCmd && $appCmd"
+
+echo ""
+echo ">>> ONE is Starting..."
+echo "Cmd: $cmd"
+echo "Scale: $scale"
+echo "App: $app"
+echo ""
+
+cage -s -- sh -c "$cmd"
+

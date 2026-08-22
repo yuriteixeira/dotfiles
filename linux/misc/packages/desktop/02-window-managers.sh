@@ -7,3 +7,7 @@ yay -S --noconfirm --needed \
   xorg-xwayland \
   sway-contrib \
 
+yay -S --noconfirm --needed \
+  wlr-randr \
+  cage \
+  foot \

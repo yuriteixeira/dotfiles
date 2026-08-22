@@ -23,6 +23,7 @@ ln -sf "$PWD/.config/rofi" $HOME/.config
 
 # Terminal
 ln -sf "$PWD/.config/alacritty" $HOME/.config
+ln -sf "$PWD/.config/foot" $HOME/.config
 
 # TTY & Locale
 sudo ln -sf "$PWD/etc/vconsole.conf" /etc
