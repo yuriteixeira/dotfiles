@@ -5,17 +5,21 @@ scriptDir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 scale=${SCALE:-2}
 app=${1:-foot}
 
-outputEnv="OUTPUT=\$(wlr-randr | awk '/^[^[:space:]]/{name=\$1} /^[[:space:]]+Enabled: yes/{print name}')"
+if [ -z "$OUTPUT"];
+then
+  outputEnv="OUTPUT=\$(wlr-randr | awk '/^[^[:space:]]/{name=\$1} /^[[:space:]]+Enabled: yes/{print name}')"
+else
+  outputEnv="OUTPUT=$OUTPUT"
+fi
+
 scaleCmd="$outputEnv ; wlr-randr --output \$OUTPUT --scale $scale"
 appCmd="exec $app"
 cmd="$scaleCmd && $appCmd"
 
 echo ""
 echo ">>> ONE is Starting..."
-echo "Cmd: $cmd"
 echo "Scale: $scale"
 echo "App: $app"
 echo ""
 
-cage -s -- sh -c "$cmd"
-
+cage -s -- sh -c "echo \">>> CMD: $cmd\"; echo ''; echo ''; $cmd"
