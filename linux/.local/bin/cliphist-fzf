@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+set -o pipefail
+
+if [[ -n "${TMUX:-}" && -z "${CLIPHIST_FZF_POPUP:-}" ]]; then
+  printf -v script_path '%q' "$0"
+  tmux display-popup -E -w 80% -h 80% \
+    "CLIPHIST_FZF_POPUP=1 ${script_path}"
+  exit $?
+fi
+
+selection=$(cliphist list | fzf \
+  --prompt='Clipboard> ' \
+  --layout=reverse \
+  --border \
+  --preview='cliphist decode <<< {}' \
+  --preview-window='down,50%,wrap') || exit 0
+
+[[ -n "$selection" ]] || exit 0
+printf '%s\n' "$selection" | cliphist decode | wl-copy >/dev/null 2>&1
