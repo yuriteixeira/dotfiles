@@ -6,6 +6,7 @@ alias la="ls -lah"
 alias dot="cd $DOTFILES"
 alias rg="rg --hidden"
 alias psa="ps aux"
+alias glow='glow -s "$HOME/.config/glow/base16.json"'
 
 if [[ "$(uname)" == "Darwin" ]] then
   alias sed="gsed"

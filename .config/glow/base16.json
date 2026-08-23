@@ -1,57 +1,83 @@
 {
   "document": {
-    "color": "7"
+    "block_prefix": "\n",
+    "block_suffix": "\n",
+    "color": "7",
+    "margin": 2
+  },
+  "block_quote": {
+    "color": "8",
+    "italic": true,
+    "indent": 1,
+    "indent_token": "│ "
+  },
+  "paragraph": {},
+  "list": {
+    "level_indent": 2
   },
   "heading": {
+    "block_suffix": "\n",
     "color": "12",
     "bold": true
   },
   "h1": {
-    "color": "12",
+    "prefix": " ",
+    "suffix": " ",
+    "color": "0",
+    "background_color": "12",
     "bold": true
   },
   "h2": {
+    "prefix": "## ",
     "color": "13",
     "bold": true
   },
   "h3": {
+    "prefix": "### ",
     "color": "14",
     "bold": true
   },
   "h4": {
+    "prefix": "#### ",
     "color": "11",
     "bold": true
   },
   "h5": {
+    "prefix": "##### ",
     "color": "10",
     "bold": true
   },
   "h6": {
+    "prefix": "###### ",
     "color": "8",
     "bold": true
   },
-  "strong": {
-    "color": "11",
-    "bold": true
+  "text": {},
+  "strikethrough": {
+    "crossed_out": true
   },
   "emph": {
     "color": "14",
     "italic": true
   },
-  "codespan": {
-    "color": "10"
+  "strong": {
+    "color": "11",
+    "bold": true
   },
-  "code_block": {
-    "color": "7",
-    "background_color": "0"
-  },
-  "blockquote": {
+  "hr": {
     "color": "8",
-    "italic": true
+    "format": "\n--------\n"
   },
-  "block_quote": {
-    "color": "8",
-    "italic": true
+  "item": {
+    "block_prefix": "• "
+  },
+  "enumeration": {
+    "block_prefix": ". ",
+    "color": "8"
+  },
+  "task": {
+    "ticked": "[✓] ",
+    "unticked": "[ ] "
   },
   "link": {
     "color": "12",
@@ -59,15 +85,38 @@
   },
   "link_text": {
     "color": "12",
+    "bold": true,
     "underline": true
   },
-  "enumeration": {
-    "color": "8"
+  "image": {
+    "color": "13",
+    "underline": true
+  },
+  "image_text": {
+    "color": "8",
+    "format": "Image: {{.text}} →"
+  },
+  "code": {
+    "prefix": " ",
+    "suffix": " ",
+    "color": "10",
+    "background_color": "0"
+  },
+  "code_block": {
+    "color": "7",
+    "background_color": "0",
+    "margin": 2,
+    "theme": "base16-snazzy"
   },
   "table": {
     "color": "7"
   },
+  "definition_list": {},
+  "definition_term": {},
   "definition_description": {
+    "block_prefix": "\n🠶 ",
     "color": "7"
-  }
+  },
+  "html_block": {},
+  "html_span": {}
 }
