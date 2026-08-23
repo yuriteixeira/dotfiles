@@ -1,20 +1,7 @@
 scriptDir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 
-[ -z "$SHOW_CURSOR" ] && . "$scriptDir/one-hide-cursor.sh"
-
 scale=${SCALE:-2}
 app=${1:-foot}
-
-if [ -z "$OUTPUT"];
-then
-  outputEnv="OUTPUT=\$(wlr-randr | awk '/^[^[:space:]]/{name=\$1} /^[[:space:]]+Enabled: yes/{print name}')"
-else
-  outputEnv="OUTPUT=$OUTPUT"
-fi
-
-scaleCmd="$outputEnv ; wlr-randr --output \$OUTPUT --scale $scale"
-appCmd="exec $app"
-cmd="$scaleCmd && $appCmd"
 
 echo ""
 echo ">>> ONE is Starting..."
@@ -22,4 +9,4 @@ echo "Scale: $scale"
 echo "App: $app"
 echo ""
 
-cage -s -- sh -c "echo \">>> CMD: $cmd\"; echo ''; echo ''; $cmd"
+SCALE="$scale" cage -s -- sh "$scriptDir/one-session.sh" "$@"
