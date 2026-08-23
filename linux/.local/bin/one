@@ -1,3 +1,5 @@
+#!/bin/sh
+
 scriptDir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 
 scale=${SCALE:-2}

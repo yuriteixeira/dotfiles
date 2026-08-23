@@ -6,6 +6,7 @@ cd "$(dirname "$0")"
 ln -sf "$PWD/.local/bin" $HOME/.local
 ln -sf "$PWD/.local/share/applications" $HOME/.local/share
 ln -sf "$PWD/.local/share/icons" $HOME/.local/share
+ln -sf "$PWD/.zprofile" $HOME/.zprofile
 
 # Window managers
 ln -sf "$PWD/.config/sway" $HOME/.config
@@ -27,6 +28,10 @@ ln -sf "$PWD/.config/foot" $HOME/.config
 
 # TTY & Locale
 sudo ln -sf "$PWD/etc/vconsole.conf" /etc
+sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
+sudo cp "$PWD/etc/systemd/system/getty@tty1.service.d/autologin.conf" /etc/systemd/system/getty@tty1.service.d/
+sudo systemctl daemon-reload
+sudo systemctl enable getty@tty1.service
 
 # Network discovery (needed for reaching hostnames with .local)
 sudo ln -sf "$PWD/etc/nsswitch.conf" /etc
