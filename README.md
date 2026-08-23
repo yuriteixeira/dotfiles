@@ -4,7 +4,7 @@ My Linux/macOS dotfiles and setup scripts.
 
 ## Objectives & Principles
 
-See [OBJECTIVES_AND_PRINCIPLES.md](./OBJECTIVES_AND_PRINCIPLES.md).
+See [OBJECTIVES_AND_PRINCIPLES.md](./docs/OBJECTIVES_AND_PRINCIPLES.md).
 
 ## What this repo covers
 
