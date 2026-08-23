@@ -11,4 +11,7 @@ echo "Scale: $scale"
 echo "App: $app"
 echo ""
 
-SCALE="$scale" cage -s -- sh "$scriptDir/one-session.sh" "$@"
+XKB_DEFAULT_LAYOUT=us \
+XKB_DEFAULT_VARIANT=altgr-intl \
+SCALE="$scale" \
+cage -s -- sh "$scriptDir/one-session.sh" "$@"
