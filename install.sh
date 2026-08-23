@@ -21,6 +21,7 @@ git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shel
 #
 # btop -> top/htop
 # dua -> du and interactive disk usage explorers
+# ddgr -> web search
 # eza -> ls
 # neovim -> vim 
 # ripgrep -> grep
@@ -29,7 +30,7 @@ git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shel
 # rsync -> cp
 # bat -> cat
 # fd -> find
-cliTools='zsh tmux neovim tree-sitter tree-sitter-cli git git-delta gitui fzf eza zoxide ripgrep rsync btop dua-cli fastfetch bat jq fd wget glow'
+cliTools='zsh tmux neovim tree-sitter tree-sitter-cli git git-delta gitui fzf eza zoxide ripgrep rsync btop dua-cli fastfetch bat jq fd wget glow ddgr'
 
 [ "$(uname)" = "Linux" ] && \
   sh -c "yay -S --noconfirm --needed $cliTools github-cli" && \
