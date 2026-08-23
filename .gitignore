@@ -32,7 +32,7 @@ linux/.config/sway/profiles/current
 linux/.config/gtk*/bookmarks
 linux/.config/gtk*/gtkfilechooser.ini
 
-linux/.local/bin/omp
+linux/.local/bin/soloist
 
 # MacOS
 .DS_Store
