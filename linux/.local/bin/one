@@ -1,3 +1,7 @@
+scriptDir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
+
+[ -z "$SHOW_CURSOR" ] && . "$scriptDir/one-hide-cursor.sh"
+
 scale=${SCALE:-2}
 app=${1:-foot}
 
