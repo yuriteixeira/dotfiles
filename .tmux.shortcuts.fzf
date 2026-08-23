@@ -1,0 +1,88 @@
+#!/usr/bin/env bash
+
+set -o errexit
+set -o nounset
+set -o pipefail
+
+shortcuts_file="${TMUX_SHORTCUTS_FILE:-$HOME/.tmux.shortcuts.conf}"
+commands_file="${TMUX_COMMANDS_FILE:-$HOME/.tmux.commands.conf}"
+
+for config_file in "$shortcuts_file" "$commands_file"; do
+  if [[ ! -r "$config_file" ]]; then
+    printf 'Cannot read tmux config: %s\n' "$config_file" >&2
+    exit 1
+  fi
+done
+
+if ! command -v fzf >/dev/null 2>&1; then
+  printf 'fzf is required to search tmux shortcuts.\n' >&2
+  exit 1
+fi
+
+list_shortcuts() {
+  awk '
+    FILENAME == ARGV[1] && $1 == "bind" {
+      if ($2 == "-n") {
+        table = "root"
+        key = $3
+        command_name = $4
+      } else {
+        table = "prefix"
+        key = $2
+        command_name = $3
+      }
+
+      binding_count++
+      id = table SUBSEP key
+      binding_ids[binding_count] = id
+      binding_tables[binding_count] = table
+      binding_keys[binding_count] = key
+      binding_commands[binding_count] = command_name
+      last_binding[id] = binding_count
+      next
+    }
+
+    FILENAME == ARGV[2] && $1 == "set" && $3 ~ /^command-alias\[/ {
+      command_name = $4
+      sub(/^"/, "", command_name)
+      sub(/=.*/, "", command_name)
+      command_count++
+      command_names[command_count] = command_name
+    }
+
+    END {
+      for (entry = 1; entry <= binding_count; entry++) {
+        id = binding_ids[entry]
+        if (last_binding[id] != entry) {
+          continue
+        }
+
+        command_name = binding_commands[entry]
+        key_label = binding_tables[entry] == "root" \
+          ? binding_keys[entry] \
+          : "prefix " binding_keys[entry]
+        separator = command_name in command_keys ? ", " : ""
+        command_keys[command_name] = command_keys[command_name] separator key_label
+      }
+
+      for (entry = 1; entry <= command_count; entry++) {
+        command_name = command_names[entry]
+        key_label = command_name in command_keys ? command_keys[command_name] : "unbound"
+        printf "%-28s\t%s\n", key_label, command_name
+      }
+    }
+  ' "$shortcuts_file" "$commands_file"
+}
+
+selection=$(list_shortcuts | fzf \
+  --prompt='Tmux shortcut> ' \
+  --layout=reverse \
+  --border \
+  --cycle \
+  --no-multi \
+  --header='enter: execute | esc: cancel') || exit 0
+
+[[ -n "$selection" ]] || exit 0
+command_name="${selection##*$'\t'}"
+
+tmux display-popup -C \; "$command_name"
