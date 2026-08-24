@@ -22,7 +22,7 @@
   diffFilter = delta --color-only
 
 [pager]
-  diff = delta
+  diff = delta --paging=never
   log = delta
   reflog = delta
   show = delta
@@ -53,7 +53,6 @@
 ### 3rd Party Tools
 
 [delta]
-  paging = never
   plus-style = "syntax #012800"
   minus-style = "syntax #340001"
   syntax-theme = base16-256
