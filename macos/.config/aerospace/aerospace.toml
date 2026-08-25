@@ -47,6 +47,7 @@ cmd-ctrl-alt-shift-1 = ['workspace 5', 'workspace 1']
 cmd-ctrl-alt-shift-2 = ['workspace 6', 'workspace 2']
 cmd-ctrl-alt-shift-3 = ['workspace 7', 'workspace 3']
 cmd-ctrl-alt-shift-4 = ['workspace 8', 'workspace 4']
+cmd-ctrl-alt-shift-tab = 'workspace-back-and-forth'
 
 cmd-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
 cmd-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
