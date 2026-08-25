@@ -72,8 +72,8 @@ cmd-shift-j = 'move down'
 cmd-shift-k = 'move up'
 cmd-shift-l = 'move right'
 
-cmd-ctrl-alt-rightSquareBracket = 'focus-monitor --wrap-around next'
-cmd-ctrl-alt-leftSquareBracket = 'focus-monitor --wrap-around prev'
+cmd-ctrl-alt-rightSquareBracket = 'exec-and-forget ~/.config/aerospace/scripts/focus-visible-monitor.sh next'
+cmd-ctrl-alt-leftSquareBracket = 'exec-and-forget ~/.config/aerospace/scripts/focus-visible-monitor.sh prev'
 
 cmd-shift-rightSquareBracket = 'move-node-to-monitor --focus-follows-window --wrap-around next'
 cmd-shift-leftSquareBracket  = 'move-node-to-monitor --focus-follows-window --wrap-around prev'
