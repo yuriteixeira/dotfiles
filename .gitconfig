@@ -95,6 +95,8 @@
 
   mt = mergetool
 
+  w = worktree
+
   # check
   s = status --ignore-submodules
 
