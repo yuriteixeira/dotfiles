@@ -29,4 +29,22 @@ if [ -z "$VISIBLE_WORKSPACE" ]; then
   exit 1
 fi
 
-aerospace workspace -- "$VISIBLE_WORKSPACE"
+# AeroSpace issue #101 can redirect the first focus request to another window of
+# the same app on a different monitor. Retrying the same workspace corrects it.
+readonly MAX_FOCUS_ATTEMPTS=3
+
+for ((attempt = 1; attempt <= MAX_FOCUS_ATTEMPTS; attempt++)); do
+  aerospace workspace -- "$VISIBLE_WORKSPACE"
+  sleep 0.05
+
+  FOCUSED_WORKSPACE=$(aerospace list-workspaces --focused)
+
+  if [ "$FOCUSED_WORKSPACE" = "$VISIBLE_WORKSPACE" ]; then
+    exit 0
+  fi
+done
+
+printf 'Failed to focus monitor %s after %s attempts\n' \
+  "$TARGET_MONITOR" \
+  "$MAX_FOCUS_ATTEMPTS" >&2
+exit 1
