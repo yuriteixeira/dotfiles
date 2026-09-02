@@ -25,6 +25,12 @@ case ":$PATH:" in
   *) export PATH="$DOT_LOCAL_BIN:$PATH" ;;
 esac
 
+export CARGO_BIN="$HOME/.cargo/bin"
+case ":$PATH:" in
+  *":$CARGO_BIN:"*) ;;
+  *) export PATH="$CARGO_BIN:$PATH" ;;
+esac
+
 if [[ "$(uname)" == "Linux" ]] then
   export XDG_RUNTIME_DIR="/run/user/$(id -u)"
   export XDG_SCREENSHOTS_DIR="$HOME/Screenshots"
@@ -48,12 +54,6 @@ if [[ "$(uname)" == "Linux" ]] then
     *) export PATH="$PATH:$PNPM_HOME/bin" ;;
   esac
   path=("$DOT_LOCAL_BIN" ${path:#$DOT_LOCAL_BIN})
-
-  export CARGO_BIN="$HOME/.cargo/bin"
-  case ":$PATH:" in
-    *":$CARGO_BIN:"*) ;;
-    *) export PATH="$CARGO_BIN:$PATH" ;;
-  esac
 fi
 
 if [[ "$(uname)" == "Darwin" ]] then
@@ -87,10 +87,7 @@ if [[ "$(uname)" == "Darwin" ]] then
     export GO_HOME="$HOME/go"
     export GO_BIN="$GO_HOME/bin"
 
-    export RUSTUP_BIN="/opt/homebrew/opt/rustup/bin"
-
     export JAVA_HOME="$HOME/.sdkman/candidates/java/current"
-
 
     if [[ $(arch) == 'arm64' ]]; then
         export PSQL_BIN="/opt/homebrew/opt/libpq/bin"
@@ -108,7 +105,6 @@ if [[ "$(uname)" == "Darwin" ]] then
     export MY_PATH="$GNU_PATH:$MY_PATH"
     export MY_PATH="$JENV_PATH:$MY_PATH"
     export MY_PATH="$GCLOUD_PATH:$MY_PATH"
-    export MY_PATH="$RUSTUP_BIN:$MY_PATH"
 
     if command -v brew &> /dev/null; then
         export HOMEBREW_NO_VERIFY_ATTESTATIONS=1
