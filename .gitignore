@@ -51,6 +51,8 @@ macos/.config/karabiner/automatic_backups/
 .pi/agent/models-store.json
 .pi/agent/extensions/pi-web-agent/state.json
 
+.pi/web-search-cache
+
 .pi/agent/.pi-hermes*
 .pi/agent/pi-hermes-memory/*
 .pi/agent/.pi-hermes-locks.sqlite*
