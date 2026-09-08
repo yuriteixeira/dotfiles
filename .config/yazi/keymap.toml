@@ -1,0 +1,4 @@
+# Open the hovered directory in the native file manager with Enter.
+[[mgr.prepend_keymap]]
+on = [ "<Enter>" ]
+run = 'shell --orphan -- ~/.config/yazi/open-directory "%h"'

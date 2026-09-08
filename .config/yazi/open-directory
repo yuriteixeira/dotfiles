@@ -1,0 +1,18 @@
+#!/bin/sh
+
+# Yazi passes the hovered/selected path as the first argument.
+target=$1
+
+if [ -d "$target" ]; then
+  case $(uname -s) in
+    Darwin)
+      open "$target"
+      ;;
+    Linux)
+      nautilus --new-window "$target"
+      ;;
+  esac
+else
+  # Preserve Enter's usual behavior for files.
+  exec xdg-open "$target" 2>/dev/null || exec open "$target"
+fi
