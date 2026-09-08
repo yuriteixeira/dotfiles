@@ -1,5 +1,11 @@
 #!/bin/sh
 
+if [ -n "${TMUX}" ] || [ -n "${WAYLAND_DISPLAY:-}" ] || [ "${XDG_VTNR:-}" != 1 ]
+then
+  echo ">>> ONE (Cage + Foot) can only be launched on a regular TTY"
+  exit 1
+fi
+
 scriptDir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 
 scale=${SCALE:-2}

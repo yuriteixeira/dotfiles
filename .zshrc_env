@@ -42,13 +42,15 @@ if [[ "$(uname)" == "Linux" ]] then
   export XDG_SCREENSHOTS_DIR="$HOME/Screenshots"
   export DBUS_SESSION_BUS_ADDRESS="unix:path=${XDG_RUNTIME_DIR}/bus"
 
-  function distrobox_prompt_info() {
-    if [[ -n "$CONTAINER_ID" ]]; then
-      echo "%{$fg[magenta]%}📦 [$CONTAINER_ID]%{$reset_color%} "
-    fi
-  }
+  export ANDROID_HOME="$HOME/Workspaces/android/sdk"
+  export ANDROID_BIN="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator"
+  export ANDROID_COMPILE_SDK=35
+  export ANDROID_BUILD_TOOLS_VERSION=35.0.0
 
-  PROMPT='$(distrobox_prompt_info)'$PROMPT
+  case ":$PATH:" in
+    *":$ANDROID_BIN:"*) ;;
+    *) export PATH="$ANDROID_BIN:$PATH" ;;
+  esac
 
   export PNPM_HOME="$HOME/.local/share/pnpm"
   case ":$PATH:" in
@@ -59,7 +61,14 @@ if [[ "$(uname)" == "Linux" ]] then
     *":$PNPM_HOME/bin:"*) ;;
     *) export PATH="$PATH:$PNPM_HOME/bin" ;;
   esac
-  path=("$DOT_LOCAL_BIN" ${path:#$DOT_LOCAL_BIN})
+
+  function distrobox_prompt_info() {
+    if [[ -n "$CONTAINER_ID" ]]; then
+      echo "%{$fg[magenta]%}📦 [$CONTAINER_ID]%{$reset_color%} "
+    fi
+  }
+
+  PROMPT='$(distrobox_prompt_info)'$PROMPT
 fi
 
 if [[ "$(uname)" == "Darwin" ]] then
@@ -82,10 +91,9 @@ if [[ "$(uname)" == "Darwin" ]] then
     export GNU_PATH="/usr/local/opt/gnu-sed/libexec/gnubin"
     export JENV_PATH="$HOME/.jenv/bin"
 
-    export ANDROID_SDK_PATH="$HOME/Library/Android/sdk"
-    export ANDROID_HOME="$ANDROID_SDK_PATH"
-    export ANDROID_SDK_PLATFORMTOOLS_PATH="$ANDROID_SDK_PATH/platform-tools"
-    export ANDROID_SDK_EMULATOR_PATH="$ANDROID_SDK_PATH/emulator"
+    export ANDROID_HOME="$HOME/Library/Android/sdk"
+    export ANDROID_SDK_PLATFORMTOOLS_PATH="$ANDROID_HOME/platform-tools"
+    export ANDROID_SDK_EMULATOR_PATH="$ANDROID_HOME/emulator"
     export CMVM_PATH="$HOME/Library/Application Support/com.iepsen.cmvm/current/bin"
 
     export PNPM_HOME="$HOME/Library/pnpm"
