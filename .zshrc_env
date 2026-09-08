@@ -31,6 +31,12 @@ case ":$PATH:" in
   *) export PATH="$CARGO_BIN:$PATH" ;;
 esac
 
+export PI_BIN="$HOME/.pi/agent/npm/node_modules/.bin"
+case ":$PATH:" in
+  *":$PI_BIN:"*) ;;
+  *) export PATH="$PI_BIN:$PATH" ;;
+esac
+
 if [[ "$(uname)" == "Linux" ]] then
   export XDG_RUNTIME_DIR="/run/user/$(id -u)"
   export XDG_SCREENSHOTS_DIR="$HOME/Screenshots"
