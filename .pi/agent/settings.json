@@ -20,6 +20,7 @@
     "npm:pi-execution-time",
     "npm:pi-ask-user",
     "npm:pi-token-speed",
+    "npm:@latentminds/pi-quotas",
     "npm:pi-web-access",
     "npm:pi-zentui",
     "npm:pi-llama-cpp"
