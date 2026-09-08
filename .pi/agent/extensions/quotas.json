@@ -2,8 +2,8 @@
   "configVersion": "0.5.0",
   "quotasCommand": true,
   "providerCommands": true,
-  "usageStatus": true,
-  "tokenStatus": true,
+  "usageStatus": false,
+  "tokenStatus": false,
   "quotaWarnings": true,
   "deferToSynthetic": true
 }

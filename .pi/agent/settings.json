@@ -35,5 +35,9 @@
     "openai-codex/gpt-5.6-sol",
     "openai-codex/gpt-5.6-terra"
   ],
-  "theme": "base16"
+  "theme": "base16",
+  "tokenSpeed": {
+    "display": "stats",
+    "icon": ""
+  }
 }

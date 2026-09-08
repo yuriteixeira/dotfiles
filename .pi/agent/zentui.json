@@ -39,13 +39,13 @@
     "footer": {
       "style": "starship",
       "colorSource": "theme",
-      "modelLabel": "name",
+      "modelLabel": "id",
       "styles": {
         "starship": {
           "format": "",
-          "responsive": true,
+          "responsive": false,
           "compactFormat": "$cwd$wrap(in $session_name)$wrap(on $git_branch) $git_status$wrap$context$wrap_sep$tokens",
-          "compactMaxLines": 2,
+          "compactMaxLines": "unlimited",
           "separator": "pipe",
           "contextStyle": "text",
           "contextThresholds": {
@@ -58,7 +58,7 @@
           },
           "segments": {
             "cwd": true,
-            "sessionName": true,
+            "sessionName": false,
             "gitBranch": true,
             "gitStatus": true,
             "gitCounts": false,
