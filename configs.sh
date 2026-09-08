@@ -43,6 +43,7 @@ ln -sf "$PWD/.gitignore_global" $HOME
 ln -sf "$PWD/.config/gitui/" $HOME/.config
 ln -sf "$PWD/.config/bat/" $HOME/.config
 ln -sf "$PWD/.config/glow/" $HOME/.config
+ln -sf "$PWD/.config/yazi/" $HOME/.config
 
 if [ "$(uname)" = "Linux" ]; then
   duaConfigDir="${XDG_CONFIG_HOME:-$HOME/.config}/dua-cli"

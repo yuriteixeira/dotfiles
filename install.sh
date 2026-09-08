@@ -30,14 +30,17 @@ git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shel
 # rsync -> cp
 # bat -> cat
 # fd -> find
-cliTools='zsh tmux neovim tree-sitter tree-sitter-cli git git-delta gitui fzf eza zoxide ripgrep rsync btop dua-cli fastfetch bat jq fd wget glow ddgr'
+cliTools='zsh tmux neovim tree-sitter tree-sitter-cli git git-delta gitui fzf eza zoxide ripgrep rsync btop dua-cli fastfetch bat jq fd wget glow ddgr yazi ffmpeg poppler'
+
+linuxCliTools="$cliTools 7zip"
+macosCliTools="$cliTools sevenzip"
 
 [ "$(uname)" = "Linux" ] && \
-  sh -c "yay -S --noconfirm --needed $cliTools github-cli" && \
+  sh -c "yay -S --noconfirm --needed $linuxCliTools github-cli" && \
   sudo chsh -s /usr/bin/zsh yuriteixeira
 
 [ "$(uname)" = "Darwin" ] && \
-  sh -c "brew install $cliTools gh"
+  sh -c "brew install $macosCliTools gh"
 
 rm -rf $HOME/.zshrc
 rm -rf $HOME/.oh-my-zsh

@@ -1,0 +1,13 @@
+# Yazi file manager configuration
+# Image previews require a terminal with Kitty graphics protocol support.
+[mgr]
+show_hidden = true
+
+[plugin]
+# Keep text and document previews, but disable image previews and preloading.
+prepend_previewers = [
+  { mime = "image/*", run = "noop" },
+]
+prepend_preloaders = [
+  { mime = "image/*", run = "noop" },
+]
