@@ -1,7 +1,7 @@
 # Yazi file manager configuration
 # Image previews require a terminal with Kitty graphics protocol support.
 [mgr]
-show_hidden = true
+show_hidden = false
 
 [plugin]
 # Keep text and document previews, but disable image previews and preloading.
