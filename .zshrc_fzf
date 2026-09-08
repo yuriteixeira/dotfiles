@@ -18,4 +18,4 @@ fi
 
 export FZF_DEFAULT_COMMAND='rg --hidden --no-ignore --files'
 export FZF_DEFAULT_OPTS='--style=full --color=16'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND 2> /dev/null"
+export FZF_CTRL_T_COMMAND='fd --type f --hidden --no-ignore --exclude .git'
