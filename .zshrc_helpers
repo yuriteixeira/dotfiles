@@ -20,46 +20,83 @@ local -a piDumbModel=(
 )
 
 local -a piNoToolsOrSkils=(
-  --no-tools \
-  --no-skills \
+  --no-tools
+  --no-skills
+  --no-prompt-templates
 )
+
+local -a piOnlyBasicsAndWebSearch=(
+  --no-builtin-tools
+  --no-skills
+  --no-prompt-templates
+  --no-extensions
+  --extension "$HOME/.pi/agent/npm/node_modules/pi-web-access/index.ts"
+  --extension "$HOME/.pi/agent/npm/node_modules/pi-context-inspector/index.ts"
+)
+
 
 # Pi: Inline /ship-it
 alias shipit="p /ship-it"
 
-# Pi, but dumb
+# Pi, but a bit "slower"
 function p() {
-  local question="$@"
-  pi "${piDumbModel[@]}" -- "$question"
+  question="$*"
+
+  local -a args=(
+    "${piDumbModel[@]}"
+    -- "$question"
+  )
+
+  [ -n "${NO_CTX}" ] && args=(--no-context-files "${args[@]}")
+
+  [ -z "${NO_SP}" ] && pi ${args[@]} || pi --system-prompt "" ${args[@]}
 }
 
-# Questions (Interactive)
+# Questions (Interactive, web access only)
 function q() {
-  local question="$@"
+  question="$*"
 
-  pi \
-    ${piDumbModel[@]} \
-    ${piNoToolsOrSkils[@]} \
+  local -a args=(
+    ${piDumbModel[@]}
+    ${piOnlyBasicsAndWebSearch[@]}
     -- "$question"
+  )
+
+  [ -n "${NO_CTX}" ] && args=(--no-context-files "${args[@]}")
+
+  [ -z "${NO_SP}" ] && pi ${args[@]} || pi --system-prompt "" ${args[@]}
 }
 
 # Quick Questions (Non-interactive, streamable)
 function qq() {
   setopt local_options pipe_fail
 
-  local question="$@"
+  local question="$*"
 
   local -a args=(
+    ${piDumbModel[@]}
+    ${piOnlyBasicsAndWebSearch[@]}
     --no-session
-    --offline
     --mode json
+    -- "$question"
   )
+
+  [ -n "${NO_CTX}" ] && args=(--no-context-files "${args[@]}")
 
   echo ""
   echo "# Question: $question"
   echo ""
 
-  pi "${piDumbModel[@]}" "${piNoToolsOrSkils[@]}" "${args[@]}" -- "$question" |
+  local -a cmd
+
+  if [ -z "${NO_SP}" ]
+  then
+    cmd=(pi "${args[@]}")
+  else
+    cmd=(pi --system-prompt "" "${args[@]}")
+  fi
+
+  "${cmd[@]}" |
     jq --unbuffered --join-output '
       select(
         .type == "message_update" and
