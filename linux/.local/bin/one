@@ -8,7 +8,7 @@ fi
 
 scriptDir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 
-scale=${SCALE:-1.75}
+scale=${SCALE:-2}
 app=${1:-foot}
 
 echo ""
