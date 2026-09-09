@@ -17,6 +17,9 @@ fi
 # Pi, but dumb
 alias p="pi --model openai-codex/gpt-5.6-luna --thinking low"
 
+# Pi: Inline /ship-it
+alias shipit="p /ship-it"
+
 # Questions (Interactive)
 function q() {
   local question="$@"
