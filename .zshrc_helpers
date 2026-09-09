@@ -14,17 +14,22 @@ fi
 
 ### AI
 
+# Pi, but dumb
+alias p="pi --model openai-codex/gpt-5.6-luna --thinking low"
+
 # Questions (Interactive)
 function q() {
+  local question="$@"
+
   pi \
     --no-tools \
     --no-skills \
     --model openai-codex/gpt-5.6-luna \
     --thinking low \
-    $@
+    -- "$question"
 }
 
-# Quick Question (Non-interactive, streamable)
+# Quick Questions (Non-interactive, streamable)
 function qq() {
   setopt local_options pipe_fail
 
