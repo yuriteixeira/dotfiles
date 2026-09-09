@@ -20,10 +20,11 @@ function q() {
     --no-tools \
     --no-skills \
     --model openai-codex/gpt-5.6-luna \
-    --thinking low
+    --thinking low \
+    $@
 }
 
-# Quick Questions (Non-interactive, streamable)
+# Quick Question (Non-interactive, streamable)
 function qq() {
   setopt local_options pipe_fail
 
