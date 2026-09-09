@@ -6,7 +6,6 @@ cd "$(dirname "$0")"
 ln -sf "$PWD/.local/bin" $HOME/.local
 ln -sf "$PWD/.local/share/applications" $HOME/.local/share
 ln -sf "$PWD/.local/share/icons" $HOME/.local/share
-ln -sf "$PWD/.zprofile" $HOME/.zprofile
 
 # Window managers
 ln -sf "$PWD/.config/sway" $HOME/.config
