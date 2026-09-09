@@ -12,6 +12,53 @@ if [[ "$(uname)" == "Darwin" ]] then
   alias sed="gsed"
 fi
 
+### AI
+
+# Questions (Interactive)
+function q() {
+  pi \
+    --no-tools \
+    --no-skills \
+    --model openai-codex/gpt-5.6-luna \
+    --thinking low
+}
+
+# Quick Questions (Non-interactive, streamable)
+function qq() {
+  setopt local_options pipe_fail
+
+  local question="$@"
+
+  local -a args=(
+    --no-session
+    --no-tools
+    --no-skills
+    --offline
+    --model openai-codex/gpt-5.6-luna
+    --thinking low
+    --mode json
+  )
+
+  echo ""
+  echo "# Question: $question"
+  echo ""
+
+  pi "${args[@]}" -- "$question" |
+    jq --unbuffered --join-output '
+      select(
+        .type == "message_update" and
+        .assistantMessageEvent.type == "text_delta"
+      ) |
+      .assistantMessageEvent.delta
+    '
+
+  local pipelineStatus=$?
+  echo ""
+
+  return $pipelineStatus
+}
+
+
 # Hosts
 alias hosts="sudo $EDITOR /etc/hosts"
 
