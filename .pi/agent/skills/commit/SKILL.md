@@ -52,9 +52,9 @@ Important details:
 - <concrete behavior or edge case>
 ```
 
-Keep the body proportional to the change. If short and simple enough, there's not need to a adhere completely to the template.
+Keep the body proportional to the change. If short and simple enough, there's not need to a adhere completely to the template, but that's no reason for bad readability. One empty line between paragraphs is a hard requirement, and feel free to use some simple markdown if necessary.
 
-## Writing a High-Quality Commit Body
+## Writing a High-Quality Commit Body (valid for ALL COMMIT MESSAGES, big or small)
 
 1. Focus on explaining WHY we need the change.
 
