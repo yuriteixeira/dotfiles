@@ -44,6 +44,8 @@ macos/.config/karabiner/automatic_backups/
 .codex/
 
 .pi/sessions
+.pi/settings.json
+
 .pi/agent/sessions
 .pi/agent/npm
 .pi/agent/auth.json
