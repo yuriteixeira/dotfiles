@@ -14,21 +14,32 @@ fi
 
 ### AI
 
-# Pi, but dumb
-alias p="pi --model openai-codex/gpt-5.6-luna --thinking low"
+local -a piDumbModel=(
+  --model openai-codex/gpt-5.6-luna
+  --thinking low
+)
+
+local -a piNoToolsOrSkils=(
+  --no-tools \
+  --no-skills \
+)
 
 # Pi: Inline /ship-it
 alias shipit="p /ship-it"
+
+# Pi, but dumb
+function p() {
+  local question="$@"
+  pi "${piDumbModel[@]}" -- "$question"
+}
 
 # Questions (Interactive)
 function q() {
   local question="$@"
 
   pi \
-    --no-tools \
-    --no-skills \
-    --model openai-codex/gpt-5.6-luna \
-    --thinking low \
+    ${piDumbModel[@]} \
+    ${piNoToolsOrSkils[@]} \
     -- "$question"
 }
 
@@ -40,11 +51,7 @@ function qq() {
 
   local -a args=(
     --no-session
-    --no-tools
-    --no-skills
     --offline
-    --model openai-codex/gpt-5.6-luna
-    --thinking low
     --mode json
   )
 
@@ -52,7 +59,7 @@ function qq() {
   echo "# Question: $question"
   echo ""
 
-  pi "${args[@]}" -- "$question" |
+  pi "${piDumbModel[@]}" "${piNoToolsOrSkils[@]}" "${args[@]}" -- "$question" |
     jq --unbuffered --join-output '
       select(
         .type == "message_update" and
