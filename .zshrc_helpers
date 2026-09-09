@@ -5,20 +5,12 @@ alias la="ls -lah"
 
 alias dot="cd $DOTFILES"
 alias rg="rg --hidden"
-alias psa="ps aux"
+alias fd="fd --hidden --no-ignore --exclude node_modules --exclude .git"
 alias glow='glow -s "$HOME/.config/glow/base16.json"'
 
 if [[ "$(uname)" == "Darwin" ]] then
   alias sed="gsed"
 fi
-
-# Open profile with editor
-alias pf="nvim -p \
-~/.zshrc \
-~/.tmux.conf \
-"
-
-alias rpf="source ~/.zshrc"
 
 # Hosts
 alias hosts="sudo $EDITOR /etc/hosts"
@@ -50,6 +42,10 @@ function upgrade {
   ~/.tmux/plugins/tpm/bin/update_plugins all
 
   echo ""
+  echo ">>> Pi + Extensions"
+  pi update --all
+
+  echo ""
   echo ">>> Docker cleanup"
   docker system prune -f
 
@@ -69,8 +65,8 @@ function upgrade {
   omz update
 }
 
-# Touch + Creates dir path (if needed)
-function mk {
+# New file: Touch + Creates dir path (if needed)
+function n {
   [ -z "$1" ] && echo "ERROR: Path, pls..." && return 1
   local filepath=$1
   local dirpath=$(dirname $filepath)
@@ -79,34 +75,7 @@ function mk {
   $EDITOR $filepath
 }
 
-
-### Watchers & Friends
-
-# Watch file system changes
-alias fw="fswatch -r -o -t -x -l 2"
-
-# Notifications (OSX)
-if [[ "$(uname)" == "Darwin" ]] then
-  function notify {
-      osascript -e "display notification \"${1}\" with title \"$([[ ! -z ${2} ]] && echo ${2} || echo "ATTENTION")\""
-  }
-fi
-
-# Watch dir and exec command
-function watch-n-do {
-    [ -z "$1" ] || [ -z "$2" ] && echo "Usage: watch-n-do <path> <command>" && return 1
-
-    echo ">>> Waiting for changes"
-    echo "Path: $1"
-    echo "Command: $2"
-    echo ""
-
-    bash -c $2
-
-    fw $1 | while read; do bash -c $2; done
-}
-
-### Editing + Dev stuff 
+### Suggested by tooling authors
 
 # IntelliJ (https://www.jetbrains.com/help/idea/working-with-the-ide-features-from-command-line.html)
 function idea {
@@ -115,11 +84,11 @@ function idea {
   fi
 }
 
-# Diff 2 dirs
-function dirdiff()
-{
-  # Shell-escape each path:
-  DIR1=$(printf '%q' "$1"); shift
-  DIR2=$(printf '%q' "$1"); shift
-  e $@ -c "DirDiff $DIR1 $DIR2"
+# Yazi + CWD (https://yazi-rs.github.io/docs/quick-start/#shell-wrapper)
+function y() {
+  local tmp cwd; tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  command yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd < "$tmp"
+  [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || builtin true
+  command rm -f -- "$tmp"
 }
