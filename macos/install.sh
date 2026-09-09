@@ -10,7 +10,6 @@ brew install \
 brew install --cask \
   aerospace \
   alfred \
-  codex \
   font-jetbrains-mono-nerd-font \
   handbrake-app \
   karabiner-elements \
@@ -33,8 +32,6 @@ if [ -n "${WORKPLACE}" ]; then
     android-commandlinetools \
     android-platform-tools \
     android-studio \
-    claude \
-    claude-code \
     docker-desktop \
     gcloud-cli \
     intellij-idea
