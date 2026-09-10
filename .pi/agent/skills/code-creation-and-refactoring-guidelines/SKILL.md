@@ -1,11 +1,11 @@
 ---
 name: code-creation-and-refactoring-guidelines
-description: Create or refactor TypeScript/JavaScript code using Clean Architecture, Clean Code, and SOLID-inspired boundaries with a functional/module-first style. Use when writing new code or improving existing code while preserving behavior.
+description: Create or refactor code using Clean Architecture, Clean Code, and SOLID-inspired boundaries with a functional/module-first style. Use when writing new code or improving existing code while preserving behavior.
 ---
 
 # Code Creation and Refactoring Guidelines
 
-Use this skill when creating or refactoring TypeScript/JavaScript code with maintainability, small modules, clear boundaries, and behavior preservation as primary goals.
+Use this skill when creating or refactoring code with maintainability, small modules, clear boundaries, and behavior preservation as primary goals.
 
 ## Core Style
 
@@ -52,14 +52,6 @@ Use this skill when creating or refactoring TypeScript/JavaScript code with main
 3. Keep entrypoints thin and delegate behavior to focused functions/modules.
 4. Make side effects explicit and easy to find.
 5. Add validation or tests when behavior is non-trivial.
-
-## TypeScript Preferences
-
-- Use `import type` for type-only imports.
-- Prefer simple data shapes and functions over inheritance.
-- Keep pure helpers separate from I/O helpers.
-- Keep ESM imports compatible with the project config.
-- Avoid new dependencies unless they clearly reduce complexity.
 
 ## Constraints
 
