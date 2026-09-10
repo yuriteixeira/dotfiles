@@ -100,8 +100,8 @@ function gds = {
     git diff --numstat --format="" "$@" | awk '{added+=$1; deleted+=$2} END {printf "Total Delta: %d (+%d, -%d)\n", added-deleted, added, deleted}'
 }
 
-# worktree: Create a worktree on parent dir
-function gw {
+# worktree: Add a worktree on parent dir
+function gwa {
     local friendlyName=$1
     local gitRef=$2
     local worktreeDir=''
