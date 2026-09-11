@@ -57,8 +57,7 @@ function p() {
   )
 
   [ -n "${NO_CTX}" ] && args=(--no-context-files "${args[@]}")
-
-  [ -z "${NO_SP}" ] && pi ${args[@]} || pi --system-prompt "" ${args[@]}
+  [ -z "${NO_SP}" ] && pi ${args[@]} || pi --system-prompt " " ${args[@]}
 }
 
 # Questions (Interactive, web access only)
@@ -73,7 +72,7 @@ function q() {
 
   [ -n "${NO_CTX}" ] && args=(--no-context-files "${args[@]}")
 
-  [ -z "${NO_SP}" ] && pi ${args[@]} || pi --system-prompt "" ${args[@]}
+  [ -z "${NO_SP}" ] && pi ${args[@]} || pi --system-prompt " " ${args[@]}
 }
 
 # Quick Questions (Non-interactive, streamable)
@@ -102,7 +101,7 @@ function qq() {
   then
     cmd=(pi "${args[@]}")
   else
-    cmd=(pi --system-prompt "" "${args[@]}")
+    cmd=(pi --system-prompt " " "${args[@]}")
   fi
 
   "${cmd[@]}" |
