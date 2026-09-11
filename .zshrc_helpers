@@ -37,6 +37,7 @@ local -a piOnlyBasicsAndWebSearch=(
 
 # Pi: Inline /ship-it
 alias shipit="p /ship-it"
+alias commit="p commit"
 
 # Pi, but a bit "slower"
 function p() {
