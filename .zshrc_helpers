@@ -32,7 +32,14 @@ local -a piOnlyBasicsAndWebSearch=(
   --no-prompt-templates
   --no-extensions
   --extension "$HOME/.pi/agent/npm/node_modules/pi-web-access/index.ts"
+)
+
+local -a piOnlyInteractiveBasicsAndWebSearch=(
+  "${piOnlyBasicsAndWebSearch[@]}"
   --extension "$HOME/.pi/agent/npm/node_modules/pi-context-inspector/index.ts"
+  --extension "$HOME/.pi/agent/npm/node_modules/@xynogen/pix-sudo/src/index.ts"
+  --extension "$HOME/.pi/agent/npm/node_modules/@burneikis/pi-vim/index.ts"
+  --extension "$HOME/.pi/agent/npm/node_modules/@burneikis/pi-fzfp/index.ts"
 )
 
 
@@ -60,7 +67,7 @@ function q() {
 
   local -a args=(
     ${piDumbModel[@]}
-    ${piOnlyBasicsAndWebSearch[@]}
+    ${piOnlyInteractiveBasicsAndWebSearch[@]}
     -- "$question"
   )
 
