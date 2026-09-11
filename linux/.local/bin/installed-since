@@ -1,0 +1,153 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  printf 'Usage: %s DATE\n' "${0##*/}" >&2
+  printf 'Examples:\n  %s yesterday\n  %s "last saturday"\n' "${0##*/}" "${0##*/}" >&2
+}
+
+parse_date() {
+  date -d "$1" +%s 2>/dev/null
+}
+
+print_header() {
+  local since_epoch=$1
+  printf 'Changes since %s\n\n' "$(date -d "@$since_epoch" '+%Y-%m-%d %H:%M:%S %Z')"
+}
+
+print_pacman_installs() {
+  local since_epoch=$1
+  local since_timestamp
+  local -a packages=()
+  local -a package_records=(/var/lib/pacman/local/*/desc)
+
+  since_timestamp=$(date -d "@$since_epoch" '+%Y-%m-%dT%H:%M:%S')
+
+  if [[ -r /var/log/pacman.log && -e ${package_records[0]} ]]; then
+    mapfile -t packages < <(
+      awk -v since="$since_timestamp" '
+        function print_if_explicit_install() {
+          if (name != "" && reason == 0 && newly_installed[name]) {
+            print name
+          }
+        }
+
+        FILENAME == "/var/log/pacman.log" {
+          timestamp = substr($1, 2, 19)
+          if (timestamp >= since && $2 == "[ALPM]" && $3 == "installed") {
+            newly_installed[$4] = 1
+          }
+          next
+        }
+
+        $0 == "%NAME%" {
+          print_if_explicit_install()
+          getline
+          name = $0
+          reason = 0
+          next
+        }
+
+        $0 == "%REASON%" {
+          getline
+          reason = $0
+          next
+        }
+
+        END {
+          print_if_explicit_install()
+        }
+      ' /var/log/pacman.log "${package_records[@]}"
+    )
+  fi
+
+  if ((${#packages[@]})); then
+    printf 'Pacman explicitly installed:\n'
+    printf '  %s\n' "${packages[@]}"
+    printf '\nRemoval command (review first):\n  sudo pacman -Rns %s\n' "${packages[*]}"
+  else
+    printf '%s\n' 'No Pacman installs found.'
+  fi
+}
+
+history_files() {
+  printf '%s\n' \
+    "$HOME/.zsh_history" \
+    "$HOME/.bash_history"
+}
+
+is_explicit_install() {
+  local install_command='(npm[[:space:]]+(install|i|add)|pnpm[[:space:]]+(install|i|add)|yarn[[:space:]]+add|cargo[[:space:]]+install|pip3?[[:space:]]+install|pipx[[:space:]]+install)'
+  local package_argument='([[:space:]]+--?[^[:space:]]+)*[[:space:]]+[^[:space:]-][^[:space:]]*'
+
+  [[ $1 =~ $install_command$package_argument ]]
+}
+
+print_history_installs() {
+  local since_epoch=$1
+  local history_file line command command_epoch
+  local found=0
+
+  while IFS= read -r history_file; do
+    [[ -r $history_file ]] || continue
+    while IFS= read -r line; do
+      [[ $line =~ ([0-9]{10,}) ]] || continue
+      command_epoch=${BASH_REMATCH[1]}
+      ((command_epoch >= since_epoch)) || continue
+      is_explicit_install "$line" || continue
+
+      command=${line#*;}
+      command=${command%\\}
+      printf '  %s\n' "$command"
+      found=1
+    done < "$history_file"
+  done < <(history_files)
+
+  ((found)) || printf '%s\n' 'No matching explicit installs found.'
+}
+
+print_cargo_binaries() {
+  local since_epoch=$1
+  local binary name
+  local found=0
+
+  if [[ -d $HOME/.cargo/bin ]]; then
+    while IFS= read -r binary; do
+      name=${binary##*/}
+      printf '  %s\n' "$name"
+      printf '    cargo uninstall %s\n' "$name"
+      found=1
+    done < <(find "$HOME/.cargo/bin" -maxdepth 1 -type f -newermt "@$since_epoch" -printf '%p\n' 2>/dev/null | sort)
+  fi
+
+  ((found)) || printf '%s\n' 'No Cargo binaries created since date found.'
+}
+
+main() {
+  local since_epoch
+
+  if (($# != 1)); then
+    usage
+    exit 2
+  fi
+
+  since_epoch=$(parse_date "$1") || {
+    printf 'Invalid date: %s\n' "$1" >&2
+    exit 2
+  }
+
+  print_header "$since_epoch"
+  printf '%s\n' '== PACKAGES TO REVIEW FOR REMOVAL =='
+  print_pacman_installs "$since_epoch"
+
+  printf '\n%s\n' '== EXPLICIT NODE/RUST/PYTHON INSTALLS TO REVIEW =='
+  print_history_installs "$since_epoch"
+
+  printf '\n%s\n' '== CARGO PACKAGES TO REVIEW FOR REMOVAL =='
+  print_cargo_binaries "$since_epoch"
+
+  printf '\n%s\n' 'Shared caches (pnpm, Gradle, Android) are intentionally omitted.'
+  printf '%s\n' 'No files or packages were removed.'
+}
+
+main "$@"
