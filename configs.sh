@@ -11,17 +11,16 @@ mkdir -p $HOME/.local/share
 [ "$(uname)" = "Darwin" ] && \
   ./macos/configs.sh
 
+rm -rf $HOME/.zshrc
+echo 'source $HOME/.zshrc_public' >> $HOME/.zshrc
 ln -sf "$PWD/.zshrc_public" $HOME
+
 ln -sf "$PWD/.zshrc_base16" $HOME
 ln -sf "$PWD/.zshrc_env" $HOME
 ln -sf "$PWD/.zshrc_fzf" $HOME
 ln -sf "$PWD/.zshrc_git" $HOME
 ln -sf "$PWD/.zshrc_helpers" $HOME
-rm -rf $HOME/.zshrc
-echo 'source $HOME/.zshrc_public' >> $HOME/.zshrc
-
 ln -sf "$PWD/.zshrc_nvm" $HOME
-
 ln -sf "$PWD/.zshrc_tmux" $HOME
 ln -sf "$PWD/.zshrc_ssh" $HOME
 ln -sf "$PWD/.zshrc_ai" $HOME
