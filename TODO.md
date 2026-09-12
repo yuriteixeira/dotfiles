@@ -1,0 +1,3 @@
+- have plugins/personal, so I can separate 3rd party from mine
+- remove `-- vim: ts=2 sts=2 sw=2 et` and make sure full repo obeys to `.editorconfig`
+- pi: review memory model - I just want to collect them and make a bg process to convert them to skills and agent.md changes, tool schema of hermes memory is too big.
