@@ -20,6 +20,10 @@ source $ZSH/oh-my-zsh.sh
 source $HOME/.zshrc_env
 source $HOME/.zshrc_fzf
 source $HOME/.zshrc_helpers
+source $HOME/.zshrc_upgrade
+source $HOME/.zshrc_ai
+source $HOME/.zshrc_vendor_wrappers
+
 source $HOME/.zshrc_base16
 source $HOME/.zshrc_git
 source $HOME/.zshrc_tmux

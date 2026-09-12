@@ -24,6 +24,9 @@ ln -sf "$PWD/.zshrc_nvm" $HOME
 
 ln -sf "$PWD/.zshrc_tmux" $HOME
 ln -sf "$PWD/.zshrc_ssh" $HOME
+ln -sf "$PWD/.zshrc_ai" $HOME
+ln -sf "$PWD/.zshrc_upgrade" $HOME
+ln -sf "$PWD/.zshrc_vendor_wrappers" $HOME
 
 ln -sf "$PWD/.base16_favorites" $HOME
 ln -sf "$PWD/.base16_theme" $HOME/.config/base16-shell/scripts/base16-yuri.sh

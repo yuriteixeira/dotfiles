@@ -1,0 +1,17 @@
+### Suggested by tooling authors
+
+# IntelliJ (https://www.jetbrains.com/help/idea/working-with-the-ide-features-from-command-line.html)
+function idea {
+  if [[ "$(uname)" == "Darwin" ]] then
+    open -na "IntelliJ IDEA.app" --args "$@"
+  fi
+}
+
+# Yazi + CWD (https://yazi-rs.github.io/docs/quick-start/#shell-wrapper)
+function y() {
+  local tmp cwd; tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+  command yazi "$@" --cwd-file="$tmp"
+  IFS= read -r -d '' cwd < "$tmp"
+  [ "$cwd" != "$PWD" ] && [ -d "$cwd" ] && builtin cd -- "$cwd" || builtin true
+  command rm -f -- "$tmp"
+}
