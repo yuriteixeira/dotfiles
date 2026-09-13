@@ -15,7 +15,6 @@
     "npm:@xynogen/pix-sudo",
     "npm:@burneikis/pi-vim",
     "npm:@burneikis/pi-fzfp",
-    "npm:pi-hermes-memory",
     "npm:pi-context-inspector",
     "npm:pi-execution-time",
     "npm:pi-ask-user",
