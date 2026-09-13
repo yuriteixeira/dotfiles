@@ -1,2 +1,1 @@
-- have plugins/personal, so I can separate 3rd party from mine
-- pi: review memory model - I just want to collect them and make a bg process to convert them to skills and agent.md changes, tool schema of hermes memory is too big.
+- TBD
