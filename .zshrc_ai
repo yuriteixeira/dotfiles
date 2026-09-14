@@ -1,63 +1,14 @@
 ### AI
 
-local -a piDumbModel=(
-  --model openai-codex/gpt-5.6-luna
-  --thinking low
-)
-
-local -a piNoToolsOrSkils=(
-  --no-tools
-  --no-skills
-  --no-prompt-templates
-)
-
-local -a piOnlyBasicsAndWebSearch=(
-  --no-builtin-tools
-  --no-skills
-  --no-prompt-templates
-  --no-extensions
-  --extension "$HOME/.pi/agent/npm/node_modules/pi-web-access/index.ts"
-)
-
-local -a piOnlyInteractiveBasicsAndWebSearch=(
-  "${piOnlyBasicsAndWebSearch[@]}"
-  --extension "$HOME/.pi/agent/npm/node_modules/pi-context-inspector/index.ts"
-  --extension "$HOME/.pi/agent/npm/node_modules/@xynogen/pix-sudo/src/index.ts"
-  --extension "$HOME/.pi/agent/npm/node_modules/@burneikis/pi-vim/index.ts"
-  --extension "$HOME/.pi/agent/npm/node_modules/@burneikis/pi-fzfp/index.ts"
-  --extension "$HOME/.pi/agent/npm/node_modules/pi-execution-time/extensions/execution-time.ts"
-  --extension "$HOME/.pi/agent/npm/node_modules/pi-token-speed/index.ts"
-  --extension "/home/yuriteixeira/.pi/agent/npm/node_modules/pi-zentui/extensions/zentui/index.ts"
-)
-
-
-# Pi: Inline /ship-it
 alias shipit="p /shipit"
 alias commit="p commit"
 
-# Pi, but a bit "slower"
+# Pi, but a bit "dumb"
 function p() {
-  question="$*"
-
   local -a args=(
     "${piDumbModel[@]}"
-    -- "$question"
+    "$@"
   )
-
-  pi ${args[@]}
-}
-
-# Questions (Interactive, web access only)
-function q() {
-  question="$*"
-
-  local -a args=(
-    ${piDumbModel[@]}
-    ${piOnlyInteractiveBasicsAndWebSearch[@]}
-    -- "$question"
-  )
-
-  [ -n "${NO_CF}" ] && args=(--no-context-files "${args[@]}")
 
   pi ${args[@]}
 }
@@ -96,3 +47,15 @@ function qq() {
 
   return $pipelineStatus
 }
+
+local -a piDumbModel=(
+  --model openai-codex/gpt-5.6-luna
+  --thinking low
+)
+
+local -a piOnlyBasicsAndWebSearch=(
+  --no-skills
+  --no-prompt-templates
+  --no-extensions
+  --extension "$HOME/.pi/agent/npm/node_modules/pi-web-access/index.ts"
+)
