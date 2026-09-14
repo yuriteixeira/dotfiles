@@ -38,7 +38,8 @@ If unrelated changes are staged, stop before committing and propose a split.
 
 Use Conventional Commits format. Also, try to follow this template:
 
-```text
+```bash
+git commit -F - <<'COMMIT_MESSAGE'
 <type>(<scope>): <concise title>
 
 <motivation and relevant ticket/link>
@@ -50,6 +51,7 @@ Important details:
 
 - <concrete behavior or edge case>
 - <concrete behavior or edge case>
+COMMIT_MESSAGE
 ```
 
 Keep the body proportional to the change. If short and simple enough, there's not need to a adhere completely to the template, but that's no reason for bad readability. One empty line between paragraphs is a hard requirement, and feel free to use some simple markdown if necessary.
