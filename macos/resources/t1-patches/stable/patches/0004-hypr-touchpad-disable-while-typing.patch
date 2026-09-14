@@ -1,0 +1,18 @@
+--- a/.config/hypr/input.lua
++++ b/.config/hypr/input.lua
+@@ -44,6 +44,15 @@
+ --   },
+ -- })
+ 
++-- Explicitly keep palm rejection on: ignore the touchpad while typing.
++hl.config({
++  input = {
++    touchpad = {
++      disable_while_typing = true,
++    },
++  },
++})
++
+ -- App-specific touchpad scroll speeds.
+ -- o.window("(Alacritty|kitty|foot)", { scroll_touchpad = 1.5 })
+ -- o.window("com.mitchellh.ghostty", { scroll_touchpad = 0.2 })

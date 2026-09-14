@@ -1,0 +1,93 @@
+--- a/usr/src/macbook12-spi-driver-0+git.315/applespi.c
++++ b/usr/src/macbook12-spi-driver-0+git.315/applespi.c
+@@ -61,7 +61,7 @@
+ #include <linux/wait.h>
+ 
+ #include <asm/barrier.h>
+-#include <asm/unaligned.h>
++#include <linux/unaligned.h>
+ 
+ #define CREATE_TRACE_POINTS
+ #include "applespi.h"
+@@ -1224,7 +1224,7 @@
+ 	.owner = THIS_MODULE,
+ 	.open = applespi_tp_dim_open,
+ 	.read = applespi_tp_dim_read,
+-	.llseek = no_llseek,
++	.llseek = noop_llseek,
+ };
+ 
+ static void report_finger_data(struct input_dev *input, int slot,
+--- a/usr/src/macbook12-spi-driver-0+git.315/apple-ibridge.c
++++ b/usr/src/macbook12-spi-driver-0+git.315/apple-ibridge.c
+@@ -422,7 +422,7 @@
+ 	return appleib_forward_int_op(hdev, appleib_hid_event_fwd, &args);
+ }
+ 
+-static __u8 *appleib_report_fixup(struct hid_device *hdev, __u8 *rdesc,
++static const __u8 *appleib_report_fixup(struct hid_device *hdev, __u8 *rdesc,
+ 				  unsigned int *rsize)
+ {
+ 	/* Some fields have a size of 64 bits, which according to HID 1.11
+@@ -898,7 +898,6 @@
+ static struct acpi_driver appleib_driver = {
+ 	.name		= "apple-ibridge",
+ 	.class		= "topcase", /* ? */
+-	.owner		= THIS_MODULE,
+ 	.ids		= appleib_acpi_match,
+ 	.ops		= {
+ 		.add		= appleib_probe,
+--- a/usr/src/macbook12-spi-driver-0+git.315/apple-ib-tb.c
++++ b/usr/src/macbook12-spi-driver-0+git.315/apple-ib-tb.c
+@@ -1259,7 +1259,7 @@
+ 	return rc;
+ }
+ 
+-static int appletb_platform_remove(struct platform_device *pdev)
++static void appletb_platform_remove(struct platform_device *pdev)
+ {
+ 	struct appleib_device_data *ddata = pdev->dev.platform_data;
+ 	struct appleib_device *ib_dev = ddata->ib_dev;
+@@ -1268,14 +1268,9 @@
+ 
+ 	rc = appleib_unregister_hid_driver(ib_dev, &appletb_hid_driver);
+ 	if (rc)
+-		goto error;
++		dev_warn(&pdev->dev, "failed to unregister hid driver: %d\n", rc);
+ 
+ 	appletb_free_device(tb_dev);
+-
+-	return 0;
+-
+-error:
+-	return rc;
+ }
+ 
+ static const struct platform_device_id appletb_platform_ids[] = {
+--- a/usr/src/macbook12-spi-driver-0+git.315/apple-ib-als.c
++++ b/usr/src/macbook12-spi-driver-0+git.315/apple-ib-als.c
+@@ -645,7 +645,7 @@
+ 	return rc;
+ }
+ 
+-static int appleals_platform_remove(struct platform_device *pdev)
++static void appleals_platform_remove(struct platform_device *pdev)
+ {
+ 	struct appleib_device_data *ddata = pdev->dev.platform_data;
+ 	struct appleib_device *ib_dev = ddata->ib_dev;
+@@ -654,14 +654,9 @@
+ 
+ 	rc = appleib_unregister_hid_driver(ib_dev, &appleals_hid_driver);
+ 	if (rc)
+-		goto error;
++		dev_warn(&pdev->dev, "failed to unregister hid driver: %d\n", rc);
+ 
+ 	kfree(als_dev);
+-
+-	return 0;
+-
+-error:
+-	return rc;
+ }
+ 
+ static const struct platform_device_id appleals_platform_ids[] = {

@@ -1,0 +1,15 @@
+# Newly installed by audited Pi sessions (versions observed on source machine)
+linux-headers 7.2.3.arch1-3
+pahole 1:1.31-2
+wget 1.25.0-6
+keyd 2.6.0-5
+terminus-font 4.49.1-8
+acpi_call-dkms 1.2.2-3
+
+# Already installed when sessions requested them
+base-devel 1-2
+patch 2.8-1
+dkms 3.4.3-2
+
+# Pre-existing package whose /usr/src content was changed
+macbook12-spi-driver-dkms 0+git.315-1

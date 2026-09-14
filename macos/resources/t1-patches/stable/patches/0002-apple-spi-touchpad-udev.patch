@@ -1,0 +1,5 @@
+--- a/etc/udev/rules.d/99-apple-spi-touchpad.rules
++++ b/etc/udev/rules.d/99-apple-spi-touchpad.rules
+@@ -0,0 +1,2 @@
++# Ensure Apple SPI touchpad is tagged as an internal touchpad for libinput/Hyprland palm rejection.
++ACTION=="add|change", SUBSYSTEM=="input", KERNEL=="event*", ATTRS{name}=="Apple SPI Touchpad", ENV{ID_INPUT_TOUCHPAD}="1", ENV{ID_INPUT_TOUCHPAD_INTEGRATION}="internal"

@@ -1,0 +1,62 @@
+--- a/build-stack.sh
++++ b/build-stack.sh
+@@ -0,0 +1,28 @@
++#!/usr/bin/env bash
++set -euo pipefail
++WORK=${WORK:-$HOME/t1-linux-work}
++PREFIX=${PREFIX:-$WORK/prefix}
++export PATH="$PREFIX/bin:$PATH"
++export PKG_CONFIG_PATH="$PREFIX/lib/pkgconfig:$PREFIX/lib64/pkgconfig"
++export LD_LIBRARY_PATH="$PREFIX/lib:$PREFIX/lib64"
++mkdir -p "$PREFIX" "$WORK/build-logs"
++
++build() {
++  local name=$1; shift
++  echo "==> Building $name"
++  cd "$WORK/$name"
++  ./autogen.sh --prefix="$PREFIX" "$@" >"$WORK/build-logs/$name.configure.log" 2>&1
++  make -j"$(nproc)" >"$WORK/build-logs/$name.make.log" 2>&1
++  make install >"$WORK/build-logs/$name.install.log" 2>&1
++}
++
++build libplist --without-cython
++build libimobiledevice-glue
++build libtatsu
++build libirecovery --without-udev
++build libusbmuxd
++build libimobiledevice --without-cython --enable-debug-code
++build usbmuxd --without-systemd --with-udevrulesdir="$PREFIX/lib/udev/rules.d"
++build idevicerestore
++
++echo "Private restore stack built under $PREFIX"
+--- a/pbzx_extract.py
++++ b/pbzx_extract.py
+@@ -0,0 +1,28 @@
++#!/usr/bin/env python3
++"""Extract a raw PBZX stream to stdout."""
++import lzma
++import struct
++import sys
++
++
++def read_exact(stream, size):
++    data = stream.read(size)
++    if len(data) != size:
++        raise EOFError(f"expected {size} bytes, got {len(data)}")
++    return data
++
++
++with open(sys.argv[1], "rb") as source:
++    if read_exact(source, 4) != b"pbzx":
++        raise SystemExit("not a PBZX stream")
++    flags = struct.unpack(">Q", read_exact(source, 8))[0]
++    while flags & (1 << 24):
++        flags, length = struct.unpack(">QQ", read_exact(source, 16))
++        chunk = read_exact(source, length)
++        if length == 0x1000000:
++            output = chunk
++        else:
++            if not chunk.startswith(b"\xfd7zXZ\x00"):
++                raise SystemExit("compressed PBZX chunk lacks XZ header")
++            output = lzma.decompress(chunk)
++        sys.stdout.buffer.write(output)

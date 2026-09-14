@@ -1,0 +1,8 @@
+--- a/etc/vconsole.conf
++++ b/etc/vconsole.conf
+@@ -4,4 +4,4 @@
+ XKBLAYOUT=us
+ XKBMODEL=pc105+inet
+ XKBOPTIONS=terminate:ctrl_alt_bksp
+-FONT=default8x16
++FONT=ter-v32n

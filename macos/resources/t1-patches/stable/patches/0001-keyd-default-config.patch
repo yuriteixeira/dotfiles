@@ -1,0 +1,52 @@
+--- a/etc/keyd/default.conf
++++ b/etc/keyd/default.conf
+@@ -0,0 +1,49 @@
++[ids]
++
++*
++
++[global]
++
++# A quick Caps Lock tap sends Escape; holding it for 200 ms does not.
++overload_tap_timeout = 200
++
++[main]
++
++# ISO key between Left Shift and Z.
++102nd = esc
++
++# Tap Caps Lock for Escape; hold it for Hyper.
++capslock = overload(hyper, esc)
++
++# Hold the keyboard's Fn key to turn 1-9 into F1-F9.
++fn = layer(fkeys)
++
++[fkeys]
++1 = f1
++2 = f2
++3 = f3
++4 = f4
++5 = f5
++6 = f6
++7 = f7
++8 = f8
++9 = f9
++
++# Preserve Alt explicitly while the Fn layer is active.
++[fkeys+alt]
++1 = A-f1
++2 = A-f2
++3 = A-f3
++4 = A-f4
++5 = A-f5
++6 = A-f6
++7 = A-f7
++8 = A-f8
++9 = A-f9
++
++# Hyper = Control + Super + Alt + Shift.
++[hyper:C-M-A-S]
++h = left
++j = down
++k = up
++l = right

@@ -1,0 +1,14 @@
+diff --git a/src/libirecovery.c b/src/libirecovery.c
+index fc11d88..d4c6dc9 100644
+--- a/src/libirecovery.c
++++ b/src/libirecovery.c
+@@ -172,6 +172,9 @@ static libusb_context* libirecovery_context = NULL;
+ #endif
+ 
+ static struct irecv_device irecv_devices[] = {
++	/* Apple T1 / iBridge */
++	{ "iBridge1,1",  "x619ap",   0x12, 0x8002, "Apple T1 (iBridge)" },
++
+ 	/* iPhone */
+ 	{ "iPhone1,1",   "m68ap",    0x00, 0x8900, "iPhone 2G" },
+ 	{ "iPhone1,2",   "n82ap",    0x04, 0x8900, "iPhone 3G" },
