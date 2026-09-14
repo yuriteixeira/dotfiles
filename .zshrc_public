@@ -7,7 +7,7 @@ setopt HIST_IGNORE_DUPS # Do not write duplicates
 setopt HIST_IGNORE_SPACE # Do not write commands that begin with a space
 
 plugins=(vi-mode nvm fzf timer zsh-syntax-highlighting)
- 
+
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 
 ZSH=$HOME/.oh-my-zsh
@@ -17,6 +17,7 @@ PROMPT_EOL_MARK=""
 
 source $ZSH/oh-my-zsh.sh
 
+# TODO: Move to zsh subfolder (eg: .zshrc_env becomes zsh/env.sh), so no need to track symlinks
 source $HOME/.zshrc_env
 source $HOME/.zshrc_fzf
 source $HOME/.zshrc_helpers
@@ -37,5 +38,5 @@ setopt +o nomatch
 
 # Profiling: Un-comment to enable
 # zprof -c
-# zprof 
+# zprof
 

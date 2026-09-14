@@ -15,6 +15,7 @@ rm -rf $HOME/.zshrc
 echo 'source $HOME/.zshrc_public' >> $HOME/.zshrc
 ln -sf "$PWD/.zshrc_public" $HOME
 
+# TODO: Investigate moving to those to subfolders (eg: .zshrc_base16 becomes zsh/base16.sh), so no need to track symlinks
 ln -sf "$PWD/.zshrc_base16" $HOME
 ln -sf "$PWD/.zshrc_env" $HOME
 ln -sf "$PWD/.zshrc_fzf" $HOME
@@ -47,27 +48,18 @@ ln -sf "$PWD/.config/bat/" $HOME/.config
 ln -sf "$PWD/.config/glow/" $HOME/.config
 ln -sf "$PWD/.config/yazi/" $HOME/.config
 
-if [ "$(uname)" = "Linux" ]; then
-  duaConfigDir="${XDG_CONFIG_HOME:-$HOME/.config}/dua-cli"
-  mkdir -p "$duaConfigDir"
-  ln -sf "$PWD/.config/dua-cli/config.toml" "$duaConfigDir/config.toml"
-fi
-
-ln -sf "$PWD/submodules/fzf-git" $HOME/.local/share
-
-if [ "$(uname)" = "Darwin" ]; then
-  mkdir -p "$HOME/Library/Application Support/dua-cli"
-  ln -sf "$PWD/.config/dua-cli/config.toml" "$HOME/Library/Application Support/dua-cli/config.toml"
-fi
+[ "$(uname)" = "Darwin" ] && duaConfigTarget="$HOME/Library/Application\ Support"
+[ "$(uname)" = "Linux" ] && duaConfigTarget="$HOME/.config"
+ln -sf "$PWD/.config/dua-cli" $duaConfigTarget
 
 # AI agent configuration
 ln -sf "$PWD/.pi/" $HOME/.pi
 
-ln -sf "$PWD/resources/wallpapers" $HOME/Wallpapers
+# Submodules
+ln -sf "$PWD/submodules/fzf-git" $HOME/.local/share
 
-# TODO: Candidates to move to a private file (eg: work-notebook.sh or something)
-# ln -sf "$PWD/.huskyrc" $HOME
-# ln -sf "$PWD/.ideavimrc" $HOME
+# Wallpapers
+ln -sf "$PWD/resources/wallpapers" $HOME/Wallpapers
 
 # See: https://unencumberedbyfacts.com/2016/01/04/psql-vim-happy-face/
 # ln -sf "$PWD/.inputrc" $HOME
