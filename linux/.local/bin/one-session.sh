@@ -34,8 +34,8 @@ idlePid=$!
 ### Cleanup
 
 cleanup() {
-kill "$sunsetPid" "$idlePid" 2>/dev/null
-wait "$sunsetPid" "$idlePid" 2>/dev/null
+  kill "$sunsetPid" "$idlePid" 2>/dev/null
+  wait "$sunsetPid" "$idlePid" 2>/dev/null
 }
 trap cleanup EXIT INT TERM HUP
 
