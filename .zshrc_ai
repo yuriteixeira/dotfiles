@@ -2,6 +2,7 @@
 
 alias shipit="p /shipit"
 alias commit="p commit"
+alias reflect="$HOME/.pi/agent/extensions/pi-memories/bin/reflect"
 
 # Pi, but a bit "dumb"
 function p() {

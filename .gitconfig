@@ -117,3 +117,5 @@
   # send
   p = push -u
   pf = push --force-with-lease # checks for same parent commit on origin before
+[maintenance]
+	repo = /Users/yuriteixeira/Src/client/client-wt-2

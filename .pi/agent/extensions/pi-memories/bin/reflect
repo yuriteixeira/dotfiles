@@ -1,0 +1,87 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+usage() {
+  echo "Usage: $0 [--session-file <path> [--leaf-id <id>]] [project-directory]" >&2
+}
+
+session_file=""
+leaf_id=""
+project_dir=""
+
+while (( $# > 0 )); do
+  case "$1" in
+    --session-file)
+      (( $# >= 2 )) || { usage; exit 2; }
+      session_file="$2"
+      shift 2
+      ;;
+    --leaf-id)
+      (( $# >= 2 )) || { usage; exit 2; }
+      leaf_id="$2"
+      shift 2
+      ;;
+    -h|--help)
+      usage
+      exit 0
+      ;;
+    --)
+      shift
+      break
+      ;;
+    -*)
+      usage
+      exit 2
+      ;;
+    *)
+      [[ -z "$project_dir" ]] || { usage; exit 2; }
+      project_dir="$1"
+      shift
+      ;;
+  esac
+done
+
+if (( $# > 0 )); then
+  [[ -z "$project_dir" && $# == 1 ]] || { usage; exit 2; }
+  project_dir="$1"
+fi
+
+bin_dir="$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)"
+extension_dir="$(CDPATH= cd -- "$bin_dir/.." && pwd)"
+project_dir="${project_dir:-$PWD}"
+
+if [[ ! -d "$project_dir" ]]; then
+  echo "Project directory does not exist: $project_dir" >&2
+  exit 2
+fi
+if [[ -n "$session_file" && ! -f "$session_file" ]]; then
+  echo "Session file does not exist: $session_file" >&2
+  exit 2
+fi
+if [[ -n "$leaf_id" && -z "$session_file" ]]; then
+  echo "--leaf-id requires --session-file" >&2
+  exit 2
+fi
+
+unset PI_MEMORIES_SESSION_FILE PI_MEMORIES_LEAF_ID
+if [[ -n "$session_file" ]]; then
+  export PI_MEMORIES_SESSION_FILE="$session_file"
+  export PI_MEMORIES_LEAF_ID="$leaf_id"
+fi
+
+cd -- "$project_dir"
+
+exec pi \
+  --print \
+  --no-session \
+  --approve \
+  --model openai-codex/gpt-5.6-sol \
+  --thinking high \
+  --no-tools \
+  --no-extensions \
+  --extension "$extension_dir/index.ts" \
+  --no-skills \
+  --no-prompt-templates \
+  --no-themes \
+  --no-context-files \
+  -- "/reflect"
