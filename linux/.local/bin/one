@@ -2,22 +2,20 @@
 
 if [ -n "${TMUX}" ] || [ -n "${WAYLAND_DISPLAY:-}" ] || [ "${XDG_VTNR:-}" != 1 ]
 then
-  echo ">>> ONE (Cage + Foot) can only be launched on a regular TTY"
+  echo ">>> ONE (Cage + App) can only be launched on a regular TTY"
   exit 1
 fi
 
-scriptDir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
-
-scale=${SCALE:-2}
 app=${1:-foot}
 
 echo ""
 echo ">>> ONE is Starting..."
-echo "Scale: $scale"
 echo "App: $app"
+echo "Scale: $scale"
 echo ""
 
 XKB_DEFAULT_LAYOUT=us \
 XKB_DEFAULT_VARIANT=altgr-intl \
-SCALE="$scale" \
+
+scriptDir=$(CDPATH= cd -- "$(dirname -- "$0")" && pwd)
 cage -s -- sh "$scriptDir/one-session.sh" "$@"
