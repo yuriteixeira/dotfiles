@@ -20,19 +20,36 @@ rm -rf ~/.config/base16-shell
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
 # Zsh & CLI Friends. A few are replacements, like these:
-#
-# btop -> top/htop
-# dua -> du and interactive disk usage explorers
-# ddgr -> web search
-# eza -> ls
-# neovim -> vim 
-# ripgrep -> grep
-# zoxide -> cd + autojump
-# zsh -> bash
-# rsync -> cp
-# bat -> cat
-# fd -> find
-cliTools='zsh tmux neovim tree-sitter tree-sitter-cli git git-delta gitui fzf eza zoxide ripgrep rsync btop dua-cli fastfetch bat jq fd wget glow ddgr yazi ffmpeg poppler'
+local -a cliReplacements=(
+  zsh # bash
+  bat # cat
+  eza # ls
+  zoxide # cd
+  fd # find
+  dua-cli # du/ncdu
+  ripgrep # grep
+  neovim # vim
+  btop # top/htop
+  rsync # cp
+)
+
+local -a cliEssential=(
+  tmux
+  tree-sitter
+  tree-sitter-cli
+  git
+  git-delta
+  gitui
+  fzf
+  fastfetch
+  jq
+  wget
+  glow
+  ddgr
+  yazi
+)
+
+cliTools="$cliReplacements[@] $cliEssential[@]"
 
 linuxCliTools="$cliTools 7zip github-cli ttf-jetbrains-mono-nerd"
 macosCliTools="$cliTools sevenzip gh font-jetbrains-mono-nerd-font"
