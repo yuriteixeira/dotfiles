@@ -3,9 +3,8 @@
 alias ll="ls -l"
 alias la="ls -lah"
 
-alias dot="cd $DOTFILES"
-alias rg="rg --hidden --glob '!.git' --glob '!node_modules'"
-alias fd="fd --hidden --no-ignore --exclude node_modules --exclude .git"
+alias rg="rg --hidden --glob '!node_modules' --glob '!.git'"
+alias fd="fd --hidden --exclude node_modules --exclude .git --no-ignore"
 alias glow='glow -s "$HOME/.config/glow/base16.json"'
 
 # Fastfetch
