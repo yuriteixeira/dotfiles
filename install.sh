@@ -53,8 +53,22 @@ local -a cliEssential=(
 
 cliTools="$cliReplacements[@] $cliEssential[@]"
 
-linuxCliTools="$cliTools 7zip github-cli ttf-jetbrains-mono-nerd"
-macosCliTools="$cliTools sevenzip gh font-jetbrains-mono-nerd-font"
+# Other essentials that differ in name between OSs
+local -a linuxCliTools=(
+  $cliTools[@]
+  7zip                    # file compression
+  github-cli              # github cli
+  ttf-jetbrains-mono-nerd # my fave coding font
+  ccmux-bin               # agent sessions dash TUI + notifications
+)
+
+local -a macosCliTools=(
+  $cliTools[@]
+  sevenzip
+  gh
+  font-jetbrains-mono-nerd-font
+  epilande/tap/ccmux
+)
 
 [ "$(uname)" = "Linux" ] && \
   sh -c "yay -S --noconfirm --needed $linuxCliTools" && \
