@@ -42,9 +42,7 @@ Use Conventional Commits format. Also, try to follow this template:
 git commit -F - <<'COMMIT_MESSAGE'
 <type>(<scope>): <concise title>
 
-<motivation and relevant ticket/link>
-
-<non-obvious technical reason and intended behavior>
+<conside description explaining the motivation, eith relevant links for resources (eg: tickets, repos/PRs, docs & articles)>
 
 Important details:
 ------------------
