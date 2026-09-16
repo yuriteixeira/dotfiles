@@ -10,8 +10,9 @@ alias glow='glow -s "$HOME/.config/glow/base16.json"'
 # Fastfetch
 function ff {
   termColumns=$(tput cols)
+  minColsForLogo=120
 
-  if [ -n "$termColumns" ] && [ $termColumns -ge 120 ];
+  if [ -n "$termColumns" ] && [ $termColumns -ge $minColsForLogo ];
   then
     fastfetch
   else
