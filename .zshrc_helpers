@@ -6,16 +6,24 @@ alias la="ls -lah"
 alias dot="cd $DOTFILES"
 alias rg="rg --hidden --glob '!.git' --glob '!node_modules'"
 alias fd="fd --hidden --no-ignore --exclude node_modules --exclude .git"
-alias ff="ff --logo none"
 alias glow='glow -s "$HOME/.config/glow/base16.json"'
 
-if [[ "$(uname)" == "Darwin" ]] then
-  alias sed="gsed"
-fi
+# Fastfetch
+function ff {
+  termColumns=$(tput cols)
+
+  if [ -n "$termColumns" ] && [ $termColumns -ge 120 ];
+  then
+    fastfetch
+  else
+    fastfetch --logo none
+  fi
+
+  echo ""
+}
 
 # Hosts
 alias hosts="sudo $EDITOR /etc/hosts"
-
 
 # New file: Touch + Creates dir path (if needed)
 function n {

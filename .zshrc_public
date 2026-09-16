@@ -33,6 +33,9 @@ source $HOME/.zshrc_nvm
 
 [ -f $HOME/.zshrc_private ] && source $HOME/.zshrc_private
 
+### MOTD
+ff
+
 # https://unix.stackexchange.com/a/310553
 setopt +o nomatch
 
