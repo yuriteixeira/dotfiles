@@ -30,12 +30,7 @@ source $HOME/.zshrc_git
 source $HOME/.zshrc_tmux
 source $HOME/.zshrc_ssh
 
-
-
 [ -f $HOME/.zshrc_private ] && source $HOME/.zshrc_private
-
-### MOTD
-ff
 
 # https://unix.stackexchange.com/a/310553
 setopt +o nomatch
