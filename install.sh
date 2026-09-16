@@ -19,34 +19,36 @@ echo ""
 rm -rf ~/.config/base16-shell
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
-# Zsh & CLI Friends. A few are replacements, like these:
+# Zsh & CLI Friends.
+# A few are replacements, like these:
 local -a cliReplacements=(
-  zsh # bash
-  bat # cat
-  eza # ls
-  zoxide # cd
-  fd # find
-  dua-cli # du/ncdu
-  ripgrep # grep
-  neovim # vim
-  btop # top/htop
-  rsync # cp
+  zsh               # bash
+  bat               # cat
+  eza               # ls
+  zoxide            # cd
+  fd                # find
+  dua-cli           # du/ncdu
+  ripgrep           # grep
+  neovim            # vim
+  btop              # top/htop
+  rsync             # cp
 )
 
 local -a cliEssential=(
-  tmux
-  tree-sitter
-  tree-sitter-cli
-  git
-  git-delta
-  gitui
-  fzf
-  fastfetch
-  jq
-  wget
-  glow
-  ddgr
-  yazi
+  tmux              # terminal multiplexer
+  tree-sitter       # neovim dep
+  tree-sitter-cli   # neovim plugins dep
+  git               # vcs
+  git-delta         # diffs (outside git too)
+  gitui             # git TUI
+  fzf               # fuzzy search
+  fastfetch         # quick info about the computer
+  jq                # JSON parser
+  wget              # downloader
+  glow              # markdown preview
+  ddgr              # duck, duck, go client
+  yazi              # file explorer
+  fnm               # node versions manager
 )
 
 cliTools="$cliReplacements[@] $cliEssential[@]"
@@ -61,6 +63,7 @@ macosCliTools="$cliTools sevenzip gh font-jetbrains-mono-nerd-font"
 [ "$(uname)" = "Darwin" ] && \
   sh -c "brew install $macosCliTools"
 
+# TODO: Get out of omz
 rm -rf $HOME/.zshrc
 rm -rf $HOME/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -68,13 +71,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 # Zsh syntax highlight
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
-# Nvm: Check latest version and change it below https://github.com/nvm-sh/nvm/releases
-PROFILE=/dev/null bash -c 'curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.4/install.sh | bash'
-
-# TODO: Test this out, I have the impression it didn't work
-nvm install --lts
-corepack enable
-pnpm --version
+# Fnm: Install latest --lts node version with corepack
+fnm install --corepack-enabled --lts
 
 # Pi.dev AI Harness
 pnpm add -g --ignore-scripts @earendil-works/pi-coding-agent

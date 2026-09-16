@@ -21,7 +21,6 @@ ln -sf "$PWD/.zshrc_env" $HOME
 ln -sf "$PWD/.zshrc_fzf" $HOME
 ln -sf "$PWD/.zshrc_git" $HOME
 ln -sf "$PWD/.zshrc_helpers" $HOME
-ln -sf "$PWD/.zshrc_nvm" $HOME
 ln -sf "$PWD/.zshrc_tmux" $HOME
 ln -sf "$PWD/.zshrc_ssh" $HOME
 ln -sf "$PWD/.zshrc_ai" $HOME

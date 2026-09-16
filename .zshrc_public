@@ -6,7 +6,7 @@ setopt INC_APPEND_HISTORY # Append history to file immediately
 setopt HIST_IGNORE_DUPS # Do not write duplicates
 setopt HIST_IGNORE_SPACE # Do not write commands that begin with a space
 
-plugins=(vi-mode nvm fzf timer zsh-syntax-highlighting)
+plugins=(vi-mode fzf timer zsh-syntax-highlighting)
 
 cd "$( dirname "${BASH_SOURCE[0]}" )"
 
@@ -29,7 +29,8 @@ source $HOME/.zshrc_base16
 source $HOME/.zshrc_git
 source $HOME/.zshrc_tmux
 source $HOME/.zshrc_ssh
-source $HOME/.zshrc_nvm
+
+
 
 [ -f $HOME/.zshrc_private ] && source $HOME/.zshrc_private
 
