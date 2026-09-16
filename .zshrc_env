@@ -30,6 +30,7 @@ function addToPath {
 addToPath "$HOME/.local/bin"
 addToPath "$HOME/.cargo/bin"
 addToPath "$HOME/.pi/agent/npm/node_modules/.bin"
+addToPath "$HOME/.bun/bin"
 
 if [[ "$(uname)" == "Linux" ]] then
   export XDG_RUNTIME_DIR="/run/user/$(id -u)"
@@ -81,7 +82,7 @@ if [[ "$(uname)" == "Darwin" ]] then
 fi
 
 
-### Initializations 
+### Initializations
 
 if command -v zoxide &> /dev/null; then
   eval "$(zoxide init --cmd cd zsh)"
