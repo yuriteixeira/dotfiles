@@ -22,7 +22,7 @@ export FZF_GIT_KEY_REMOVE_WORKTREE=f12
 alias g="git"
 
 function gitcred {
-    if [ -z "${GIT_USER_NAME}" ] || [ -z "${GIT_USER_EMAIL}" ]; 
+    if [ -z "${GIT_USER_NAME}" ] || [ -z "${GIT_USER_EMAIL}" ];
     then
         echo "Failed: you must set the GIT_USER_NAME & GIT_USER_EMAIL env vars"
         return 1;
@@ -99,6 +99,9 @@ function gds = {
     echo ""
     git diff --numstat --format="" "$@" | awk '{added+=$1; deleted+=$2} END {printf "Total Delta: %d (+%d, -%d)\n", added-deleted, added, deleted}'
 }
+
+# worktree: list
+alias gw="git worktree list"
 
 # worktree: Add a worktree on parent dir
 function gwa {
