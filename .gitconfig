@@ -53,10 +53,9 @@
 ### 3rd Party Tools
 
 [delta]
-  plus-style = "syntax #012800"
-  minus-style = "syntax #340001"
-  syntax-theme = base16-256
+  syntax-theme = base16
   navigate = true
+  diff-highlight = true
 
 [alias]
 
