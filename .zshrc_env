@@ -84,6 +84,11 @@ fi
 
 ### Initializations
 
+# If we are inside tmux, but the actual physical terminal hosting tmux is a Linux TTY
+if [ -n "$TMUX" ] && [ "$TERM" = "linux" ]; then
+  unset COLORTERM
+fi
+
 if command -v zoxide &> /dev/null; then
   eval "$(zoxide init --cmd cd zsh)"
 fi
