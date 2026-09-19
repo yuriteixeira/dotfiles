@@ -35,7 +35,6 @@ ln -sf "$PWD/.tmux.settings.conf" $HOME
 ln -sf "$PWD/.tmux.vi.conf" $HOME
 ln -sf "$PWD/.tmux.commands.conf" $HOME
 ln -sf "$PWD/.tmux.shortcuts.conf" $HOME
-ln -sf "$PWD/.tmux.shortcuts.fzf" $HOME
 ln -sf "$PWD/.tmux.styles.conf" $HOME
 ln -sf "$PWD/.tmux.plugins.conf" $HOME
 
