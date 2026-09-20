@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if [ -n "${TMUX}" ] || [ -n "${WAYLAND_DISPLAY:-}" ] || [ "${XDG_VTNR:-}" != 1 ]
+if [ -n "${TMUX}" ] || [ -n "${WAYLAND_DISPLAY:-}" ]
 then
   echo ">>> ONE (Cage + App) can only be launched on a regular TTY"
   exit 1
