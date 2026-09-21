@@ -18,13 +18,7 @@ ln -sf "$PWD/src/zsh/main.sh" "$HOME/.zshrc_public"
 ln -sf "$PWD/.base16_favorites" $HOME
 ln -sf "$PWD/.base16_theme" $HOME/.config/base16-shell/scripts/base16-yuri.sh
 
-ln -sf "$PWD/.tmux.conf" $HOME
-ln -sf "$PWD/.tmux.settings.conf" $HOME
-ln -sf "$PWD/.tmux.vi.conf" $HOME
-ln -sf "$PWD/.tmux.commands.conf" $HOME
-ln -sf "$PWD/.tmux.shortcuts.conf" $HOME
-ln -sf "$PWD/.tmux.styles.conf" $HOME
-ln -sf "$PWD/.tmux.plugins.conf" $HOME
+ln -sf "$PWD/src/tmux/main.conf" "$HOME/.tmux.conf"
 
 ln -sf "$PWD/.gitconfig" $HOME
 ln -sf "$PWD/.gitignore_global" $HOME

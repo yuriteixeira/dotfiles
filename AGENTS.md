@@ -29,7 +29,7 @@ This repository contains a comprehensive set of dotfiles for both **Arch Linux**
 - `linux/`: Linux-specific scripts and configurations (`sway`, `waybar`, `mako`, `rofi`, `keyd`, etc.).
 - `macos/`: macOS-specific configurations (`aerospace`, `karabiner`, `alfred`, `borders`).
 - `.zshrc_*`: Modularized zsh configuration files (e.g., `.zshrc_git`, `.zshrc_tmux`, `.zshrc_fzf`).
-- `.tmux.*.conf`: Modularized tmux configuration files.
+- `src/tmux/`: Modularized tmux configuration files, loaded through `src/tmux/main.conf`.
 - `resources/wallpapers/`: Curated desktop backgrounds.
 
 ## Installation and Setup
