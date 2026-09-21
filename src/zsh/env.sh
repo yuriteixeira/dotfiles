@@ -32,6 +32,10 @@ addToPath "$HOME/.cargo/bin"
 addToPath "$HOME/.pi/agent/npm/node_modules/.bin"
 addToPath "$HOME/.bun/bin"
 
+export PNPM_HOME="$HOME/.local/share/pnpm"
+addToPath "$PNPM_HOME"
+addToPath "$PNPM_HOME/bin"
+
 if [[ "$(uname)" == "Linux" ]] then
   export XDG_RUNTIME_DIR="/run/user/$(id -u)"
   export XDG_SCREENSHOTS_DIR="$HOME/Screenshots"
@@ -46,11 +50,6 @@ if [[ "$(uname)" == "Linux" ]] then
   export ANDROID_BIN="$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools:$ANDROID_HOME/emulator"
 
   addToPath $ANDROID_BIN
-
-  export PNPM_HOME="$HOME/.local/share/pnpm"
-
-  addToPath "$PNPM_HOME"
-  addToPath "$PNPM_HOME/bin"
 
   function distrobox_prompt_info() {
     if [[ -n "$CONTAINER_ID" ]]; then
@@ -69,8 +68,6 @@ if [[ "$(uname)" == "Darwin" ]] then
     export LD_HOME=/Library/LaunchDaemons
 
     export GNU_PATH="/usr/local/opt/gnu-sed/libexec/gnubin"
-
-    addToPath $PNPM_HOME
     addToPath $GNU_PATH
 
     if command -v brew &> /dev/null; then
