@@ -13,19 +13,7 @@ mkdir -p $HOME/.local/share
 
 rm -rf $HOME/.zshrc
 echo 'source $HOME/.zshrc_public' >> $HOME/.zshrc
-ln -sf "$PWD/.zshrc_public" $HOME
-
-# TODO: Investigate moving to those to subfolders (eg: .zshrc_base16 becomes zsh/base16.sh), so no need to track symlinks
-ln -sf "$PWD/.zshrc_base16" $HOME
-ln -sf "$PWD/.zshrc_env" $HOME
-ln -sf "$PWD/.zshrc_fzf" $HOME
-ln -sf "$PWD/.zshrc_git" $HOME
-ln -sf "$PWD/.zshrc_helpers" $HOME
-ln -sf "$PWD/.zshrc_tmux" $HOME
-ln -sf "$PWD/.zshrc_ssh" $HOME
-ln -sf "$PWD/.zshrc_ai" $HOME
-ln -sf "$PWD/.zshrc_upgrade" $HOME
-ln -sf "$PWD/.zshrc_vendor_wrappers" $HOME
+ln -sf "$PWD/src/zsh/main.sh" "$HOME/.zshrc_public"
 
 ln -sf "$PWD/.base16_favorites" $HOME
 ln -sf "$PWD/.base16_theme" $HOME/.config/base16-shell/scripts/base16-yuri.sh
@@ -46,8 +34,8 @@ ln -sf "$PWD/.config/bat/" $HOME/.config
 ln -sf "$PWD/.config/glow/" $HOME/.config
 ln -sf "$PWD/.config/yazi/" $HOME/.config
 
+duaConfigTarget="$HOME/.config"
 [ "$(uname)" = "Darwin" ] && duaConfigTarget="$HOME/Library/Application\ Support"
-[ "$(uname)" = "Linux" ] && duaConfigTarget="$HOME/.config"
 ln -sf "$PWD/.config/dua-cli" $duaConfigTarget
 
 # AI agent configuration

@@ -1,14 +1,13 @@
 # Profiling: Un-comment to enable (see https://xebia.com/profiling-zsh-shell-scripts/)
 # zmodload zsh/zprof
 
+### Zsh + OMZ
 setopt SHARE_HISTORY # Share history between all sessions
 setopt INC_APPEND_HISTORY # Append history to file immediately
 setopt HIST_IGNORE_DUPS # Do not write duplicates
 setopt HIST_IGNORE_SPACE # Do not write commands that begin with a space
 
 plugins=(vi-mode fzf timer zsh-syntax-highlighting)
-
-cd "$( dirname "${BASH_SOURCE[0]}" )"
 
 ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="robbyrussell"
@@ -17,18 +16,16 @@ PROMPT_EOL_MARK=""
 
 source $ZSH/oh-my-zsh.sh
 
-# TODO: Move to zsh subfolder (eg: .zshrc_env becomes zsh/env.sh), so no need to track symlinks
-source $HOME/.zshrc_env
-source $HOME/.zshrc_fzf
-source $HOME/.zshrc_helpers
-source $HOME/.zshrc_upgrade
-source $HOME/.zshrc_ai
-source $HOME/.zshrc_vendor_wrappers
+### My customizations
+cwd="${${(%):-%N}:P:h}"
 
-source $HOME/.zshrc_base16
-source $HOME/.zshrc_git
-source $HOME/.zshrc_tmux
-source $HOME/.zshrc_ssh
+source "$cwd/env.sh"
+
+for zshrc_file in "$cwd"/*.sh; do
+  [ "$zshrc_file" != "$cwd/main.sh" ] && \
+  [ "$zshrc_file" != "$cwd/env.sh" ] && \
+  source "$zshrc_file"
+done
 
 [ -f $HOME/.zshrc_private ] && source $HOME/.zshrc_private
 
