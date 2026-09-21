@@ -49,6 +49,7 @@ local -a cliEssential=(
   ddgr              # duck, duck, go client
   yazi              # file explorer
   fnm               # node versions manager
+  tuicr             # code reviews
 )
 
 cliTools="$cliReplacements[@] $cliEssential[@]"
