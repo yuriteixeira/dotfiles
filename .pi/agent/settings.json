@@ -22,7 +22,8 @@
     "npm:pi-ask-user",
     "npm:pi-token-speed",
     "npm:pi-web-access",
-    "npm:pi-zentui"
+    "npm:pi-zentui",
+    "npm:@yuriteixeira/pi-muxr"
   ],
   "terminal": {
     "showTerminalProgress": true
