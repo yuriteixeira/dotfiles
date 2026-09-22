@@ -10,7 +10,7 @@ function tm {
     fi
 }
 
-alias tmk="tmux kill-session"
+alias tmk="tmux kill-server"
 
 # Show current session name (useful to create git branches/worktrees)
 alias tms="tmux display-message -p '#S'"
