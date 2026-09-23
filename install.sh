@@ -78,7 +78,15 @@ local -a macosCliTools=(
 [ "$(uname)" = "Darwin" ] && \
   sh -c "brew install $macosCliTools"
 
-# TODO: Get out of omz
+### CLIs/TUIs without package manager support
+
+# Nchat
+curl -fsSL https://raw.githubusercontent.com/d99kris/nchat/master/utils/install.sh | bash
+
+# Concord
+curl --proto '=https' --tlsv1.2 -LsSf https://github.com/chojs23/concord/releases/latest/download/concord-installer.sh | sh
+
+# TODO: Get out of OMZ
 rm -rf $HOME/.zshrc
 rm -rf $HOME/.oh-my-zsh
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
@@ -99,7 +107,6 @@ rm -rf $HOME/.local/share/nvim
 git clone git@github.com:yuriteixeira/kickstart-modular.nvim ~/.config/nvim
 
 # GUI apps
-
 [ "$(uname)" = "Linux" ] && \
   yay -S --noconfirm --needed alacritty obsidian obs-studio brave-bin
 

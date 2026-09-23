@@ -23,10 +23,12 @@ ln -sf "$PWD/src/tmux/main.conf" "$HOME/.tmux.conf"
 ln -sf "$PWD/.gitconfig" $HOME
 ln -sf "$PWD/.gitignore_global" $HOME
 
+# TODO: Why not symlink .config fully?
 ln -sf "$PWD/.config/gitui/" $HOME/.config
 ln -sf "$PWD/.config/bat/" $HOME/.config
 ln -sf "$PWD/.config/glow/" $HOME/.config
 ln -sf "$PWD/.config/yazi/" $HOME/.config
+ln -sf "$PWD/.config/nchat/" $HOME/.config
 
 duaConfigTarget="$HOME/.config"
 [ "$(uname)" = "Darwin" ] && duaConfigTarget="$HOME/Library/Application\ Support"

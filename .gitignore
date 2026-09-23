@@ -61,5 +61,14 @@ macos/.config/karabiner/automatic_backups/
 .pi/agent/.pi-hermes-locks.sqlite*
 .pi/agent/projects-memory/*
 
+# Playwright
 .playwright
 .playwright-cli
+
+# Nchat
+linux/.local/bin/nchat
+.config/nchat
+!.config/nchat/KEYBINDINGS.md
+!.config/nchat/app.conf
+!.config/nchat/color.conf
+!.config/nchat/key.conf
