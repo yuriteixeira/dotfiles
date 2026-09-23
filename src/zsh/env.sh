@@ -29,12 +29,12 @@ function addToPath {
 
 addToPath "$HOME/.local/bin"
 addToPath "$HOME/.cargo/bin"
-addToPath "$HOME/.pi/agent/npm/node_modules/.bin"
 addToPath "$HOME/.bun/bin"
 
 export PNPM_HOME="$HOME/.local/share/pnpm"
 addToPath "$PNPM_HOME"
 addToPath "$PNPM_HOME/bin"
+addToPath "$HOME/.pi/agent/npm/node_modules/.bin"
 
 if [[ "$(uname)" == "Linux" ]] then
   export XDG_RUNTIME_DIR="/run/user/$(id -u)"
