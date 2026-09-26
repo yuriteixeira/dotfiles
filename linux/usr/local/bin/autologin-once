@@ -1,0 +1,12 @@
+#!/bin/sh
+
+marker="/run/tty1-autologin-used"
+term="${TERM:-linux}"
+
+if [ ! -e "$marker" ]
+then
+   touch "$marker"
+   exec /usr/bin/agetty --noreset --noclear --autologin yuriteixeira - "$term"
+fi
+
+exec /usr/bin/agetty --noreset --noclear - "$term"

@@ -27,15 +27,17 @@ ln -sf "$PWD/.config/foot" $HOME/.config
 
 # TTY & Locale
 sudo ln -sf "$PWD/etc/vconsole.conf" /etc
+
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 sudo cp "$PWD/etc/systemd/system/getty@tty1.service.d/autologin.conf" /etc/systemd/system/getty@tty1.service.d/
+sudo cp "$PWD/usr/local/bin/autologin-once" /usr/local/bin/autologin-once
 sudo systemctl daemon-reload
 sudo systemctl enable getty@tty1.service
 
 # Network discovery (needed for reaching hostnames with .local)
 sudo ln -sf "$PWD/etc/nsswitch.conf" /etc
 
-# Keyboard nav improvements: 
+# Keyboard nav improvements:
 # Caps lock -> Esc
 # Caps lock + h/j/k/l -> Arrow keys
 sudo ln -sf "$PWD/etc/keyd/default.conf" /etc/keyd
