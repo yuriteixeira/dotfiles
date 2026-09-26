@@ -16,7 +16,6 @@
     "npm:@burneikis/pi-vim",
     "npm:@burneikis/pi-fzfp",
     "npm:@latentminds/pi-quotas",
-    "npm:@pi-unipi/notify",
     "npm:pi-context-inspector",
     "npm:pi-execution-time",
     "npm:pi-ask-user",
