@@ -29,11 +29,11 @@ function addToPath {
 
 addToPath "$HOME/.local/bin"
 addToPath "$HOME/.cargo/bin"
-addToPath "$HOME/.bun/bin"
 
 export PNPM_HOME="$HOME/.local/share/pnpm"
 addToPath "$PNPM_HOME"
 addToPath "$PNPM_HOME/bin"
+
 addToPath "$HOME/.pi/agent/npm/node_modules/.bin"
 
 if [[ "$(uname)" == "Linux" ]] then
@@ -75,6 +75,10 @@ if [[ "$(uname)" == "Darwin" ]] then
         export BREW_PREFIX=$(brew --prefix)
         export HOMEBREW_BIN_PATH="$BREW_PREFIX/bin:$BREW_PREFIX/sbin"
         addToPath $HOMEBREW_BIN_PATH
+    fi
+
+    if command -v rustup &> /dev/null; then
+      addToPath "$BREW_PREFIX/opt/rustup/bin"
     fi
 fi
 
