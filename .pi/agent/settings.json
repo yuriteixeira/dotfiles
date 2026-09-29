@@ -9,7 +9,7 @@
   },
   "treeFilterMode": "default",
   "hideThinkingBlock": true,
-  "lastChangelogVersion": "0.87.1",
+  "lastChangelogVersion": "0.99.1",
   "llamaServerUrl": "http://yuri-studio.local:8080",
   "packages": [
     "npm:@xynogen/pix-sudo",
@@ -28,14 +28,15 @@
     "showTerminalProgress": true
   },
   "enabledModels": [
-    "openai-codex/gpt-6-sol",
-    "openai-codex/gpt-6-luna",
     "llama.cpp/qwen3.8-27b",
-    "llama.cpp/qwen3.6-35b-a3b"
+    "llama.cpp/qwen3.6-35b-a3b",
+    "openai/gpt-6.1-sol",
+    "openai/gpt-6-luna"
   ],
-  "theme": "base16",
+  "theme": "system",
   "tokenSpeed": {
     "display": "tps",
     "icon": ""
-  }
+  },
+  "deviceId": "26d5dd59-e3ac-4dc6-9d3d-34237445da5f"
 }
