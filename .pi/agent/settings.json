@@ -13,7 +13,6 @@
   "llamaServerUrl": "http://yuri-studio.local:8080",
   "packages": [
     "npm:@xynogen/pix-sudo",
-    "npm:@burneikis/pi-vim",
     "npm:@burneikis/pi-fzfp",
     "npm:@latentminds/pi-quotas",
     "npm:pi-context-inspector",
