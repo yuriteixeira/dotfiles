@@ -28,6 +28,7 @@ ln -sf "$PWD/.config/foot" $HOME/.config
 # TTY & Locale
 sudo ln -sf "$PWD/etc/vconsole.conf" /etc
 
+# Auto-login
 sudo mkdir -p /etc/systemd/system/getty@tty1.service.d
 sudo cp "$PWD/etc/systemd/system/getty@tty1.service.d/autologin.conf" /etc/systemd/system/getty@tty1.service.d/
 sudo cp "$PWD/usr/local/bin/autologin-once" /usr/local/bin/autologin-once
