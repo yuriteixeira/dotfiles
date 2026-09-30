@@ -15,13 +15,14 @@
     "npm:@xynogen/pix-sudo",
     "npm:@burneikis/pi-fzfp",
     "npm:@latentminds/pi-quotas",
+    "npm:@ssk_dev/pi-web-access-lean",
+    "npm:@tian.zuo/pi-ask-user",
+    "npm:@yuriteixeira/pi-muxr",
     "npm:pi-context-inspector",
+    "npm:pi-session-viewer",
     "npm:pi-execution-time",
-    "npm:pi-ask-user",
     "npm:pi-token-speed",
-    "npm:pi-web-access",
-    "npm:pi-zentui",
-    "npm:@yuriteixeira/pi-muxr"
+    "npm:pi-zentui"
   ],
   "terminal": {
     "showTerminalProgress": true
