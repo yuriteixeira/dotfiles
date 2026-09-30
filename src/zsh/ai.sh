@@ -60,7 +60,7 @@ function qq() {
 }
 
 local -a piDumbModel=(
-  --model openai-codex/gpt-6-luna
+  --model openai/gpt-6-luna
   --thinking low
 )
 

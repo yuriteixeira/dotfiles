@@ -1,6 +1,6 @@
 {
-  "defaultModel": "gpt-6-sol",
-  "defaultProvider": "openai-codex",
+  "defaultModel": "gpt-6.1-sol",
+  "defaultProvider": "openai",
   "defaultThinkingLevel": "medium",
   "editorPaddingX": 1,
   "steeringMode": "all",
@@ -9,7 +9,7 @@
   },
   "treeFilterMode": "default",
   "hideThinkingBlock": true,
-  "lastChangelogVersion": "0.99.1",
+  "lastChangelogVersion": "0.99.2",
   "llamaServerUrl": "http://yuri-studio.local:8080",
   "packages": [
     "npm:@xynogen/pix-sudo",
