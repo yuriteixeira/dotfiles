@@ -12,14 +12,14 @@
   "lastChangelogVersion": "0.99.2",
   "llamaServerUrl": "http://yuri-studio.local:8080",
   "packages": [
+    "npm:@yuriteixeira/pi-muxr",
     "npm:@xynogen/pix-sudo",
-    "npm:@burneikis/pi-fzfp",
     "npm:@latentminds/pi-quotas",
     "npm:@ssk_dev/pi-web-access-lean",
     "npm:@tian.zuo/pi-ask-user",
-    "npm:@yuriteixeira/pi-muxr",
     "npm:pi-context-inspector",
     "npm:pi-session-viewer",
+    "npm:pi-fzfp",
     "npm:pi-execution-time",
     "npm:pi-token-speed",
     "npm:pi-zentui"

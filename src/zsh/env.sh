@@ -13,6 +13,7 @@ export TIMEFMT='%J   %U  user %S system %P cpu %*E total'$'\n'\
 'max memory:                %M MB'$'\n'\
 'page faults from disk:     %F'$'\n'\
 'other page faults:         %R'
+
 export TIMER_FORMAT='\n\n⏱  %d'
 
 
