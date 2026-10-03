@@ -17,6 +17,7 @@
     "npm:@latentminds/pi-quotas",
     "npm:@ssk_dev/pi-web-access-lean",
     "npm:@tian.zuo/pi-ask-user",
+    "npm:@howaboua/pi-codex-conversion",
     "npm:pi-context-inspector",
     "npm:pi-session-viewer",
     "npm:pi-fzfp",

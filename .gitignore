@@ -46,12 +46,14 @@ macos/.config/karabiner/automatic_backups/
 .pi/sessions
 .pi/settings.json
 
+.pi/agent/cache
 .pi/agent/sessions
 .pi/agent/npm
 .pi/agent/auth.json
 .pi/agent/debug-payloads/
 .pi/agent/models-store.json
-.pi/agent/extensions/pi-web-agent/state.json
+.pi/agent/crashes.json
+.pi/agent/howaboua-pi-stuff-changelog.json
 
 .pi/web-search-cache
 .pi/agent/web-search-cache/
