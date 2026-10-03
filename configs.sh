@@ -16,8 +16,8 @@ echo 'source $HOME/.zshrc_public' >> $HOME/.zshrc
 ln -sf "$PWD/src/zsh/main.sh" "$HOME/.zshrc_public"
 
 ln -sf "$PWD/.base16_favorites" $HOME
-ln -sf "$PWD/.base16_theme" $HOME/.config/base16-shell/scripts/base16-yuri.sh
-ln -sf "$PWD/.config/base16-shell/scripts/base16-sandcastle-ansi.sh" $HOME/.config/base16-shell/scripts/base16-sandcastle-ansi.sh
+ln -sf "$PWD/.config/base16-shell/scripts/base16-yuri.sh" $HOME/.config/base16-shell/scripts
+ln -sf "$PWD/.config/base16-shell/scripts/base16-sandcastle-ansi.sh" $HOME/.config/base16-shell/scripts
 
 ln -sf "$PWD/src/tmux/main.conf" "$HOME/.tmux.conf"
 
