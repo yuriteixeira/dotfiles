@@ -9,12 +9,11 @@
   },
   "treeFilterMode": "default",
   "hideThinkingBlock": true,
-  "lastChangelogVersion": "1.0.1",
+  "lastChangelogVersion": "1.0.2",
   "llamaServerUrl": "http://yuri-studio.local:8080",
   "packages": [
     "npm:@yuriteixeira/pi-muxr",
     "npm:@xynogen/pix-sudo",
-    "npm:@latentminds/pi-quotas",
     "npm:@ssk_dev/pi-web-access-lean",
     "npm:@tian.zuo/pi-ask-user",
     "npm:@howaboua/pi-codex-conversion",
