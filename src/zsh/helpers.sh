@@ -23,6 +23,9 @@ function ff {
   echo ""
 }
 
+# Minimal Neovim
+alias mvim='nvim -c "set laststatus=0 nonumber norelativenumber signcolumn=no foldcolumn=0"'
+
 # Hosts
 alias hosts="sudo $EDITOR /etc/hosts"
 
