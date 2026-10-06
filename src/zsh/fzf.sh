@@ -17,5 +17,5 @@ if [[ "$(uname)" == "Linux" ]] then
 fi
 
 export FZF_DEFAULT_COMMAND='rg --hidden --no-ignore --files'
-export FZF_DEFAULT_OPTS='--style=full --color=16'
+export FZF_DEFAULT_OPTS='--style=full --color=16 --bind "ctrl-a:toggle-all"'
 export FZF_CTRL_T_COMMAND='fd --type f --hidden --no-ignore --exclude .git'
