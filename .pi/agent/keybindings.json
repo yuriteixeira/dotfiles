@@ -1,5 +1,8 @@
 {
-  "app.model.select": "",
+  "app.session.new": "ctrl+n",
+  "app.session.resume": "ctrl+r",
+  "app.model.select": "ctrl+l",
   "app.thinking.cycle": "ctrl+t",
-  "app.thinking.toggle": "ctrl+shift+t"
+  "app.session.toggleNamedFilter": [],
+  "app.session.rename": [],
 }
