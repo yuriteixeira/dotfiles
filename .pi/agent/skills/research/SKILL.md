@@ -17,6 +17,7 @@ Use `web_access` with `op: search` and diverse queries. Try multiple search stra
 - Broad keyword searches for general overviews
 - Specific queries with key terms and context
 - Alternative spellings or related terminology
+- **Explicit recency filters** -- append the current year (e.g. 2026) or recent months (e.g. Oct 2026, Q3 2026, recent, latest, new release, 2026 update) to every query
 - YouTube-specific queries for tutorials, benchmarks, and hands-on reviews (add `site:youtube.com` or use YouTube-focused keywords like "tutorial", "review", "benchmark", "how to")
 
 ### 3. Verify
@@ -33,11 +34,20 @@ Produce a structured summary with:
 - Key supporting facts, each with a direct source link (so findings are auditable)
 - Confidence level (high / medium / low) based on source agreement
 - Gaps or open questions that could not be resolved
+- Recent trends and new releases (separate section, see Output Format)
 
 ## Best Practices
 
+### Prioritize Recency
+
+- The field moves extremely fast. A model or technique released three months ago may already be superseded.
+- Always include the date of every source. When no date is visible, note "date not available" rather than assuming.
+- Prefer sources from the last 90 days. If only older sources exist, explicitly flag that information may be outdated.
+- When searching for models, tools, or frameworks, search with explicit date qualifiers: "Q3 2026", "Oct 2026", "recent", "new", "latest release", "just released".
+- Check HuggingFace model cards, release changelogs, and official blogs directly -- these update faster than summary articles.
+- If a widely-cited model has been superseded, mention the older version only as context and lead with the current recommendation.
+
 - Lead with authoritative sources (official docs, reputable publishers, primary sources)
-- Prefer recent sources; note the date of information
 - Distinguish between factual claims and opinions or speculation
 - If sources conflict, present each view with its source and note the disagreement
 - Include YouTube when hands-on testing or community sentiment is relevant
@@ -59,6 +69,9 @@ Produce a structured summary with:
 - <fact> — [[source title]](<URL>)[, <date if available>]
 
 **Confidence**: <high | medium | low>
+
+**Recent Trends & Releases** (last 90 days):
+- <trending topic, new release, or community shift from the most recent sources>
 
 **YouTube Notes** (if applicable):
 - <community trend, real-world test result, or setup insight from YouTube>
