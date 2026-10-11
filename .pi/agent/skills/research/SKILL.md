@@ -17,12 +17,15 @@ Use `web_access` with `op: search` and diverse queries. Try multiple search stra
 - Broad keyword searches for general overviews
 - Specific queries with key terms and context
 - Alternative spellings or related terminology
+- YouTube-specific queries for tutorials, benchmarks, and hands-on reviews (add `site:youtube.com` or use YouTube-focused keywords like "tutorial", "review", "benchmark", "how to")
 
 ### 3. Verify
 Cross-reference findings across at least two independent sources before stating a fact as established. Flag any claim that lacks supporting evidence.
 
 ### 4. Resolve
 Read linked pages when summaries are insufficient. Use `web_access` with `op: fetch` to load full content from promising URLs.
+
+For YouTube videos that need deeper analysis, use the `youtube-transcript` skill to fetch and parse the transcript. This is useful when a video contains specific benchmark numbers, setup commands, or comparisons that cannot be confirmed from search snippets alone.
 
 ### 5. Synthesize
 Produce a structured summary with:
@@ -37,7 +40,14 @@ Produce a structured summary with:
 - Prefer recent sources; note the date of information
 - Distinguish between factual claims and opinions or speculation
 - If sources conflict, present each view with its source and note the disagreement
+- Include YouTube when hands-on testing or community sentiment is relevant
 - Summarize findings clearly; do not dump raw search results
+
+### YouTube Source Weighting
+- Treat YouTube as a complementary source, not a primary authority
+- Use it to surface real-world testing, hardware compatibility claims, and community trends
+- Cross-reference YouTube claims with blog posts, Reddit, or official docs before treating them as established fact
+- Note when a claim appears only on YouTube vs. when it is corroborated elsewhere
 
 ## Output Format
 
@@ -49,6 +59,9 @@ Produce a structured summary with:
 - <fact> — [[source title]](<URL>)[, <date if available>]
 
 **Confidence**: <high | medium | low>
+
+**YouTube Notes** (if applicable):
+- <community trend, real-world test result, or setup insight from YouTube>
 
 **Unresolved**: <open questions or gaps, if any>
 ```
