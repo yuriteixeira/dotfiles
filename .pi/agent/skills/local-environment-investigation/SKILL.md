@@ -30,7 +30,7 @@ Understand the high-level structure before diving into details:
 
 ```
 ls -la              # top-level structure
-find . -maxdepth 2  # narrow directory tree
+fd -d 2             # narrow directory tree (modern find replacement)
 ls <key-dirs>       # explore likely locations for relevant files
 ```
 
@@ -43,8 +43,8 @@ Search for how similar functionality is already implemented:
 - What patterns do existing config files or scripts follow?
 
 ```
-grep -r "keyword" .              # search for existing patterns
-grep -r "command" .              # find how a specific tool or feature is used
+rg "keyword"                   # search for existing patterns (modern grep replacement)
+rg "command"                   # find how a specific tool or feature is used
 ```
 
 ### 3. Check available tools
@@ -52,26 +52,32 @@ grep -r "command" .              # find how a specific tool or feature is used
 Know what is already installed before proposing new dependencies:
 
 - What tools or binaries are available in PATH?
+- What package manager does the system use? Detect it first (`which pacman`, `which brew`,
+  `which dnf`, etc.).
 - What packages or dependencies exist?
 - What protocols or interfaces are already supported?
 
+```sh
+which <package-manager>   # detect which package manager is available
+which <tool>              # check if a specific tool exists
+type <tool>               # more detailed info about a binary
 ```
-which <tool>        # check if a specific tool exists
-type <tool>         # more detailed info about a binary
-dpkg -l | grep ...  # or equivalent package query for the system
+
+Once you know the package manager, use it to query installed packages:
+
+```sh
+pacman -Q | rg <pattern>      # Arch: partial match from base packages
+yay -Q | rg <pattern>         # Arch AUR: partial match from AUR packages
+brew list | rg ...            # macOS: partial match
+dpkg -l | rg ...              # Debian/Ubuntu: partial match
+dnf list installed | rg ...   # Fedora/RHEL: partial match
 ```
 
-### 4. Understand system behaviors
+Use partial-match queries, not exact matches. Package names may differ from binary names
+(`audacity4-alpha` provides `audacity`, `librewolf` provides `librewolf`). Use `rg` against
+the full package list to catch pre-release, split, and variant packages. Also, use tools like `pacman -F` or `yay -F` to find out to which package an executable belongs. 
 
-Some platform or framework behaviors change everything. Research how the system
-actually works:
-
-- Read the relevant config files to understand what is already configured
-- Read the source or documentation for known behaviors, quirks, or lifecycle hooks
-- Search for documented behaviors: `"tool behavior"` or `"platform feature"`
-- Ask: does the system already handle this, even partially?
-
-### 5. Verify before committing
+### 4. Verify before committing
 
 Before proposing an implementation:
 
@@ -88,3 +94,6 @@ Before proposing an implementation:
 - **Ignoring existing patterns.** Do not reinvent what already exists in the codebase.
 - **Assuming platform behavior.** Do not assume how the OS, WM, or framework works.
   Check the docs or source.
+- **Using exact-match queries for packages.** Do not run `pacman -Qi <name>` expecting to
+  find a package named `audacity` when the installed package is `audacity4-alpha`. Always
+  search the full package list with `rg` to catch pre-release, split, and variant names.
