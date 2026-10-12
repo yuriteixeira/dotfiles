@@ -54,6 +54,7 @@ macos/.config/karabiner/automatic_backups/
 .pi/agent/models-store.json
 .pi/agent/crashes.json
 .pi/agent/howaboua-pi-stuff-changelog.json
+.pi/agent/codex-usage.json
 
 .pi/web-search-cache
 .pi/agent/web-search-cache/

@@ -49,7 +49,6 @@ local -a cliEssential=(
   ddgr              # duck, duck, go client
   yazi              # file explorer
   fnm               # node versions manager
-  tuicr             # code reviews
 )
 
 cliTools="$cliReplacements[@] $cliEssential[@]"
@@ -60,7 +59,6 @@ local -a linuxCliTools=(
   7zip                    # file compression
   github-cli              # github cli
   ttf-jetbrains-mono-nerd # my fave coding font
-  ccmux-bin               # agent sessions dash TUI + notifications
 )
 
 local -a macosCliTools=(
@@ -68,7 +66,6 @@ local -a macosCliTools=(
   sevenzip
   gh
   font-jetbrains-mono-nerd-font
-  epilande/tap/ccmux
 )
 
 [ "$(uname)" = "Linux" ] && \
