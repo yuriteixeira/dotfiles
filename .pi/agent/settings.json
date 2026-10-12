@@ -1,17 +1,23 @@
 {
-  "defaultModel": "gpt-6.1-sol",
+  "lastChangelogVersion": "1.1.0",
   "defaultProvider": "openai",
+  "defaultModel": "gpt-6.1-sol",
   "defaultThinkingLevel": "medium",
   "defaultTools": ["+sudo_run"],
-  "editorPaddingX": 1,
+  "theme": "system",
+  "hideThinkingBlock": true,
   "steeringMode": "all",
+  "treeFilterMode": "default",
+  "editorPaddingX": 1,
   "markdown": {
     "mermaid": "streaming"
   },
-  "treeFilterMode": "default",
-  "hideThinkingBlock": true,
-  "lastChangelogVersion": "1.1.0",
-  "llamaServerUrl": "http://yuri-studio.local:8080",
+  "terminal": {
+    "showTerminalProgress": true
+  },
+  "tokenSpeed": {
+    "display": "tps"
+  },
   "packages": [
     "npm:@yuriteixeira/pi-muxr",
     "npm:@xynogen/pix-sudo",
@@ -25,9 +31,6 @@
     "npm:pi-token-speed",
     "npm:pi-zentui"
   ],
-  "terminal": {
-    "showTerminalProgress": true
-  },
   "enabledModels": [
     "openai/gpt-6.1-sol",
     "openai/gpt-6-luna",
@@ -37,10 +40,6 @@
     "llama.cpp/local-mtp-128k",
     "llama.cpp/local-mtp-256k"
   ],
-  "theme": "system",
-  "tokenSpeed": {
-    "display": "tps",
-    "icon": ""
-  },
+  "llamaServerUrl": "http://yuri-studio.local:8080",
   "deviceId": "26d5dd59-e3ac-4dc6-9d3d-34237445da5f"
 }
