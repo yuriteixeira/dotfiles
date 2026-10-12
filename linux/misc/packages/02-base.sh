@@ -1,7 +1,9 @@
 # File systems
 yay -S --noconfirm --needed \
-  btrfsmaintenance \
   exfatprogs \
+  dosfstools \
+  btrfs-progs \
+  btrfsmaintenance \
 
 # Backup: Snapshots
 # See also: pacback (grep repo for previous setup using it)
@@ -14,7 +16,7 @@ yay -S --noconfirm --needed \
 yay -S --noconfirm --needed \
   openssh \
 
-# Unzip 
+# Unzip
 yay -S --noconfirm --needed \
   unzip \
   7zip \
@@ -53,3 +55,26 @@ yay -S --noconfirm --needed \
 # Keyboard re-mapping
 yay -S --noconfirm --needed \
   keyd \
+
+# System utilities
+yay -S --noconfirm --needed \
+  usbutils
+
+# ZRAM swap support
+yay -S --noconfirm --needed \
+  zram-generator \
+
+# Fingerprint support (secondary daemon alongside python-validity)
+yay -S --noconfirm --needed \
+  open-fprintd \
+
+# CPU microcode
+_cpu_vendor=$(lscpu | grep 'Vendor ID' | awk '{print $NF}')
+case "$_cpu_vendor" in
+  GenuineIntel)
+    yay -S --noconfirm --needed intel-ucode ;;
+  AuthenticAMD)
+    yay -S --noconfirm --needed amd-ucode ;;
+  *)
+    echo "Unknown CPU vendor: $_cpu_vendor — skipping microcode" ;;
+esac \

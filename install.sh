@@ -49,6 +49,7 @@ local -a cliEssential=(
   ddgr              # duck, duck, go client
   yazi              # file explorer
   fnm               # node versions manager
+  dust              # du replacement (disk usage)
 )
 
 cliTools="$cliReplacements[@] $cliEssential[@]"
@@ -77,12 +78,6 @@ local -a macosCliTools=(
 
 ### CLIs/TUIs without package manager support
 
-# Nchat
-curl -fsSL https://raw.githubusercontent.com/d99kris/nchat/master/utils/install.sh | bash
-
-# Concord
-curl --proto '=https' --tlsv1.2 -LsSf https://github.com/chojs23/concord/releases/latest/download/concord-installer.sh | sh
-
 # TODO: Get out of OMZ
 rm -rf $HOME/.zshrc
 rm -rf $HOME/.oh-my-zsh
@@ -92,7 +87,8 @@ sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/too
 git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
 
 # Fnm: Install latest --lts node version with corepack
-fnm install --corepack-enabled --lts
+# NOTE: fnm is installed via AUR (fnm-bin), only run this if you need a specific version
+fnm install --corepack-enabled --lts 2>/dev/null || true
 
 # Pi.dev AI Harness
 pnpm add -g --ignore-scripts @earendil-works/pi-coding-agent
@@ -105,10 +101,10 @@ git clone git@github.com:yuriteixeira/kickstart-modular.nvim ~/.config/nvim
 
 # GUI apps
 [ "$(uname)" = "Linux" ] && \
-  yay -S --noconfirm --needed alacritty obsidian obs-studio brave-bin
+  yay -S --noconfirm --needed alacritty obsidian obs-studio brave-bin handbrake
 
 [ "$(uname)" = "Darwin" ] && \
-    brew install --cask alacritty obsidian obs brave-browser
+    brew install --cask alacrittye obsidian obs brave-browser handbrake
 
 # Submodules
 git submodule init

@@ -7,3 +7,6 @@ cd "$(dirname "$0")"
 ./misc/packages/desktop/03-file-management.sh
 ./misc/packages/desktop/04-printer.sh
 ./misc/packages/desktop/05-productivity.sh
+./misc/packages/desktop/06-av.sh
+./misc/packages/desktop/07-dev.sh
+./misc/packages/desktop/08-social.sh

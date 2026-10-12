@@ -1,8 +1,9 @@
 # Fonts
 yay -S --noconfirm --needed \
   noto-fonts-emoji \
+  ttf-symbola \
 
-# Font management 
+# Font management
 yay -S --noconfirm --needed \
   font-manager \
 
@@ -16,8 +17,9 @@ yay -S --noconfirm --needed \
   wireplumber \
 
 # Bluetooth
-# NOTE: bluetui might bring bluez, but leaving as an explicit entry 
+# NOTE: bluetui might bring bluez, but leaving as an explicit entry
 # since I might change the UI for managing BT devices later.
+# TODO: replace bluetui with a better alternative (depends on keyboard too much)
 yay -S --noconfirm --needed \
   bluetui \
   bluez \
@@ -32,7 +34,7 @@ yay -S --noconfirm --needed \
   avahi \
   nss-mdns \
 
-# Transfer clipboard/files to another computer 
+# Transfer clipboard/files to another computer
 # GUI: localsend
 # TUI: croc
 yay -S --noconfirm --needed \
@@ -42,6 +44,14 @@ yay -S --noconfirm --needed \
 # Wi-fi picker
 yay -S --noconfirm --needed \
   impala \
+
+# Intel Wireless Daemon (alternative to wpa_supplicant)
+yay -S --noconfirm --needed \
+  iwd \
+
+# DNS utilities (dig, nslookup, etc.)
+yay -S --noconfirm --needed \
+  bind
 
 # VPN
 yay -S --noconfirm --needed \
@@ -60,7 +70,7 @@ yay -S --noconfirm --needed \
 # Monitor configuration generator
 yay -S --noconfirm --needed \
   nwg-displays \
- 
+
 # Notifications
 yay -S --noconfirm --needed \
   libnotify \
@@ -72,7 +82,7 @@ yay -S --noconfirm --needed \
   wl-clipboard \
   cliphist \
 
-# Launcher + opt. dep to enable the calculator 
+# Launcher + opt. dep to enable the calculator
 # See also: wofi (grep repo for previous setup using it)
 yay -S --noconfirm --needed \
   rofi \

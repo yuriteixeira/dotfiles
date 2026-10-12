@@ -4,7 +4,6 @@ brew install \
   felixkratz/formulae/borders \
   gnu-sed \
   jq \
-  lsusb \
   zsh-completions
 
 brew install --cask \
