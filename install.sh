@@ -19,7 +19,7 @@ echo ""
 rm -rf ~/.config/base16-shell
 git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
 
-# Zsh & CLI Friends.
+# Zsh & CLI friends.
 # A few are replacements, like these:
 local -a cliReplacements=(
   zsh               # bash
@@ -78,13 +78,25 @@ local -a macosCliTools=(
 
 ### CLIs/TUIs without package manager support
 
-# TODO: Get out of OMZ
+# Zsh (no framework: plain zsh + a couple of plugin repos, see src/zsh/main.sh)
 rm -rf $HOME/.zshrc
 rm -rf $HOME/.oh-my-zsh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+mkdir -p $HOME/.local/share/zsh/plugins
 
-# Zsh syntax highlight
-git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting
+# Vi mode
+rm -rf $HOME/.local/share/zsh/plugins/zsh-vi-mode
+git clone --depth 1 -- https://github.com/jeffreytse/zsh-vi-mode.git $HOME/.local/share/zsh/plugins/zsh-vi-mode
+
+# Syntax highlighting
+rm -rf $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting
+git clone --depth 1 -- https://github.com/zsh-users/zsh-syntax-highlighting.git $HOME/.local/share/zsh/plugins/zsh-syntax-highlighting
+
+# Prompt: pure (depends on zsh-async)
+rm -rf $HOME/.local/share/zsh/plugins/pure
+git clone --depth 1 -- https://github.com/sindresorhus/pure.git $HOME/.local/share/zsh/plugins/pure
+
+rm -rf $HOME/.local/share/zsh/plugins/zsh-async
+git clone --depth 1 -- https://github.com/mafredri/zsh-async.git $HOME/.local/share/zsh/plugins/zsh-async
 
 # Fnm: Install latest --lts node version with corepack
 # NOTE: fnm is installed via AUR (fnm-bin), only run this if you need a specific version

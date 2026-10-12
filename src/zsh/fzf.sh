@@ -19,3 +19,9 @@ fi
 export FZF_DEFAULT_COMMAND='rg --hidden --no-ignore --files'
 export FZF_DEFAULT_OPTS='--style=full --color=16 --bind "ctrl-a:toggle-all"'
 export FZF_CTRL_T_COMMAND='fd --type f --hidden --no-ignore --exclude .git'
+
+### Key bindings (from fzf's own shell integration, replaces the oh-my-zsh fzf plugin)
+# Ctrl R: history, Ctrl T: files, Alt C: directories
+if command -v fzf &> /dev/null; then
+  eval "$(fzf --zsh)"
+fi

@@ -41,9 +41,11 @@ function upgrade {
     echo ""
     echo ">>> Other updates"
     git -C ~/.config/base16-shell pull
-    git -C ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/zsh-syntax-highlighting pull
 
     echo ""
-    echo "Oh-my-zsh"
-    omz update
+    echo ">>> Zsh plugins"
+    git -C ~/.local/share/zsh/plugins/zsh-vi-mode pull
+    git -C ~/.local/share/zsh/plugins/zsh-syntax-highlighting pull
+    git -C ~/.local/share/zsh/plugins/pure pull
+    git -C ~/.local/share/zsh/plugins/zsh-async pull
 }

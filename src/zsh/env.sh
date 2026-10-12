@@ -14,7 +14,6 @@ export TIMEFMT='%J   %U  user %S system %P cpu %*E total'$'\n'\
 'page faults from disk:     %F'$'\n'\
 'other page faults:         %R'
 
-export TIMER_FORMAT='\n\n⏱  %d'
 
 
 ### Paths
@@ -52,13 +51,6 @@ if [[ "$(uname)" == "Linux" ]] then
 
   addToPath $ANDROID_BIN
 
-  function distrobox_prompt_info() {
-    if [[ -n "$CONTAINER_ID" ]]; then
-      echo "%{$fg[magenta]%}📦 [$CONTAINER_ID]%{$reset_color%} "
-    fi
-  }
-
-  PROMPT='$(distrobox_prompt_info)'$PROMPT
 fi
 
 if [[ "$(uname)" == "Darwin" ]] then
