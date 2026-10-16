@@ -12,6 +12,24 @@ export FZF_GIT_KEY_OPEN_EDITOR="ctrl-e"
 ## Wrappers
 alias g="git"
 
+# Remote tracking: enable (track to origin)
+function gupe {
+    local branch
+    branch=$(git symbolic-ref --quiet --short HEAD) || return
+    git branch --set-upstream-to="origin/$branch" "$branch"
+}
+
+# Remote tracking: disable (so gitui on big repos runs faster)
+function gupd {
+    local branch
+    git rev-parse --git-dir >/dev/null 2>&1 || return
+    branch=$(git symbolic-ref --quiet --short HEAD)
+
+    if [[ -n "$branch" ]] && git rev-parse --verify '@{upstream}' >/dev/null 2>&1; then
+        git branch --unset-upstream "$branch" || return
+    fi
+}
+
 function gitcred {
     if [ -z "${GIT_USER_NAME}" ] || [ -z "${GIT_USER_EMAIL}" ];
     then
