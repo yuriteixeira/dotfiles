@@ -97,7 +97,7 @@
   w = worktree
 
   # check
-  s = status --ignore-submodules
+  s = status
 
   h = log --follow -p -M --stat # history of a file
   l = log --pretty='%C(red)%h %C(reset)%s %C(bold blue)%an, %C(green)%cr%C(yellow)%d %C(reset)' # usually my favorite format
