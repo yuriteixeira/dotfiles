@@ -1,1 +1,2 @@
+- [ ] feat: linux-server support (see `./docs/plans/yuri-home-configs.md`)
 - [ ] feat: tvmux (see `./docs/research/terminal-replay-with-tmux.md`)
